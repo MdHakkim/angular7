@@ -11,7 +11,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  exploreClick(){
+    this.router.navigate(['/']);
+  }
   joinUsClick(){
     this.router.navigate(['/joinus']);
   }
