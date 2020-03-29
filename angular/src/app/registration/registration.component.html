@@ -1,177 +1,184 @@
-<div class="col">
+<div class="container-fluid pl-5 pr-5">
+<div class="row">
     <div class="col-8">
-        <div class="col">
-            <ul class="nav nav-pills nav-fill">
-                <li class="">
-                    <a class="nav-link active" [style.display]="'flex'" id="home-tab" data-toggle="tab" href="#business" role="tab" aria-controls="home" aria-selected="true">
-                        <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
-                        <div class="nav-text">Business
-                            <span style="word-wrap: break-word;display: block;">Register as service provider</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="">
-                    <a class="nav-link" [style.display]="'flex'" id="home-tab" data-toggle="tab" href="#individual" role="tab" aria-controls="home" aria-selected="true">
-                        <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
-                        <div class="nav-text">Individual
-                            <span style="word-wrap: break-word;display: block;">Register as service seeker</span>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active dev-busi-pad pt-3 pb-3" id="business" role="tabpanel" aria-labelledby="business-tab">
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label">Business Owner :</label>
-                        <div class="col-lg-5">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                        <div class="col-lg-5">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
+        <ul class="nav nav-pills nav-fill">
+            <li class="">
+                <a class="nav-link active" [style.display]="'flex'" id="home-tab" data-toggle="tab" href="#business" role="tab" aria-controls="home" aria-selected="true">
+                    <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
+                    <div class="nav-text">Business
+                        <span style="word-wrap: break-word;display: block;">Register as service provider</span>
                     </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Business name :</label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
+                </a>
+            </li>
+            <li class="">
+                <a class="nav-link" [style.display]="'flex'" id="home-tab" data-toggle="tab" href="#individual" role="tab" aria-controls="home" aria-selected="true">
+                    <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
+                    <div class="nav-text">Individual
+                        <span style="word-wrap: break-word;display: block;">Register as service seeker</span>
                     </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Contact number :</label>
-                        <div class="col-lg-3">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                        <div class="col-lg-7">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active dev-busi-pad pt-3 pb-3" id="business" role="tabpanel" aria-labelledby="business-tab">
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label">Business Owner :</label>
+                    <div class="col-lg-5">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
                     </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Email :</label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Address :</label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label form-control-label"></label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label form-control-label"></label>
-                        <div class="col-lg-5">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                        <div class="col-lg-5">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Type of business :</label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Message :</label>
-                        <div class="col-lg-10">
-                            <textarea rows="5" name="message2" id="message2" class="form-control form-control-sm" required=""></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <h4>Choose any of our subscription plan: </h4>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                <label class="form-check-label" for="gridCheck1">
-                                    Join our standard subscription ( 50 KD)-AD will be displayed on the Explore page for 1 Month.
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                <label class="form-check-label" for="gridCheck1">
-                                    Join our premium subscription ( 50 KD)-AD will be displayed on the Home page for 1 Year.
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-                                <label class="form-check-label" for="gridRadios1">
-                                    I agree with the terms and condition and accept them
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button type="button" class="btn btn-primary btn-sm">Register Now</button>
+                    <div class="col-lg-5">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
                     </div>
                 </div>
-                <div class="tab-pane fade dev-busi-pad pt-3 pb-3" id="individual" role="tabpanel" aria-labelledby="individual-tab">
-                    <div class="form-group row">
-                        <div class="col-lg-6">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                        <div class="col-lg-6">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Business name :</label>
+                    <div class="col-lg-10">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Contact number :</label>
+                    <div class="col-lg-3">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                    <div class="col-lg-7">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Email :</label>
+                    <div class="col-lg-10">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Address :</label>
+                    <div class="col-lg-10">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-2 col-form-label form-control-label"></label>
+                    <div class="col-lg-10">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-2 col-form-label form-control-label"></label>
+                    <div class="col-lg-5">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                    <div class="col-lg-5">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Type of business :</label>
+                    <div class="col-lg-10">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Message :</label>
+                    <div class="col-lg-10">
+                        <textarea rows="5" name="message2" id="message2" class="form-control form-control-sm" required=""></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4>Choose any of our subscription plan: </h4>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Join our standard subscription ( 50 KD)-AD will be displayed on the Explore page for 1 Month.
+                            </label>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-lg-6">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                        <div class="col-lg-6">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-lg-6">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                        <div class="col-lg-6">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                                Join our premium subscription ( 50 KD)-AD will be displayed on the Home page for 1 Year.
+                            </label>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-lg-6">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                        <div class="col-lg-6">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-lg-6">
-                            <input class="form-control form-control-sm" type="text" value="Jane">
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                            <label class="form-check-label" for="gridRadios1">
+                                I agree with the terms and condition and accept them
+                            </label>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad-ind'" class="col-lg-1 col-form-label form-control-label">Message :</label>
-                        <div class="col-lg-11">
-                            <textarea rows="5" name="message2" id="message2" class="form-control form-control-sm" required=""></textarea>
-                        </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-primary btn-sm">Register Now</button>
+                </div>
+            </div>
+            <div class="tab-pane fade dev-busi-pad pt-3 pb-3" id="individual" role="tabpanel" aria-labelledby="individual-tab">
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                    <div class="col-lg-6">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                    <div class="col-lg-6">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                    <div class="col-lg-6">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                    <div class="col-lg-6">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-6">
+                        <input class="form-control form-control-sm" type="text" value="Jane">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad-ind'" class="col-lg-1 col-form-label form-control-label">Message :</label>
+                    <div class="col-lg-11">
+                        <textarea rows="5" name="message2" id="message2" class="form-control form-control-sm" required=""></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-4">
-        <div class="">
-
+        <div class="col-10">
+            <div class="d-block mb-4">
+                <h5>Business Logo</h5>
+            </div>
+            <div class="d-block mb-4">
+                <img class="imageClass" src="">
+                <a href="">Click the image to edir or update</a>
+                <a href="">Remove image</a>
+            </div>
         </div>
     </div>
+</div>
 </div>
