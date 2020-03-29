@@ -2,33 +2,33 @@ function _get(target, property, receiver) { if (typeof Reflect !== "undefined" &
 
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray2(arr) { return _arrayWithoutHoles2(arr) || _iterableToArray2(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread2(); }
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _nonIterableSpread2() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayWithoutHoles2(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty2(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableRest(); }
+function _toArray(arr) { return _arrayWithHoles2(arr) || _iterableToArray2(arr) || _unsupportedIterableToArray(arr) || _nonIterableRest2(); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray2(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
 function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
 
 function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _slicedToArray2(arr, i) { return _arrayWithHoles2(arr) || _iterableToArrayLimit2(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest2(); }
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _nonIterableRest2() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit2(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _arrayWithHoles2(arr) { if (Array.isArray(arr)) return arr; }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -48,7 +48,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendor"], {
   /***/
@@ -681,7 +681,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var DomAdapter = function DomAdapter() {
-      _classCallCheck(this, DomAdapter);
+      _classCallCheck2(this, DomAdapter);
     };
 
     if (false) {}
@@ -734,7 +734,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var PlatformLocation = function PlatformLocation() {
-      _classCallCheck(this, PlatformLocation);
+      _classCallCheck2(this, PlatformLocation);
     };
 
     PlatformLocation.ɵfac = function PlatformLocation_Factory(t) {
@@ -816,16 +816,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _doc
        */
       function BrowserPlatformLocation(_doc) {
-        var _this;
+        var _this2;
 
-        _classCallCheck(this, BrowserPlatformLocation);
+        _classCallCheck2(this, BrowserPlatformLocation);
 
-        _this = _super.call(this);
-        _this._doc = _doc;
+        _this2 = _super.call(this);
+        _this2._doc = _doc;
 
-        _this._init();
+        _this2._init();
 
-        return _this;
+        return _this2;
       } // This is moved to its own method so that `MockPlatformLocationStrategy` can overwrite it
 
       /**
@@ -1192,7 +1192,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var LocationStrategy = function LocationStrategy() {
-      _classCallCheck(this, LocationStrategy);
+      _classCallCheck2(this, LocationStrategy);
     };
 
     LocationStrategy.ɵfac = function LocationStrategy_Factory(t) {
@@ -1301,23 +1301,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} href
        */
       function PathLocationStrategy(_platformLocation, href) {
-        var _this2;
+        var _this3;
 
-        _classCallCheck(this, PathLocationStrategy);
+        _classCallCheck2(this, PathLocationStrategy);
 
-        _this2 = _super2.call(this);
-        _this2._platformLocation = _platformLocation;
+        _this3 = _super2.call(this);
+        _this3._platformLocation = _platformLocation;
 
         if (href == null) {
-          href = _this2._platformLocation.getBaseHrefFromDOM();
+          href = _this3._platformLocation.getBaseHrefFromDOM();
         }
 
         if (href == null) {
           throw new Error("No base href set. Please provide a value for the APP_BASE_HREF token or add a base element to the document.");
         }
 
-        _this2._baseHref = href;
-        return _this2;
+        _this3._baseHref = href;
+        return _this3;
       }
       /**
        * @param {?} fn
@@ -1506,19 +1506,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} _baseHref
        */
       function HashLocationStrategy(_platformLocation, _baseHref) {
-        var _this3;
+        var _this4;
 
-        _classCallCheck(this, HashLocationStrategy);
+        _classCallCheck2(this, HashLocationStrategy);
 
-        _this3 = _super3.call(this);
-        _this3._platformLocation = _platformLocation;
-        _this3._baseHref = '';
+        _this4 = _super3.call(this);
+        _this4._platformLocation = _platformLocation;
+        _this4._baseHref = '';
 
         if (_baseHref != null) {
-          _this3._baseHref = _baseHref;
+          _this4._baseHref = _baseHref;
         }
 
-        return _this3;
+        return _this4;
       }
       /**
        * @param {?} fn
@@ -1732,9 +1732,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} platformLocation
        */
       function Location(platformStrategy, platformLocation) {
-        var _this4 = this;
+        var _this5 = this;
 
-        _classCallCheck(this, Location);
+        _classCallCheck2(this, Location);
 
         /**
          * \@internal
@@ -1759,8 +1759,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {?}
         */
         function (ev) {
-          _this4._subject.emit({
-            'url': _this4.path(true),
+          _this5._subject.emit({
+            'url': _this5.path(true),
             'pop': true,
             'state': ev.state,
             'type': ev.type
@@ -1916,7 +1916,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onUrlChange",
         value: function onUrlChange(fn) {
-          var _this5 = this;
+          var _this6 = this;
 
           this._urlChangeListeners.push(fn);
 
@@ -1926,7 +1926,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (v) {
-            _this5._notifyUrlChangeListeners(v.url, v.state);
+            _this6._notifyUrlChangeListeners(v.url, v.state);
           });
         }
         /**
@@ -2926,7 +2926,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function extractTime(time) {
       var _time$split = time.split(':'),
-          _time$split2 = _slicedToArray(_time$split, 2),
+          _time$split2 = _slicedToArray2(_time$split, 2),
           h = _time$split2[0],
           m = _time$split2[1];
 
@@ -3999,7 +3999,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           function (val) {
             return +val;
           }),
-              _value$split$map2 = _slicedToArray(_value$split$map, 3),
+              _value$split$map2 = _slicedToArray2(_value$split$map, 3),
               y = _value$split$map2[0],
               m = _value$split$map2[1],
               d = _value$split$map2[2];
@@ -4709,7 +4709,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var NgLocalization = function NgLocalization() {
-      _classCallCheck(this, NgLocalization);
+      _classCallCheck2(this, NgLocalization);
     };
 
     if (false) {}
@@ -4763,13 +4763,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} locale
        */
       function NgLocaleLocalization(locale) {
-        var _this6;
+        var _this7;
 
-        _classCallCheck(this, NgLocaleLocalization);
+        _classCallCheck2(this, NgLocaleLocalization);
 
-        _this6 = _super4.call(this);
-        _this6.locale = locale;
-        return _this6;
+        _this7 = _super4.call(this);
+        _this7.locale = locale;
+        return _this7;
       }
       /**
        * @param {?} value
@@ -4903,10 +4903,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           /** @type {?} */
           var eqIndex = cookie.indexOf('=');
 
-          var _ref2 = eqIndex == -1 ? [cookie, ''] : [cookie.slice(0, eqIndex), cookie.slice(eqIndex + 1)],
-              _ref3 = _slicedToArray(_ref2, 2),
-              cookieName = _ref3[0],
-              cookieValue = _ref3[1];
+          var _ref3 = eqIndex == -1 ? [cookie, ''] : [cookie.slice(0, eqIndex), cookie.slice(eqIndex + 1)],
+              _ref4 = _slicedToArray2(_ref3, 2),
+              cookieName = _ref4[0],
+              cookieValue = _ref4[1];
 
           if (cookieName.trim() === name) {
             return decodeURIComponent(cookieValue);
@@ -4966,7 +4966,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _renderer
        */
       function NgClass(_iterableDiffers, _keyValueDiffers, _ngEl, _renderer) {
-        _classCallCheck(this, NgClass);
+        _classCallCheck2(this, NgClass);
 
         this._iterableDiffers = _iterableDiffers;
         this._keyValueDiffers = _keyValueDiffers;
@@ -5019,7 +5019,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_applyKeyValueChanges",
         value: function _applyKeyValueChanges(changes) {
-          var _this7 = this;
+          var _this8 = this;
 
           changes.forEachAddedItem(
           /**
@@ -5027,7 +5027,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (record) {
-            return _this7._toggleClass(record.key, record.currentValue);
+            return _this8._toggleClass(record.key, record.currentValue);
           });
           changes.forEachChangedItem(
           /**
@@ -5035,7 +5035,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (record) {
-            return _this7._toggleClass(record.key, record.currentValue);
+            return _this8._toggleClass(record.key, record.currentValue);
           });
           changes.forEachRemovedItem(
           /**
@@ -5044,7 +5044,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function (record) {
             if (record.previousValue) {
-              _this7._toggleClass(record.key, false);
+              _this8._toggleClass(record.key, false);
             }
           });
         }
@@ -5057,7 +5057,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_applyIterableChanges",
         value: function _applyIterableChanges(changes) {
-          var _this8 = this;
+          var _this9 = this;
 
           changes.forEachAddedItem(
           /**
@@ -5066,7 +5066,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function (record) {
             if (typeof record.item === 'string') {
-              _this8._toggleClass(record.item, true);
+              _this9._toggleClass(record.item, true);
             } else {
               throw new Error("NgClass can only toggle CSS classes expressed as strings, got ".concat(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵstringify"])(record.item)));
             }
@@ -5077,7 +5077,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (record) {
-            return _this8._toggleClass(record.item, false);
+            return _this9._toggleClass(record.item, false);
           });
         }
         /**
@@ -5095,7 +5095,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_applyClasses",
         value: function _applyClasses(rawClassVal) {
-          var _this9 = this;
+          var _this10 = this;
 
           if (rawClassVal) {
             if (Array.isArray(rawClassVal) || rawClassVal instanceof Set) {
@@ -5106,7 +5106,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               * @return {?}
               */
               function (klass) {
-                return _this9._toggleClass(klass, true);
+                return _this10._toggleClass(klass, true);
               });
             } else {
               Object.keys(rawClassVal).forEach(
@@ -5115,7 +5115,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               * @return {?}
               */
               function (klass) {
-                return _this9._toggleClass(klass, !!rawClassVal[klass]);
+                return _this10._toggleClass(klass, !!rawClassVal[klass]);
               });
             }
           }
@@ -5131,7 +5131,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_removeClasses",
         value: function _removeClasses(rawClassVal) {
-          var _this10 = this;
+          var _this11 = this;
 
           if (rawClassVal) {
             if (Array.isArray(rawClassVal) || rawClassVal instanceof Set) {
@@ -5142,7 +5142,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               * @return {?}
               */
               function (klass) {
-                return _this10._toggleClass(klass, false);
+                return _this11._toggleClass(klass, false);
               });
             } else {
               Object.keys(rawClassVal).forEach(
@@ -5151,7 +5151,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               * @return {?}
               */
               function (klass) {
-                return _this10._toggleClass(klass, false);
+                return _this11._toggleClass(klass, false);
               });
             }
           }
@@ -5166,7 +5166,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_toggleClass",
         value: function _toggleClass(klass, enabled) {
-          var _this11 = this;
+          var _this12 = this;
 
           klass = klass.trim();
 
@@ -5178,9 +5178,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             */
             function (klass) {
               if (enabled) {
-                _this11._renderer.addClass(_this11._ngEl.nativeElement, klass);
+                _this12._renderer.addClass(_this12._ngEl.nativeElement, klass);
               } else {
-                _this11._renderer.removeClass(_this11._ngEl.nativeElement, klass);
+                _this12._renderer.removeClass(_this12._ngEl.nativeElement, klass);
               }
             });
           }
@@ -5362,7 +5362,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _viewContainerRef
        */
       function NgComponentOutlet(_viewContainerRef) {
-        _classCallCheck(this, NgComponentOutlet);
+        _classCallCheck2(this, NgComponentOutlet);
 
         this._viewContainerRef = _viewContainerRef;
         this._componentRef = null;
@@ -5508,7 +5508,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} count
        */
       function NgForOfContext($implicit, ngForOf, index, count) {
-        _classCallCheck(this, NgForOfContext);
+        _classCallCheck2(this, NgForOfContext);
 
         this.$implicit = $implicit;
         this.ngForOf = ngForOf;
@@ -5667,7 +5667,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _differs
        */
       function NgForOf(_viewContainer, _template, _differs) {
-        _classCallCheck(this, NgForOf);
+        _classCallCheck2(this, NgForOf);
 
         this._viewContainer = _viewContainer;
         this._template = _template;
@@ -5724,7 +5724,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_applyChanges",
         value: function _applyChanges(changes) {
-          var _this12 = this;
+          var _this13 = this;
 
           /** @type {?} */
           var insertTuples = [];
@@ -5742,25 +5742,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // there is an iterable value for "_ngForOf".
 
               /** @type {?} */
-              var view = _this12._viewContainer.createEmbeddedView(_this12._template, new NgForOfContext(
+              var view = _this13._viewContainer.createEmbeddedView(_this13._template, new NgForOfContext(
               /** @type {?} */
               null,
               /** @type {?} */
-              _this12._ngForOf, -1, -1), currentIndex === null ? undefined : currentIndex);
+              _this13._ngForOf, -1, -1), currentIndex === null ? undefined : currentIndex);
               /** @type {?} */
 
 
               var tuple = new RecordViewTuple(item, view);
               insertTuples.push(tuple);
             } else if (currentIndex == null) {
-              _this12._viewContainer.remove(adjustedPreviousIndex === null ? undefined : adjustedPreviousIndex);
+              _this13._viewContainer.remove(adjustedPreviousIndex === null ? undefined : adjustedPreviousIndex);
             } else if (adjustedPreviousIndex !== null) {
               /** @type {?} */
               var _view2 =
               /** @type {?} */
-              _this12._viewContainer.get(adjustedPreviousIndex);
+              _this13._viewContainer.get(adjustedPreviousIndex);
 
-              _this12._viewContainer.move(_view2, currentIndex);
+              _this13._viewContainer.move(_view2, currentIndex);
               /** @type {?} */
 
 
@@ -5798,7 +5798,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             /** @type {?} */
             var viewRef =
             /** @type {?} */
-            _this12._viewContainer.get(record.currentIndex);
+            _this13._viewContainer.get(record.currentIndex);
 
             viewRef.context.$implicit = record.item;
           });
@@ -5979,7 +5979,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} view
      */
     function RecordViewTuple(record, view) {
-      _classCallCheck(this, RecordViewTuple);
+      _classCallCheck2(this, RecordViewTuple);
 
       this.record = record;
       this.view = view;
@@ -6151,7 +6151,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} templateRef
        */
       function NgIf(_viewContainer, templateRef) {
-        _classCallCheck(this, NgIf);
+        _classCallCheck2(this, NgIf);
 
         this._viewContainer = _viewContainer;
         this._context = new NgIfContext();
@@ -6325,7 +6325,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var NgIfContext = function NgIfContext() {
-      _classCallCheck(this, NgIfContext);
+      _classCallCheck2(this, NgIfContext);
 
       this.$implicit =
       /** @type {?} */
@@ -6366,7 +6366,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _templateRef
        */
       function SwitchView(_viewContainerRef, _templateRef) {
-        _classCallCheck(this, SwitchView);
+        _classCallCheck2(this, SwitchView);
 
         this._viewContainerRef = _viewContainerRef;
         this._templateRef = _templateRef;
@@ -6489,7 +6489,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function NgSwitch() {
-        _classCallCheck(this, NgSwitch);
+        _classCallCheck2(this, NgSwitch);
 
         this._defaultUsed = false;
         this._caseCount = 0;
@@ -6661,7 +6661,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} ngSwitch
        */
       function NgSwitchCase(viewContainer, templateRef, ngSwitch) {
-        _classCallCheck(this, NgSwitchCase);
+        _classCallCheck2(this, NgSwitchCase);
 
         this.ngSwitch = ngSwitch;
 
@@ -6766,7 +6766,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} ngSwitch
      */
     function NgSwitchDefault(viewContainer, templateRef, ngSwitch) {
-      _classCallCheck(this, NgSwitchDefault);
+      _classCallCheck2(this, NgSwitchDefault);
 
       ngSwitch._addDefault(new SwitchView(viewContainer, templateRef));
     };
@@ -6861,7 +6861,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _localization
        */
       function NgPlural(_localization) {
-        _classCallCheck(this, NgPlural);
+        _classCallCheck2(this, NgPlural);
 
         this._localization = _localization;
         this._caseViews = {};
@@ -7013,7 +7013,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} ngPlural
      */
     function NgPluralCase(value, template, viewContainer, ngPlural) {
-      _classCallCheck(this, NgPluralCase);
+      _classCallCheck2(this, NgPluralCase);
 
       this.value = value;
       /** @type {?} */
@@ -7133,7 +7133,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _renderer
        */
       function NgStyle(_ngEl, _differs, _renderer) {
-        _classCallCheck(this, NgStyle);
+        _classCallCheck2(this, NgStyle);
 
         this._ngEl = _ngEl;
         this._differs = _differs;
@@ -7176,7 +7176,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "_setStyle",
         value: function _setStyle(nameAndUnit, value) {
           var _nameAndUnit$split = nameAndUnit.split('.'),
-              _nameAndUnit$split2 = _slicedToArray(_nameAndUnit$split, 2),
+              _nameAndUnit$split2 = _slicedToArray2(_nameAndUnit$split, 2),
               name = _nameAndUnit$split2[0],
               unit = _nameAndUnit$split2[1];
 
@@ -7199,7 +7199,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_applyChanges",
         value: function _applyChanges(changes) {
-          var _this13 = this;
+          var _this14 = this;
 
           changes.forEachRemovedItem(
           /**
@@ -7207,7 +7207,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (record) {
-            return _this13._setStyle(record.key, null);
+            return _this14._setStyle(record.key, null);
           });
           changes.forEachAddedItem(
           /**
@@ -7215,7 +7215,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (record) {
-            return _this13._setStyle(record.key, record.currentValue);
+            return _this14._setStyle(record.key, record.currentValue);
           });
           changes.forEachChangedItem(
           /**
@@ -7223,7 +7223,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (record) {
-            return _this13._setStyle(record.key, record.currentValue);
+            return _this14._setStyle(record.key, record.currentValue);
           });
         }
       }, {
@@ -7333,7 +7333,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _viewContainerRef
        */
       function NgTemplateOutlet(_viewContainerRef) {
-        _classCallCheck(this, NgTemplateOutlet);
+        _classCallCheck2(this, NgTemplateOutlet);
 
         this._viewContainerRef = _viewContainerRef;
         this._viewRef = null;
@@ -7560,7 +7560,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ObservableStrategy() {
-        _classCallCheck(this, ObservableStrategy);
+        _classCallCheck2(this, ObservableStrategy);
       }
 
       _createClass2(ObservableStrategy, [{
@@ -7613,7 +7613,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function PromiseStrategy() {
-        _classCallCheck(this, PromiseStrategy);
+        _classCallCheck2(this, PromiseStrategy);
       }
 
       _createClass2(PromiseStrategy, [{
@@ -7698,7 +7698,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _ref
        */
       function AsyncPipe(_ref) {
-        _classCallCheck(this, AsyncPipe);
+        _classCallCheck2(this, AsyncPipe);
 
         this._ref = _ref;
         this._latestValue = null;
@@ -7762,7 +7762,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_subscribe",
         value: function _subscribe(obj) {
-          var _this14 = this;
+          var _this15 = this;
 
           this._obj = obj;
           this._strategy = this._selectStrategy(obj);
@@ -7772,7 +7772,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (value) {
-            return _this14._updateLatestValue(obj, value);
+            return _this15._updateLatestValue(obj, value);
           });
         }
         /**
@@ -7893,7 +7893,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function LowerCasePipe() {
-        _classCallCheck(this, LowerCasePipe);
+        _classCallCheck2(this, LowerCasePipe);
       }
 
       _createClass2(LowerCasePipe, [{
@@ -7970,7 +7970,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function TitleCasePipe() {
-        _classCallCheck(this, TitleCasePipe);
+        _classCallCheck2(this, TitleCasePipe);
       }
 
       _createClass2(TitleCasePipe, [{
@@ -8034,7 +8034,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function UpperCasePipe() {
-        _classCallCheck(this, UpperCasePipe);
+        _classCallCheck2(this, UpperCasePipe);
       }
 
       _createClass2(UpperCasePipe, [{
@@ -8232,7 +8232,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} locale
        */
       function DatePipe(locale) {
-        _classCallCheck(this, DatePipe);
+        _classCallCheck2(this, DatePipe);
 
         this.locale = locale;
       }
@@ -8344,7 +8344,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _localization
        */
       function I18nPluralPipe(_localization) {
-        _classCallCheck(this, I18nPluralPipe);
+        _classCallCheck2(this, I18nPluralPipe);
 
         this._localization = _localization;
       }
@@ -8440,7 +8440,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function I18nSelectPipe() {
-        _classCallCheck(this, I18nSelectPipe);
+        _classCallCheck2(this, I18nSelectPipe);
       }
 
       _createClass2(I18nSelectPipe, [{
@@ -8521,7 +8521,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function JsonPipe() {
-        _classCallCheck(this, JsonPipe);
+        _classCallCheck2(this, JsonPipe);
       }
 
       _createClass2(JsonPipe, [{
@@ -8621,7 +8621,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} differs
        */
       function KeyValuePipe(differs) {
-        _classCallCheck(this, KeyValuePipe);
+        _classCallCheck2(this, KeyValuePipe);
 
         this.differs = differs;
         this.keyValues = [];
@@ -8637,7 +8637,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(KeyValuePipe, [{
         key: "transform",
         value: function transform(input) {
-          var _this15 = this;
+          var _this16 = this;
 
           var compareFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultComparator;
 
@@ -8664,7 +8664,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function (r) {
-              _this15.keyValues.push(makeKeyValuePair(r.key,
+              _this16.keyValues.push(makeKeyValuePair(r.key,
               /** @type {?} */
               r.currentValue));
             });
@@ -8806,7 +8806,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _locale
        */
       function DecimalPipe(_locale) {
-        _classCallCheck(this, DecimalPipe);
+        _classCallCheck2(this, DecimalPipe);
 
         this._locale = _locale;
       }
@@ -8917,7 +8917,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _locale
        */
       function PercentPipe(_locale) {
-        _classCallCheck(this, PercentPipe);
+        _classCallCheck2(this, PercentPipe);
 
         this._locale = _locale;
       }
@@ -9052,7 +9052,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function CurrencyPipe(_locale) {
         var _defaultCurrencyCode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'USD';
 
-        _classCallCheck(this, CurrencyPipe);
+        _classCallCheck2(this, CurrencyPipe);
 
         this._locale = _locale;
         this._defaultCurrencyCode = _defaultCurrencyCode;
@@ -9267,7 +9267,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SlicePipe() {
-        _classCallCheck(this, SlicePipe);
+        _classCallCheck2(this, SlicePipe);
       }
 
       _createClass2(SlicePipe, [{
@@ -9360,7 +9360,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var CommonModule = function CommonModule() {
-      _classCallCheck(this, CommonModule);
+      _classCallCheck2(this, CommonModule);
     };
 
     CommonModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
@@ -9495,7 +9495,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var ViewportScroller = function ViewportScroller() {
-      _classCallCheck(this, ViewportScroller);
+      _classCallCheck2(this, ViewportScroller);
     }; // De-sugared tree-shakable injection
     // See #23917
 
@@ -9531,7 +9531,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} errorHandler
        */
       function BrowserViewportScroller(document, window, errorHandler) {
-        _classCallCheck(this, BrowserViewportScroller);
+        _classCallCheck2(this, BrowserViewportScroller);
 
         this.document = document;
         this.window = window;
@@ -9712,7 +9712,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function NullViewportScroller() {
-        _classCallCheck(this, NullViewportScroller);
+        _classCallCheck2(this, NullViewportScroller);
       }
 
       _createClass2(NullViewportScroller, [{
@@ -12442,8 +12442,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var metaCtor = makeMetadataCtor(props);
 
         function DecoratorFactory() {
-          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
+          for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+            args[_key2] = arguments[_key2];
           }
 
           if (this instanceof DecoratorFactory) {
@@ -12493,8 +12493,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var metaCtor = makeMetadataCtor(props);
 
         function ParamDecoratorFactory() {
-          for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-            args[_key2] = arguments[_key2];
+          for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+            args[_key3] = arguments[_key3];
           }
 
           if (this instanceof ParamDecoratorFactory) {
@@ -12539,8 +12539,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var metaCtor = makeMetadataCtor(props);
 
         function PropDecoratorFactory() {
-          for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-            args[_key3] = arguments[_key3];
+          for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+            args[_key4] = arguments[_key4];
           }
 
           if (this instanceof PropDecoratorFactory) {
@@ -13360,7 +13360,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} options
        */
       function InjectionToken(_desc, options) {
-        _classCallCheck(this, InjectionToken);
+        _classCallCheck2(this, InjectionToken);
 
         this._desc = _desc;
         /**
@@ -13670,7 +13670,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function NullInjector() {
-        _classCallCheck(this, NullInjector);
+        _classCallCheck2(this, NullInjector);
       }
 
       _createClass2(NullInjector, [{
@@ -13846,7 +13846,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var NgModuleRef = function NgModuleRef() {
-      _classCallCheck(this, NgModuleRef);
+      _classCallCheck2(this, NgModuleRef);
     };
 
     if (false) {}
@@ -13867,7 +13867,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var NgModuleFactory = function NgModuleFactory() {
-      _classCallCheck(this, NgModuleFactory);
+      _classCallCheck2(this, NgModuleFactory);
     };
 
     if (false) {}
@@ -17341,7 +17341,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * Set to `true` if the token is declared in `viewProviders` (or if it is component).
      */
     isViewProvider, injectImplementation) {
-      _classCallCheck(this, NodeInjectorFactory);
+      _classCallCheck2(this, NodeInjectorFactory);
 
       this.factory = factory;
       /**
@@ -17397,8 +17397,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       assertDefined(tNode, 'should be called with a TNode');
       /** @type {?} */
 
-      for (var _len4 = arguments.length, types = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
-        types[_key4 - 1] = arguments[_key4];
+      for (var _len5 = arguments.length, types = new Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
+        types[_key5 - 1] = arguments[_key5];
       }
 
       var found = types.some(
@@ -18749,7 +18749,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _lView
        */
       function NodeInjector(_tNode, _lView) {
-        _classCallCheck(this, NodeInjector);
+        _classCallCheck2(this, NodeInjector);
 
         this._tNode = _tNode;
         this._lView = _lView;
@@ -18938,8 +18938,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     function defaultErrorLogger(console) {
-      for (var _len5 = arguments.length, values = new Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
-        values[_key5 - 1] = arguments[_key5];
+      for (var _len6 = arguments.length, values = new Array(_len6 > 1 ? _len6 - 1 : 0), _key6 = 1; _key6 < _len6; _key6++) {
+        values[_key6 - 1] = arguments[_key6];
       }
 
       /** @type {?} */
@@ -18982,7 +18982,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ErrorHandler() {
-        _classCallCheck(this, ErrorHandler);
+        _classCallCheck2(this, ErrorHandler);
 
         /**
          * \@internal
@@ -19200,7 +19200,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} changingThisBreaksApplicationSecurity
        */
       function SafeValueImpl(changingThisBreaksApplicationSecurity) {
-        _classCallCheck(this, SafeValueImpl);
+        _classCallCheck2(this, SafeValueImpl);
 
         this.changingThisBreaksApplicationSecurity = changingThisBreaksApplicationSecurity;
       }
@@ -19229,7 +19229,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super5 = _createSuper(SafeHtmlImpl);
 
       function SafeHtmlImpl() {
-        _classCallCheck(this, SafeHtmlImpl);
+        _classCallCheck2(this, SafeHtmlImpl);
 
         return _super5.apply(this, arguments);
       }
@@ -19258,7 +19258,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super6 = _createSuper(SafeStyleImpl);
 
       function SafeStyleImpl() {
-        _classCallCheck(this, SafeStyleImpl);
+        _classCallCheck2(this, SafeStyleImpl);
 
         return _super6.apply(this, arguments);
       }
@@ -19287,7 +19287,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super7 = _createSuper(SafeScriptImpl);
 
       function SafeScriptImpl() {
-        _classCallCheck(this, SafeScriptImpl);
+        _classCallCheck2(this, SafeScriptImpl);
 
         return _super7.apply(this, arguments);
       }
@@ -19316,7 +19316,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super8 = _createSuper(SafeUrlImpl);
 
       function SafeUrlImpl() {
-        _classCallCheck(this, SafeUrlImpl);
+        _classCallCheck2(this, SafeUrlImpl);
 
         return _super8.apply(this, arguments);
       }
@@ -19345,7 +19345,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super9 = _createSuper(SafeResourceUrlImpl);
 
       function SafeResourceUrlImpl() {
-        _classCallCheck(this, SafeResourceUrlImpl);
+        _classCallCheck2(this, SafeResourceUrlImpl);
 
         return _super9.apply(this, arguments);
       }
@@ -19568,7 +19568,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} defaultDoc
        */
       function InertBodyHelper(defaultDoc) {
-        _classCallCheck(this, InertBodyHelper);
+        _classCallCheck2(this, InertBodyHelper);
 
         this.defaultDoc = defaultDoc;
         this.inertDocument = this.defaultDoc.implementation.createHTMLDocument('sanitization-inert');
@@ -19917,8 +19917,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /** @type {?} */
       var res = {};
 
-      for (var _len6 = arguments.length, sets = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-        sets[_key6] = arguments[_key6];
+      for (var _len7 = arguments.length, sets = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+        sets[_key7] = arguments[_key7];
       }
 
       for (var _i4 = 0, _sets = sets; _i4 < _sets.length; _i4++) {
@@ -20003,7 +20003,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SanitizingHtmlSerializer() {
-        _classCallCheck(this, SanitizingHtmlSerializer);
+        _classCallCheck2(this, SanitizingHtmlSerializer);
 
         // Explicitly track if something was stripped, to avoid accidentally warning of sanitization just
         // because characters were re-encoded.
@@ -20849,8 +20849,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function camelCaseToDashCase(input) {
       return input.replace(CAMEL_CASE_REGEXP, function () {
-        for (var _len7 = arguments.length, m = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
-          m[_key7] = arguments[_key7];
+        for (var _len8 = arguments.length, m = new Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {
+          m[_key8] = arguments[_key8];
         }
 
         return '-' + m[1].toLowerCase();
@@ -23638,7 +23638,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       firstChild, //
       schemas, //
       consts) {
-        _classCallCheck(this, TView);
+        _classCallCheck2(this, TView);
 
         this.type = type;
         this.id = id;
@@ -23752,7 +23752,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       residualClasses, //
       classBindings, //
       styleBindings) {
-        _classCallCheck(this, TNode$1);
+        _classCallCheck2(this, TNode$1);
 
         this.tView_ = tView_;
         this.type = type;
@@ -24181,7 +24181,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _raw_lView
        */
       function LViewDebug(_raw_lView) {
-        _classCallCheck(this, LViewDebug);
+        _classCallCheck2(this, LViewDebug);
 
         this._raw_lView = _raw_lView;
       }
@@ -24492,7 +24492,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _raw_lContainer
        */
       function LContainerDebug(_raw_lContainer) {
-        _classCallCheck(this, LContainerDebug);
+        _classCallCheck2(this, LContainerDebug);
 
         this._raw_lContainer = _raw_lContainer;
       }
@@ -24613,7 +24613,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} type
        */
       function I18NDebugItem(__raw_opCode, _lView, nodeIndex, type) {
-        _classCallCheck(this, I18NDebugItem);
+        _classCallCheck2(this, I18NDebugItem);
 
         this.__raw_opCode = __raw_opCode;
         this._lView = _lView;
@@ -24686,7 +24686,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} __lView
        */
       function I18nMutateOpCodesDebug(__raw_opCodes, __lView) {
-        _classCallCheck(this, I18nMutateOpCodesDebug);
+        _classCallCheck2(this, I18nMutateOpCodesDebug);
 
         this.__raw_opCodes = __raw_opCodes;
         this.__lView = __lView;
@@ -24818,7 +24818,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} __lView
        */
       function I18nUpdateOpCodesDebug(__raw_opCodes, icus, __lView) {
-        _classCallCheck(this, I18nUpdateOpCodesDebug);
+        _classCallCheck2(this, I18nUpdateOpCodesDebug);
 
         this.__raw_opCodes = __raw_opCodes;
         this.icus = icus;
@@ -26363,7 +26363,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
         } else {
         /** @type {?} */
-        var textContent = "bindings=".concat(JSON.stringify(_defineProperty({}, attrName, debugValue), null, 2));
+        var textContent = "bindings=".concat(JSON.stringify(_defineProperty2({}, attrName, debugValue), null, 2));
 
         if (isProceduralRenderer(renderer)) {
           renderer.setValue(
@@ -27691,8 +27691,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var bindingMetadata = propertyName;
 
-          for (var _len8 = arguments.length, interpolationParts = new Array(_len8 > 4 ? _len8 - 4 : 0), _key8 = 4; _key8 < _len8; _key8++) {
-            interpolationParts[_key8 - 4] = arguments[_key8];
+          for (var _len9 = arguments.length, interpolationParts = new Array(_len9 > 4 ? _len9 - 4 : 0), _key9 = 4; _key9 < _len9; _key9++) {
+            interpolationParts[_key9 - 4] = arguments[_key9];
           }
 
           if (interpolationParts.length > 0) {
@@ -29398,7 +29398,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} _cdRefInjectingView
        */
       function ViewRef(_lView, _cdRefInjectingView) {
-        _classCallCheck(this, ViewRef);
+        _classCallCheck2(this, ViewRef);
 
         this._lView = _lView;
         this._cdRefInjectingView = _cdRefInjectingView;
@@ -29756,13 +29756,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _view
        */
       function RootViewRef(_view) {
-        var _this16;
+        var _this17;
 
-        _classCallCheck(this, RootViewRef);
+        _classCallCheck2(this, RootViewRef);
 
-        _this16 = _super10.call(this, _view);
-        _this16._view = _view;
-        return _this16;
+        _this17 = _super10.call(this, _view);
+        _this17._view = _view;
+        return _this17;
       }
       /**
        * @return {?}
@@ -29932,7 +29932,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _super11 = _createSuper(ElementRef);
 
           function ElementRef() {
-            _classCallCheck(this, ElementRef);
+            _classCallCheck2(this, ElementRef);
 
             return _super11.apply(this, arguments);
           }
@@ -29988,15 +29988,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
            * @param {?} elementRef
            */
           function TemplateRef(_declarationView, _declarationTContainer, elementRef) {
-            var _this17;
+            var _this18;
 
-            _classCallCheck(this, TemplateRef);
+            _classCallCheck2(this, TemplateRef);
 
-            _this17 = _super12.call(this);
-            _this17._declarationView = _declarationView;
-            _this17._declarationTContainer = _declarationTContainer;
-            _this17.elementRef = elementRef;
-            return _this17;
+            _this18 = _super12.call(this);
+            _this18._declarationView = _declarationView;
+            _this18._declarationTContainer = _declarationTContainer;
+            _this18.elementRef = elementRef;
+            return _this18;
           }
           /**
            * @param {?} context
@@ -30101,15 +30101,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
            * @param {?} _hostView
            */
           function ViewContainerRef(_lContainer, _hostTNode, _hostView) {
-            var _this18;
+            var _this19;
 
-            _classCallCheck(this, ViewContainerRef);
+            _classCallCheck2(this, ViewContainerRef);
 
-            _this18 = _super13.call(this);
-            _this18._lContainer = _lContainer;
-            _this18._hostTNode = _hostTNode;
-            _this18._hostView = _hostView;
-            return _this18;
+            _this19 = _super13.call(this);
+            _this19._lContainer = _lContainer;
+            _this19._hostTNode = _hostTNode;
+            _this19._hostView = _hostView;
+            return _this19;
           }
           /**
            * @return {?}
@@ -30632,7 +30632,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var ChangeDetectorRef = function ChangeDetectorRef() {
-      _classCallCheck(this, ChangeDetectorRef);
+      _classCallCheck2(this, ChangeDetectorRef);
     };
     /**
      * \@internal
@@ -30724,7 +30724,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ReflectionCapabilities(reflect) {
-        _classCallCheck(this, ReflectionCapabilities);
+        _classCallCheck2(this, ReflectionCapabilities);
 
         this._reflect = reflect || _global['Reflect'];
       }
@@ -30738,8 +30738,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "factory",
         value: function factory(t) {
           return function () {
-            for (var _len9 = arguments.length, args = new Array(_len9), _key9 = 0; _key9 < _len9; _key9++) {
-              args[_key9] = arguments[_key9];
+            for (var _len10 = arguments.length, args = new Array(_len10), _key10 = 0; _key10 < _len10; _key10++) {
+              args[_key10] = arguments[_key10];
             }
 
             return _construct(t, args);
@@ -30943,10 +30943,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var decorators = [];
 
               if (propMetadata.hasOwnProperty(propName)) {
-                decorators.push.apply(decorators, _toConsumableArray(propMetadata[propName]));
+                decorators.push.apply(decorators, _toConsumableArray2(propMetadata[propName]));
               }
 
-              decorators.push.apply(decorators, _toConsumableArray(ownPropMetadata[propName]));
+              decorators.push.apply(decorators, _toConsumableArray2(ownPropMetadata[propName]));
               propMetadata[propName] = decorators;
             });
           }
@@ -31029,7 +31029,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var decoratorType = decoratorInvocation.type;
         var annotationCls = decoratorType.annotationCls;
         var annotationArgs = decoratorInvocation.args ? decoratorInvocation.args : [];
-        return _construct(annotationCls, _toConsumableArray(annotationArgs));
+        return _construct(annotationCls, _toConsumableArray2(annotationArgs));
       });
     }
 
@@ -31378,7 +31378,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function () {
-            return _construct(type, _toConsumableArray(injectArgs(
+            return _construct(type, _toConsumableArray2(injectArgs(
             /** @type {?} */
             deps)));
           }
@@ -31425,7 +31425,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function () {
-            return factoryProvider.useFactory.apply(factoryProvider, _toConsumableArray(injectArgs(factoryProvider.deps || EMPTY_ARRAY$1)));
+            return factoryProvider.useFactory.apply(factoryProvider, _toConsumableArray2(injectArgs(factoryProvider.deps || EMPTY_ARRAY$1)));
           }
         );
       } else if (
@@ -31453,7 +31453,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function () {
-            return _construct(resolveForwardRef(classProvider.useClass), _toConsumableArray(injectArgs(_deps)));
+            return _construct(resolveForwardRef(classProvider.useClass), _toConsumableArray2(injectArgs(_deps)));
           }
         );
       } else {
@@ -31474,7 +31474,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function () {
-            return _construct(type, _toConsumableArray(injectArgs(
+            return _construct(type, _toConsumableArray2(injectArgs(
             /** @type {?} */
             _deps2)));
           }
@@ -31668,11 +31668,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} source
        */
       function R3Injector(def, additionalProviders, parent) {
-        var _this19 = this;
+        var _this20 = this;
 
         var source = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-        _classCallCheck(this, R3Injector);
+        _classCallCheck2(this, R3Injector);
 
         this.parent = parent;
         /**
@@ -31705,7 +31705,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {?}
         */
         function (provider) {
-          return _this19.processProvider(provider, def, additionalProviders);
+          return _this20.processProvider(provider, def, additionalProviders);
         });
         deepForEach([def],
         /**
@@ -31713,7 +31713,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {?}
         */
         function (injectorDef) {
-          return _this19.processInjectorType(injectorDef, [], dedupStack);
+          return _this20.processInjectorType(injectorDef, [], dedupStack);
         }); // Make sure the INJECTOR token provides this injector.
 
         this.records.set(INJECTOR, makeRecord(undefined, this)); // Detect whether this injector has the APP_ROOT_SCOPE token and thus should provide
@@ -31855,7 +31855,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_resolveInjectorDefTypes",
         value: function _resolveInjectorDefTypes() {
-          var _this20 = this;
+          var _this21 = this;
 
           this.injectorDefTypes.forEach(
           /**
@@ -31863,7 +31863,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (defType) {
-            return _this20.get(defType);
+            return _this21.get(defType);
           });
         }
         /**
@@ -31921,7 +31921,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "processInjectorType",
         value: function processInjectorType(defOrWrappedDef, parents, dedupStack) {
-          var _this21 = this;
+          var _this22 = this;
 
           defOrWrappedDef = resolveForwardRef(defOrWrappedDef);
           if (!defOrWrappedDef) return false; // Either the defOrWrappedDef is an InjectorType (with injector def) or an
@@ -31994,7 +31994,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               * @return {?}
               */
               function (imported) {
-                if (_this21.processInjectorType(imported, parents, dedupStack)) {
+                if (_this22.processInjectorType(imported, parents, dedupStack)) {
                   if (importTypesWithProviders === undefined) importTypesWithProviders = []; // If the processed import is an injector type with providers, we store it in the
                   // list of import types with providers, so that we can process those afterwards.
 
@@ -32022,7 +32022,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 * @return {?}
                 */
                 function (provider) {
-                  return _this21.processProvider(provider, ngModule, providers || EMPTY_ARRAY$2);
+                  return _this22.processProvider(provider, ngModule, providers || EMPTY_ARRAY$2);
                 });
               };
 
@@ -32052,7 +32052,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function (provider) {
-              return _this21.processProvider(provider, injectorType, defProviders);
+              return _this22.processProvider(provider, injectorType, defProviders);
             });
           }
 
@@ -32329,7 +32329,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function factory() {
-            return provider.useFactory.apply(provider, _toConsumableArray(injectArgs(provider.deps || [])));
+            return provider.useFactory.apply(provider, _toConsumableArray2(injectArgs(provider.deps || [])));
           };
         } else if (isExistingProvider(provider)) {
           factory =
@@ -32355,7 +32355,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function factory() {
-              return _construct(classRef, _toConsumableArray(injectArgs(provider.deps)));
+              return _construct(classRef, _toConsumableArray2(injectArgs(provider.deps)));
             };
           } else {
             return getFactoryDef(classRef) || injectableDefOrInjectorDefFactory(classRef);
@@ -32528,7 +32528,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function Injector() {
-        _classCallCheck(this, Injector);
+        _classCallCheck2(this, Injector);
       }
 
       _createClass2(Injector, null, [{
@@ -32635,7 +32635,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Injector.NULL;
         var source = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
-        _classCallCheck(this, StaticInjector);
+        _classCallCheck2(this, StaticInjector);
 
         this.parent = parent;
         this.source = source;
@@ -33019,7 +33019,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           record.value = value = useNew ? _construct(
           /** @type {?} */
-          fn, _toConsumableArray(deps)) : fn.apply(obj, deps);
+          fn, _toConsumableArray2(deps)) : fn.apply(obj, deps);
         }
       } else if (!(flags & InjectFlags.Self)) {
         value = parent.get(token, notFoundValue, InjectFlags.Default);
@@ -33482,7 +33482,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} id
        */
       function ReflectiveKey(token, id) {
-        _classCallCheck(this, ReflectiveKey);
+        _classCallCheck2(this, ReflectiveKey);
 
         this.token = token;
         this.id = id;
@@ -33525,7 +33525,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function KeyRegistry() {
-        _classCallCheck(this, KeyRegistry);
+        _classCallCheck2(this, KeyRegistry);
 
         this._allKeys = new Map();
       }
@@ -33592,7 +33592,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function Reflector(reflectionCapabilities) {
-        _classCallCheck(this, Reflector);
+        _classCallCheck2(this, Reflector);
 
         this.reflectionCapabilities = reflectionCapabilities;
       }
@@ -33707,7 +33707,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} visibility
        */
       function ReflectiveDependency(key, optional, visibility) {
-        _classCallCheck(this, ReflectiveDependency);
+        _classCallCheck2(this, ReflectiveDependency);
 
         this.key = key;
         this.optional = optional;
@@ -33766,7 +33766,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} multiProvider
      */
     function ResolvedReflectiveProvider_(key, resolvedFactories, multiProvider) {
-      _classCallCheck(this, ResolvedReflectiveProvider_);
+      _classCallCheck2(this, ResolvedReflectiveProvider_);
 
       this.key = key;
       this.resolvedFactories = resolvedFactories;
@@ -33787,7 +33787,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} dependencies
      */
     function ResolvedReflectiveFactory(factory, dependencies) {
-      _classCallCheck(this, ResolvedReflectiveFactory);
+      _classCallCheck2(this, ResolvedReflectiveFactory);
 
       this.factory = factory;
       this.dependencies = dependencies;
@@ -34131,7 +34131,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ReflectiveInjector() {
-        _classCallCheck(this, ReflectiveInjector);
+        _classCallCheck2(this, ReflectiveInjector);
       }
 
       _createClass2(ReflectiveInjector, null, [{
@@ -34254,7 +34254,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} _parent
        */
       function ReflectiveInjector_(_providers, _parent) {
-        _classCallCheck(this, ReflectiveInjector_);
+        _classCallCheck2(this, ReflectiveInjector_);
 
         /**
          * \@internal
@@ -34404,7 +34404,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_instantiate",
         value: function _instantiate(provider, ResolvedReflectiveFactory) {
-          var _this22 = this;
+          var _this23 = this;
 
           /** @type {?} */
           var factory = ResolvedReflectiveFactory.factory;
@@ -34419,7 +34419,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function (dep) {
-              return _this22._getByReflectiveDependency(dep);
+              return _this23._getByReflectiveDependency(dep);
             });
           } catch (e) {
             if (e.addKey) {
@@ -34434,7 +34434,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var obj;
 
           try {
-            obj = factory.apply(void 0, _toConsumableArray(deps));
+            obj = factory.apply(void 0, _toConsumableArray2(deps));
           } catch (e) {
             throw instantiationError(this, e, e.stack, provider.key);
           }
@@ -34710,7 +34710,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var Query = function Query() {
-      _classCallCheck(this, Query);
+      _classCallCheck2(this, Query);
     };
     /**
      * Type of the ContentChildren decorator / constructor function.
@@ -35336,7 +35336,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} value
        */
       function WrappedValue(value) {
-        _classCallCheck(this, WrappedValue);
+        _classCallCheck2(this, WrappedValue);
 
         this.wrapped = value;
       }
@@ -42516,7 +42516,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     function getRootComponents(elementOrDir) {
-      return _toConsumableArray(getRootContext(elementOrDir).components);
+      return _toConsumableArray2(getRootContext(elementOrDir).components);
     }
     /**
      * Retrieves an `Injector` associated with an element, component or directive instance.
@@ -42630,7 +42630,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       // result so we don't expose an internal data structure in the user's console.
 
 
-      return context.directives === null ? [] : _toConsumableArray(context.directives);
+      return context.directives === null ? [] : _toConsumableArray2(context.directives);
     }
     /**
      * @param {?} target
@@ -43756,7 +43756,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SimpleChange(previousValue, currentValue, firstChange) {
-        _classCallCheck(this, SimpleChange);
+        _classCallCheck2(this, SimpleChange);
 
         this.previousValue = previousValue;
         this.currentValue = currentValue;
@@ -44388,7 +44388,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var ComponentRef = function ComponentRef() {
-      _classCallCheck(this, ComponentRef);
+      _classCallCheck2(this, ComponentRef);
     };
 
     if (false) {}
@@ -44406,7 +44406,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var ComponentFactory = function ComponentFactory() {
-      _classCallCheck(this, ComponentFactory);
+      _classCallCheck2(this, ComponentFactory);
     };
 
     if (false) {}
@@ -44450,7 +44450,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function _NullComponentFactoryResolver() {
-        _classCallCheck(this, _NullComponentFactoryResolver);
+        _classCallCheck2(this, _NullComponentFactoryResolver);
       }
 
       _createClass2(_NullComponentFactoryResolver, [{
@@ -44481,7 +44481,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var ComponentFactoryResolver = function ComponentFactoryResolver() {
-      _classCallCheck(this, ComponentFactoryResolver);
+      _classCallCheck2(this, ComponentFactoryResolver);
     };
 
     ComponentFactoryResolver.NULL = new _NullComponentFactoryResolver();
@@ -44497,7 +44497,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _ngModule
        */
       function CodegenComponentFactoryResolver(factories, _parent, _ngModule) {
-        _classCallCheck(this, CodegenComponentFactoryResolver);
+        _classCallCheck2(this, CodegenComponentFactoryResolver);
 
         this._parent = _parent;
         this._ngModule = _ngModule;
@@ -44556,19 +44556,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} ngModule
        */
       function ComponentFactoryBoundToModule(factory, ngModule) {
-        var _this23;
+        var _this24;
 
-        _classCallCheck(this, ComponentFactoryBoundToModule);
+        _classCallCheck2(this, ComponentFactoryBoundToModule);
 
-        _this23 = _super14.call(this);
-        _this23.factory = factory;
-        _this23.ngModule = ngModule;
-        _this23.selector = factory.selector;
-        _this23.componentType = factory.componentType;
-        _this23.ngContentSelectors = factory.ngContentSelectors;
-        _this23.inputs = factory.inputs;
-        _this23.outputs = factory.outputs;
-        return _this23;
+        _this24 = _super14.call(this);
+        _this24.factory = factory;
+        _this24.ngModule = ngModule;
+        _this24.selector = factory.selector;
+        _this24.componentType = factory.componentType;
+        _this24.ngContentSelectors = factory.ngContentSelectors;
+        _this24.inputs = factory.inputs;
+        _this24.outputs = factory.outputs;
+        return _this24;
       }
       /**
        * @param {?} injector
@@ -44630,7 +44630,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} nativeElement
      */
     function ElementRef(nativeElement) {
-      _classCallCheck(this, ElementRef);
+      _classCallCheck2(this, ElementRef);
 
       this.nativeElement = nativeElement;
     };
@@ -44687,7 +44687,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var RendererFactory2 = function RendererFactory2() {
-      _classCallCheck(this, RendererFactory2);
+      _classCallCheck2(this, RendererFactory2);
     };
 
     if (false) {}
@@ -44729,7 +44729,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var Renderer2 = function Renderer2() {
-      _classCallCheck(this, Renderer2);
+      _classCallCheck2(this, Renderer2);
     };
     /**
      * \@internal
@@ -44770,7 +44770,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var Sanitizer = function Sanitizer() {
-      _classCallCheck(this, Sanitizer);
+      _classCallCheck2(this, Sanitizer);
     };
     /** @nocollapse */
 
@@ -44816,7 +44816,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} full
      */
     function Version(full) {
-      _classCallCheck(this, Version);
+      _classCallCheck2(this, Version);
 
       this.full = full;
       this.major = full.split('.')[0];
@@ -44842,7 +44842,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DefaultIterableDifferFactory() {
-        _classCallCheck(this, DefaultIterableDifferFactory);
+        _classCallCheck2(this, DefaultIterableDifferFactory);
       }
       /**
        * @param {?} obj
@@ -44897,7 +44897,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} trackByFn
        */
       function DefaultIterableDiffer(trackByFn) {
-        _classCallCheck(this, DefaultIterableDiffer);
+        _classCallCheck2(this, DefaultIterableDiffer);
 
         this.length = 0; // Keeps track of the used records at any point in time (during & across `_check()` calls)
 
@@ -45129,7 +45129,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "check",
         value: function check(collection) {
-          var _this24 = this;
+          var _this25 = this;
 
           this._reset();
           /** @type {?} */
@@ -45179,18 +45179,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function (item) {
-              itemTrackBy = _this24._trackByFn(index, item);
+              itemTrackBy = _this25._trackByFn(index, item);
 
               if (record === null || !looseIdentical(record.trackById, itemTrackBy)) {
-                record = _this24._mismatch(record, item, itemTrackBy, index);
+                record = _this25._mismatch(record, item, itemTrackBy, index);
                 mayBeDirty = true;
               } else {
                 if (mayBeDirty) {
                   // TODO(misko): can we limit this to duplicates only?
-                  record = _this24._verifyReinsertion(record, item, itemTrackBy, index);
+                  record = _this25._verifyReinsertion(record, item, itemTrackBy, index);
                 }
 
-                if (!looseIdentical(record.item, item)) _this24._addIdentityChange(record, item);
+                if (!looseIdentical(record.item, item)) _this25._addIdentityChange(record, item);
               }
 
               record = record._next;
@@ -45697,7 +45697,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} trackById
      */
     function IterableChangeRecord_(item, trackById) {
-      _classCallCheck(this, IterableChangeRecord_);
+      _classCallCheck2(this, IterableChangeRecord_);
 
       this.item = item;
       this.trackById = trackById;
@@ -45766,7 +45766,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function _DuplicateItemRecordList() {
-        _classCallCheck(this, _DuplicateItemRecordList);
+        _classCallCheck2(this, _DuplicateItemRecordList);
 
         /**
          * \@internal
@@ -45893,7 +45893,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function _DuplicateMap() {
-        _classCallCheck(this, _DuplicateMap);
+        _classCallCheck2(this, _DuplicateMap);
 
         this.map = new Map();
       }
@@ -46026,7 +46026,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DefaultKeyValueDifferFactory() {
-        _classCallCheck(this, DefaultKeyValueDifferFactory);
+        _classCallCheck2(this, DefaultKeyValueDifferFactory);
       }
       /**
        * @param {?} obj
@@ -46062,7 +46062,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DefaultKeyValueDiffer() {
-        _classCallCheck(this, DefaultKeyValueDiffer);
+        _classCallCheck2(this, DefaultKeyValueDiffer);
 
         this._records = new Map();
         this._mapHead = null; // _appendAfter is used in the check loop
@@ -46189,7 +46189,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "check",
         value: function check(map) {
-          var _this25 = this;
+          var _this26 = this;
 
           this._reset();
           /** @type {?} */
@@ -46206,15 +46206,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function (value, key) {
             if (insertBefore && insertBefore.key === key) {
-              _this25._maybeAddToChanges(insertBefore, value);
+              _this26._maybeAddToChanges(insertBefore, value);
 
-              _this25._appendAfter = insertBefore;
+              _this26._appendAfter = insertBefore;
               insertBefore = insertBefore._next;
             } else {
               /** @type {?} */
-              var record = _this25._getOrCreateRecordForKey(key, value);
+              var record = _this26._getOrCreateRecordForKey(key, value);
 
-              insertBefore = _this25._insertBeforeOrAppend(insertBefore, record);
+              insertBefore = _this26._insertBeforeOrAppend(insertBefore, record);
             }
           }); // Items remaining at the end of the list have been deleted
 
@@ -46472,7 +46472,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} key
      */
     function KeyValueChangeRecord_(key) {
-      _classCallCheck(this, KeyValueChangeRecord_);
+      _classCallCheck2(this, KeyValueChangeRecord_);
 
       this.key = key;
       this.previousValue = null;
@@ -46601,7 +46601,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} factories
        */
       function IterableDiffers(factories) {
-        _classCallCheck(this, IterableDiffers);
+        _classCallCheck2(this, IterableDiffers);
 
         this.factories = factories;
       }
@@ -46793,7 +46793,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} factories
        */
       function KeyValueDiffers(factories) {
-        _classCallCheck(this, KeyValueDiffers);
+        _classCallCheck2(this, KeyValueDiffers);
 
         this.factories = factories;
       }
@@ -46962,7 +46962,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var TemplateRef = function TemplateRef() {
-      _classCallCheck(this, TemplateRef);
+      _classCallCheck2(this, TemplateRef);
     };
     /**
      * \@internal
@@ -47013,7 +47013,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var ViewContainerRef = function ViewContainerRef() {
-      _classCallCheck(this, ViewContainerRef);
+      _classCallCheck2(this, ViewContainerRef);
     };
     /**
      * \@internal
@@ -47534,7 +47534,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var NodeData = function NodeData() {
-      _classCallCheck(this, NodeData);
+      _classCallCheck2(this, NodeData);
     };
 
     if (false) {}
@@ -47682,7 +47682,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var DebugContext = function DebugContext() {
-      _classCallCheck(this, DebugContext);
+      _classCallCheck2(this, DebugContext);
     };
 
     if (false) {}
@@ -48124,10 +48124,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @param {?} __0
         * @return {?}
         */
-        function (_ref4) {
-          var _ref5 = _slicedToArray(_ref4, 2),
-              queryId = _ref5[0],
-              valueType = _ref5[1];
+        function (_ref5) {
+          var _ref6 = _slicedToArray2(_ref5, 2),
+              queryId = _ref6[0],
+              valueType = _ref6[1];
 
           if (typeof queryId === 'number') {
             matchedQueries[queryId] = valueType;
@@ -48165,7 +48165,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var flags;
 
         if (Array.isArray(value)) {
-          var _value2 = _slicedToArray(value, 2);
+          var _value2 = _slicedToArray2(value, 2);
 
           flags = _value2[0];
           token = _value2[1];
@@ -49321,20 +49321,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} ngContentSelectors
        */
       function ComponentFactory_(selector, componentType, viewDefFactory, _inputs, _outputs, ngContentSelectors) {
-        var _this26;
+        var _this27;
 
-        _classCallCheck(this, ComponentFactory_);
+        _classCallCheck2(this, ComponentFactory_);
 
         // Attention: this ctor is called as top level function.
         // Putting any logic in here will destroy closure tree shaking!
-        _this26 = _super15.call(this);
-        _this26.selector = selector;
-        _this26.componentType = componentType;
-        _this26._inputs = _inputs;
-        _this26._outputs = _outputs;
-        _this26.ngContentSelectors = ngContentSelectors;
-        _this26.viewDefFactory = viewDefFactory;
-        return _this26;
+        _this27 = _super15.call(this);
+        _this27.selector = selector;
+        _this27.componentType = componentType;
+        _this27._inputs = _inputs;
+        _this27._outputs = _outputs;
+        _this27.ngContentSelectors = ngContentSelectors;
+        _this27.viewDefFactory = viewDefFactory;
+        return _this27;
       }
       /**
        * @return {?}
@@ -49443,19 +49443,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _component
        */
       function ComponentRef_(_view, _viewRef, _component) {
-        var _this27;
+        var _this28;
 
-        _classCallCheck(this, ComponentRef_);
+        _classCallCheck2(this, ComponentRef_);
 
-        _this27 = _super16.call(this);
-        _this27._view = _view;
-        _this27._viewRef = _viewRef;
-        _this27._component = _component;
-        _this27._elDef = _this27._view.def.nodes[0];
-        _this27.hostView = _viewRef;
-        _this27.changeDetectorRef = _viewRef;
-        _this27.instance = _component;
-        return _this27;
+        _this28 = _super16.call(this);
+        _this28._view = _view;
+        _this28._viewRef = _viewRef;
+        _this28._component = _component;
+        _this28._elDef = _this28._view.def.nodes[0];
+        _this28.hostView = _viewRef;
+        _this28.changeDetectorRef = _viewRef;
+        _this28.instance = _component;
+        return _this28;
       }
       /**
        * @return {?}
@@ -49534,7 +49534,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _data
        */
       function ViewContainerRef_(_view, _elDef, _data) {
-        _classCallCheck(this, ViewContainerRef_);
+        _classCallCheck2(this, ViewContainerRef_);
 
         this._view = _view;
         this._elDef = _elDef;
@@ -49785,7 +49785,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _view
        */
       function ViewRef_(_view) {
-        _classCallCheck(this, ViewRef_);
+        _classCallCheck2(this, ViewRef_);
 
         this._view = _view;
         this._viewContainerRef = null;
@@ -49982,14 +49982,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _def
        */
       function TemplateRef_(_parentView, _def) {
-        var _this28;
+        var _this29;
 
-        _classCallCheck(this, TemplateRef_);
+        _classCallCheck2(this, TemplateRef_);
 
-        _this28 = _super17.call(this);
-        _this28._parentView = _parentView;
-        _this28._def = _def;
-        return _this28;
+        _this29 = _super17.call(this);
+        _this29._parentView = _parentView;
+        _this29._def = _def;
+        return _this29;
       }
       /**
        * @param {?} context
@@ -50040,7 +50040,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} elDef
        */
       function Injector_(view, elDef) {
-        _classCallCheck(this, Injector_);
+        _classCallCheck2(this, Injector_);
 
         this.view = view;
         this.elDef = elDef;
@@ -50132,7 +50132,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _def
        */
       function NgModuleRef_(_moduleType, _parent, _bootstrapComponents, _def) {
-        _classCallCheck(this, NgModuleRef_);
+        _classCallCheck2(this, NgModuleRef_);
 
         this._moduleType = _moduleType;
         this._parent = _parent;
@@ -50283,7 +50283,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       if (props) {
         for (var prop in props) {
-          var _props$prop = _slicedToArray(props[prop], 2),
+          var _props$prop = _slicedToArray2(props[prop], 2),
               bindingIndex = _props$prop[0],
               nonMinifiedName = _props$prop[1];
 
@@ -51271,13 +51271,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} ngModule The NgModuleRef to which all resolved factories are bound.
        */
       function ComponentFactoryResolver$1(ngModule) {
-        var _this29;
+        var _this30;
 
-        _classCallCheck(this, ComponentFactoryResolver$1);
+        _classCallCheck2(this, ComponentFactoryResolver$1);
 
-        _this29 = _super18.call(this);
-        _this29.ngModule = ngModule;
-        return _this29;
+        _this30 = _super18.call(this);
+        _this30.ngModule = ngModule;
+        return _this30;
       }
       /**
        * @template T
@@ -51407,18 +51407,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} ngModule The NgModuleRef to which the factory is bound.
        */
       function ComponentFactory$1(componentDef, ngModule) {
-        var _this30;
+        var _this31;
 
-        _classCallCheck(this, ComponentFactory$1);
+        _classCallCheck2(this, ComponentFactory$1);
 
-        _this30 = _super19.call(this);
-        _this30.componentDef = componentDef;
-        _this30.ngModule = ngModule;
-        _this30.componentType = componentDef.type;
-        _this30.selector = stringifyCSSSelectorList(componentDef.selectors);
-        _this30.ngContentSelectors = componentDef.ngContentSelectors ? componentDef.ngContentSelectors : [];
-        _this30.isBoundToModule = !!ngModule;
-        return _this30;
+        _this31 = _super19.call(this);
+        _this31.componentDef = componentDef;
+        _this31.ngModule = ngModule;
+        _this31.componentType = componentDef.type;
+        _this31.selector = stringifyCSSSelectorList(componentDef.selectors);
+        _this31.ngContentSelectors = componentDef.ngContentSelectors ? componentDef.ngContentSelectors : [];
+        _this31.isBoundToModule = !!ngModule;
+        return _this31;
       }
       /**
        * @return {?}
@@ -51631,20 +51631,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _tNode
        */
       function ComponentRef$1(componentType, instance, location, _rootLView, _tNode) {
-        var _this31;
+        var _this32;
 
-        _classCallCheck(this, ComponentRef$1);
+        _classCallCheck2(this, ComponentRef$1);
 
-        _this31 = _super20.call(this);
-        _this31.location = location;
-        _this31._rootLView = _rootLView;
-        _this31._tNode = _tNode;
-        _this31.destroyCbs = [];
-        _this31.instance = instance;
-        _this31.hostView = _this31.changeDetectorRef = new RootViewRef(_rootLView);
-        _this31.hostView._tViewNode = assignTViewNodeToLView(_rootLView[TVIEW], null, -1, _rootLView);
-        _this31.componentType = componentType;
-        return _this31;
+        _this32 = _super20.call(this);
+        _this32.location = location;
+        _this32._rootLView = _rootLView;
+        _this32._tNode = _tNode;
+        _this32.destroyCbs = [];
+        _this32.instance = instance;
+        _this32.hostView = _this32.changeDetectorRef = new RootViewRef(_rootLView);
+        _this32.hostView._tViewNode = assignTViewNodeToLView(_rootLView[TVIEW], null, -1, _rootLView);
+        _this32.componentType = componentType;
+        return _this32;
       }
       /**
        * @return {?}
@@ -52853,7 +52853,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } // update template id stack based on the current tag extracted
 
 
-          var _placeholders$idx = _slicedToArray(placeholders[idx], 3),
+          var _placeholders$idx = _slicedToArray2(placeholders[idx], 3),
               templateId = _placeholders$idx[0],
               isCloseTemplateTag = _placeholders$idx[1],
               placeholder = _placeholders$idx[2];
@@ -54047,7 +54047,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           /** @type {?} */
 
           var nestTIcuIndex = tIcus.length - 1;
-          icuCase.vars += Math.max.apply(Math, _toConsumableArray(tIcus[nestTIcuIndex].vars));
+          icuCase.vars += Math.max.apply(Math, _toConsumableArray2(tIcus[nestTIcuIndex].vars));
           icuCase.childIcus.push(nestTIcuIndex);
           /** @type {?} */
 
@@ -54265,23 +54265,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _parent
        */
       function NgModuleRef$1(ngModuleType, _parent) {
-        var _this32;
+        var _this33;
 
-        _classCallCheck(this, NgModuleRef$1);
+        _classCallCheck2(this, NgModuleRef$1);
 
-        _this32 = _super21.call(this);
-        _this32._parent = _parent; // tslint:disable-next-line:require-internal-with-underscore
+        _this33 = _super21.call(this);
+        _this33._parent = _parent; // tslint:disable-next-line:require-internal-with-underscore
 
-        _this32._bootstrapComponents = [];
-        _this32.injector = _assertThisInitialized(_this32);
-        _this32.destroyCbs = []; // When bootstrapping a module we have a dependency graph that looks like this:
+        _this33._bootstrapComponents = [];
+        _this33.injector = _assertThisInitialized(_this33);
+        _this33.destroyCbs = []; // When bootstrapping a module we have a dependency graph that looks like this:
         // ApplicationRef -> ComponentFactoryResolver -> NgModuleRef. The problem is that if the
         // module being resolved tries to inject the ComponentFactoryResolver, it'll create a
         // circular dependency which will result in a runtime error, because the injector doesn't
         // exist yet. We work around the issue by creating the ComponentFactoryResolver ourselves
         // and providing it, rather than letting the injector resolve it.
 
-        _this32.componentFactoryResolver = new ComponentFactoryResolver$1(_assertThisInitialized(_this32));
+        _this33.componentFactoryResolver = new ComponentFactoryResolver$1(_assertThisInitialized(_this33));
         /** @type {?} */
 
         var ngModuleDef = getNgModuleDef(ngModuleType);
@@ -54290,25 +54290,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         var ngLocaleIdDef = getNgLocaleIdDef(ngModuleType);
         ngLocaleIdDef && setLocaleId(ngLocaleIdDef);
-        _this32._bootstrapComponents = maybeUnwrapFn(
+        _this33._bootstrapComponents = maybeUnwrapFn(
         /** @type {?} */
         ngModuleDef.bootstrap);
-        _this32._r3Injector =
+        _this33._r3Injector =
         /** @type {?} */
         createInjectorWithoutInjectorInstances(ngModuleType, _parent, [{
           provide: NgModuleRef,
-          useValue: _assertThisInitialized(_this32)
+          useValue: _assertThisInitialized(_this33)
         }, {
           provide: ComponentFactoryResolver,
-          useValue: _this32.componentFactoryResolver
+          useValue: _this33.componentFactoryResolver
         }], stringify(ngModuleType)); // We need to resolve the injector types separately from the injector creation, because
         // the module might be trying to use this ref in its contructor for DI which will cause a
         // circular error that will eventually error out, because the injector isn't created yet.
 
-        _this32._r3Injector._resolveInjectorDefTypes();
+        _this33._r3Injector._resolveInjectorDefTypes();
 
-        _this32.instance = _this32.get(ngModuleType);
-        return _this32;
+        _this33.instance = _this33.get(ngModuleType);
+        return _this33;
       }
       /**
        * @param {?} token
@@ -54389,12 +54389,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} moduleType
        */
       function NgModuleFactory$1(moduleType) {
-        var _this33;
+        var _this34;
 
-        _classCallCheck(this, NgModuleFactory$1);
+        _classCallCheck2(this, NgModuleFactory$1);
 
-        _this33 = _super22.call(this);
-        _this33.moduleType = moduleType;
+        _this34 = _super22.call(this);
+        _this34.moduleType = moduleType;
         /** @type {?} */
 
         var ngModuleDef = getNgModuleDef(moduleType);
@@ -54428,7 +54428,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           moduleType);
         }
 
-        return _this33;
+        return _this34;
       }
       /**
        * @param {?} parentInjector
@@ -54504,7 +54504,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (clazz.decorators !== undefined && (!parentConstructor || parentConstructor.decorators !== clazz.decorators)) {
               var _clazz$decorators;
 
-              (_clazz$decorators = clazz.decorators).push.apply(_clazz$decorators, _toConsumableArray(decorators));
+              (_clazz$decorators = clazz.decorators).push.apply(_clazz$decorators, _toConsumableArray2(decorators));
             } else {
               clazz.decorators = decorators;
             }
@@ -55237,15 +55237,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        *
        */
       function EventEmitter() {
-        var _this34;
+        var _this35;
 
         var isAsync = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
-        _classCallCheck(this, EventEmitter);
+        _classCallCheck2(this, EventEmitter);
 
-        _this34 = _super23.call(this);
-        _this34.__isAsync = isAsync;
-        return _this34;
+        _this35 = _super23.call(this);
+        _this35.__isAsync = isAsync;
+        return _this35;
       }
       /**
        * Emits an event containing a given value.
@@ -55505,7 +55505,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function QueryList() {
-        _classCallCheck(this, QueryList);
+        _classCallCheck2(this, QueryList);
 
         this.dirty = true;
         this._results = [];
@@ -55916,7 +55916,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} queryList
        */
       function LQuery_(queryList) {
-        _classCallCheck(this, LQuery_);
+        _classCallCheck2(this, LQuery_);
 
         this.queryList = queryList;
         this.matches = null;
@@ -55956,7 +55956,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function LQueries_() {
         var queries = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
-        _classCallCheck(this, LQueries_);
+        _classCallCheck2(this, LQueries_);
 
         this.queries = queries;
       }
@@ -56048,7 +56048,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function TQueryMetadata_(predicate, descendants, isStatic) {
       var read = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-      _classCallCheck(this, TQueryMetadata_);
+      _classCallCheck2(this, TQueryMetadata_);
 
       this.predicate = predicate;
       this.descendants = descendants;
@@ -56067,7 +56067,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function TQueries_() {
         var queries = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
-        _classCallCheck(this, TQueries_);
+        _classCallCheck2(this, TQueries_);
 
         this.queries = queries;
       }
@@ -56192,7 +56192,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function TQuery_(metadata) {
         var nodeIndex = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : -1;
 
-        _classCallCheck(this, TQuery_);
+        _classCallCheck2(this, TQuery_);
 
         this.metadata = metadata;
         this.matches = null;
@@ -57339,7 +57339,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       declarations.forEach(verifyDirectivesHaveSelector);
       /** @type {?} */
 
-      var combinedDeclarations = [].concat(_toConsumableArray(declarations.map(resolveForwardRef)), _toConsumableArray(flatten(imports.map(computeCombinedExports)).map(resolveForwardRef)));
+      var combinedDeclarations = [].concat(_toConsumableArray2(declarations.map(resolveForwardRef)), _toConsumableArray2(flatten(imports.map(computeCombinedExports)).map(resolveForwardRef)));
       exports.forEach(verifyExportsAreDeclaredOrReExported);
       declarations.forEach(
       /**
@@ -57618,7 +57618,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /** @type {?} */
 
       var ngModuleDef = getNgModuleDef(type, true);
-      return _toConsumableArray(flatten(maybeUnwrapFn(ngModuleDef.exports).map(
+      return _toConsumableArray2(flatten(maybeUnwrapFn(ngModuleDef.exports).map(
       /**
       * @param {?} type
       * @return {?}
@@ -58917,7 +58917,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var imports = metadata && metadata.imports || [];
 
       if (metadata && metadata.exports) {
-        imports = [].concat(_toConsumableArray(imports), [metadata.exports]);
+        imports = [].concat(_toConsumableArray2(imports), [metadata.exports]);
       }
 
       /** @type {?} */
@@ -58980,9 +58980,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} appInits
        */
       function ApplicationInitStatus(appInits) {
-        var _this35 = this;
+        var _this36 = this;
 
-        _classCallCheck(this, ApplicationInitStatus);
+        _classCallCheck2(this, ApplicationInitStatus);
 
         this.appInits = appInits;
         this.initialized = false;
@@ -58994,8 +58994,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {?}
         */
         function (res, rej) {
-          _this35.resolve = res;
-          _this35.reject = rej;
+          _this36.resolve = res;
+          _this36.reject = rej;
         });
       }
       /**
@@ -59007,7 +59007,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(ApplicationInitStatus, [{
         key: "runInitializers",
         value: function runInitializers() {
-          var _this36 = this;
+          var _this37 = this;
 
           if (this.initialized) {
             return;
@@ -59024,9 +59024,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function complete() {
             /** @type {?} */
-            _this36.done = true;
+            _this37.done = true;
 
-            _this36.resolve();
+            _this37.resolve();
           };
 
           if (this.appInits) {
@@ -59052,7 +59052,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (e) {
-            _this36.reject(e);
+            _this37.reject(e);
           });
 
           if (asyncInitPromises.length === 0) {
@@ -59198,7 +59198,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function Console() {
-        _classCallCheck(this, Console);
+        _classCallCheck2(this, Console);
       }
 
       _createClass2(Console, [{
@@ -59420,7 +59420,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} componentFactories
      */
     function ModuleWithComponentFactories(ngModuleFactory, componentFactories) {
-      _classCallCheck(this, ModuleWithComponentFactories);
+      _classCallCheck2(this, ModuleWithComponentFactories);
 
       this.ngModuleFactory = ngModuleFactory;
       this.componentFactories = componentFactories;
@@ -59555,7 +59555,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function Compiler() {
-        _classCallCheck(this, Compiler);
+        _classCallCheck2(this, Compiler);
 
         /**
          * Compiles the given NgModule and all of its components. All templates of the components listed
@@ -59648,7 +59648,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var CompilerFactory = function CompilerFactory() {
-      _classCallCheck(this, CompilerFactory);
+      _classCallCheck2(this, CompilerFactory);
     };
 
     if (false) {}
@@ -59797,13 +59797,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /**
        * @param {?} __0
        */
-      function NgZone(_ref6) {
-        var _ref6$enableLongStack = _ref6.enableLongStackTrace,
-            enableLongStackTrace = _ref6$enableLongStack === void 0 ? false : _ref6$enableLongStack,
-            _ref6$shouldCoalesceE = _ref6.shouldCoalesceEventChangeDetection,
-            shouldCoalesceEventChangeDetection = _ref6$shouldCoalesceE === void 0 ? false : _ref6$shouldCoalesceE;
+      function NgZone(_ref7) {
+        var _ref7$enableLongStack = _ref7.enableLongStackTrace,
+            enableLongStackTrace = _ref7$enableLongStack === void 0 ? false : _ref7$enableLongStack,
+            _ref7$shouldCoalesceE = _ref7.shouldCoalesceEventChangeDetection,
+            shouldCoalesceEventChangeDetection = _ref7$shouldCoalesceE === void 0 ? false : _ref7$shouldCoalesceE;
 
-        _classCallCheck(this, NgZone);
+        _classCallCheck2(this, NgZone);
 
         this.hasPendingMacrotasks = false;
         this.hasPendingMicrotasks = false;
@@ -60271,7 +60271,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function NoopNgZone() {
-        _classCallCheck(this, NoopNgZone);
+        _classCallCheck2(this, NoopNgZone);
 
         this.hasPendingMicrotasks = false;
         this.hasPendingMacrotasks = false;
@@ -60380,9 +60380,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _ngZone
        */
       function Testability(_ngZone) {
-        var _this37 = this;
+        var _this38 = this;
 
-        _classCallCheck(this, Testability);
+        _classCallCheck2(this, Testability);
 
         this._ngZone = _ngZone;
         this._pendingCount = 0;
@@ -60405,7 +60405,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {?}
         */
         function () {
-          _this37.taskTrackingZone = typeof Zone == 'undefined' ? null : Zone.current.get('TaskTrackingZone');
+          _this38.taskTrackingZone = typeof Zone == 'undefined' ? null : Zone.current.get('TaskTrackingZone');
         });
       }
       /**
@@ -60417,7 +60417,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(Testability, [{
         key: "_watchAngularEvents",
         value: function _watchAngularEvents() {
-          var _this38 = this;
+          var _this39 = this;
 
           this._ngZone.onUnstable.subscribe({
             next:
@@ -60425,8 +60425,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function next() {
-              _this38._didWork = true;
-              _this38._isZoneStable = false;
+              _this39._didWork = true;
+              _this39._isZoneStable = false;
             }
           });
 
@@ -60435,7 +60435,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function () {
-            _this38._ngZone.onStable.subscribe({
+            _this39._ngZone.onStable.subscribe({
               next:
               /**
               * @return {?}
@@ -60447,9 +60447,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 * @return {?}
                 */
                 function () {
-                  _this38._isZoneStable = true;
+                  _this39._isZoneStable = true;
 
-                  _this38._runCallbacksIfReady();
+                  _this39._runCallbacksIfReady();
                 });
               }
             });
@@ -60505,7 +60505,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "_runCallbacksIfReady",
         value: function _runCallbacksIfReady() {
-          var _this39 = this;
+          var _this40 = this;
 
           if (this.isStable()) {
             // Schedules the call backs in a new frame so that it is always async.
@@ -60514,17 +60514,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function () {
-              while (_this39._callbacks.length !== 0) {
+              while (_this40._callbacks.length !== 0) {
                 /** @type {?} */
                 var cb =
                 /** @type {?} */
-                _this39._callbacks.pop();
+                _this40._callbacks.pop();
 
                 clearTimeout(cb.timeoutId);
-                cb.doneCb(_this39._didWork);
+                cb.doneCb(_this40._didWork);
               }
 
-              _this39._didWork = false;
+              _this40._didWork = false;
             });
           } else {
             // Still not stable, send updates.
@@ -60590,7 +60590,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addCallback",
         value: function addCallback(cb, timeout, updateCb) {
-          var _this40 = this;
+          var _this41 = this;
 
           /** @type {?} */
           var timeoutId = -1;
@@ -60601,7 +60601,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function () {
-              _this40._callbacks = _this40._callbacks.filter(
+              _this41._callbacks = _this41._callbacks.filter(
               /**
               * @param {?} cb
               * @return {?}
@@ -60609,7 +60609,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               function (cb) {
                 return cb.timeoutId !== timeoutId;
               });
-              cb(_this40._didWork, _this40.getPendingTasks());
+              cb(_this41._didWork, _this41.getPendingTasks());
             }, timeout);
           }
 
@@ -60720,7 +60720,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function TestabilityRegistry() {
-        _classCallCheck(this, TestabilityRegistry);
+        _classCallCheck2(this, TestabilityRegistry);
 
         /**
          * \@internal
@@ -60855,7 +60855,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function _NoopGetTestability() {
-        _classCallCheck(this, _NoopGetTestability);
+        _classCallCheck2(this, _NoopGetTestability);
       }
 
       _createClass2(_NoopGetTestability, [{
@@ -61061,7 +61061,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} token
      */
     function NgProbeToken(name, token) {
-      _classCallCheck(this, NgProbeToken);
+      _classCallCheck2(this, NgProbeToken);
 
       this.name = name;
       this.token = token;
@@ -61232,7 +61232,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _injector
        */
       function PlatformRef(_injector) {
-        _classCallCheck(this, PlatformRef);
+        _classCallCheck2(this, PlatformRef);
 
         this._injector = _injector;
         this._modules = [];
@@ -61270,7 +61270,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(PlatformRef, [{
         key: "bootstrapModuleFactory",
         value: function bootstrapModuleFactory(moduleFactory, options) {
-          var _this41 = this;
+          var _this42 = this;
 
           // Note: We need to create the NgZone _before_ we instantiate the module,
           // as instantiating the module creates some providers eagerly.
@@ -61301,7 +61301,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             /** @type {?} */
             var ngZoneInjector = Injector.create({
               providers: providers,
-              parent: _this41.injector,
+              parent: _this42.injector,
               name: moduleFactory.moduleType.name
             });
             /** @type {?} */
@@ -61322,7 +61322,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function () {
-              return remove(_this41._modules, moduleRef);
+              return remove(_this42._modules, moduleRef);
             });
 
             /** @type {?} */
@@ -61368,7 +61368,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   setLocaleId(localeId || DEFAULT_LOCALE_ID);
                 }
 
-                _this41._moduleDoBootstrap(moduleRef);
+                _this42._moduleDoBootstrap(moduleRef);
 
                 return moduleRef;
               });
@@ -61399,7 +61399,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "bootstrapModule",
         value: function bootstrapModule(moduleType) {
-          var _this42 = this;
+          var _this43 = this;
 
           var compilerOptions = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
 
@@ -61411,7 +61411,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (moduleFactory) {
-            return _this42.bootstrapModuleFactory(moduleFactory, options);
+            return _this43.bootstrapModuleFactory(moduleFactory, options);
           });
         }
         /**
@@ -61736,9 +61736,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _initStatus
        */
       function ApplicationRef(_zone, _console, _injector, _exceptionHandler, _componentFactoryResolver, _initStatus) {
-        var _this43 = this;
+        var _this44 = this;
 
-        _classCallCheck(this, ApplicationRef);
+        _classCallCheck2(this, ApplicationRef);
 
         this._zone = _zone;
         this._console = _console;
@@ -61774,12 +61774,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function next() {
-            _this43._zone.run(
+            _this44._zone.run(
             /**
             * @return {?}
             */
             function () {
-              _this43.tick();
+              _this44.tick();
             });
           }
         });
@@ -61792,14 +61792,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {?}
         */
         function (observer) {
-          _this43._stable = _this43._zone.isStable && !_this43._zone.hasPendingMacrotasks && !_this43._zone.hasPendingMicrotasks;
+          _this44._stable = _this44._zone.isStable && !_this44._zone.hasPendingMacrotasks && !_this44._zone.hasPendingMicrotasks;
 
-          _this43._zone.runOutsideAngular(
+          _this44._zone.runOutsideAngular(
           /**
           * @return {?}
           */
           function () {
-            observer.next(_this43._stable);
+            observer.next(_this44._stable);
             observer.complete();
           });
         });
@@ -61817,12 +61817,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           /** @type {?} */
           var stableSub;
 
-          _this43._zone.runOutsideAngular(
+          _this44._zone.runOutsideAngular(
           /**
           * @return {?}
           */
           function () {
-            stableSub = _this43._zone.onStable.subscribe(
+            stableSub = _this44._zone.onStable.subscribe(
             /**
             * @return {?}
             */
@@ -61835,8 +61835,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               * @return {?}
               */
               function () {
-                if (!_this43._stable && !_this43._zone.hasPendingMacrotasks && !_this43._zone.hasPendingMicrotasks) {
-                  _this43._stable = true;
+                if (!_this44._stable && !_this44._zone.hasPendingMacrotasks && !_this44._zone.hasPendingMicrotasks) {
+                  _this44._stable = true;
                   observer.next(true);
                 }
               });
@@ -61845,17 +61845,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           /** @type {?} */
 
 
-          var unstableSub = _this43._zone.onUnstable.subscribe(
+          var unstableSub = _this44._zone.onUnstable.subscribe(
           /**
           * @return {?}
           */
           function () {
             NgZone.assertInAngularZone();
 
-            if (_this43._stable) {
-              _this43._stable = false;
+            if (_this44._stable) {
+              _this44._stable = false;
 
-              _this43._zone.runOutsideAngular(
+              _this44._zone.runOutsideAngular(
               /**
               * @return {?}
               */
@@ -61904,7 +61904,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(ApplicationRef, [{
         key: "bootstrap",
         value: function bootstrap(componentOrFactory, rootSelectorOrNode) {
-          var _this44 = this;
+          var _this45 = this;
 
           if (!this._initStatus.done) {
             throw new Error('Cannot bootstrap as there are still asynchronous initializers running. Bootstrap components in the `ngDoBootstrap` method of the root module.');
@@ -61938,7 +61938,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function () {
-            _this44._unloadComponent(compRef);
+            _this45._unloadComponent(compRef);
           });
           /** @type {?} */
 
@@ -61971,7 +61971,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "tick",
         value: function tick() {
-          var _this45 = this;
+          var _this46 = this;
 
           if (this._runningTick) {
             throw new Error('ApplicationRef.tick is called recursively');
@@ -62017,7 +62017,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function () {
-              return _this45._exceptionHandler.handleError(e);
+              return _this46._exceptionHandler.handleError(e);
             });
           } finally {
             this._runningTick = false;
@@ -62210,7 +62210,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       * @return {?}
       */
       function (part) {
-        return part && result.push.apply(result, _toConsumableArray(part));
+        return part && result.push.apply(result, _toConsumableArray2(part));
       });
       return result;
     }
@@ -62243,7 +62243,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var NgModuleFactoryLoader = function NgModuleFactoryLoader() {
-      _classCallCheck(this, NgModuleFactoryLoader);
+      _classCallCheck2(this, NgModuleFactoryLoader);
     };
 
     if (false) {}
@@ -62317,7 +62317,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var SystemJsNgModuleLoaderConfig = function SystemJsNgModuleLoaderConfig() {
-      _classCallCheck(this, SystemJsNgModuleLoaderConfig);
+      _classCallCheck2(this, SystemJsNgModuleLoaderConfig);
     };
 
     if (false) {}
@@ -62343,7 +62343,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} config
        */
       function SystemJsNgModuleLoader(_compiler, config) {
-        _classCallCheck(this, SystemJsNgModuleLoader);
+        _classCallCheck2(this, SystemJsNgModuleLoader);
 
         this._compiler = _compiler;
         this._config = config || DEFAULT_CONFIG;
@@ -62370,10 +62370,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "loadAndCompile",
         value: function loadAndCompile(path) {
-          var _this46 = this;
+          var _this47 = this;
 
           var _path$split = path.split(_SEPARATOR),
-              _path$split2 = _slicedToArray(_path$split, 2),
+              _path$split2 = _slicedToArray2(_path$split, 2),
               module = _path$split2[0],
               exportName = _path$split2[1];
 
@@ -62401,7 +62401,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (type) {
-            return _this46._compiler.compileModuleAsync(type);
+            return _this47._compiler.compileModuleAsync(type);
           });
         }
         /**
@@ -62414,7 +62414,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "loadFactory",
         value: function loadFactory(path) {
           var _path$split3 = path.split(_SEPARATOR),
-              _path$split4 = _slicedToArray(_path$split3, 2),
+              _path$split4 = _slicedToArray2(_path$split3, 2),
               module = _path$split4[0],
               exportName = _path$split4[1];
           /** @type {?} */
@@ -62529,7 +62529,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super24 = _createSuper(ViewRef$1);
 
       function ViewRef$1() {
-        _classCallCheck(this, ViewRef$1);
+        _classCallCheck2(this, ViewRef$1);
 
         return _super24.apply(this, arguments);
       }
@@ -62603,7 +62603,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super25 = _createSuper(EmbeddedViewRef);
 
       function EmbeddedViewRef() {
-        _classCallCheck(this, EmbeddedViewRef);
+        _classCallCheck2(this, EmbeddedViewRef);
 
         return _super25.apply(this, arguments);
       }
@@ -62643,7 +62643,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} callback
      */
     function DebugEventListener(name, callback) {
-      _classCallCheck(this, DebugEventListener);
+      _classCallCheck2(this, DebugEventListener);
 
       this.name = name;
       this.callback = callback;
@@ -62661,7 +62661,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _debugContext
        */
       function DebugNode__PRE_R3__(nativeNode, parent, _debugContext) {
-        _classCallCheck(this, DebugNode__PRE_R3__);
+        _classCallCheck2(this, DebugNode__PRE_R3__);
 
         this.listeners = [];
         this.parent = null;
@@ -62739,18 +62739,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _debugContext
        */
       function DebugElement__PRE_R3__(nativeNode, parent, _debugContext) {
-        var _this47;
+        var _this48;
 
-        _classCallCheck(this, DebugElement__PRE_R3__);
+        _classCallCheck2(this, DebugElement__PRE_R3__);
 
-        _this47 = _super26.call(this, nativeNode, parent, _debugContext);
-        _this47.properties = {};
-        _this47.attributes = {};
-        _this47.classes = {};
-        _this47.styles = {};
-        _this47.childNodes = [];
-        _this47.nativeElement = nativeNode;
-        return _this47;
+        _this48 = _super26.call(this, nativeNode, parent, _debugContext);
+        _this48.properties = {};
+        _this48.attributes = {};
+        _this48.classes = {};
+        _this48.styles = {};
+        _this48.childNodes = [];
+        _this48.nativeElement = nativeNode;
+        return _this48;
       }
       /**
        * @param {?} child
@@ -62794,7 +62794,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "insertChildrenAfter",
         value: function insertChildrenAfter(child, newChildren) {
-          var _this48 = this;
+          var _this49 = this;
 
           /** @type {?} */
           var siblingIndex = this.childNodes.indexOf(child);
@@ -62802,7 +62802,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (siblingIndex !== -1) {
             var _this$childNodes;
 
-            (_this$childNodes = this.childNodes).splice.apply(_this$childNodes, [siblingIndex + 1, 0].concat(_toConsumableArray(newChildren)));
+            (_this$childNodes = this.childNodes).splice.apply(_this$childNodes, [siblingIndex + 1, 0].concat(_toConsumableArray2(newChildren)));
 
             newChildren.forEach(
             /**
@@ -62816,7 +62816,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
 
               /** @type {?} */
-              child.parent = _this48;
+              child.parent = _this49;
             });
           }
         }
@@ -63008,7 +63008,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} nativeNode
        */
       function DebugNode__POST_R3__(nativeNode) {
-        _classCallCheck(this, DebugNode__POST_R3__);
+        _classCallCheck2(this, DebugNode__POST_R3__);
 
         this.nativeNode = nativeNode;
       }
@@ -63117,7 +63117,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} nativeNode
        */
       function DebugElement__POST_R3__(nativeNode) {
-        _classCallCheck(this, DebugElement__POST_R3__);
+        _classCallCheck2(this, DebugElement__POST_R3__);
 
         ngDevMode && assertDomNode(nativeNode);
         return _super27.call(this, nativeNode);
@@ -64177,7 +64177,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} appRef
      */
     function ApplicationModule(appRef) {
-      _classCallCheck(this, ApplicationModule);
+      _classCallCheck2(this, ApplicationModule);
     };
 
     ApplicationModule.ɵmod = ɵɵdefineNgModule({
@@ -64328,7 +64328,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       if (namespaceAndName) {
         var _splitNamespace = splitNamespace(namespaceAndName);
 
-        var _splitNamespace2 = _slicedToArray(_splitNamespace, 2);
+        var _splitNamespace2 = _slicedToArray2(_splitNamespace, 2);
 
         ns = _splitNamespace2[0];
         name = _splitNamespace2[1];
@@ -64340,13 +64340,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var bindingDefs = [];
 
       for (var i = 0; i < bindings.length; i++) {
-        var _bindings$i = _slicedToArray(bindings[i], 3),
+        var _bindings$i = _slicedToArray2(bindings[i], 3),
             bindingFlags = _bindings$i[0],
             _namespaceAndName = _bindings$i[1],
             suffixOrSecurityContext = _bindings$i[2];
 
         var _splitNamespace3 = splitNamespace(_namespaceAndName),
-            _splitNamespace4 = _slicedToArray(_splitNamespace3, 2),
+            _splitNamespace4 = _slicedToArray2(_splitNamespace3, 2),
             _ns = _splitNamespace4[0],
             _name = _splitNamespace4[1];
         /** @type {?} */
@@ -64400,7 +64400,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var outputDefs = [];
 
       for (var _i12 = 0; _i12 < outputs.length; _i12++) {
-        var _outputs$_i = _slicedToArray(outputs[_i12], 2),
+        var _outputs$_i = _slicedToArray2(outputs[_i12], 2),
             target = _outputs$_i[0],
             eventName = _outputs$_i[1];
 
@@ -64426,13 +64426,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       * @param {?} __0
       * @return {?}
       */
-      function (_ref7) {
-        var _ref8 = _slicedToArray(_ref7, 2),
-            namespaceAndName = _ref8[0],
-            value = _ref8[1];
+      function (_ref8) {
+        var _ref9 = _slicedToArray2(_ref8, 2),
+            namespaceAndName = _ref9[0],
+            value = _ref9[1];
 
         var _splitNamespace5 = splitNamespace(namespaceAndName),
-            _splitNamespace6 = _slicedToArray(_splitNamespace5, 2),
+            _splitNamespace6 = _slicedToArray2(_splitNamespace5, 2),
             ns = _splitNamespace6[0],
             name = _splitNamespace6[1];
 
@@ -64536,7 +64536,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       if (elDef.attrs) {
         for (var i = 0; i < elDef.attrs.length; i++) {
-          var _elDef$attrs$i = _slicedToArray(elDef.attrs[i], 3),
+          var _elDef$attrs$i = _slicedToArray2(elDef.attrs[i], 3),
               ns = _elDef$attrs$i[0],
               name = _elDef$attrs$i[1],
               value = _elDef$attrs$i[2];
@@ -65590,7 +65590,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var params = values.slice(1);
             value =
             /** @type {?} */
-            pipe.transform.apply(pipe, _toConsumableArray(params));
+            pipe.transform.apply(pipe, _toConsumableArray2(params));
             break;
         }
 
@@ -67904,8 +67904,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         /** @type {?} */
         var nodeDef = view.def.nodes[nodeIndex];
 
-        for (var _len10 = arguments.length, values = new Array(_len10 > 3 ? _len10 - 3 : 0), _key10 = 3; _key10 < _len10; _key10++) {
-          values[_key10 - 3] = arguments[_key10];
+        for (var _len11 = arguments.length, values = new Array(_len11 > 3 ? _len11 - 3 : 0), _key11 = 3; _key11 < _len11; _key11++) {
+          values[_key11 - 3] = arguments[_key11];
         }
 
         if (checkType === 0
@@ -67955,8 +67955,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         /** @type {?} */
         var nodeDef = view.def.nodes[nodeIndex];
 
-        for (var _len11 = arguments.length, values = new Array(_len11 > 3 ? _len11 - 3 : 0), _key11 = 3; _key11 < _len11; _key11++) {
-          values[_key11 - 3] = arguments[_key11];
+        for (var _len12 = arguments.length, values = new Array(_len12 > 3 ? _len12 - 3 : 0), _key12 = 3; _key12 < _len12; _key12++) {
+          values[_key12 - 3] = arguments[_key12];
         }
 
         if (checkType === 0
@@ -67991,7 +67991,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /** @type {?} */
       var changed =
       /** @type {?} */
-      checkAndUpdateNode.apply(void 0, [view, nodeDef, argStyle].concat(_toConsumableArray(givenValues)));
+      checkAndUpdateNode.apply(void 0, [view, nodeDef, argStyle].concat(_toConsumableArray2(givenValues)));
 
       if (changed) {
         /** @type {?} */
@@ -68062,7 +68062,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     function debugCheckNoChangesNode(view, nodeDef, argStyle, values) {
       /** @type {?} */
-      checkNoChangesNode.apply(void 0, [view, nodeDef, argStyle].concat(_toConsumableArray(values)));
+      checkNoChangesNode.apply(void 0, [view, nodeDef, argStyle].concat(_toConsumableArray2(values)));
     }
     /**
      * @param {?} view
@@ -68115,7 +68115,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} nodeIndex
        */
       function DebugContext_(view, nodeIndex) {
-        _classCallCheck(this, DebugContext_);
+        _classCallCheck2(this, DebugContext_);
 
         this.view = view;
         this.nodeIndex = nodeIndex;
@@ -68169,8 +68169,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
          * @return {?}
          */
         value: function logError(console) {
-          for (var _len12 = arguments.length, values = new Array(_len12 > 1 ? _len12 - 1 : 0), _key12 = 1; _key12 < _len12; _key12++) {
-            values[_key12 - 1] = arguments[_key12];
+          for (var _len13 = arguments.length, values = new Array(_len13 > 1 ? _len13 - 1 : 0), _key13 = 1; _key13 < _len13; _key13++) {
+            values[_key13 - 1] = arguments[_key13];
           }
 
           /** @type {?} */
@@ -68456,7 +68456,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} delegate
        */
       function DebugRendererFactory2(delegate) {
-        _classCallCheck(this, DebugRendererFactory2);
+        _classCallCheck2(this, DebugRendererFactory2);
 
         this.delegate = delegate;
       }
@@ -68521,7 +68521,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} delegate
        */
       function DebugRenderer2(delegate) {
-        _classCallCheck(this, DebugRenderer2);
+        _classCallCheck2(this, DebugRenderer2);
 
         this.delegate = delegate;
         /**
@@ -69021,17 +69021,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _ngModuleDefFactory
        */
       function NgModuleFactory_(moduleType, _bootstrapComponents, _ngModuleDefFactory) {
-        var _this49;
+        var _this50;
 
-        _classCallCheck(this, NgModuleFactory_);
+        _classCallCheck2(this, NgModuleFactory_);
 
         // Attention: this ctor is called as top level function.
         // Putting any logic in here will destroy closure tree shaking!
-        _this49 = _super28.call(this);
-        _this49.moduleType = moduleType;
-        _this49._bootstrapComponents = _bootstrapComponents;
-        _this49._ngModuleDefFactory = _ngModuleDefFactory;
-        return _this49;
+        _this50 = _super28.call(this);
+        _this50.moduleType = moduleType;
+        _this50._bootstrapComponents = _bootstrapComponents;
+        _this50._ngModuleDefFactory = _ngModuleDefFactory;
+        return _this50;
       }
       /**
        * @param {?} parentInjector
@@ -69511,7 +69511,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super29 = _createSuper(GenericBrowserDomAdapter);
 
       function GenericBrowserDomAdapter() {
-        _classCallCheck(this, GenericBrowserDomAdapter);
+        _classCallCheck2(this, GenericBrowserDomAdapter);
 
         return _super29.call(this);
       }
@@ -69579,7 +69579,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super30 = _createSuper(BrowserDomAdapter);
 
       function BrowserDomAdapter() {
-        _classCallCheck(this, BrowserDomAdapter);
+        _classCallCheck2(this, BrowserDomAdapter);
 
         return _super30.apply(this, arguments);
       }
@@ -69970,7 +69970,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function BrowserGetTestability() {
-        _classCallCheck(this, BrowserGetTestability);
+        _classCallCheck2(this, BrowserGetTestability);
       }
 
       _createClass2(BrowserGetTestability, [{
@@ -70141,8 +70141,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       * @return {?}
       */
       function () {
-        for (var _len13 = arguments.length, m = new Array(_len13), _key13 = 0; _key13 < _len13; _key13++) {
-          m[_key13] = arguments[_key13];
+        for (var _len14 = arguments.length, m = new Array(_len14), _key14 = 0; _key14 < _len14; _key14++) {
+          m[_key14] = arguments[_key14];
         }
 
         return '-' + m[1].toLowerCase();
@@ -70161,8 +70161,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       * @return {?}
       */
       function () {
-        for (var _len14 = arguments.length, m = new Array(_len14), _key14 = 0; _key14 < _len14; _key14++) {
-          m[_key14] = arguments[_key14];
+        for (var _len15 = arguments.length, m = new Array(_len15), _key15 = 0; _key15 < _len15; _key15++) {
+          m[_key15] = arguments[_key15];
         }
 
         return m[1].toUpperCase();
@@ -70320,9 +70320,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _zone
        */
       function EventManager(plugins, _zone) {
-        var _this50 = this;
+        var _this51 = this;
 
-        _classCallCheck(this, EventManager);
+        _classCallCheck2(this, EventManager);
 
         this._zone = _zone;
         this._eventNameToPlugin = new Map();
@@ -70334,7 +70334,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {THIS}
         */
         function (p) {
-          return p.manager = _this50;
+          return p.manager = _this51;
         });
         this._plugins = plugins.slice().reverse();
       }
@@ -70476,7 +70476,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _doc
        */
       function EventManagerPlugin(_doc) {
-        _classCallCheck(this, EventManagerPlugin);
+        _classCallCheck2(this, EventManagerPlugin);
 
         this._doc = _doc;
       }
@@ -70517,7 +70517,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SharedStylesHost() {
-        _classCallCheck(this, SharedStylesHost);
+        _classCallCheck2(this, SharedStylesHost);
 
         /**
          * \@internal
@@ -70533,7 +70533,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(SharedStylesHost, [{
         key: "addStyles",
         value: function addStyles(styles) {
-          var _this51 = this;
+          var _this52 = this;
 
           /** @type {?} */
           var additions = new Set();
@@ -70543,8 +70543,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (style) {
-            if (!_this51._stylesSet.has(style)) {
-              _this51._stylesSet.add(style);
+            if (!_this52._stylesSet.has(style)) {
+              _this52._stylesSet.add(style);
 
               additions.add(style);
             }
@@ -70604,18 +70604,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _doc
        */
       function DomSharedStylesHost(_doc) {
-        var _this52;
+        var _this53;
 
-        _classCallCheck(this, DomSharedStylesHost);
+        _classCallCheck2(this, DomSharedStylesHost);
 
-        _this52 = _super31.call(this);
-        _this52._doc = _doc;
-        _this52._hostNodes = new Set();
-        _this52._styleNodes = new Set();
+        _this53 = _super31.call(this);
+        _this53._doc = _doc;
+        _this53._hostNodes = new Set();
+        _this53._styleNodes = new Set();
 
-        _this52._hostNodes.add(_doc.head);
+        _this53._hostNodes.add(_doc.head);
 
-        return _this52;
+        return _this53;
       }
       /**
        * @private
@@ -70628,7 +70628,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(DomSharedStylesHost, [{
         key: "_addStylesToHost",
         value: function _addStylesToHost(styles, host) {
-          var _this53 = this;
+          var _this54 = this;
 
           styles.forEach(
           /**
@@ -70637,11 +70637,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function (style) {
             /** @type {?} */
-            var styleEl = _this53._doc.createElement('style');
+            var styleEl = _this54._doc.createElement('style');
 
             styleEl.textContent = style;
 
-            _this53._styleNodes.add(host.appendChild(styleEl));
+            _this54._styleNodes.add(host.appendChild(styleEl));
           });
         }
         /**
@@ -70674,7 +70674,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onStylesAdded",
         value: function onStylesAdded(additions) {
-          var _this54 = this;
+          var _this55 = this;
 
           this._hostNodes.forEach(
           /**
@@ -70682,7 +70682,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (hostNode) {
-            return _this54._addStylesToHost(additions, hostNode);
+            return _this55._addStylesToHost(additions, hostNode);
           });
         }
         /**
@@ -70863,7 +70863,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} appId
        */
       function DomRendererFactory2(eventManager, sharedStylesHost, appId) {
-        _classCallCheck(this, DomRendererFactory2);
+        _classCallCheck2(this, DomRendererFactory2);
 
         this.eventManager = eventManager;
         this.sharedStylesHost = sharedStylesHost;
@@ -70990,7 +70990,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} eventManager
        */
       function DefaultDomRenderer2(eventManager) {
-        _classCallCheck(this, DefaultDomRenderer2);
+        _classCallCheck2(this, DefaultDomRenderer2);
 
         this.eventManager = eventManager;
         this.data = Object.create(null);
@@ -71328,19 +71328,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} appId
        */
       function EmulatedEncapsulationDomRenderer2(eventManager, sharedStylesHost, component, appId) {
-        var _this55;
+        var _this56;
 
-        _classCallCheck(this, EmulatedEncapsulationDomRenderer2);
+        _classCallCheck2(this, EmulatedEncapsulationDomRenderer2);
 
-        _this55 = _super32.call(this, eventManager);
-        _this55.component = component;
+        _this56 = _super32.call(this, eventManager);
+        _this56.component = component;
         /** @type {?} */
 
         var styles = flattenStyles(appId + '-' + component.id, component.styles, []);
         sharedStylesHost.addStyles(styles);
-        _this55.contentAttr = shimContentAttribute(appId + '-' + component.id);
-        _this55.hostAttr = shimHostAttribute(appId + '-' + component.id);
-        return _this55;
+        _this56.contentAttr = shimContentAttribute(appId + '-' + component.id);
+        _this56.hostAttr = shimHostAttribute(appId + '-' + component.id);
+        return _this56;
       }
       /**
        * @param {?} element
@@ -71390,28 +71390,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} component
        */
       function ShadowDomRenderer(eventManager, sharedStylesHost, hostEl, component) {
-        var _this56;
+        var _this57;
 
-        _classCallCheck(this, ShadowDomRenderer);
+        _classCallCheck2(this, ShadowDomRenderer);
 
-        _this56 = _super33.call(this, eventManager);
-        _this56.sharedStylesHost = sharedStylesHost;
-        _this56.hostEl = hostEl;
-        _this56.component = component;
+        _this57 = _super33.call(this, eventManager);
+        _this57.sharedStylesHost = sharedStylesHost;
+        _this57.hostEl = hostEl;
+        _this57.component = component;
 
         if (component.encapsulation === _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].ShadowDom) {
-          _this56.shadowRoot =
+          _this57.shadowRoot =
           /** @type {?} */
           hostEl.attachShadow({
             mode: 'open'
           });
         } else {
-          _this56.shadowRoot =
+          _this57.shadowRoot =
           /** @type {?} */
           hostEl.createShadowRoot();
         }
 
-        _this56.sharedStylesHost.addHost(_this56.shadowRoot);
+        _this57.sharedStylesHost.addHost(_this57.shadowRoot);
         /** @type {?} */
 
 
@@ -71422,10 +71422,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var styleEl = document.createElement('style');
           styleEl.textContent = styles[i];
 
-          _this56.shadowRoot.appendChild(styleEl);
+          _this57.shadowRoot.appendChild(styleEl);
         }
 
-        return _this56;
+        return _this57;
       }
       /**
        * @private
@@ -71516,7 +71516,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} doc
        */
       function DomEventsPlugin(doc) {
-        _classCallCheck(this, DomEventsPlugin);
+        _classCallCheck2(this, DomEventsPlugin);
 
         return _super34.call(this, doc);
       } // This plugin should come last in the list of plugins, because it accepts all
@@ -71543,7 +71543,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addEventListener",
         value: function addEventListener(element, eventName, handler) {
-          var _this57 = this;
+          var _this58 = this;
 
           element.addEventListener(eventName,
           /** @type {?} */
@@ -71553,7 +71553,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function () {
-              return _this57.removeEventListener(element, eventName,
+              return _this58.removeEventListener(element, eventName,
               /** @type {?} */
               handler);
             }
@@ -71698,7 +71698,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function HammerGestureConfig() {
-        _classCallCheck(this, HammerGestureConfig);
+        _classCallCheck2(this, HammerGestureConfig);
 
         /**
          * A set of supported event names for gestures to be used in Angular.
@@ -71798,15 +71798,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} loader
        */
       function HammerGesturesPlugin(doc, _config, console, loader) {
-        var _this58;
+        var _this59;
 
-        _classCallCheck(this, HammerGesturesPlugin);
+        _classCallCheck2(this, HammerGesturesPlugin);
 
-        _this58 = _super35.call(this, doc);
-        _this58._config = _config;
-        _this58.console = console;
-        _this58.loader = loader;
-        return _this58;
+        _this59 = _super35.call(this, doc);
+        _this59._config = _config;
+        _this59.console = console;
+        _this59.loader = loader;
+        return _this59;
       }
       /**
        * @param {?} eventName
@@ -71840,7 +71840,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addEventListener",
         value: function addEventListener(element, eventName, handler) {
-          var _this59 = this;
+          var _this60 = this;
 
           /** @type {?} */
           var zone = this.manager.getZone();
@@ -71875,7 +71875,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               if (!
               /** @type {?} */
               window.Hammer) {
-                _this59.console.warn("The custom HAMMER_LOADER completed, but Hammer.JS is not present.");
+                _this60.console.warn("The custom HAMMER_LOADER completed, but Hammer.JS is not present.");
 
                 deregister =
                 /**
@@ -71889,14 +71889,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               if (!cancelRegistration) {
                 // Now that Hammer is loaded and the listener is being loaded for real,
                 // the deregistration function changes from canceling registration to removal.
-                deregister = _this59.addEventListener(element, eventName, handler);
+                deregister = _this60.addEventListener(element, eventName, handler);
               }
             })["catch"](
             /**
             * @return {?}
             */
             function () {
-              _this59.console.warn("The \"".concat(eventName, "\" event cannot be bound because the custom ") + "Hammer.JS loader failed.");
+              _this60.console.warn("The \"".concat(eventName, "\" event cannot be bound because the custom ") + "Hammer.JS loader failed.");
 
               deregister =
               /**
@@ -71925,7 +71925,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             // Creating the manager bind events, must be done outside of angular
 
             /** @type {?} */
-            var mc = _this59._config.buildHammer(element);
+            var mc = _this60._config.buildHammer(element);
             /** @type {?} */
 
 
@@ -72083,7 +72083,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      */
 
     var HammerModule = function HammerModule() {
-      _classCallCheck(this, HammerModule);
+      _classCallCheck2(this, HammerModule);
     };
 
     HammerModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
@@ -72226,7 +72226,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} doc The document in which key events will be detected.
        */
       function KeyEventsPlugin(doc) {
-        _classCallCheck(this, KeyEventsPlugin);
+        _classCallCheck2(this, KeyEventsPlugin);
 
         return _super36.call(this, doc);
       }
@@ -72582,7 +72582,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var DomSanitizer = function DomSanitizer() {
-      _classCallCheck(this, DomSanitizer);
+      _classCallCheck2(this, DomSanitizer);
     };
 
     DomSanitizer.ɵfac = function DomSanitizer_Factory(t) {
@@ -72638,13 +72638,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _doc
        */
       function DomSanitizerImpl(_doc) {
-        var _this60;
+        var _this61;
 
-        _classCallCheck(this, DomSanitizerImpl);
+        _classCallCheck2(this, DomSanitizerImpl);
 
-        _this60 = _super37.call(this);
-        _this60._doc = _doc;
-        return _this60;
+        _this61 = _super37.call(this);
+        _this61._doc = _doc;
+        return _this61;
       }
       /**
        * @param {?} ctx
@@ -72957,7 +72957,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} parentModule
        */
       function BrowserModule(parentModule) {
-        _classCallCheck(this, BrowserModule);
+        _classCallCheck2(this, BrowserModule);
 
         if (parentModule) {
           throw new Error("BrowserModule has already been loaded. If you need access to common directives such as NgIf and NgFor from a lazy loaded module, import CommonModule instead.");
@@ -73078,7 +73078,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _doc
        */
       function Meta(_doc) {
-        _classCallCheck(this, Meta);
+        _classCallCheck2(this, Meta);
 
         this._doc = _doc;
         this._dom = Object(_angular_common__WEBPACK_IMPORTED_MODULE_0__["ɵgetDOM"])();
@@ -73106,7 +73106,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addTags",
         value: function addTags(tags) {
-          var _this61 = this;
+          var _this62 = this;
 
           var forceCreation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           if (!tags) return [];
@@ -73118,7 +73118,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function (result, tag) {
             if (tag) {
-              result.push(_this61._getOrCreateElement(tag, forceCreation));
+              result.push(_this62._getOrCreateElement(tag, forceCreation));
             }
 
             return result;
@@ -73377,7 +73377,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} _doc
        */
       function Title(_doc) {
-        _classCallCheck(this, Title);
+        _classCallCheck2(this, Title);
 
         this._doc = _doc;
       }
@@ -73485,7 +73485,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} numTicks
      */
     function ChangeDetectionPerfRecord(msPerTick, numTicks) {
-      _classCallCheck(this, ChangeDetectionPerfRecord);
+      _classCallCheck2(this, ChangeDetectionPerfRecord);
 
       this.msPerTick = msPerTick;
       this.numTicks = numTicks;
@@ -73505,7 +73505,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} ref
        */
       function AngularProfiler(ref) {
-        _classCallCheck(this, AngularProfiler);
+        _classCallCheck2(this, AngularProfiler);
 
         this.appRef = ref.injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationRef"]);
       } // tslint:disable:no-console
@@ -73720,7 +73720,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function TransferState() {
-        _classCallCheck(this, TransferState);
+        _classCallCheck2(this, TransferState);
 
         this.store = {};
         this.onSerializeCallbacks = {};
@@ -73886,7 +73886,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var BrowserTransferStateModule = function BrowserTransferStateModule() {
-      _classCallCheck(this, BrowserTransferStateModule);
+      _classCallCheck2(this, BrowserTransferStateModule);
     };
 
     BrowserTransferStateModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
@@ -73933,7 +73933,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function By() {
-        _classCallCheck(this, By);
+        _classCallCheck2(this, By);
       }
 
       _createClass2(By, null, [{
@@ -74548,7 +74548,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} url
      */
     function RouterEvent(id, url) {
-      _classCallCheck(this, RouterEvent);
+      _classCallCheck2(this, RouterEvent);
 
       this.id = id;
       this.url = url;
@@ -74580,17 +74580,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       id,
       /** @docsNotRequired */
       url) {
-        var _this62;
+        var _this63;
 
         var navigationTrigger = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'imperative';
         var restoredState = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-        _classCallCheck(this, NavigationStart);
+        _classCallCheck2(this, NavigationStart);
 
-        _this62 = _super38.call(this, id, url);
-        _this62.navigationTrigger = navigationTrigger;
-        _this62.restoredState = restoredState;
-        return _this62;
+        _this63 = _super38.call(this, id, url);
+        _this63.navigationTrigger = navigationTrigger;
+        _this63.restoredState = restoredState;
+        return _this63;
       }
       /**
        * \@docsNotRequired
@@ -74633,13 +74633,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       id,
       /** @docsNotRequired */
       url, urlAfterRedirects) {
-        var _this63;
+        var _this64;
 
-        _classCallCheck(this, NavigationEnd);
+        _classCallCheck2(this, NavigationEnd);
 
-        _this63 = _super39.call(this, id, url);
-        _this63.urlAfterRedirects = urlAfterRedirects;
-        return _this63;
+        _this64 = _super39.call(this, id, url);
+        _this64.urlAfterRedirects = urlAfterRedirects;
+        return _this64;
       }
       /**
        * \@docsNotRequired
@@ -74685,13 +74685,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       id,
       /** @docsNotRequired */
       url, reason) {
-        var _this64;
+        var _this65;
 
-        _classCallCheck(this, NavigationCancel);
+        _classCallCheck2(this, NavigationCancel);
 
-        _this64 = _super40.call(this, id, url);
-        _this64.reason = reason;
-        return _this64;
+        _this65 = _super40.call(this, id, url);
+        _this65.reason = reason;
+        return _this65;
       }
       /**
        * \@docsNotRequired
@@ -74734,13 +74734,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       id,
       /** @docsNotRequired */
       url, error) {
-        var _this65;
+        var _this66;
 
-        _classCallCheck(this, NavigationError);
+        _classCallCheck2(this, NavigationError);
 
-        _this65 = _super41.call(this, id, url);
-        _this65.error = error;
-        return _this65;
+        _this66 = _super41.call(this, id, url);
+        _this66.error = error;
+        return _this66;
       }
       /**
        * \@docsNotRequired
@@ -74784,14 +74784,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       id,
       /** @docsNotRequired */
       url, urlAfterRedirects, state) {
-        var _this66;
+        var _this67;
 
-        _classCallCheck(this, RoutesRecognized);
+        _classCallCheck2(this, RoutesRecognized);
 
-        _this66 = _super42.call(this, id, url);
-        _this66.urlAfterRedirects = urlAfterRedirects;
-        _this66.state = state;
-        return _this66;
+        _this67 = _super42.call(this, id, url);
+        _this67.urlAfterRedirects = urlAfterRedirects;
+        _this67.state = state;
+        return _this67;
       }
       /**
        * \@docsNotRequired
@@ -74835,14 +74835,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       id,
       /** @docsNotRequired */
       url, urlAfterRedirects, state) {
-        var _this67;
+        var _this68;
 
-        _classCallCheck(this, GuardsCheckStart);
+        _classCallCheck2(this, GuardsCheckStart);
 
-        _this67 = _super43.call(this, id, url);
-        _this67.urlAfterRedirects = urlAfterRedirects;
-        _this67.state = state;
-        return _this67;
+        _this68 = _super43.call(this, id, url);
+        _this68.urlAfterRedirects = urlAfterRedirects;
+        _this68.state = state;
+        return _this68;
       }
       /**
        * @return {?}
@@ -74886,15 +74886,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       id,
       /** @docsNotRequired */
       url, urlAfterRedirects, state, shouldActivate) {
-        var _this68;
+        var _this69;
 
-        _classCallCheck(this, GuardsCheckEnd);
+        _classCallCheck2(this, GuardsCheckEnd);
 
-        _this68 = _super44.call(this, id, url);
-        _this68.urlAfterRedirects = urlAfterRedirects;
-        _this68.state = state;
-        _this68.shouldActivate = shouldActivate;
-        return _this68;
+        _this69 = _super44.call(this, id, url);
+        _this69.urlAfterRedirects = urlAfterRedirects;
+        _this69.state = state;
+        _this69.shouldActivate = shouldActivate;
+        return _this69;
       }
       /**
        * @return {?}
@@ -74940,14 +74940,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       id,
       /** @docsNotRequired */
       url, urlAfterRedirects, state) {
-        var _this69;
+        var _this70;
 
-        _classCallCheck(this, ResolveStart);
+        _classCallCheck2(this, ResolveStart);
 
-        _this69 = _super45.call(this, id, url);
-        _this69.urlAfterRedirects = urlAfterRedirects;
-        _this69.state = state;
-        return _this69;
+        _this70 = _super45.call(this, id, url);
+        _this70.urlAfterRedirects = urlAfterRedirects;
+        _this70.state = state;
+        return _this70;
       }
       /**
        * @return {?}
@@ -74991,14 +74991,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       id,
       /** @docsNotRequired */
       url, urlAfterRedirects, state) {
-        var _this70;
+        var _this71;
 
-        _classCallCheck(this, ResolveEnd);
+        _classCallCheck2(this, ResolveEnd);
 
-        _this70 = _super46.call(this, id, url);
-        _this70.urlAfterRedirects = urlAfterRedirects;
-        _this70.state = state;
-        return _this70;
+        _this71 = _super46.call(this, id, url);
+        _this71.urlAfterRedirects = urlAfterRedirects;
+        _this71.state = state;
+        return _this71;
       }
       /**
        * @return {?}
@@ -75030,7 +75030,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} route
        */
       function RouteConfigLoadStart(route) {
-        _classCallCheck(this, RouteConfigLoadStart);
+        _classCallCheck2(this, RouteConfigLoadStart);
 
         this.route = route;
       }
@@ -75064,7 +75064,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} route
        */
       function RouteConfigLoadEnd(route) {
-        _classCallCheck(this, RouteConfigLoadEnd);
+        _classCallCheck2(this, RouteConfigLoadEnd);
 
         this.route = route;
       }
@@ -75101,7 +75101,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} snapshot
        */
       function ChildActivationStart(snapshot) {
-        _classCallCheck(this, ChildActivationStart);
+        _classCallCheck2(this, ChildActivationStart);
 
         this.snapshot = snapshot;
       }
@@ -75139,7 +75139,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} snapshot
        */
       function ChildActivationEnd(snapshot) {
-        _classCallCheck(this, ChildActivationEnd);
+        _classCallCheck2(this, ChildActivationEnd);
 
         this.snapshot = snapshot;
       }
@@ -75178,7 +75178,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} snapshot
        */
       function ActivationStart(snapshot) {
-        _classCallCheck(this, ActivationStart);
+        _classCallCheck2(this, ActivationStart);
 
         this.snapshot = snapshot;
       }
@@ -75217,7 +75217,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} snapshot
        */
       function ActivationEnd(snapshot) {
-        _classCallCheck(this, ActivationEnd);
+        _classCallCheck2(this, ActivationEnd);
 
         this.snapshot = snapshot;
       }
@@ -75255,7 +75255,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} anchor
        */
       function Scroll(routerEvent, position, anchor) {
-        _classCallCheck(this, Scroll);
+        _classCallCheck2(this, Scroll);
 
         this.routerEvent = routerEvent;
         this.position = position;
@@ -75297,7 +75297,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var ɵEmptyOutletComponent = function ɵEmptyOutletComponent() {
-      _classCallCheck(this, ɵEmptyOutletComponent);
+      _classCallCheck2(this, ɵEmptyOutletComponent);
     };
 
     ɵEmptyOutletComponent.ɵfac = function ɵEmptyOutletComponent_Factory(t) {
@@ -75375,7 +75375,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} params
        */
       function ParamsAsMap(params) {
-        _classCallCheck(this, ParamsAsMap);
+        _classCallCheck2(this, ParamsAsMap);
 
         this.params = params || {};
       }
@@ -75771,7 +75771,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} module
      */
     function LoadedRouterConfig(routes, module) {
-      _classCallCheck(this, LoadedRouterConfig);
+      _classCallCheck2(this, LoadedRouterConfig);
 
       this.routes = routes;
       this.module = module;
@@ -76292,7 +76292,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} fragment
        */
       function UrlTree(root, queryParams, fragment) {
-        _classCallCheck(this, UrlTree);
+        _classCallCheck2(this, UrlTree);
 
         this.root = root;
         this.queryParams = queryParams;
@@ -76347,9 +76347,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} children
        */
       function UrlSegmentGroup(segments, children) {
-        var _this71 = this;
+        var _this72 = this;
 
-        _classCallCheck(this, UrlSegmentGroup);
+        _classCallCheck2(this, UrlSegmentGroup);
 
         this.segments = segments;
         this.children = children;
@@ -76367,7 +76367,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {THIS}
         */
         function (v, k) {
-          return v.parent = _this71;
+          return v.parent = _this72;
         });
       }
       /**
@@ -76443,7 +76443,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} parameters
        */
       function UrlSegment(path, parameters) {
-        _classCallCheck(this, UrlSegment);
+        _classCallCheck2(this, UrlSegment);
 
         this.path = path;
         this.parameters = parameters;
@@ -76566,7 +76566,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var UrlSerializer = function UrlSerializer() {
-      _classCallCheck(this, UrlSerializer);
+      _classCallCheck2(this, UrlSerializer);
     };
 
     if (false) {}
@@ -76594,7 +76594,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DefaultUrlSerializer() {
-        _classCallCheck(this, DefaultUrlSerializer);
+        _classCallCheck2(this, DefaultUrlSerializer);
       }
 
       _createClass2(DefaultUrlSerializer, [{
@@ -76880,7 +76880,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} url
        */
       function UrlParser(url) {
-        _classCallCheck(this, UrlParser);
+        _classCallCheck2(this, UrlParser);
 
         this.url = url;
         this.remaining = url;
@@ -77226,7 +77226,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} root
        */
       function Tree(root) {
-        _classCallCheck(this, Tree);
+        _classCallCheck2(this, Tree);
 
         this._root = root;
       }
@@ -77421,7 +77421,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} children
        */
       function TreeNode(value, children) {
-        _classCallCheck(this, TreeNode);
+        _classCallCheck2(this, TreeNode);
 
         this.value = value;
         this.children = children;
@@ -77517,16 +77517,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} snapshot
        */
       function RouterState(root, snapshot) {
-        var _this72;
+        var _this73;
 
-        _classCallCheck(this, RouterState);
+        _classCallCheck2(this, RouterState);
 
-        _this72 = _super47.call(this, root);
-        _this72.snapshot = snapshot;
+        _this73 = _super47.call(this, root);
+        _this73.snapshot = snapshot;
         setRouterState(
         /** @type {?} */
-        _assertThisInitialized(_this72), root);
-        return _this72;
+        _assertThisInitialized(_this73), root);
+        return _this73;
       }
       /**
        * @return {?}
@@ -77626,7 +77626,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} futureSnapshot
        */
       function ActivatedRoute(url, params, queryParams, fragment, data, outlet, component, futureSnapshot) {
-        _classCallCheck(this, ActivatedRoute);
+        _classCallCheck2(this, ActivatedRoute);
 
         this.url = url;
         this.params = params;
@@ -77875,7 +77875,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} resolve
        */
       function ActivatedRouteSnapshot(url, params, queryParams, fragment, data, outlet, component, routeConfig, urlSegment, lastPathIndex, resolve) {
-        _classCallCheck(this, ActivatedRouteSnapshot);
+        _classCallCheck2(this, ActivatedRouteSnapshot);
 
         this.url = url;
         this.params = params;
@@ -78035,16 +78035,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} root
        */
       function RouterStateSnapshot(url, root) {
-        var _this73;
+        var _this74;
 
-        _classCallCheck(this, RouterStateSnapshot);
+        _classCallCheck2(this, RouterStateSnapshot);
 
-        _this73 = _super48.call(this, root);
-        _this73.url = url;
+        _this74 = _super48.call(this, root);
+        _this74.url = url;
         setRouterState(
         /** @type {?} */
-        _assertThisInitialized(_this73), root);
-        return _this73;
+        _assertThisInitialized(_this74), root);
+        return _this74;
       }
       /**
        * @return {?}
@@ -78412,7 +78412,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} commands
        */
       function Navigation(isAbsolute, numberOfDoubleDots, commands) {
-        _classCallCheck(this, Navigation);
+        _classCallCheck2(this, Navigation);
 
         this.isAbsolute = isAbsolute;
         this.numberOfDoubleDots = numberOfDoubleDots;
@@ -78494,18 +78494,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             function (commands, name) {
               outlets[name] = typeof commands === 'string' ? commands.split('/') : commands;
             });
-            return [].concat(_toConsumableArray(res), [{
+            return [].concat(_toConsumableArray2(res), [{
               outlets: outlets
             }]);
           }
 
           if (cmd.segmentPath) {
-            return [].concat(_toConsumableArray(res), [cmd.segmentPath]);
+            return [].concat(_toConsumableArray2(res), [cmd.segmentPath]);
           }
         }
 
         if (!(typeof cmd === 'string')) {
-          return [].concat(_toConsumableArray(res), [cmd]);
+          return [].concat(_toConsumableArray2(res), [cmd]);
         }
 
         if (cmdIdx === 0) {
@@ -78530,7 +78530,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return res;
         }
 
-        return [].concat(_toConsumableArray(res), [cmd]);
+        return [].concat(_toConsumableArray2(res), [cmd]);
       }, []);
       return new Navigation(isAbsolute, numberOfDoubleDots, res);
     }
@@ -78542,7 +78542,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} index
      */
     function Position(segmentGroup, processChildren, index) {
-      _classCallCheck(this, Position);
+      _classCallCheck2(this, Position);
 
       this.segmentGroup = segmentGroup;
       this.processChildren = processChildren;
@@ -78628,8 +78628,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     function getOutlets(commands) {
-      if (!(typeof commands[0] === 'object')) return _defineProperty({}, PRIMARY_OUTLET, commands);
-      if (commands[0].outlets === undefined) return _defineProperty({}, PRIMARY_OUTLET, commands);
+      if (!(typeof commands[0] === 'object')) return _defineProperty2({}, PRIMARY_OUTLET, commands);
+      if (commands[0].outlets === undefined) return _defineProperty2({}, PRIMARY_OUTLET, commands);
       return commands[0].outlets;
     }
     /**
@@ -78907,7 +78907,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} forwardEvent
        */
       function ActivateRoutes(routeReuseStrategy, futureState, currState, forwardEvent) {
-        _classCallCheck(this, ActivateRoutes);
+        _classCallCheck2(this, ActivateRoutes);
 
         this.routeReuseStrategy = routeReuseStrategy;
         this.futureState = futureState;
@@ -78944,7 +78944,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "deactivateChildRoutes",
         value: function deactivateChildRoutes(futureNode, currNode, contexts) {
-          var _this74 = this;
+          var _this75 = this;
 
           /** @type {?} */
           var children = nodeChildrenAsMap(currNode); // Recurse on the routes active in the future state to de-activate deeper children
@@ -78958,7 +78958,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             /** @type {?} */
             var childOutletName = futureChild.value.outlet;
 
-            _this74.deactivateRoutes(futureChild, children[childOutletName], contexts);
+            _this75.deactivateRoutes(futureChild, children[childOutletName], contexts);
 
             delete children[childOutletName];
           }); // De-activate the routes that will not be re-used
@@ -78970,7 +78970,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (v, childName) {
-            _this74.deactivateRouteAndItsChildren(v, contexts);
+            _this75.deactivateRouteAndItsChildren(v, contexts);
           });
         }
         /**
@@ -79064,7 +79064,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "deactivateRouteAndOutlet",
         value: function deactivateRouteAndOutlet(route, parentContexts) {
-          var _this75 = this;
+          var _this76 = this;
 
           /** @type {?} */
           var context = parentContexts.getContext(route.value.outlet);
@@ -79082,7 +79082,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function (v, k) {
-              return _this75.deactivateRouteAndItsChildren(v, contexts);
+              return _this76.deactivateRouteAndItsChildren(v, contexts);
             });
 
             if (context.outlet) {
@@ -79104,7 +79104,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activateChildRoutes",
         value: function activateChildRoutes(futureNode, currNode, contexts) {
-          var _this76 = this;
+          var _this77 = this;
 
           /** @type {?} */
           var children = nodeChildrenAsMap(currNode);
@@ -79114,9 +79114,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (c) {
-            _this76.activateRoutes(c, children[c.value.outlet], contexts);
+            _this77.activateRoutes(c, children[c.value.outlet], contexts);
 
-            _this76.forwardEvent(new ActivationEnd(c.value.snapshot));
+            _this77.forwardEvent(new ActivationEnd(c.value.snapshot));
           });
 
           if (futureNode.children.length) {
@@ -79328,7 +79328,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?=} segmentGroup
      */
     function NoMatch(segmentGroup) {
-      _classCallCheck(this, NoMatch);
+      _classCallCheck2(this, NoMatch);
 
       this.segmentGroup = segmentGroup || null;
     };
@@ -79340,7 +79340,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} urlTree
      */
     function AbsoluteRedirect(urlTree) {
-      _classCallCheck(this, AbsoluteRedirect);
+      _classCallCheck2(this, AbsoluteRedirect);
 
       this.urlTree = urlTree;
     };
@@ -79438,7 +79438,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} config
        */
       function ApplyRedirects(moduleInjector, configLoader, urlSerializer, urlTree, config) {
-        _classCallCheck(this, ApplyRedirects);
+        _classCallCheck2(this, ApplyRedirects);
 
         this.configLoader = configLoader;
         this.urlSerializer = urlSerializer;
@@ -79455,7 +79455,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(ApplyRedirects, [{
         key: "apply",
         value: function apply() {
-          var _this77 = this;
+          var _this78 = this;
 
           /** @type {?} */
           var expanded$ = this.expandSegmentGroup(this.ngModule, this.config, this.urlTree.root, PRIMARY_OUTLET);
@@ -79467,9 +79467,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (rootSegmentGroup) {
-            return _this77.createUrlTree(rootSegmentGroup, _this77.urlTree.queryParams,
+            return _this78.createUrlTree(rootSegmentGroup, _this78.urlTree.queryParams,
             /** @type {?} */
-            _this77.urlTree.fragment);
+            _this78.urlTree.fragment);
           }));
           return urlTrees$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(
           /**
@@ -79479,13 +79479,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           function (e) {
             if (e instanceof AbsoluteRedirect) {
               // after an absolute redirect we do not apply any more redirects!
-              _this77.allowRedirects = false; // we need to run matching, so we can fetch all lazy-loaded modules
+              _this78.allowRedirects = false; // we need to run matching, so we can fetch all lazy-loaded modules
 
-              return _this77.match(e.urlTree);
+              return _this78.match(e.urlTree);
             }
 
             if (e instanceof NoMatch) {
-              throw _this77.noMatchError(e);
+              throw _this78.noMatchError(e);
             }
 
             throw e;
@@ -79500,7 +79500,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "match",
         value: function match(tree) {
-          var _this78 = this;
+          var _this79 = this;
 
           /** @type {?} */
           var expanded$ = this.expandSegmentGroup(this.ngModule, this.config, tree.root, PRIMARY_OUTLET);
@@ -79512,7 +79512,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (rootSegmentGroup) {
-            return _this78.createUrlTree(rootSegmentGroup, tree.queryParams,
+            return _this79.createUrlTree(rootSegmentGroup, tree.queryParams,
             /** @type {?} */
             tree.fragment);
           }));
@@ -79523,7 +79523,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function (e) {
             if (e instanceof NoMatch) {
-              throw _this78.noMatchError(e);
+              throw _this79.noMatchError(e);
             }
 
             throw e;
@@ -79552,7 +79552,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "createUrlTree",
         value: function createUrlTree(rootCandidate, queryParams, fragment) {
           /** @type {?} */
-          var root = rootCandidate.segments.length > 0 ? new UrlSegmentGroup([], _defineProperty({}, PRIMARY_OUTLET, rootCandidate)) : rootCandidate;
+          var root = rootCandidate.segments.length > 0 ? new UrlSegmentGroup([], _defineProperty2({}, PRIMARY_OUTLET, rootCandidate)) : rootCandidate;
           return new UrlTree(root, queryParams, fragment);
         }
         /**
@@ -79592,7 +79592,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "expandChildren",
         value: function expandChildren(ngModule, routes, segmentGroup) {
-          var _this79 = this;
+          var _this80 = this;
 
           return waitForMap(segmentGroup.children,
           /**
@@ -79601,7 +79601,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (childOutlet, child) {
-            return _this79.expandSegmentGroup(ngModule, routes, child, childOutlet);
+            return _this80.expandSegmentGroup(ngModule, routes, child, childOutlet);
           });
         }
         /**
@@ -79618,16 +79618,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "expandSegment",
         value: function expandSegment(ngModule, segmentGroup, routes, segments, outlet, allowRedirects) {
-          var _this80 = this;
+          var _this81 = this;
 
-          return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"]).apply(void 0, _toConsumableArray(routes)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(
+          return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"]).apply(void 0, _toConsumableArray2(routes)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(
           /**
           * @param {?} r
           * @return {?}
           */
           function (r) {
             /** @type {?} */
-            var expanded$ = _this80.expandSegmentAgainstRoute(ngModule, segmentGroup, routes, r, segments, outlet, allowRedirects);
+            var expanded$ = _this81.expandSegmentAgainstRoute(ngModule, segmentGroup, routes, r, segments, outlet, allowRedirects);
 
             return expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(
             /**
@@ -79661,7 +79661,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function (e, _) {
             if (e instanceof rxjs__WEBPACK_IMPORTED_MODULE_2__["EmptyError"] || e.name === 'EmptyError') {
-              if (_this80.noLeftoversInUrl(segmentGroup, segments, outlet)) {
+              if (_this81.noLeftoversInUrl(segmentGroup, segments, outlet)) {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(new UrlSegmentGroup([], {}));
               }
 
@@ -79745,7 +79745,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "expandWildCardWithParamsAgainstRouteUsingRedirect",
         value: function expandWildCardWithParamsAgainstRouteUsingRedirect(ngModule, routes, route, outlet) {
-          var _this81 = this;
+          var _this82 = this;
 
           /** @type {?} */
           var newTree = this.applyRedirectCommands([],
@@ -79766,7 +79766,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           function (newSegments) {
             /** @type {?} */
             var group = new UrlSegmentGroup(newSegments, {});
-            return _this81.expandSegment(ngModule, group, routes, newSegments, outlet, false);
+            return _this82.expandSegment(ngModule, group, routes, newSegments, outlet, false);
           }));
         }
         /**
@@ -79783,7 +79783,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "expandRegularSegmentAgainstRouteUsingRedirect",
         value: function expandRegularSegmentAgainstRouteUsingRedirect(ngModule, segmentGroup, routes, route, segments, outlet) {
-          var _this82 = this;
+          var _this83 = this;
 
           var _match = match(segmentGroup, route, segments),
               matched = _match.matched,
@@ -79812,7 +79812,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (newSegments) {
-            return _this82.expandSegment(ngModule, segmentGroup, routes, newSegments.concat(segments.slice(lastChild)), outlet, false);
+            return _this83.expandSegment(ngModule, segmentGroup, routes, newSegments.concat(segments.slice(lastChild)), outlet, false);
           }));
         }
         /**
@@ -79827,7 +79827,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "matchSegmentAgainstRoute",
         value: function matchSegmentAgainstRoute(ngModule, rawSegmentGroup, route, segments) {
-          var _this83 = this;
+          var _this84 = this;
 
           if (route.path === '**') {
             if (route.loadChildren) {
@@ -79875,7 +79875,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             if (slicedSegments.length === 0 && segmentGroup.hasChildren()) {
               /** @type {?} */
-              var _expanded$ = _this83.expandChildren(childModule, childConfig, segmentGroup);
+              var _expanded$ = _this84.expandChildren(childModule, childConfig, segmentGroup);
 
               return _expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(
               /**
@@ -79893,7 +79893,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             /** @type {?} */
 
 
-            var expanded$ = _this83.expandSegment(childModule, segmentGroup, childConfig, slicedSegments, PRIMARY_OUTLET, true);
+            var expanded$ = _this84.expandSegment(childModule, segmentGroup, childConfig, slicedSegments, PRIMARY_OUTLET, true);
 
             return expanded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(
             /**
@@ -79916,7 +79916,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getChildConfig",
         value: function getChildConfig(ngModule, route, segments) {
-          var _this84 = this;
+          var _this85 = this;
 
           if (route.children) {
             // The children belong to the same module
@@ -79936,7 +79936,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             */
             function (shouldLoad) {
               if (shouldLoad) {
-                return _this84.configLoader.load(ngModule.injector, route).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(
+                return _this85.configLoader.load(ngModule.injector, route).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(
                 /**
                 * @param {?} cfg
                 * @return {?}
@@ -80058,7 +80058,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "createSegmentGroup",
         value: function createSegmentGroup(redirectTo, group, segments, posParams) {
-          var _this85 = this;
+          var _this86 = this;
 
           /** @type {?} */
           var updatedSegments = this.createSegments(redirectTo, group.segments, segments, posParams);
@@ -80072,7 +80072,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (child, name) {
-            children[name] = _this85.createSegmentGroup(redirectTo, child, segments, posParams);
+            children[name] = _this86.createSegmentGroup(redirectTo, child, segments, posParams);
           });
           return new UrlSegmentGroup(updatedSegments, children);
         }
@@ -80088,7 +80088,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "createSegments",
         value: function createSegments(redirectTo, redirectToSegments, actualSegments, posParams) {
-          var _this86 = this;
+          var _this87 = this;
 
           return redirectToSegments.map(
           /**
@@ -80096,7 +80096,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (s) {
-            return s.path.startsWith(':') ? _this86.findPosParam(redirectTo, s, posParams) : _this86.findOrReturn(s, actualSegments);
+            return s.path.startsWith(':') ? _this87.findPosParam(redirectTo, s, posParams) : _this87.findOrReturn(s, actualSegments);
           });
         }
         /**
@@ -80485,7 +80485,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} path
      */
     function CanActivate(path) {
-      _classCallCheck(this, CanActivate);
+      _classCallCheck2(this, CanActivate);
 
       this.path = path;
       this.route = this.path[this.path.length - 1];
@@ -80499,7 +80499,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
      * @param {?} route
      */
     function CanDeactivate(component, route) {
-      _classCallCheck(this, CanDeactivate);
+      _classCallCheck2(this, CanDeactivate);
 
       this.component = component;
       this.route = route;
@@ -80771,7 +80771,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function (obs) {
         return (
           /** @type {?} */
-          Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"]).apply(void 0, _toConsumableArray(obs.map(
+          Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"]).apply(void 0, _toConsumableArray2(obs.map(
           /**
           * @param {?} o
           * @return {?}
@@ -81166,7 +81166,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var NoMatch$1 = function NoMatch$1() {
-      _classCallCheck(this, NoMatch$1);
+      _classCallCheck2(this, NoMatch$1);
     };
     /**
      * @param {?} rootComponentType
@@ -81197,7 +81197,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} relativeLinkResolution
        */
       function Recognizer(rootComponentType, config, urlTree, url, paramsInheritanceStrategy, relativeLinkResolution) {
-        _classCallCheck(this, Recognizer);
+        _classCallCheck2(this, Recognizer);
 
         this.rootComponentType = rootComponentType;
         this.config = config;
@@ -81252,7 +81252,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "inheritParamsAndData",
         value: function inheritParamsAndData(routeNode) {
-          var _this87 = this;
+          var _this88 = this;
 
           /** @type {?} */
           var route = routeNode.value;
@@ -81267,7 +81267,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (n) {
-            return _this87.inheritParamsAndData(n);
+            return _this88.inheritParamsAndData(n);
           });
         }
         /**
@@ -81295,7 +81295,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "processChildren",
         value: function processChildren(config, segmentGroup) {
-          var _this88 = this;
+          var _this89 = this;
 
           /** @type {?} */
           var children = mapChildrenIntoArray(segmentGroup,
@@ -81305,7 +81305,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (child, childOutlet) {
-            return _this88.processSegmentGroup(config, child, childOutlet);
+            return _this89.processSegmentGroup(config, child, childOutlet);
           });
           checkOutletNameUniqueness(children);
           sortActivatedRouteSnapshots(children);
@@ -81973,7 +81973,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {?}
         */
         function (value) {
-          return _defineProperty({}, key, value);
+          return _defineProperty2({}, key, value);
         }));
       }
       /** @type {?} */
@@ -82093,7 +82093,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var RouteReuseStrategy = function RouteReuseStrategy() {
-      _classCallCheck(this, RouteReuseStrategy);
+      _classCallCheck2(this, RouteReuseStrategy);
     };
 
     if (false) {}
@@ -82106,7 +82106,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DefaultRouteReuseStrategy() {
-        _classCallCheck(this, DefaultRouteReuseStrategy);
+        _classCallCheck2(this, DefaultRouteReuseStrategy);
       }
 
       _createClass2(DefaultRouteReuseStrategy, [{
@@ -82189,7 +82189,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} onLoadEndListener
        */
       function RouterConfigLoader(loader, compiler, onLoadStartListener, onLoadEndListener) {
-        _classCallCheck(this, RouterConfigLoader);
+        _classCallCheck2(this, RouterConfigLoader);
 
         this.loader = loader;
         this.compiler = compiler;
@@ -82206,7 +82206,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(RouterConfigLoader, [{
         key: "load",
         value: function load(parentInjector, route) {
-          var _this89 = this;
+          var _this90 = this;
 
           if (this.onLoadStartListener) {
             this.onLoadStartListener(route);
@@ -82223,8 +82223,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (factory) {
-            if (_this89.onLoadEndListener) {
-              _this89.onLoadEndListener(route);
+            if (_this90.onLoadEndListener) {
+              _this90.onLoadEndListener(route);
             }
             /** @type {?} */
 
@@ -82242,7 +82242,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "loadModuleFactory",
         value: function loadModuleFactory(loadChildren) {
-          var _this90 = this;
+          var _this91 = this;
 
           if (typeof loadChildren === 'string') {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(this.loader.load(loadChildren));
@@ -82256,7 +82256,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               if (t instanceof _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleFactory"]) {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(t);
               } else {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(_this90.compiler.compileModuleAsync(t));
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(_this91.compiler.compileModuleAsync(t));
               }
             }));
           }
@@ -82292,7 +82292,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var UrlHandlingStrategy = function UrlHandlingStrategy() {
-      _classCallCheck(this, UrlHandlingStrategy);
+      _classCallCheck2(this, UrlHandlingStrategy);
     };
 
     if (false) {}
@@ -82305,7 +82305,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DefaultUrlHandlingStrategy() {
-        _classCallCheck(this, DefaultUrlHandlingStrategy);
+        _classCallCheck2(this, DefaultUrlHandlingStrategy);
       }
 
       _createClass2(DefaultUrlHandlingStrategy, [{
@@ -82426,9 +82426,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        */
       // TODO: vsavkin make internal after the final is out.
       function Router(rootComponentType, urlSerializer, rootContexts, location, injector, loader, compiler, config) {
-        var _this91 = this;
+        var _this92 = this;
 
-        _classCallCheck(this, Router);
+        _classCallCheck2(this, Router);
 
         this.rootComponentType = rootComponentType;
         this.urlSerializer = urlSerializer;
@@ -82528,7 +82528,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {?}
         */
         function onLoadStart(r) {
-          return _this91.triggerEvent(new RouteConfigLoadStart(r));
+          return _this92.triggerEvent(new RouteConfigLoadStart(r));
         };
         /** @type {?} */
 
@@ -82539,7 +82539,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         * @return {?}
         */
         function onLoadEnd(r) {
-          return _this91.triggerEvent(new RouteConfigLoadEnd(r));
+          return _this92.triggerEvent(new RouteConfigLoadEnd(r));
         };
 
         this.ngModule = injector.get(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModuleRef"]);
@@ -82590,7 +82590,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(Router, [{
         key: "setupNavigations",
         value: function setupNavigations(transitions) {
-          var _this92 = this;
+          var _this93 = this;
 
           /** @type {?} */
           var eventsSubject =
@@ -82617,7 +82617,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return (
                 /** @type {?} */
                 Object.assign(Object.assign({}, t), {
-                  extractedUrl: _this92.urlHandlingStrategy.extract(t.rawUrl)
+                  extractedUrl: _this93.urlHandlingStrategy.extract(t.rawUrl)
                 })
               );
             }), // Using switchMap so we cancel executing navigations when a new one comes in
@@ -82639,13 +82639,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               * @return {?}
               */
               function (t) {
-                _this92.currentNavigation = {
+                _this93.currentNavigation = {
                   id: t.id,
                   initialUrl: t.currentRawUrl,
                   extractedUrl: t.extractedUrl,
                   trigger: t.source,
                   extras: t.extras,
-                  previousNavigation: _this92.lastSuccessfulNavigation ? Object.assign(Object.assign({}, _this92.lastSuccessfulNavigation), {
+                  previousNavigation: _this93.lastSuccessfulNavigation ? Object.assign(Object.assign({}, _this93.lastSuccessfulNavigation), {
                     previousNavigation: null
                   }) : null
                 };
@@ -82656,11 +82656,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               */
               function (t) {
                 /** @type {?} */
-                var urlTransition = !_this92.navigated || t.extractedUrl.toString() !== _this92.browserUrlTree.toString();
+                var urlTransition = !_this93.navigated || t.extractedUrl.toString() !== _this93.browserUrlTree.toString();
                 /** @type {?} */
 
 
-                var processCurrentUrl = (_this92.onSameUrlNavigation === 'reload' ? true : urlTransition) && _this92.urlHandlingStrategy.shouldProcessUrl(t.rawUrl);
+                var processCurrentUrl = (_this93.onSameUrlNavigation === 'reload' ? true : urlTransition) && _this93.urlHandlingStrategy.shouldProcessUrl(t.rawUrl);
 
                 if (processCurrentUrl) {
                   return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(t).pipe( // Fire NavigationStart event
@@ -82671,11 +82671,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   */
                   function (t) {
                     /** @type {?} */
-                    var transition = _this92.transitions.getValue();
+                    var transition = _this93.transitions.getValue();
 
-                    eventsSubject.next(new NavigationStart(t.id, _this92.serializeUrl(t.extractedUrl), t.source, t.restoredState));
+                    eventsSubject.next(new NavigationStart(t.id, _this93.serializeUrl(t.extractedUrl), t.source, t.restoredState));
 
-                    if (transition !== _this92.transitions.getValue()) {
+                    if (transition !== _this93.transitions.getValue()) {
                       return rxjs__WEBPACK_IMPORTED_MODULE_2__["EMPTY"];
                     }
 
@@ -82690,39 +82690,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   function (t) {
                     return Promise.resolve(t);
                   }), // ApplyRedirects
-                  applyRedirects$1(_this92.ngModule.injector, _this92.configLoader, _this92.urlSerializer, _this92.config), // Update the currentNavigation
+                  applyRedirects$1(_this93.ngModule.injector, _this93.configLoader, _this93.urlSerializer, _this93.config), // Update the currentNavigation
                   Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(
                   /**
                   * @param {?} t
                   * @return {?}
                   */
                   function (t) {
-                    _this92.currentNavigation = Object.assign(Object.assign({},
+                    _this93.currentNavigation = Object.assign(Object.assign({},
                     /** @type {?} */
-                    _this92.currentNavigation), {
+                    _this93.currentNavigation), {
                       finalUrl: t.urlAfterRedirects
                     });
                   }), // Recognize
-                  recognize$1(_this92.rootComponentType, _this92.config,
+                  recognize$1(_this93.rootComponentType, _this93.config,
                   /**
                   * @param {?} url
                   * @return {?}
                   */
                   function (url) {
-                    return _this92.serializeUrl(url);
-                  }, _this92.paramsInheritanceStrategy, _this92.relativeLinkResolution), // Update URL if in `eager` update mode
+                    return _this93.serializeUrl(url);
+                  }, _this93.paramsInheritanceStrategy, _this93.relativeLinkResolution), // Update URL if in `eager` update mode
                   Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(
                   /**
                   * @param {?} t
                   * @return {?}
                   */
                   function (t) {
-                    if (_this92.urlUpdateStrategy === 'eager') {
+                    if (_this93.urlUpdateStrategy === 'eager') {
                       if (!t.extras.skipLocationChange) {
-                        _this92.setBrowserUrl(t.urlAfterRedirects, !!t.extras.replaceUrl, t.id, t.extras.state);
+                        _this93.setBrowserUrl(t.urlAfterRedirects, !!t.extras.replaceUrl, t.id, t.extras.state);
                       }
 
-                      _this92.browserUrlTree = t.urlAfterRedirects;
+                      _this93.browserUrlTree = t.urlAfterRedirects;
                     }
                   }), // Fire RoutesRecognized
                   Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(
@@ -82732,14 +82732,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   */
                   function (t) {
                     /** @type {?} */
-                    var routesRecognized = new RoutesRecognized(t.id, _this92.serializeUrl(t.extractedUrl), _this92.serializeUrl(t.urlAfterRedirects),
+                    var routesRecognized = new RoutesRecognized(t.id, _this93.serializeUrl(t.extractedUrl), _this93.serializeUrl(t.urlAfterRedirects),
                     /** @type {?} */
                     t.targetSnapshot);
                     eventsSubject.next(routesRecognized);
                   }));
                 } else {
                   /** @type {?} */
-                  var processPreviousUrl = urlTransition && _this92.rawUrlTree && _this92.urlHandlingStrategy.shouldProcessUrl(_this92.rawUrlTree);
+                  var processPreviousUrl = urlTransition && _this93.rawUrlTree && _this93.urlHandlingStrategy.shouldProcessUrl(_this93.rawUrlTree);
                   /* When the current URL shouldn't be processed, but the previous one was, we
                    * handle this "error condition" by navigating to the previously successful URL,
                    * but leaving the URL intact.*/
@@ -82753,11 +82753,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         extras = t.extras;
                     /** @type {?} */
 
-                    var navStart = new NavigationStart(id, _this92.serializeUrl(extractedUrl), source, restoredState);
+                    var navStart = new NavigationStart(id, _this93.serializeUrl(extractedUrl), source, restoredState);
                     eventsSubject.next(navStart);
                     /** @type {?} */
 
-                    var targetSnapshot = createEmptyState(extractedUrl, _this92.rootComponentType).snapshot;
+                    var targetSnapshot = createEmptyState(extractedUrl, _this93.rootComponentType).snapshot;
                     return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(Object.assign(Object.assign({}, t), {
                       targetSnapshot: targetSnapshot,
                       urlAfterRedirects: extractedUrl,
@@ -82771,8 +82771,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                      * than update router's internal reference to the current "settled" URL. This
                      * way the next navigation will be coming from the current URL in the browser.
                      */
-                    _this92.rawUrlTree = t.rawUrl;
-                    _this92.browserUrlTree = t.urlAfterRedirects;
+                    _this93.rawUrlTree = t.rawUrl;
+                    _this93.browserUrlTree = t.urlAfterRedirects;
                     t.resolve(null);
                     return rxjs__WEBPACK_IMPORTED_MODULE_2__["EMPTY"];
                   }
@@ -82791,7 +82791,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     _t$extras = t.extras,
                     skipLocationChange = _t$extras.skipLocationChange,
                     replaceUrl = _t$extras.replaceUrl;
-                return _this92.hooks.beforePreactivation(
+                return _this93.hooks.beforePreactivation(
                 /** @type {?} */
                 targetSnapshot, {
                   navigationId: navigationId,
@@ -82808,11 +82808,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               */
               function (t) {
                 /** @type {?} */
-                var guardsStart = new GuardsCheckStart(t.id, _this92.serializeUrl(t.extractedUrl), _this92.serializeUrl(t.urlAfterRedirects),
+                var guardsStart = new GuardsCheckStart(t.id, _this93.serializeUrl(t.extractedUrl), _this93.serializeUrl(t.urlAfterRedirects),
                 /** @type {?} */
                 t.targetSnapshot);
 
-                _this92.triggerEvent(guardsStart);
+                _this93.triggerEvent(guardsStart);
               }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(
               /**
               * @param {?} t
@@ -82822,15 +82822,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 return Object.assign(Object.assign({}, t), {
                   guards: getAllRouteGuards(
                   /** @type {?} */
-                  t.targetSnapshot, t.currentSnapshot, _this92.rootContexts)
+                  t.targetSnapshot, t.currentSnapshot, _this93.rootContexts)
                 });
-              }), checkGuards(_this92.ngModule.injector,
+              }), checkGuards(_this93.ngModule.injector,
               /**
               * @param {?} evt
               * @return {?}
               */
               function (evt) {
-                return _this92.triggerEvent(evt);
+                return _this93.triggerEvent(evt);
               }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(
               /**
               * @param {?} t
@@ -82839,7 +82839,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               function (t) {
                 if (isUrlTree(t.guardsResult)) {
                   /** @type {?} */
-                  var error = navigationCancelingError("Redirecting to \"".concat(_this92.serializeUrl(t.guardsResult), "\""));
+                  var error = navigationCancelingError("Redirecting to \"".concat(_this93.serializeUrl(t.guardsResult), "\""));
                   error.url = t.guardsResult;
                   throw error;
                 }
@@ -82850,11 +82850,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               */
               function (t) {
                 /** @type {?} */
-                var guardsEnd = new GuardsCheckEnd(t.id, _this92.serializeUrl(t.extractedUrl), _this92.serializeUrl(t.urlAfterRedirects),
+                var guardsEnd = new GuardsCheckEnd(t.id, _this93.serializeUrl(t.extractedUrl), _this93.serializeUrl(t.urlAfterRedirects),
                 /** @type {?} */
                 t.targetSnapshot, !!t.guardsResult);
 
-                _this92.triggerEvent(guardsEnd);
+                _this93.triggerEvent(guardsEnd);
               }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(
               /**
               * @param {?} t
@@ -82862,11 +82862,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               */
               function (t) {
                 if (!t.guardsResult) {
-                  _this92.resetUrlToCurrentUrlTree();
+                  _this93.resetUrlToCurrentUrlTree();
                   /** @type {?} */
 
 
-                  var navCancel = new NavigationCancel(t.id, _this92.serializeUrl(t.extractedUrl), '');
+                  var navCancel = new NavigationCancel(t.id, _this93.serializeUrl(t.extractedUrl), '');
                   eventsSubject.next(navCancel);
                   t.resolve(false);
                   return false;
@@ -82888,12 +82888,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   */
                   function (t) {
                     /** @type {?} */
-                    var resolveStart = new ResolveStart(t.id, _this92.serializeUrl(t.extractedUrl), _this92.serializeUrl(t.urlAfterRedirects),
+                    var resolveStart = new ResolveStart(t.id, _this93.serializeUrl(t.extractedUrl), _this93.serializeUrl(t.urlAfterRedirects),
                     /** @type {?} */
                     t.targetSnapshot);
 
-                    _this92.triggerEvent(resolveStart);
-                  }), resolveData(_this92.paramsInheritanceStrategy, _this92.ngModule.injector), //
+                    _this93.triggerEvent(resolveStart);
+                  }), resolveData(_this93.paramsInheritanceStrategy, _this93.ngModule.injector), //
                   Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(
                   /**
                   * @param {?} t
@@ -82901,11 +82901,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   */
                   function (t) {
                     /** @type {?} */
-                    var resolveEnd = new ResolveEnd(t.id, _this92.serializeUrl(t.extractedUrl), _this92.serializeUrl(t.urlAfterRedirects),
+                    var resolveEnd = new ResolveEnd(t.id, _this93.serializeUrl(t.extractedUrl), _this93.serializeUrl(t.urlAfterRedirects),
                     /** @type {?} */
                     t.targetSnapshot);
 
-                    _this92.triggerEvent(resolveEnd);
+                    _this93.triggerEvent(resolveEnd);
                   }));
                 }
 
@@ -82924,7 +82924,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     _t$extras2 = t.extras,
                     skipLocationChange = _t$extras2.skipLocationChange,
                     replaceUrl = _t$extras2.replaceUrl;
-                return _this92.hooks.afterPreactivation(
+                return _this93.hooks.afterPreactivation(
                 /** @type {?} */
                 targetSnapshot, {
                   navigationId: navigationId,
@@ -82940,7 +82940,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               */
               function (t) {
                 /** @type {?} */
-                var targetRouterState = createRouterState(_this92.routeReuseStrategy,
+                var targetRouterState = createRouterState(_this93.routeReuseStrategy,
                 /** @type {?} */
                 t.targetSnapshot, t.currentRouterState);
                 return Object.assign(Object.assign({}, t), {
@@ -82958,28 +82958,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               * @return {?}
               */
               function (t) {
-                _this92.currentUrlTree = t.urlAfterRedirects;
-                _this92.rawUrlTree = _this92.urlHandlingStrategy.merge(_this92.currentUrlTree, t.rawUrl);
+                _this93.currentUrlTree = t.urlAfterRedirects;
+                _this93.rawUrlTree = _this93.urlHandlingStrategy.merge(_this93.currentUrlTree, t.rawUrl);
 
                 /** @type {?} */
-                _this92.routerState =
+                _this93.routerState =
                 /** @type {?} */
                 t.targetRouterState;
 
-                if (_this92.urlUpdateStrategy === 'deferred') {
+                if (_this93.urlUpdateStrategy === 'deferred') {
                   if (!t.extras.skipLocationChange) {
-                    _this92.setBrowserUrl(_this92.rawUrlTree, !!t.extras.replaceUrl, t.id, t.extras.state);
+                    _this93.setBrowserUrl(_this93.rawUrlTree, !!t.extras.replaceUrl, t.id, t.extras.state);
                   }
 
-                  _this92.browserUrlTree = t.urlAfterRedirects;
+                  _this93.browserUrlTree = t.urlAfterRedirects;
                 }
-              }), activateRoutes(_this92.rootContexts, _this92.routeReuseStrategy,
+              }), activateRoutes(_this93.rootContexts, _this93.routeReuseStrategy,
               /**
               * @param {?} evt
               * @return {?}
               */
               function (evt) {
-                return _this92.triggerEvent(evt);
+                return _this93.triggerEvent(evt);
               }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])({
                 /**
                 * @return {?}
@@ -83011,11 +83011,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   // sync problems with AngularJS sync code which looks for a value here in order
                   // to determine whether or not to handle a given popstate event or to leave it
                   // to the Angualr router.
-                  _this92.resetUrlToCurrentUrlTree();
+                  _this93.resetUrlToCurrentUrlTree();
                   /** @type {?} */
 
 
-                  var navCancel = new NavigationCancel(t.id, _this92.serializeUrl(t.extractedUrl), "Navigation ID ".concat(t.id, " is not equal to the current navigation id ").concat(_this92.navigationId));
+                  var navCancel = new NavigationCancel(t.id, _this93.serializeUrl(t.extractedUrl), "Navigation ID ".concat(t.id, " is not equal to the current navigation id ").concat(_this93.navigationId));
                   eventsSubject.next(navCancel);
                   t.resolve(false);
                 } // currentNavigation should always be reset to null here. If navigation was
@@ -83023,7 +83023,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 // can safely set currentNavigation to null here.
 
 
-                _this92.currentNavigation = null;
+                _this93.currentNavigation = null;
               }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(
               /**
               * @param {?} e
@@ -83044,14 +83044,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     // a change from the default currentUrlTree and won't navigate. This is
                     // only applicable with initial navigation, so setting `navigated` only when
                     // not redirecting resolves this scenario.
-                    _this92.navigated = true;
+                    _this93.navigated = true;
 
-                    _this92.resetStateAndUrl(t.currentRouterState, t.currentUrlTree, t.rawUrl);
+                    _this93.resetStateAndUrl(t.currentRouterState, t.currentUrlTree, t.rawUrl);
                   }
                   /** @type {?} */
 
 
-                  var navCancel = new NavigationCancel(t.id, _this92.serializeUrl(t.extractedUrl), e.message);
+                  var navCancel = new NavigationCancel(t.id, _this93.serializeUrl(t.extractedUrl), e.message);
                   eventsSubject.next(navCancel); // When redirecting, we need to delay resolving the navigation
                   // promise and push it to the redirect navigation
 
@@ -83068,15 +83068,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     */
                     function () {
                       /** @type {?} */
-                      var mergedTree = _this92.urlHandlingStrategy.merge(e.url, _this92.rawUrlTree);
+                      var mergedTree = _this93.urlHandlingStrategy.merge(e.url, _this93.rawUrlTree);
                       /** @type {?} */
 
 
                       var extras = {
                         skipLocationChange: t.extras.skipLocationChange,
-                        replaceUrl: _this92.urlUpdateStrategy === 'eager'
+                        replaceUrl: _this93.urlUpdateStrategy === 'eager'
                       };
-                      return _this92.scheduleNavigation(mergedTree, 'imperative', null, extras, {
+                      return _this93.scheduleNavigation(mergedTree, 'imperative', null, extras, {
                         resolve: t.resolve,
                         reject: t.reject,
                         promise: t.promise
@@ -83087,15 +83087,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                    * pre-error state. */
 
                 } else {
-                  _this92.resetStateAndUrl(t.currentRouterState, t.currentUrlTree, t.rawUrl);
+                  _this93.resetStateAndUrl(t.currentRouterState, t.currentUrlTree, t.rawUrl);
                   /** @type {?} */
 
 
-                  var navError = new NavigationError(t.id, _this92.serializeUrl(t.extractedUrl), e);
+                  var navError = new NavigationError(t.id, _this93.serializeUrl(t.extractedUrl), e);
                   eventsSubject.next(navError);
 
                   try {
-                    t.resolve(_this92.errorHandler(e));
+                    t.resolve(_this93.errorHandler(e));
                   } catch (ee) {
                     t.reject(ee);
                   }
@@ -83172,7 +83172,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "setUpLocationChangeListener",
         value: function setUpLocationChangeListener() {
-          var _this93 = this;
+          var _this94 = this;
 
           // Don't need to use Zone.wrap any more, because zone.js
           // already patch onPopState, so location change callback will
@@ -83187,7 +83187,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             */
             function (change) {
               /** @type {?} */
-              var rawUrlTree = _this93.parseUrl(change['url']);
+              var rawUrlTree = _this94.parseUrl(change['url']);
               /** @type {?} */
 
 
@@ -83202,7 +83202,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               * @return {?}
               */
               function () {
-                _this93.scheduleNavigation(rawUrlTree, source, state, {
+                _this94.scheduleNavigation(rawUrlTree, source, state, {
                   replaceUrl: true
                 });
               }, 0);
@@ -83554,7 +83554,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "processNavigations",
         value: function processNavigations() {
-          var _this94 = this;
+          var _this95 = this;
 
           this.navigations.subscribe(
           /**
@@ -83562,14 +83562,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (t) {
-            _this94.navigated = true;
-            _this94.lastSuccessfulId = t.id;
+            _this95.navigated = true;
+            _this95.lastSuccessfulId = t.id;
 
             /** @type {?} */
-            _this94.events.next(new NavigationEnd(t.id, _this94.serializeUrl(t.extractedUrl), _this94.serializeUrl(_this94.currentUrlTree)));
+            _this95.events.next(new NavigationEnd(t.id, _this95.serializeUrl(t.extractedUrl), _this95.serializeUrl(_this95.currentUrlTree)));
 
-            _this94.lastSuccessfulNavigation = _this94.currentNavigation;
-            _this94.currentNavigation = null;
+            _this95.lastSuccessfulNavigation = _this95.currentNavigation;
+            _this95.currentNavigation = null;
             t.resolve(true);
           },
           /**
@@ -83577,7 +83577,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (e) {
-            _this94.console.warn("Unhandled Navigation Error: ");
+            _this95.console.warn("Unhandled Navigation Error: ");
           });
         }
         /**
@@ -83875,7 +83875,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} el
        */
       function RouterLink(router, route, tabIndex, renderer, el) {
-        _classCallCheck(this, RouterLink);
+        _classCallCheck2(this, RouterLink);
 
         this.router = router;
         this.route = route;
@@ -84117,9 +84117,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} locationStrategy
        */
       function RouterLinkWithHref(router, route, locationStrategy) {
-        var _this95 = this;
+        var _this96 = this;
 
-        _classCallCheck(this, RouterLinkWithHref);
+        _classCallCheck2(this, RouterLinkWithHref);
 
         this.router = router;
         this.route = route;
@@ -84132,7 +84132,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         */
         function (s) {
           if (s instanceof NavigationEnd) {
-            _this95.updateTargetUrlAndHref();
+            _this96.updateTargetUrlAndHref();
           }
         });
       }
@@ -84483,9 +84483,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?=} linkWithHref
        */
       function RouterLinkActive(router, element, renderer, link, linkWithHref) {
-        var _this96 = this;
+        var _this97 = this;
 
-        _classCallCheck(this, RouterLinkActive);
+        _classCallCheck2(this, RouterLinkActive);
 
         this.router = router;
         this.element = element;
@@ -84504,7 +84504,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         */
         function (s) {
           if (s instanceof NavigationEnd) {
-            _this96.update();
+            _this97.update();
           }
         });
       }
@@ -84516,7 +84516,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(RouterLinkActive, [{
         key: "ngAfterContentInit",
         value: function ngAfterContentInit() {
-          var _this97 = this;
+          var _this98 = this;
 
           this.links.changes.subscribe(
           /**
@@ -84524,7 +84524,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (_) {
-            return _this97.update();
+            return _this98.update();
           });
           this.linksWithHrefs.changes.subscribe(
           /**
@@ -84532,7 +84532,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function (_) {
-            return _this97.update();
+            return _this98.update();
           });
           this.update();
         }
@@ -84568,7 +84568,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "update",
         value: function update() {
-          var _this98 = this;
+          var _this99 = this;
 
           if (!this.links || !this.linksWithHrefs || !this.router.navigated) return;
           Promise.resolve().then(
@@ -84577,22 +84577,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function () {
             /** @type {?} */
-            var hasActiveLinks = _this98.hasActiveLinks();
+            var hasActiveLinks = _this99.hasActiveLinks();
 
-            if (_this98.isActive !== hasActiveLinks) {
+            if (_this99.isActive !== hasActiveLinks) {
               /** @type {?} */
-              _this98.isActive = hasActiveLinks;
+              _this99.isActive = hasActiveLinks;
 
-              _this98.classes.forEach(
+              _this99.classes.forEach(
               /**
               * @param {?} c
               * @return {?}
               */
               function (c) {
                 if (hasActiveLinks) {
-                  _this98.renderer.addClass(_this98.element.nativeElement, c);
+                  _this99.renderer.addClass(_this99.element.nativeElement, c);
                 } else {
-                  _this98.renderer.removeClass(_this98.element.nativeElement, c);
+                  _this99.renderer.removeClass(_this99.element.nativeElement, c);
                 }
               });
             }
@@ -84607,7 +84607,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "isLinkActive",
         value: function isLinkActive(router) {
-          var _this99 = this;
+          var _this100 = this;
 
           return (
             /**
@@ -84615,7 +84615,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             * @return {?}
             */
             function (link) {
-              return router.isActive(link.urlTree, _this99.routerLinkActiveOptions.exact);
+              return router.isActive(link.urlTree, _this100.routerLinkActiveOptions.exact);
             }
           );
         }
@@ -84792,7 +84792,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var OutletContext = function OutletContext() {
-      _classCallCheck(this, OutletContext);
+      _classCallCheck2(this, OutletContext);
 
       this.outlet = null;
       this.route = null;
@@ -84813,7 +84813,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ChildrenOutletContexts() {
-        _classCallCheck(this, ChildrenOutletContexts);
+        _classCallCheck2(this, ChildrenOutletContexts);
 
         // contexts for child outlets, by name.
         this.contexts = new Map();
@@ -84955,7 +84955,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} changeDetector
        */
       function RouterOutlet(parentContexts, location, resolver, name, changeDetector) {
-        _classCallCheck(this, RouterOutlet);
+        _classCallCheck2(this, RouterOutlet);
 
         this.parentContexts = parentContexts;
         this.location = location;
@@ -85231,7 +85231,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} parent
        */
       function OutletInjector(route, childContexts, parent) {
-        _classCallCheck(this, OutletInjector);
+        _classCallCheck2(this, OutletInjector);
 
         this.route = route;
         this.childContexts = childContexts;
@@ -85280,7 +85280,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var PreloadingStrategy = function PreloadingStrategy() {
-      _classCallCheck(this, PreloadingStrategy);
+      _classCallCheck2(this, PreloadingStrategy);
     };
 
     if (false) {}
@@ -85301,7 +85301,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function PreloadAllModules() {
-        _classCallCheck(this, PreloadAllModules);
+        _classCallCheck2(this, PreloadAllModules);
       }
 
       _createClass2(PreloadAllModules, [{
@@ -85340,7 +85340,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function NoPreloading() {
-        _classCallCheck(this, NoPreloading);
+        _classCallCheck2(this, NoPreloading);
       }
 
       _createClass2(NoPreloading, [{
@@ -85383,7 +85383,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} preloadingStrategy
        */
       function RouterPreloader(router, moduleLoader, compiler, injector, preloadingStrategy) {
-        _classCallCheck(this, RouterPreloader);
+        _classCallCheck2(this, RouterPreloader);
 
         this.router = router;
         this.injector = injector;
@@ -85420,7 +85420,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(RouterPreloader, [{
         key: "setUpPreloading",
         value: function setUpPreloading() {
-          var _this100 = this;
+          var _this101 = this;
 
           this.subscription = this.router.events.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(
           /**
@@ -85434,7 +85434,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           * @return {?}
           */
           function () {
-            return _this100.preload();
+            return _this101.preload();
           })).subscribe(
           /**
           * @return {?}
@@ -85520,7 +85520,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "preloadConfig",
         value: function preloadConfig(ngModule, route) {
-          var _this101 = this;
+          var _this102 = this;
 
           return this.preloadingStrategy.preload(route,
           /**
@@ -85528,7 +85528,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           */
           function () {
             /** @type {?} */
-            var loaded$ = _this101.loader.load(ngModule.injector, route);
+            var loaded$ = _this102.loader.load(ngModule.injector, route);
 
             return loaded$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(
             /**
@@ -85537,7 +85537,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             */
             function (config) {
               route._loadedConfig = config;
-              return _this101.processRoutes(config.module, config.routes);
+              return _this102.processRoutes(config.module, config.routes);
             }));
           });
         }
@@ -85609,7 +85609,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function RouterScroller(router, viewportScroller) {
         var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-        _classCallCheck(this, RouterScroller);
+        _classCallCheck2(this, RouterScroller);
 
         this.router = router;
         this.viewportScroller = viewportScroller;
@@ -85648,7 +85648,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "createScrollEvents",
         value: function createScrollEvents() {
-          var _this102 = this;
+          var _this103 = this;
 
           return this.router.events.subscribe(
           /**
@@ -85658,13 +85658,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           function (e) {
             if (e instanceof NavigationStart) {
               // store the scroll position of the current stable navigations.
-              _this102.store[_this102.lastId] = _this102.viewportScroller.getScrollPosition();
-              _this102.lastSource = e.navigationTrigger;
-              _this102.restoredId = e.restoredState ? e.restoredState.navigationId : 0;
+              _this103.store[_this103.lastId] = _this103.viewportScroller.getScrollPosition();
+              _this103.lastSource = e.navigationTrigger;
+              _this103.restoredId = e.restoredState ? e.restoredState.navigationId : 0;
             } else if (e instanceof NavigationEnd) {
-              _this102.lastId = e.id;
+              _this103.lastId = e.id;
 
-              _this102.scheduleScrollEvent(e, _this102.router.parseUrl(e.urlAfterRedirects).fragment);
+              _this103.scheduleScrollEvent(e, _this103.router.parseUrl(e.urlAfterRedirects).fragment);
             }
           });
         }
@@ -85676,7 +85676,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "consumeScrollEvents",
         value: function consumeScrollEvents() {
-          var _this103 = this;
+          var _this104 = this;
 
           return this.router.events.subscribe(
           /**
@@ -85687,17 +85687,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (!(e instanceof Scroll)) return; // a popstate event. The pop state event will always ignore anchor scrolling.
 
             if (e.position) {
-              if (_this103.options.scrollPositionRestoration === 'top') {
-                _this103.viewportScroller.scrollToPosition([0, 0]);
-              } else if (_this103.options.scrollPositionRestoration === 'enabled') {
-                _this103.viewportScroller.scrollToPosition(e.position);
+              if (_this104.options.scrollPositionRestoration === 'top') {
+                _this104.viewportScroller.scrollToPosition([0, 0]);
+              } else if (_this104.options.scrollPositionRestoration === 'enabled') {
+                _this104.viewportScroller.scrollToPosition(e.position);
               } // imperative navigation "forward"
 
             } else {
-              if (e.anchor && _this103.options.anchorScrolling === 'enabled') {
-                _this103.viewportScroller.scrollToAnchor(e.anchor);
-              } else if (_this103.options.scrollPositionRestoration !== 'disabled') {
-                _this103.viewportScroller.scrollToPosition([0, 0]);
+              if (e.anchor && _this104.options.anchorScrolling === 'enabled') {
+                _this104.viewportScroller.scrollToAnchor(e.anchor);
+              } else if (_this104.options.scrollPositionRestoration !== 'disabled') {
+                _this104.viewportScroller.scrollToPosition([0, 0]);
               }
             }
           });
@@ -85863,7 +85863,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} router
        */
       function RouterModule(guard, router) {
-        _classCallCheck(this, RouterModule);
+        _classCallCheck2(this, RouterModule);
       }
       /**
        * Creates and configures a module with all the router providers and directives.
@@ -86171,7 +86171,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
        * @param {?} injector
        */
       function RouterInitializer(injector) {
-        _classCallCheck(this, RouterInitializer);
+        _classCallCheck2(this, RouterInitializer);
 
         this.injector = injector;
         this.initNavigation = false;
@@ -86185,7 +86185,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass2(RouterInitializer, [{
         key: "appInitializer",
         value: function appInitializer() {
-          var _this104 = this;
+          var _this105 = this;
 
           /** @type {?} */
           var p = this.injector.get(_angular_common__WEBPACK_IMPORTED_MODULE_0__["LOCATION_INITIALIZED"], Promise.resolve(null));
@@ -86210,13 +86210,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
             /** @type {?} */
 
-            var router = _this104.injector.get(Router);
+            var router = _this105.injector.get(Router);
             /** @type {?} */
 
 
-            var opts = _this104.injector.get(ROUTER_CONFIGURATION);
+            var opts = _this105.injector.get(ROUTER_CONFIGURATION);
 
-            if (_this104.isLegacyDisabled(opts) || _this104.isLegacyEnabled(opts)) {
+            if (_this105.isLegacyDisabled(opts) || _this105.isLegacyEnabled(opts)) {
               resolve(true);
             } else if (opts.initialNavigation === 'disabled') {
               router.setUpLocationChangeListener();
@@ -86228,10 +86228,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               */
               function () {
                 // only the initial navigation should be delayed
-                if (!_this104.initNavigation) {
-                  _this104.initNavigation = true;
+                if (!_this105.initNavigation) {
+                  _this105.initNavigation = true;
                   resolve(true);
-                  return _this104.resultOfPreactivationDone; // subsequent navigations should not be delayed
+                  return _this105.resultOfPreactivationDone; // subsequent navigations should not be delayed
                 } else {
                   return (
                     /** @type {?} */
@@ -86436,6 +86436,3906 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     //# sourceMappingURL=router.js.map
 
     /***/
+  },
+
+  /***/
+  "./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js":
+  /*!****************************************************************************************************!*\
+    !*** ./node_modules/@fortawesome/angular-fontawesome/__ivy_ngcc__/fesm2015/angular-fontawesome.js ***!
+    \****************************************************************************************************/
+
+  /*! exports provided: FaConfig, FaDuotoneIconComponent, FaIconComponent, FaIconLibrary, FaLayersComponent, FaLayersCounterComponent, FaLayersTextComponent, FaStackComponent, FaStackItemSizeDirective, FontAwesomeModule */
+
+  /***/
+  function node_modulesFortawesomeAngularFontawesome__ivy_ngcc__Fesm2015AngularFontawesomeJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FaConfig", function () {
+      return FaConfig;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FaDuotoneIconComponent", function () {
+      return FaDuotoneIconComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FaIconComponent", function () {
+      return FaIconComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FaIconLibrary", function () {
+      return FaIconLibrary;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FaLayersComponent", function () {
+      return FaLayersComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FaLayersCounterComponent", function () {
+      return FaLayersCounterComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FaLayersTextComponent", function () {
+      return FaLayersTextComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FaStackComponent", function () {
+      return FaStackComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FaStackItemSizeDirective", function () {
+      return FaStackItemSizeDirective;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FontAwesomeModule", function () {
+      return FontAwesomeModule;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/platform-browser */
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+    /* harmony import */
+
+
+    var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @fortawesome/fontawesome-svg-core */
+    "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
+
+    var _c0 = [[["fa-icon"], ["fa-duotone-icon"], ["fa-layers-text"], ["fa-layers-counter"]]];
+    var _c1 = ["fa-icon, fa-duotone-icon, fa-layers-text, fa-layers-counter"];
+    var _c2 = [[["fa-icon", "stackItemSize", ""], ["fa-duotone-icon", "stackItemSize", ""]]];
+    var _c3 = ["fa-icon[stackItemSize],fa-duotone-icon[stackItemSize]"];
+
+    var FaConfig = function FaConfig() {
+      _classCallCheck2(this, FaConfig);
+
+      /**
+       * Default prefix to use, when one is not provided with the icon name.
+       *
+       * @default 'fas'
+       */
+      this.defaultPrefix = 'fas';
+      /**
+       * Provides a fallback icon to use whilst main icon is being loaded asynchronously.
+       * When value is null, then fa-icon component will throw an error if icon input is missing.
+       * When value is not null, then the provided icon will be used as a fallback icon if icon input is missing.
+       *
+       * @default null
+       */
+
+      this.fallbackIcon = null;
+      /**
+       * Whether components should lookup icon definitions in the global icon
+       * library (the one available from
+       * `import { library } from '@fortawesome/fontawesome-svg-core')`.
+       *
+       * See https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/usage/icon-library.md
+       * for detailed description of library modes.
+       *
+       * - 'unset' - Components should lookup icon definitions in the global library
+       * and emit warning if they find a definition there. This option is a default
+       * to assist existing applications with a migration. Applications are expected
+       * to switch to using {@link FaIconLibrary}.
+       * - true - Components should lookup icon definitions in the global library.
+       * Note that global icon library is deprecated and support for it will be
+       * removed. This option can be used to temporarily suppress warnings.
+       * - false - Components should not lookup icon definitions in the global
+       * library. Library will throw an error if missing icon is found in the global
+       * library.
+       *
+       * @deprecated This option is deprecated since 0.5.0. In 0.6.0 default will
+       * be changed to false. In 0.7.0 the option will be removed together with the
+       * support for the global icon library.
+       *
+       * @default false
+       */
+
+      this.globalLibrary = false;
+    };
+
+    FaConfig.ɵfac = function FaConfig_Factory(t) {
+      return new (t || FaConfig)();
+    };
+
+    FaConfig.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
+      factory: function FaConfig_Factory() {
+        return new FaConfig();
+      },
+      token: FaConfig,
+      providedIn: "root"
+    });
+
+    var FaIconLibrary =
+    /*#__PURE__*/
+    function () {
+      function FaIconLibrary() {
+        _classCallCheck2(this, FaIconLibrary);
+
+        this.definitions = {};
+      }
+
+      _createClass2(FaIconLibrary, [{
+        key: "addIcons",
+        value: function addIcons() {
+          for (var _len16 = arguments.length, icons = new Array(_len16), _key16 = 0; _key16 < _len16; _key16++) {
+            icons[_key16] = arguments[_key16];
+          }
+
+          for (var _i19 = 0, _icons = icons; _i19 < _icons.length; _i19++) {
+            var icon = _icons[_i19];
+
+            if (!(icon.prefix in this.definitions)) {
+              this.definitions[icon.prefix] = {};
+            }
+
+            this.definitions[icon.prefix][icon.iconName] = icon;
+          }
+        }
+      }, {
+        key: "addIconPacks",
+        value: function addIconPacks() {
+          var _this106 = this;
+
+          for (var _len17 = arguments.length, packs = new Array(_len17), _key17 = 0; _key17 < _len17; _key17++) {
+            packs[_key17] = arguments[_key17];
+          }
+
+          var _loop3 = function _loop3() {
+            var pack = _packs[_i20];
+            var icons = Object.keys(pack).map(function (key) {
+              return pack[key];
+            });
+
+            _this106.addIcons.apply(_this106, _toConsumableArray2(icons));
+          };
+
+          for (var _i20 = 0, _packs = packs; _i20 < _packs.length; _i20++) {
+            _loop3();
+          }
+        }
+      }, {
+        key: "getIconDefinition",
+        value: function getIconDefinition(prefix, name) {
+          if (prefix in this.definitions && name in this.definitions[prefix]) {
+            return this.definitions[prefix][name];
+          }
+
+          return null;
+        }
+      }]);
+
+      return FaIconLibrary;
+    }();
+
+    FaIconLibrary.ɵfac = function FaIconLibrary_Factory(t) {
+      return new (t || FaIconLibrary)();
+    };
+
+    FaIconLibrary.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
+      factory: function FaIconLibrary_Factory() {
+        return new FaIconLibrary();
+      },
+      token: FaIconLibrary,
+      providedIn: "root"
+    });
+
+    var faWarnIfIconDefinitionMissing = function faWarnIfIconDefinitionMissing(iconSpec) {
+      throw new Error("Could not find icon with iconName=".concat(iconSpec.iconName, " and prefix=").concat(iconSpec.prefix, " in the icon library."));
+    };
+
+    var faWarnIfIconSpecMissing = function faWarnIfIconSpecMissing() {
+      throw new Error('Property `icon` is required for `fa-icon`/`fa-duotone-icon` components.');
+    };
+    /**
+     * Fontawesome class list.
+     * Returns classes array by props.
+     */
+
+
+    var faClassList = function faClassList(props) {
+      var _classes;
+
+      var classes = (_classes = {
+        'fa-spin': props.spin,
+        'fa-pulse': props.pulse,
+        'fa-fw': props.fixedWidth,
+        'fa-border': props.border,
+        'fa-inverse': props.inverse,
+        'fa-layers-counter': props.counter,
+        'fa-flip-horizontal': props.flip === 'horizontal' || props.flip === 'both',
+        'fa-flip-vertical': props.flip === 'vertical' || props.flip === 'both'
+      }, _defineProperty2(_classes, "fa-".concat(props.size), props.size !== null), _defineProperty2(_classes, "fa-rotate-".concat(props.rotate), props.rotate !== null), _defineProperty2(_classes, "fa-pull-".concat(props.pull), props.pull !== null), _defineProperty2(_classes, "fa-stack-".concat(props.stackItemSize), props.stackItemSize != null), _classes);
+      return Object.keys(classes).map(function (key) {
+        return classes[key] ? key : null;
+      }).filter(function (key) {
+        return key;
+      });
+    };
+    /**
+     * Returns if is IconLookup or not.
+     */
+
+
+    var isIconLookup = function isIconLookup(i) {
+      return i.prefix !== undefined && i.iconName !== undefined;
+    };
+    /**
+     * Normalizing icon spec.
+     */
+
+
+    var faNormalizeIconSpec = function faNormalizeIconSpec(iconSpec, defaultPrefix) {
+      if (isIconLookup(iconSpec)) {
+        return iconSpec;
+      }
+
+      if (Array.isArray(iconSpec) && iconSpec.length === 2) {
+        return {
+          prefix: iconSpec[0],
+          iconName: iconSpec[1]
+        };
+      }
+
+      if (typeof iconSpec === 'string') {
+        return {
+          prefix: defaultPrefix,
+          iconName: iconSpec
+        };
+      }
+    };
+
+    var FaStackItemSizeDirective =
+    /*#__PURE__*/
+    function () {
+      function FaStackItemSizeDirective() {
+        _classCallCheck2(this, FaStackItemSizeDirective);
+
+        /**
+         * Specify whether icon inside {@link FaStackComponent} should be rendered in
+         * regular size (1x) or as a larger icon (2x).
+         */
+        this.stackItemSize = '1x';
+      }
+
+      _createClass2(FaStackItemSizeDirective, [{
+        key: "ngOnChanges",
+        value: function ngOnChanges(changes) {
+          if ('size' in changes) {
+            throw new Error('fa-icon is not allowed to customize size when used inside fa-stack. ' + 'Set size on the enclosing fa-stack instead: <fa-stack size="4x">...</fa-stack>.');
+          }
+        }
+      }]);
+
+      return FaStackItemSizeDirective;
+    }();
+
+    FaStackItemSizeDirective.ɵfac = function FaStackItemSizeDirective_Factory(t) {
+      return new (t || FaStackItemSizeDirective)();
+    };
+
+    FaStackItemSizeDirective.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({
+      type: FaStackItemSizeDirective,
+      selectors: [["fa-icon", "stackItemSize", ""], ["fa-duotone-icon", "stackItemSize", ""]],
+      inputs: {
+        stackItemSize: "stackItemSize",
+        size: "size"
+      },
+      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]]
+    });
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaStackItemSizeDirective.prototype, "stackItemSize", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaStackItemSizeDirective.prototype, "size", void 0);
+
+    var FaIconComponent =
+    /*#__PURE__*/
+    function () {
+      function FaIconComponent(sanitizer, config, iconLibrary, stackItem) {
+        _classCallCheck2(this, FaIconComponent);
+
+        this.sanitizer = sanitizer;
+        this.config = config;
+        this.iconLibrary = iconLibrary;
+        this.stackItem = stackItem;
+        this.classes = [];
+      }
+
+      _createClass2(FaIconComponent, [{
+        key: "ngOnChanges",
+        value: function ngOnChanges(changes) {
+          if (this.icon == null && this.config.fallbackIcon == null) {
+            return faWarnIfIconSpecMissing();
+          }
+
+          var iconToBeRendered = null;
+
+          if (this.icon == null) {
+            iconToBeRendered = this.config.fallbackIcon;
+          } else {
+            iconToBeRendered = this.icon;
+          }
+
+          if (changes) {
+            var iconDefinition = this.findIconDefinition(iconToBeRendered);
+
+            if (iconDefinition != null) {
+              var params = this.buildParams();
+              this.renderIcon(iconDefinition, params);
+            }
+          }
+        }
+        /**
+         * Programmatically trigger rendering of the icon.
+         *
+         * This method is useful, when creating {@link FaIconComponent} dynamically or
+         * changing its inputs programmatically as in these cases icon won't be
+         * re-rendered automatically.
+         */
+
+      }, {
+        key: "render",
+        value: function render() {
+          this.ngOnChanges({});
+        }
+      }, {
+        key: "findIconDefinition",
+        value: function findIconDefinition(i) {
+          var lookup = faNormalizeIconSpec(i, this.config.defaultPrefix);
+
+          if ('icon' in lookup) {
+            return lookup;
+          }
+
+          var definition = this.iconLibrary.getIconDefinition(lookup.prefix, lookup.iconName);
+
+          if (definition != null) {
+            return definition;
+          }
+
+          var globalDefinition = Object(_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["findIconDefinition"])(lookup);
+
+          if (globalDefinition != null) {
+            var message = 'Global icon library is deprecated. ' + 'Consult https://github.com/FortAwesome/angular-fontawesome/blob/master/UPGRADING.md ' + 'for the migration instructions.';
+
+            if (this.config.globalLibrary === 'unset') {
+              console.error('FontAwesome: ' + message);
+            } else if (!this.config.globalLibrary) {
+              throw new Error(message);
+            }
+
+            return globalDefinition;
+          }
+
+          faWarnIfIconDefinitionMissing(lookup);
+          return null;
+        }
+      }, {
+        key: "buildParams",
+        value: function buildParams() {
+          var classOpts = {
+            flip: this.flip,
+            spin: this.spin,
+            pulse: this.pulse,
+            border: this.border,
+            inverse: this.inverse,
+            size: this.size || null,
+            pull: this.pull || null,
+            rotate: this.rotate || null,
+            fixedWidth: typeof this.fixedWidth === 'boolean' ? this.fixedWidth : this.config.fixedWidth,
+            stackItemSize: this.stackItem != null ? this.stackItem.stackItemSize : null
+          };
+          var parsedTransform = typeof this.transform === 'string' ? _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["parse"].transform(this.transform) : this.transform;
+          return {
+            title: this.title,
+            transform: parsedTransform,
+            classes: [].concat(_toConsumableArray2(faClassList(classOpts)), _toConsumableArray2(this.classes)),
+            mask: this.mask != null ? this.findIconDefinition(this.mask) : null,
+            styles: this.styles != null ? this.styles : {},
+            symbol: this.symbol,
+            attributes: {
+              role: this.a11yRole
+            }
+          };
+        }
+      }, {
+        key: "renderIcon",
+        value: function renderIcon(definition, params) {
+          var renderedIcon = Object(_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["icon"])(definition, params);
+          this.renderedIconHTML = this.sanitizer.bypassSecurityTrustHtml(renderedIcon.html.join('\n'));
+        }
+      }]);
+
+      return FaIconComponent;
+    }();
+
+    FaIconComponent.ɵfac = function FaIconComponent_Factory(t) {
+      return new (t || FaIconComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](FaConfig), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](FaIconLibrary), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](FaStackItemSizeDirective, 8));
+    };
+
+    FaIconComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+      type: FaIconComponent,
+      selectors: [["fa-icon"]],
+      hostAttrs: [1, "ng-fa-icon"],
+      hostVars: 2,
+      hostBindings: function FaIconComponent_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵhostProperty"]("innerHTML", ctx.renderedIconHTML, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeHtml"]);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵattribute"]("title", ctx.title);
+        }
+      },
+      inputs: {
+        classes: "classes",
+        icon: "icon",
+        title: "title",
+        spin: "spin",
+        pulse: "pulse",
+        mask: "mask",
+        styles: "styles",
+        flip: "flip",
+        size: "size",
+        pull: "pull",
+        border: "border",
+        inverse: "inverse",
+        symbol: "symbol",
+        rotate: "rotate",
+        fixedWidth: "fixedWidth",
+        transform: "transform",
+        a11yRole: "a11yRole"
+      },
+      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]],
+      decls: 0,
+      vars: 0,
+      template: function FaIconComponent_Template(rf, ctx) {},
+      encapsulation: 2
+    });
+
+    FaIconComponent.ctorParameters = function () {
+      return [{
+        type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]
+      }, {
+        type: FaConfig
+      }, {
+        type: FaIconLibrary
+      }, {
+        type: FaStackItemSizeDirective,
+        decorators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+        }]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "icon", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "title", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "spin", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "pulse", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "mask", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "styles", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "flip", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "size", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "pull", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "border", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "inverse", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "symbol", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "rotate", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "fixedWidth", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "classes", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "transform", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaIconComponent.prototype, "a11yRole", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('innerHTML')], FaIconComponent.prototype, "renderedIconHTML", void 0);
+    FaIconComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])())], FaIconComponent);
+
+    var FaDuotoneIconComponent =
+    /*#__PURE__*/
+    function (_FaIconComponent) {
+      _inherits(FaDuotoneIconComponent, _FaIconComponent);
+
+      var _super49 = _createSuper(FaDuotoneIconComponent);
+
+      function FaDuotoneIconComponent() {
+        _classCallCheck2(this, FaDuotoneIconComponent);
+
+        return _super49.apply(this, arguments);
+      }
+
+      _createClass2(FaDuotoneIconComponent, [{
+        key: "findIconDefinition",
+        value: function findIconDefinition(i) {
+          var lookup = _get(_getPrototypeOf(FaDuotoneIconComponent.prototype), "findIconDefinition", this).call(this, i);
+
+          if (lookup != null && lookup.prefix !== 'fad') {
+            throw new Error('The specified icon does not appear to be a Duotone icon. ' + 'Check that you specified the correct style: ' + "<fa-duotone-icon [icon]=\"['fab', '".concat(lookup.iconName, "']\"></fa-duotone-icon> ") + "or use: <fa-icon icon=\"".concat(lookup.iconName, "\"></fa-icon> instead."));
+          }
+
+          return lookup;
+        }
+      }, {
+        key: "buildParams",
+        value: function buildParams() {
+          var params = _get(_getPrototypeOf(FaDuotoneIconComponent.prototype), "buildParams", this).call(this);
+
+          if (this.swapOpacity === true || this.swapOpacity === 'true') {
+            params.classes.push('fa-swap-opacity');
+          }
+
+          if (this.primaryOpacity != null) {
+            params.styles['--fa-primary-opacity'] = this.primaryOpacity.toString();
+          }
+
+          if (this.secondaryOpacity != null) {
+            params.styles['--fa-secondary-opacity'] = this.secondaryOpacity.toString();
+          }
+
+          if (this.primaryColor != null) {
+            params.styles['--fa-primary-color'] = this.primaryColor;
+          }
+
+          if (this.secondaryColor != null) {
+            params.styles['--fa-secondary-color'] = this.secondaryColor;
+          }
+
+          return params;
+        }
+      }]);
+
+      return FaDuotoneIconComponent;
+    }(FaIconComponent);
+
+    FaDuotoneIconComponent.ɵfac = function FaDuotoneIconComponent_Factory(t) {
+      return ɵFaDuotoneIconComponent_BaseFactory(t || FaDuotoneIconComponent);
+    };
+
+    FaDuotoneIconComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+      type: FaDuotoneIconComponent,
+      selectors: [["fa-duotone-icon"]],
+      inputs: {
+        swapOpacity: "swapOpacity",
+        primaryOpacity: "primaryOpacity",
+        secondaryOpacity: "secondaryOpacity",
+        primaryColor: "primaryColor",
+        secondaryColor: "secondaryColor"
+      },
+      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵInheritDefinitionFeature"]],
+      decls: 0,
+      vars: 0,
+      template: function FaDuotoneIconComponent_Template(rf, ctx) {},
+      encapsulation: 2
+    });
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaDuotoneIconComponent.prototype, "swapOpacity", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaDuotoneIconComponent.prototype, "primaryOpacity", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaDuotoneIconComponent.prototype, "secondaryOpacity", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaDuotoneIconComponent.prototype, "primaryColor", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaDuotoneIconComponent.prototype, "secondaryColor", void 0);
+    /**
+     * Warns if parent component not existing.
+     */
+
+    var faWarnIfParentNotExist = function faWarnIfParentNotExist(parent, parentName, childName) {
+      if (!parent) {
+        throw new Error("".concat(childName, " should be used as child of ").concat(parentName, " only."));
+      }
+    };
+    /**
+     * Fontawesome layers.
+     */
+
+
+    var FaLayersComponent =
+    /*#__PURE__*/
+    function () {
+      function FaLayersComponent(renderer, elementRef, config) {
+        _classCallCheck2(this, FaLayersComponent);
+
+        this.renderer = renderer;
+        this.elementRef = elementRef;
+        this.config = config;
+      }
+
+      _createClass2(FaLayersComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.renderer.addClass(this.elementRef.nativeElement, 'fa-layers');
+          this.fixedWidth = typeof this.fixedWidth === 'boolean' ? this.fixedWidth : this.config.fixedWidth;
+        }
+      }, {
+        key: "ngOnChanges",
+        value: function ngOnChanges(changes) {
+          if ('size' in changes) {
+            if (changes.size.currentValue != null) {
+              this.renderer.addClass(this.elementRef.nativeElement, "fa-".concat(changes.size.currentValue));
+            }
+
+            if (changes.size.previousValue != null) {
+              this.renderer.removeClass(this.elementRef.nativeElement, "fa-".concat(changes.size.previousValue));
+            }
+          }
+        }
+      }]);
+
+      return FaLayersComponent;
+    }();
+
+    FaLayersComponent.ɵfac = function FaLayersComponent_Factory(t) {
+      return new (t || FaLayersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](FaConfig));
+    };
+
+    FaLayersComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+      type: FaLayersComponent,
+      selectors: [["fa-layers"]],
+      hostVars: 2,
+      hostBindings: function FaLayersComponent_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵclassProp"]("fa-fw", ctx.fixedWidth);
+        }
+      },
+      inputs: {
+        fixedWidth: "fixedWidth",
+        size: "size"
+      },
+      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]],
+      ngContentSelectors: _c1,
+      decls: 1,
+      vars: 0,
+      template: function FaLayersComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojectionDef"](_c0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojection"](0);
+        }
+      },
+      encapsulation: 2
+    });
+
+    FaLayersComponent.ctorParameters = function () {
+      return [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+      }, {
+        type: FaConfig
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersComponent.prototype, "size", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('class.fa-fw')], FaLayersComponent.prototype, "fixedWidth", void 0);
+
+    var FaLayersCounterComponent =
+    /*#__PURE__*/
+    function () {
+      function FaLayersCounterComponent(parent, sanitizer) {
+        _classCallCheck2(this, FaLayersCounterComponent);
+
+        this.parent = parent;
+        this.sanitizer = sanitizer;
+        this.classes = [];
+        faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
+      }
+
+      _createClass2(FaLayersCounterComponent, [{
+        key: "ngOnChanges",
+        value: function ngOnChanges(changes) {
+          if (changes) {
+            var params = this.buildParams();
+            this.updateContent(params);
+          }
+        }
+      }, {
+        key: "buildParams",
+        value: function buildParams() {
+          return {
+            title: this.title,
+            classes: this.classes,
+            styles: this.styles
+          };
+        }
+      }, {
+        key: "updateContent",
+        value: function updateContent(params) {
+          this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(Object(_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["counter"])(this.content || '', params).html.join(''));
+        }
+      }]);
+
+      return FaLayersCounterComponent;
+    }();
+
+    FaLayersCounterComponent.ɵfac = function FaLayersCounterComponent_Factory(t) {
+      return new (t || FaLayersCounterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](FaLayersComponent, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]));
+    };
+
+    FaLayersCounterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+      type: FaLayersCounterComponent,
+      selectors: [["fa-layers-counter"]],
+      hostAttrs: [1, "ng-fa-layers-counter"],
+      hostVars: 1,
+      hostBindings: function FaLayersCounterComponent_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵhostProperty"]("innerHTML", ctx.renderedHTML, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeHtml"]);
+        }
+      },
+      inputs: {
+        classes: "classes",
+        content: "content",
+        title: "title",
+        styles: "styles"
+      },
+      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]],
+      decls: 0,
+      vars: 0,
+      template: function FaLayersCounterComponent_Template(rf, ctx) {},
+      encapsulation: 2
+    });
+
+    FaLayersCounterComponent.ctorParameters = function () {
+      return [{
+        type: FaLayersComponent,
+        decorators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+        }]
+      }, {
+        type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersCounterComponent.prototype, "content", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersCounterComponent.prototype, "title", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersCounterComponent.prototype, "styles", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersCounterComponent.prototype, "classes", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('innerHTML')], FaLayersCounterComponent.prototype, "renderedHTML", void 0);
+    FaLayersCounterComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])())], FaLayersCounterComponent);
+
+    var FaLayersTextComponent =
+    /*#__PURE__*/
+    function () {
+      function FaLayersTextComponent(parent, sanitizer) {
+        _classCallCheck2(this, FaLayersTextComponent);
+
+        this.parent = parent;
+        this.sanitizer = sanitizer;
+        this.classes = [];
+        faWarnIfParentNotExist(this.parent, 'FaLayersComponent', this.constructor.name);
+      }
+
+      _createClass2(FaLayersTextComponent, [{
+        key: "ngOnChanges",
+        value: function ngOnChanges(changes) {
+          if (changes) {
+            var params = this.buildParams();
+            this.updateContent(params);
+          }
+        }
+        /**
+         * Updating params by component props.
+         */
+
+      }, {
+        key: "buildParams",
+        value: function buildParams() {
+          var classOpts = {
+            flip: this.flip,
+            spin: this.spin,
+            pulse: this.pulse,
+            border: this.border,
+            inverse: this.inverse,
+            size: this.size || null,
+            pull: this.pull || null,
+            rotate: this.rotate || null,
+            fixedWidth: this.fixedWidth
+          };
+          var parsedTransform = typeof this.transform === 'string' ? _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["parse"].transform(this.transform) : this.transform;
+          return {
+            transform: parsedTransform,
+            classes: [].concat(_toConsumableArray2(faClassList(classOpts)), _toConsumableArray2(this.classes)),
+            title: this.title,
+            styles: this.styles
+          };
+        }
+      }, {
+        key: "updateContent",
+        value: function updateContent(params) {
+          this.renderedHTML = this.sanitizer.bypassSecurityTrustHtml(Object(_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["text"])(this.content || '', params).html.join('\n'));
+        }
+      }]);
+
+      return FaLayersTextComponent;
+    }();
+
+    FaLayersTextComponent.ɵfac = function FaLayersTextComponent_Factory(t) {
+      return new (t || FaLayersTextComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](FaLayersComponent, 8), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]));
+    };
+
+    FaLayersTextComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+      type: FaLayersTextComponent,
+      selectors: [["fa-layers-text"]],
+      hostAttrs: [1, "ng-fa-layers-text"],
+      hostVars: 1,
+      hostBindings: function FaLayersTextComponent_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵhostProperty"]("innerHTML", ctx.renderedHTML, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeHtml"]);
+        }
+      },
+      inputs: {
+        classes: "classes",
+        content: "content",
+        title: "title",
+        styles: "styles",
+        spin: "spin",
+        pulse: "pulse",
+        flip: "flip",
+        size: "size",
+        pull: "pull",
+        border: "border",
+        inverse: "inverse",
+        rotate: "rotate",
+        fixedWidth: "fixedWidth",
+        transform: "transform"
+      },
+      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]],
+      decls: 0,
+      vars: 0,
+      template: function FaLayersTextComponent_Template(rf, ctx) {},
+      encapsulation: 2
+    });
+
+    FaLayersTextComponent.ctorParameters = function () {
+      return [{
+        type: FaLayersComponent,
+        decorators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+        }]
+      }, {
+        type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "content", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "title", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "styles", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "classes", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "spin", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "pulse", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "flip", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "size", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "pull", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "border", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "inverse", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "rotate", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "fixedWidth", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaLayersTextComponent.prototype, "transform", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"])('innerHTML')], FaLayersTextComponent.prototype, "renderedHTML", void 0);
+    FaLayersTextComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])())], FaLayersTextComponent);
+
+    var FaStackComponent =
+    /*#__PURE__*/
+    function () {
+      function FaStackComponent(renderer, elementRef) {
+        _classCallCheck2(this, FaStackComponent);
+
+        this.renderer = renderer;
+        this.elementRef = elementRef;
+      }
+
+      _createClass2(FaStackComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.renderer.addClass(this.elementRef.nativeElement, 'fa-stack');
+        }
+      }, {
+        key: "ngOnChanges",
+        value: function ngOnChanges(changes) {
+          if ('size' in changes) {
+            if (changes.size.currentValue != null) {
+              this.renderer.addClass(this.elementRef.nativeElement, "fa-".concat(changes.size.currentValue));
+            }
+
+            if (changes.size.previousValue != null) {
+              this.renderer.removeClass(this.elementRef.nativeElement, "fa-".concat(changes.size.previousValue));
+            }
+          }
+        }
+      }]);
+
+      return FaStackComponent;
+    }();
+
+    FaStackComponent.ɵfac = function FaStackComponent_Factory(t) {
+      return new (t || FaStackComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]));
+    };
+
+    FaStackComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+      type: FaStackComponent,
+      selectors: [["fa-stack"]],
+      inputs: {
+        size: "size"
+      },
+      features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]],
+      ngContentSelectors: _c3,
+      decls: 1,
+      vars: 0,
+      template: function FaStackComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojectionDef"](_c2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵprojection"](0);
+        }
+      },
+      encapsulation: 2
+    });
+
+    FaStackComponent.ctorParameters = function () {
+      return [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+      }];
+    };
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], FaStackComponent.prototype, "size", void 0);
+
+    var FontAwesomeModule = function FontAwesomeModule() {
+      _classCallCheck2(this, FontAwesomeModule);
+    };
+
+    FontAwesomeModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
+      type: FontAwesomeModule
+    });
+    FontAwesomeModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
+      factory: function FontAwesomeModule_Factory(t) {
+        return new (t || FontAwesomeModule)();
+      }
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FaConfig, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [];
+      }, null);
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FaIconLibrary, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [];
+      }, null);
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FaStackItemSizeDirective, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"],
+        args: [{
+          // tslint:disable-next-line:directive-selector
+          selector: 'fa-icon[stackItemSize],fa-duotone-icon[stackItemSize]'
+        }]
+      }], function () {
+        return [];
+      }, {
+        stackItemSize: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        size: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }]
+      });
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FaIconComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+          selector: 'fa-icon',
+          template: "",
+          host: {
+            "class": 'ng-fa-icon',
+            '[attr.title]': 'title'
+          }
+        }]
+      }], function () {
+        return [{
+          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]
+        }, {
+          type: FaConfig
+        }, {
+          type: FaIconLibrary
+        }, {
+          type: FaStackItemSizeDirective,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+          }]
+        }];
+      }, {
+        classes: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        renderedIconHTML: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"],
+          args: ['innerHTML']
+        }],
+        icon: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        title: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        spin: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        pulse: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        mask: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        styles: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        flip: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        size: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        pull: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        border: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        inverse: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        symbol: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        rotate: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fixedWidth: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        transform: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        a11yRole: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }]
+      });
+    })();
+
+    var ɵFaDuotoneIconComponent_BaseFactory = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetInheritedFactory"](FaDuotoneIconComponent);
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FaDuotoneIconComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+          selector: 'fa-duotone-icon',
+          template: ""
+        }]
+      }], null, {
+        swapOpacity: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        primaryOpacity: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        secondaryOpacity: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        primaryColor: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        secondaryColor: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }]
+      });
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FaLayersComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+          selector: 'fa-layers',
+          template: "\n    <ng-content select=\"fa-icon, fa-duotone-icon, fa-layers-text, fa-layers-counter\"></ng-content>\n  "
+        }]
+      }], function () {
+        return [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+        }, {
+          type: FaConfig
+        }];
+      }, {
+        fixedWidth: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"],
+          args: ['class.fa-fw']
+        }],
+        size: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }]
+      });
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FaLayersCounterComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+          selector: 'fa-layers-counter',
+          template: '',
+          host: {
+            "class": 'ng-fa-layers-counter'
+          }
+        }]
+      }], function () {
+        return [{
+          type: FaLayersComponent,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+          }]
+        }, {
+          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]
+        }];
+      }, {
+        classes: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        renderedHTML: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"],
+          args: ['innerHTML']
+        }],
+        content: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        title: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        styles: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }]
+      });
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FaLayersTextComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+          selector: 'fa-layers-text',
+          template: '',
+          host: {
+            "class": 'ng-fa-layers-text'
+          }
+        }]
+      }], function () {
+        return [{
+          type: FaLayersComponent,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"]
+          }]
+        }, {
+          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]
+        }];
+      }, {
+        classes: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        renderedHTML: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostBinding"],
+          args: ['innerHTML']
+        }],
+        content: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        title: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        styles: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        spin: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        pulse: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        flip: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        size: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        pull: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        border: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        inverse: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        rotate: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fixedWidth: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        transform: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }]
+      });
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FaStackComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"],
+        args: [{
+          selector: 'fa-stack',
+          // TODO: See if it is better to select fa-icon and throw if it does not have stackItemSize directive
+          template: "\n    <ng-content select=\"fa-icon[stackItemSize],fa-duotone-icon[stackItemSize]\"></ng-content>\n  "
+        }]
+      }], function () {
+        return [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]
+        }];
+      }, {
+        size: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }]
+      });
+    })();
+
+    (function () {
+      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](FontAwesomeModule, {
+        declarations: [FaIconComponent, FaDuotoneIconComponent, FaLayersComponent, FaLayersTextComponent, FaLayersCounterComponent, FaStackComponent, FaStackItemSizeDirective],
+        exports: [FaIconComponent, FaDuotoneIconComponent, FaLayersComponent, FaLayersTextComponent, FaLayersCounterComponent, FaStackComponent, FaStackItemSizeDirective]
+      });
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](FontAwesomeModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
+        args: [{
+          declarations: [FaIconComponent, FaDuotoneIconComponent, FaLayersComponent, FaLayersTextComponent, FaLayersCounterComponent, FaStackComponent, FaStackItemSizeDirective],
+          exports: [FaIconComponent, FaDuotoneIconComponent, FaLayersComponent, FaLayersTextComponent, FaLayersCounterComponent, FaStackComponent, FaStackItemSizeDirective],
+          entryComponents: [FaIconComponent, FaDuotoneIconComponent]
+        }]
+      }], null, null);
+    })();
+    /**
+     * Generated bundle index. Do not edit.
+     */
+    //# sourceMappingURL=angular-fontawesome.js.map
+
+    /***/
+
+  },
+
+  /***/
+  "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js":
+  /*!********************************************************************!*\
+    !*** ./node_modules/@fortawesome/fontawesome-svg-core/index.es.js ***!
+    \********************************************************************/
+
+  /*! exports provided: icon, noAuto, config, toHtml, layer, text, counter, library, dom, parse, findIconDefinition */
+
+  /***/
+  function node_modulesFortawesomeFontawesomeSvgCoreIndexEsJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "icon", function () {
+      return icon;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "noAuto", function () {
+      return noAuto;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "config", function () {
+      return config;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "toHtml", function () {
+      return toHtml;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "layer", function () {
+      return layer;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "text", function () {
+      return text;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "counter", function () {
+      return counter;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "library", function () {
+      return library;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "dom", function () {
+      return dom;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "parse", function () {
+      return parse;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "findIconDefinition", function () {
+      return findIconDefinition;
+    });
+
+    function _typeof(obj) {
+      if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+        _typeof = function _typeof(obj) {
+          return typeof obj;
+        };
+      } else {
+        _typeof = function _typeof(obj) {
+          return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        };
+      }
+
+      return _typeof(obj);
+    }
+
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) _defineProperties(Constructor, staticProps);
+      return Constructor;
+    }
+
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, {
+          value: value,
+          enumerable: true,
+          configurable: true,
+          writable: true
+        });
+      } else {
+        obj[key] = value;
+      }
+
+      return obj;
+    }
+
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i] != null ? arguments[i] : {};
+        var ownKeys = Object.keys(source);
+
+        if (typeof Object.getOwnPropertySymbols === 'function') {
+          ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+            return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+          }));
+        }
+
+        ownKeys.forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      }
+
+      return target;
+    }
+
+    function _slicedToArray(arr, i) {
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+    }
+
+    function _toConsumableArray(arr) {
+      return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+    }
+
+    function _arrayWithoutHoles(arr) {
+      if (Array.isArray(arr)) {
+        for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+          arr2[i] = arr[i];
+        }
+
+        return arr2;
+      }
+    }
+
+    function _arrayWithHoles(arr) {
+      if (Array.isArray(arr)) return arr;
+    }
+
+    function _iterableToArray(iter) {
+      if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+    }
+
+    function _iterableToArrayLimit(arr, i) {
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _e = undefined;
+
+      try {
+        for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+
+          if (i && _arr.length === i) break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"] != null) _i["return"]();
+        } finally {
+          if (_d) throw _e;
+        }
+      }
+
+      return _arr;
+    }
+
+    function _nonIterableSpread() {
+      throw new TypeError("Invalid attempt to spread non-iterable instance");
+    }
+
+    function _nonIterableRest() {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+
+    var noop = function noop() {};
+
+    var _WINDOW = {};
+    var _DOCUMENT = {};
+    var _MUTATION_OBSERVER = null;
+    var _PERFORMANCE = {
+      mark: noop,
+      measure: noop
+    };
+
+    try {
+      if (typeof window !== 'undefined') _WINDOW = window;
+      if (typeof document !== 'undefined') _DOCUMENT = document;
+      if (typeof MutationObserver !== 'undefined') _MUTATION_OBSERVER = MutationObserver;
+      if (typeof performance !== 'undefined') _PERFORMANCE = performance;
+    } catch (e) {}
+
+    var _ref = _WINDOW.navigator || {},
+        _ref$userAgent = _ref.userAgent,
+        userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
+
+    var WINDOW = _WINDOW;
+    var DOCUMENT = _DOCUMENT;
+    var MUTATION_OBSERVER = _MUTATION_OBSERVER;
+    var PERFORMANCE = _PERFORMANCE;
+    var IS_BROWSER = !!WINDOW.document;
+    var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
+    var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+    var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+    var UNITS_IN_GRID = 16;
+    var DEFAULT_FAMILY_PREFIX = 'fa';
+    var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
+    var DATA_FA_I2SVG = 'data-fa-i2svg';
+    var DATA_FA_PSEUDO_ELEMENT = 'data-fa-pseudo-element';
+    var DATA_FA_PSEUDO_ELEMENT_PENDING = 'data-fa-pseudo-element-pending';
+    var DATA_PREFIX = 'data-prefix';
+    var DATA_ICON = 'data-icon';
+    var HTML_CLASS_I2SVG_BASE_CLASS = 'fontawesome-i2svg';
+    var MUTATION_APPROACH_ASYNC = 'async';
+    var TAGNAMES_TO_SKIP_FOR_PSEUDOELEMENTS = ['HTML', 'HEAD', 'STYLE', 'SCRIPT'];
+
+    var PRODUCTION = function () {
+      try {
+        return "development" === 'production';
+      } catch (e) {
+        return false;
+      }
+    }();
+
+    var PREFIX_TO_STYLE = {
+      'fas': 'solid',
+      'far': 'regular',
+      'fal': 'light',
+      'fad': 'duotone',
+      'fab': 'brands',
+      'fa': 'solid'
+    };
+    var STYLE_TO_PREFIX = {
+      'solid': 'fas',
+      'regular': 'far',
+      'light': 'fal',
+      'duotone': 'fad',
+      'brands': 'fab'
+    };
+    var LAYERS_TEXT_CLASSNAME = 'fa-layers-text';
+    var FONT_FAMILY_PATTERN = /Font Awesome 5 (Solid|Regular|Light|Duotone|Brands|Free|Pro)/;
+    var FONT_WEIGHT_TO_PREFIX = {
+      '900': 'fas',
+      '400': 'far',
+      'normal': 'far',
+      '300': 'fal'
+    };
+    var oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var oneToTwenty = oneToTen.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+    var ATTRIBUTES_WATCHED_FOR_MUTATION = ['class', 'data-prefix', 'data-icon', 'data-fa-transform', 'data-fa-mask'];
+    var DUOTONE_CLASSES = {
+      GROUP: 'group',
+      SWAP_OPACITY: 'swap-opacity',
+      PRIMARY: 'primary',
+      SECONDARY: 'secondary'
+    };
+    var RESERVED_CLASSES = ['xs', 'sm', 'lg', 'fw', 'ul', 'li', 'border', 'pull-left', 'pull-right', 'spin', 'pulse', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical', 'flip-both', 'stack', 'stack-1x', 'stack-2x', 'inverse', 'layers', 'layers-text', 'layers-counter', DUOTONE_CLASSES.GROUP, DUOTONE_CLASSES.SWAP_OPACITY, DUOTONE_CLASSES.PRIMARY, DUOTONE_CLASSES.SECONDARY].concat(oneToTen.map(function (n) {
+      return "".concat(n, "x");
+    })).concat(oneToTwenty.map(function (n) {
+      return "w-".concat(n);
+    }));
+    var initial = WINDOW.FontAwesomeConfig || {};
+
+    function getAttrConfig(attr) {
+      var element = DOCUMENT.querySelector('script[' + attr + ']');
+
+      if (element) {
+        return element.getAttribute(attr);
+      }
+    }
+
+    function coerce(val) {
+      // Getting an empty string will occur if the attribute is set on the HTML tag but without a value
+      // We'll assume that this is an indication that it should be toggled to true
+      // For example <script data-search-pseudo-elements src="..."></script>
+      if (val === '') return true;
+      if (val === 'false') return false;
+      if (val === 'true') return true;
+      return val;
+    }
+
+    if (DOCUMENT && typeof DOCUMENT.querySelector === 'function') {
+      var attrs = [['data-family-prefix', 'familyPrefix'], ['data-replacement-class', 'replacementClass'], ['data-auto-replace-svg', 'autoReplaceSvg'], ['data-auto-add-css', 'autoAddCss'], ['data-auto-a11y', 'autoA11y'], ['data-search-pseudo-elements', 'searchPseudoElements'], ['data-observe-mutations', 'observeMutations'], ['data-mutate-approach', 'mutateApproach'], ['data-keep-original-source', 'keepOriginalSource'], ['data-measure-performance', 'measurePerformance'], ['data-show-missing-icons', 'showMissingIcons']];
+      attrs.forEach(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+            attr = _ref2[0],
+            key = _ref2[1];
+
+        var val = coerce(getAttrConfig(attr));
+
+        if (val !== undefined && val !== null) {
+          initial[key] = val;
+        }
+      });
+    }
+
+    var _default = {
+      familyPrefix: DEFAULT_FAMILY_PREFIX,
+      replacementClass: DEFAULT_REPLACEMENT_CLASS,
+      autoReplaceSvg: true,
+      autoAddCss: true,
+      autoA11y: true,
+      searchPseudoElements: false,
+      observeMutations: true,
+      mutateApproach: 'async',
+      keepOriginalSource: true,
+      measurePerformance: false,
+      showMissingIcons: true
+    };
+
+    var _config = _objectSpread({}, _default, initial);
+
+    if (!_config.autoReplaceSvg) _config.observeMutations = false;
+
+    var config = _objectSpread({}, _config);
+
+    WINDOW.FontAwesomeConfig = config;
+    var w = WINDOW || {};
+    if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
+    if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
+    if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
+    if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
+    var namespace = w[NAMESPACE_IDENTIFIER];
+    var functions = [];
+
+    var listener = function listener() {
+      DOCUMENT.removeEventListener('DOMContentLoaded', listener);
+      loaded = 1;
+      functions.map(function (fn) {
+        return fn();
+      });
+    };
+
+    var loaded = false;
+
+    if (IS_DOM) {
+      loaded = (DOCUMENT.documentElement.doScroll ? /^loaded|^c/ : /^loaded|^i|^c/).test(DOCUMENT.readyState);
+      if (!loaded) DOCUMENT.addEventListener('DOMContentLoaded', listener);
+    }
+
+    function domready(fn) {
+      if (!IS_DOM) return;
+      loaded ? setTimeout(fn, 0) : functions.push(fn);
+    }
+
+    var PENDING = 'pending';
+    var SETTLED = 'settled';
+    var FULFILLED = 'fulfilled';
+    var REJECTED = 'rejected';
+
+    var NOOP = function NOOP() {};
+
+    var isNode = typeof global !== 'undefined' && typeof global.process !== 'undefined' && typeof global.process.emit === 'function';
+    var asyncSetTimer = typeof setImmediate === 'undefined' ? setTimeout : setImmediate;
+    var asyncQueue = [];
+    var asyncTimer;
+
+    function asyncFlush() {
+      // run promise callbacks
+      for (var i = 0; i < asyncQueue.length; i++) {
+        asyncQueue[i][0](asyncQueue[i][1]);
+      } // reset async asyncQueue
+
+
+      asyncQueue = [];
+      asyncTimer = false;
+    }
+
+    function asyncCall(callback, arg) {
+      asyncQueue.push([callback, arg]);
+
+      if (!asyncTimer) {
+        asyncTimer = true;
+        asyncSetTimer(asyncFlush, 0);
+      }
+    }
+
+    function invokeResolver(resolver, promise) {
+      function resolvePromise(value) {
+        resolve(promise, value);
+      }
+
+      function rejectPromise(reason) {
+        reject(promise, reason);
+      }
+
+      try {
+        resolver(resolvePromise, rejectPromise);
+      } catch (e) {
+        rejectPromise(e);
+      }
+    }
+
+    function invokeCallback(subscriber) {
+      var owner = subscriber.owner;
+      var settled = owner._state;
+      var value = owner._data;
+      var callback = subscriber[settled];
+      var promise = subscriber.then;
+
+      if (typeof callback === 'function') {
+        settled = FULFILLED;
+
+        try {
+          value = callback(value);
+        } catch (e) {
+          reject(promise, e);
+        }
+      }
+
+      if (!handleThenable(promise, value)) {
+        if (settled === FULFILLED) {
+          resolve(promise, value);
+        }
+
+        if (settled === REJECTED) {
+          reject(promise, value);
+        }
+      }
+    }
+
+    function handleThenable(promise, value) {
+      var resolved;
+
+      try {
+        if (promise === value) {
+          throw new TypeError('A promises callback cannot return that same promise.');
+        }
+
+        if (value && (typeof value === 'function' || _typeof(value) === 'object')) {
+          // then should be retrieved only once
+          var then = value.then;
+
+          if (typeof then === 'function') {
+            then.call(value, function (val) {
+              if (!resolved) {
+                resolved = true;
+
+                if (value === val) {
+                  fulfill(promise, val);
+                } else {
+                  resolve(promise, val);
+                }
+              }
+            }, function (reason) {
+              if (!resolved) {
+                resolved = true;
+                reject(promise, reason);
+              }
+            });
+            return true;
+          }
+        }
+      } catch (e) {
+        if (!resolved) {
+          reject(promise, e);
+        }
+
+        return true;
+      }
+
+      return false;
+    }
+
+    function resolve(promise, value) {
+      if (promise === value || !handleThenable(promise, value)) {
+        fulfill(promise, value);
+      }
+    }
+
+    function fulfill(promise, value) {
+      if (promise._state === PENDING) {
+        promise._state = SETTLED;
+        promise._data = value;
+        asyncCall(publishFulfillment, promise);
+      }
+    }
+
+    function reject(promise, reason) {
+      if (promise._state === PENDING) {
+        promise._state = SETTLED;
+        promise._data = reason;
+        asyncCall(publishRejection, promise);
+      }
+    }
+
+    function publish(promise) {
+      promise._then = promise._then.forEach(invokeCallback);
+    }
+
+    function publishFulfillment(promise) {
+      promise._state = FULFILLED;
+      publish(promise);
+    }
+
+    function publishRejection(promise) {
+      promise._state = REJECTED;
+      publish(promise);
+
+      if (!promise._handled && isNode) {
+        global.process.emit('unhandledRejection', promise._data, promise);
+      }
+    }
+
+    function notifyRejectionHandled(promise) {
+      global.process.emit('rejectionHandled', promise);
+    }
+    /**
+     * @class
+     */
+
+
+    function P(resolver) {
+      if (typeof resolver !== 'function') {
+        throw new TypeError('Promise resolver ' + resolver + ' is not a function');
+      }
+
+      if (this instanceof P === false) {
+        throw new TypeError('Failed to construct \'Promise\': Please use the \'new\' operator, this object constructor cannot be called as a function.');
+      }
+
+      this._then = [];
+      invokeResolver(resolver, this);
+    }
+
+    P.prototype = {
+      constructor: P,
+      _state: PENDING,
+      _then: null,
+      _data: undefined,
+      _handled: false,
+      then: function then(onFulfillment, onRejection) {
+        var subscriber = {
+          owner: this,
+          then: new this.constructor(NOOP),
+          fulfilled: onFulfillment,
+          rejected: onRejection
+        };
+
+        if ((onRejection || onFulfillment) && !this._handled) {
+          this._handled = true;
+
+          if (this._state === REJECTED && isNode) {
+            asyncCall(notifyRejectionHandled, this);
+          }
+        }
+
+        if (this._state === FULFILLED || this._state === REJECTED) {
+          // already resolved, call callback async
+          asyncCall(invokeCallback, subscriber);
+        } else {
+          // subscribe
+          this._then.push(subscriber);
+        }
+
+        return subscriber.then;
+      },
+      "catch": function _catch(onRejection) {
+        return this.then(null, onRejection);
+      }
+    };
+
+    P.all = function (promises) {
+      if (!Array.isArray(promises)) {
+        throw new TypeError('You must pass an array to Promise.all().');
+      }
+
+      return new P(function (resolve, reject) {
+        var results = [];
+        var remaining = 0;
+
+        function resolver(index) {
+          remaining++;
+          return function (value) {
+            results[index] = value;
+
+            if (! --remaining) {
+              resolve(results);
+            }
+          };
+        }
+
+        for (var i = 0, promise; i < promises.length; i++) {
+          promise = promises[i];
+
+          if (promise && typeof promise.then === 'function') {
+            promise.then(resolver(i), reject);
+          } else {
+            results[i] = promise;
+          }
+        }
+
+        if (!remaining) {
+          resolve(results);
+        }
+      });
+    };
+
+    P.race = function (promises) {
+      if (!Array.isArray(promises)) {
+        throw new TypeError('You must pass an array to Promise.race().');
+      }
+
+      return new P(function (resolve, reject) {
+        for (var i = 0, promise; i < promises.length; i++) {
+          promise = promises[i];
+
+          if (promise && typeof promise.then === 'function') {
+            promise.then(resolve, reject);
+          } else {
+            resolve(promise);
+          }
+        }
+      });
+    };
+
+    P.resolve = function (value) {
+      if (value && _typeof(value) === 'object' && value.constructor === P) {
+        return value;
+      }
+
+      return new P(function (resolve) {
+        resolve(value);
+      });
+    };
+
+    P.reject = function (reason) {
+      return new P(function (resolve, reject) {
+        reject(reason);
+      });
+    };
+
+    var picked = typeof Promise === 'function' ? Promise : P;
+    var d = UNITS_IN_GRID;
+    var meaninglessTransform = {
+      size: 16,
+      x: 0,
+      y: 0,
+      rotate: 0,
+      flipX: false,
+      flipY: false
+    };
+
+    function isReserved(name) {
+      return ~RESERVED_CLASSES.indexOf(name);
+    }
+
+    function insertCss(css) {
+      if (!css || !IS_DOM) {
+        return;
+      }
+
+      var style = DOCUMENT.createElement('style');
+      style.setAttribute('type', 'text/css');
+      style.innerHTML = css;
+      var headChildren = DOCUMENT.head.childNodes;
+      var beforeChild = null;
+
+      for (var i = headChildren.length - 1; i > -1; i--) {
+        var child = headChildren[i];
+        var tagName = (child.tagName || '').toUpperCase();
+
+        if (['STYLE', 'LINK'].indexOf(tagName) > -1) {
+          beforeChild = child;
+        }
+      }
+
+      DOCUMENT.head.insertBefore(style, beforeChild);
+      return css;
+    }
+
+    var idPool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    function nextUniqueId() {
+      var size = 12;
+      var id = '';
+
+      while (size-- > 0) {
+        id += idPool[Math.random() * 62 | 0];
+      }
+
+      return id;
+    }
+
+    function toArray(obj) {
+      var array = [];
+
+      for (var i = (obj || []).length >>> 0; i--;) {
+        array[i] = obj[i];
+      }
+
+      return array;
+    }
+
+    function classArray(node) {
+      if (node.classList) {
+        return toArray(node.classList);
+      } else {
+        return (node.getAttribute('class') || '').split(' ').filter(function (i) {
+          return i;
+        });
+      }
+    }
+
+    function getIconName(familyPrefix, cls) {
+      var parts = cls.split('-');
+      var prefix = parts[0];
+      var iconName = parts.slice(1).join('-');
+
+      if (prefix === familyPrefix && iconName !== '' && !isReserved(iconName)) {
+        return iconName;
+      } else {
+        return null;
+      }
+    }
+
+    function htmlEscape(str) {
+      return "".concat(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function joinAttributes(attributes) {
+      return Object.keys(attributes || {}).reduce(function (acc, attributeName) {
+        return acc + "".concat(attributeName, "=\"").concat(htmlEscape(attributes[attributeName]), "\" ");
+      }, '').trim();
+    }
+
+    function joinStyles(styles) {
+      return Object.keys(styles || {}).reduce(function (acc, styleName) {
+        return acc + "".concat(styleName, ": ").concat(styles[styleName], ";");
+      }, '');
+    }
+
+    function transformIsMeaningful(transform) {
+      return transform.size !== meaninglessTransform.size || transform.x !== meaninglessTransform.x || transform.y !== meaninglessTransform.y || transform.rotate !== meaninglessTransform.rotate || transform.flipX || transform.flipY;
+    }
+
+    function transformForSvg(_ref) {
+      var transform = _ref.transform,
+          containerWidth = _ref.containerWidth,
+          iconWidth = _ref.iconWidth;
+      var outer = {
+        transform: "translate(".concat(containerWidth / 2, " 256)")
+      };
+      var innerTranslate = "translate(".concat(transform.x * 32, ", ").concat(transform.y * 32, ") ");
+      var innerScale = "scale(".concat(transform.size / 16 * (transform.flipX ? -1 : 1), ", ").concat(transform.size / 16 * (transform.flipY ? -1 : 1), ") ");
+      var innerRotate = "rotate(".concat(transform.rotate, " 0 0)");
+      var inner = {
+        transform: "".concat(innerTranslate, " ").concat(innerScale, " ").concat(innerRotate)
+      };
+      var path = {
+        transform: "translate(".concat(iconWidth / 2 * -1, " -256)")
+      };
+      return {
+        outer: outer,
+        inner: inner,
+        path: path
+      };
+    }
+
+    function transformForCss(_ref2) {
+      var transform = _ref2.transform,
+          _ref2$width = _ref2.width,
+          width = _ref2$width === void 0 ? UNITS_IN_GRID : _ref2$width,
+          _ref2$height = _ref2.height,
+          height = _ref2$height === void 0 ? UNITS_IN_GRID : _ref2$height,
+          _ref2$startCentered = _ref2.startCentered,
+          startCentered = _ref2$startCentered === void 0 ? false : _ref2$startCentered;
+      var val = '';
+
+      if (startCentered && IS_IE) {
+        val += "translate(".concat(transform.x / d - width / 2, "em, ").concat(transform.y / d - height / 2, "em) ");
+      } else if (startCentered) {
+        val += "translate(calc(-50% + ".concat(transform.x / d, "em), calc(-50% + ").concat(transform.y / d, "em)) ");
+      } else {
+        val += "translate(".concat(transform.x / d, "em, ").concat(transform.y / d, "em) ");
+      }
+
+      val += "scale(".concat(transform.size / d * (transform.flipX ? -1 : 1), ", ").concat(transform.size / d * (transform.flipY ? -1 : 1), ") ");
+      val += "rotate(".concat(transform.rotate, "deg) ");
+      return val;
+    }
+
+    var ALL_SPACE = {
+      x: 0,
+      y: 0,
+      width: '100%',
+      height: '100%'
+    };
+
+    function fillBlack(_abstract) {
+      var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+      if (_abstract.attributes && (_abstract.attributes.fill || force)) {
+        _abstract.attributes.fill = 'black';
+      }
+
+      return _abstract;
+    }
+
+    function deGroup(_abstract2) {
+      if (_abstract2.tag === 'g') {
+        return _abstract2.children;
+      } else {
+        return [_abstract2];
+      }
+    }
+
+    function makeIconMasking(_ref) {
+      var children = _ref.children,
+          attributes = _ref.attributes,
+          main = _ref.main,
+          mask = _ref.mask,
+          explicitMaskId = _ref.maskId,
+          transform = _ref.transform;
+      var mainWidth = main.width,
+          mainPath = main.icon;
+      var maskWidth = mask.width,
+          maskPath = mask.icon;
+      var trans = transformForSvg({
+        transform: transform,
+        containerWidth: maskWidth,
+        iconWidth: mainWidth
+      });
+      var maskRect = {
+        tag: 'rect',
+        attributes: _objectSpread({}, ALL_SPACE, {
+          fill: 'white'
+        })
+      };
+      var maskInnerGroupChildrenMixin = mainPath.children ? {
+        children: mainPath.children.map(fillBlack)
+      } : {};
+      var maskInnerGroup = {
+        tag: 'g',
+        attributes: _objectSpread({}, trans.inner),
+        children: [fillBlack(_objectSpread({
+          tag: mainPath.tag,
+          attributes: _objectSpread({}, mainPath.attributes, trans.path)
+        }, maskInnerGroupChildrenMixin))]
+      };
+      var maskOuterGroup = {
+        tag: 'g',
+        attributes: _objectSpread({}, trans.outer),
+        children: [maskInnerGroup]
+      };
+      var maskId = "mask-".concat(explicitMaskId || nextUniqueId());
+      var clipId = "clip-".concat(explicitMaskId || nextUniqueId());
+      var maskTag = {
+        tag: 'mask',
+        attributes: _objectSpread({}, ALL_SPACE, {
+          id: maskId,
+          maskUnits: 'userSpaceOnUse',
+          maskContentUnits: 'userSpaceOnUse'
+        }),
+        children: [maskRect, maskOuterGroup]
+      };
+      var defs = {
+        tag: 'defs',
+        children: [{
+          tag: 'clipPath',
+          attributes: {
+            id: clipId
+          },
+          children: deGroup(maskPath)
+        }, maskTag]
+      };
+      children.push(defs, {
+        tag: 'rect',
+        attributes: _objectSpread({
+          fill: 'currentColor',
+          'clip-path': "url(#".concat(clipId, ")"),
+          mask: "url(#".concat(maskId, ")")
+        }, ALL_SPACE)
+      });
+      return {
+        children: children,
+        attributes: attributes
+      };
+    }
+
+    function makeIconStandard(_ref) {
+      var children = _ref.children,
+          attributes = _ref.attributes,
+          main = _ref.main,
+          transform = _ref.transform,
+          styles = _ref.styles;
+      var styleString = joinStyles(styles);
+
+      if (styleString.length > 0) {
+        attributes['style'] = styleString;
+      }
+
+      if (transformIsMeaningful(transform)) {
+        var trans = transformForSvg({
+          transform: transform,
+          containerWidth: main.width,
+          iconWidth: main.width
+        });
+        children.push({
+          tag: 'g',
+          attributes: _objectSpread({}, trans.outer),
+          children: [{
+            tag: 'g',
+            attributes: _objectSpread({}, trans.inner),
+            children: [{
+              tag: main.icon.tag,
+              children: main.icon.children,
+              attributes: _objectSpread({}, main.icon.attributes, trans.path)
+            }]
+          }]
+        });
+      } else {
+        children.push(main.icon);
+      }
+
+      return {
+        children: children,
+        attributes: attributes
+      };
+    }
+
+    function asIcon(_ref) {
+      var children = _ref.children,
+          main = _ref.main,
+          mask = _ref.mask,
+          attributes = _ref.attributes,
+          styles = _ref.styles,
+          transform = _ref.transform;
+
+      if (transformIsMeaningful(transform) && main.found && !mask.found) {
+        var width = main.width,
+            height = main.height;
+        var offset = {
+          x: width / height / 2,
+          y: 0.5
+        };
+        attributes['style'] = joinStyles(_objectSpread({}, styles, {
+          'transform-origin': "".concat(offset.x + transform.x / 16, "em ").concat(offset.y + transform.y / 16, "em")
+        }));
+      }
+
+      return [{
+        tag: 'svg',
+        attributes: attributes,
+        children: children
+      }];
+    }
+
+    function asSymbol(_ref) {
+      var prefix = _ref.prefix,
+          iconName = _ref.iconName,
+          children = _ref.children,
+          attributes = _ref.attributes,
+          symbol = _ref.symbol;
+      var id = symbol === true ? "".concat(prefix, "-").concat(config.familyPrefix, "-").concat(iconName) : symbol;
+      return [{
+        tag: 'svg',
+        attributes: {
+          style: 'display: none;'
+        },
+        children: [{
+          tag: 'symbol',
+          attributes: _objectSpread({}, attributes, {
+            id: id
+          }),
+          children: children
+        }]
+      }];
+    }
+
+    function makeInlineSvgAbstract(params) {
+      var _params$icons = params.icons,
+          main = _params$icons.main,
+          mask = _params$icons.mask,
+          prefix = params.prefix,
+          iconName = params.iconName,
+          transform = params.transform,
+          symbol = params.symbol,
+          title = params.title,
+          maskId = params.maskId,
+          titleId = params.titleId,
+          extra = params.extra,
+          _params$watchable = params.watchable,
+          watchable = _params$watchable === void 0 ? false : _params$watchable;
+
+      var _ref = mask.found ? mask : main,
+          width = _ref.width,
+          height = _ref.height;
+
+      var widthClass = "fa-w-".concat(Math.ceil(width / height * 16));
+      var attrClass = [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
+        return extra.classes.indexOf(c) === -1;
+      }).concat(extra.classes).join(' ');
+      var content = {
+        children: [],
+        attributes: _objectSpread({}, extra.attributes, {
+          'data-prefix': prefix,
+          'data-icon': iconName,
+          'class': attrClass,
+          'role': extra.attributes.role || 'img',
+          'xmlns': 'http://www.w3.org/2000/svg',
+          'viewBox': "0 0 ".concat(width, " ").concat(height)
+        })
+      };
+
+      if (watchable) {
+        content.attributes[DATA_FA_I2SVG] = '';
+      }
+
+      if (title) content.children.push({
+        tag: 'title',
+        attributes: {
+          id: content.attributes['aria-labelledby'] || "title-".concat(titleId || nextUniqueId())
+        },
+        children: [title]
+      });
+
+      var args = _objectSpread({}, content, {
+        prefix: prefix,
+        iconName: iconName,
+        main: main,
+        mask: mask,
+        maskId: maskId,
+        transform: transform,
+        symbol: symbol,
+        styles: extra.styles
+      });
+
+      var _ref2 = mask.found && main.found ? makeIconMasking(args) : makeIconStandard(args),
+          children = _ref2.children,
+          attributes = _ref2.attributes;
+
+      args.children = children;
+      args.attributes = attributes;
+
+      if (symbol) {
+        return asSymbol(args);
+      } else {
+        return asIcon(args);
+      }
+    }
+
+    function makeLayersTextAbstract(params) {
+      var content = params.content,
+          width = params.width,
+          height = params.height,
+          transform = params.transform,
+          title = params.title,
+          extra = params.extra,
+          _params$watchable2 = params.watchable,
+          watchable = _params$watchable2 === void 0 ? false : _params$watchable2;
+
+      var attributes = _objectSpread({}, extra.attributes, title ? {
+        'title': title
+      } : {}, {
+        'class': extra.classes.join(' ')
+      });
+
+      if (watchable) {
+        attributes[DATA_FA_I2SVG] = '';
+      }
+
+      var styles = _objectSpread({}, extra.styles);
+
+      if (transformIsMeaningful(transform)) {
+        styles['transform'] = transformForCss({
+          transform: transform,
+          startCentered: true,
+          width: width,
+          height: height
+        });
+        styles['-webkit-transform'] = styles['transform'];
+      }
+
+      var styleString = joinStyles(styles);
+
+      if (styleString.length > 0) {
+        attributes['style'] = styleString;
+      }
+
+      var val = [];
+      val.push({
+        tag: 'span',
+        attributes: attributes,
+        children: [content]
+      });
+
+      if (title) {
+        val.push({
+          tag: 'span',
+          attributes: {
+            "class": 'sr-only'
+          },
+          children: [title]
+        });
+      }
+
+      return val;
+    }
+
+    function makeLayersCounterAbstract(params) {
+      var content = params.content,
+          title = params.title,
+          extra = params.extra;
+
+      var attributes = _objectSpread({}, extra.attributes, title ? {
+        'title': title
+      } : {}, {
+        'class': extra.classes.join(' ')
+      });
+
+      var styleString = joinStyles(extra.styles);
+
+      if (styleString.length > 0) {
+        attributes['style'] = styleString;
+      }
+
+      var val = [];
+      val.push({
+        tag: 'span',
+        attributes: attributes,
+        children: [content]
+      });
+
+      if (title) {
+        val.push({
+          tag: 'span',
+          attributes: {
+            "class": 'sr-only'
+          },
+          children: [title]
+        });
+      }
+
+      return val;
+    }
+
+    var noop$1 = function noop() {};
+
+    var p = config.measurePerformance && PERFORMANCE && PERFORMANCE.mark && PERFORMANCE.measure ? PERFORMANCE : {
+      mark: noop$1,
+      measure: noop$1
+    };
+    var preamble = "FA \"5.13.0\"";
+
+    var begin = function begin(name) {
+      p.mark("".concat(preamble, " ").concat(name, " begins"));
+      return function () {
+        return end(name);
+      };
+    };
+
+    var end = function end(name) {
+      p.mark("".concat(preamble, " ").concat(name, " ends"));
+      p.measure("".concat(preamble, " ").concat(name), "".concat(preamble, " ").concat(name, " begins"), "".concat(preamble, " ").concat(name, " ends"));
+    };
+
+    var perf = {
+      begin: begin,
+      end: end
+    };
+    /**
+     * Internal helper to bind a function known to have 4 arguments
+     * to a given context.
+     */
+
+    var bindInternal4 = function bindInternal4(func, thisContext) {
+      return function (a, b, c, d) {
+        return func.call(thisContext, a, b, c, d);
+      };
+    };
+    /**
+     * # Reduce
+     *
+     * A fast object `.reduce()` implementation.
+     *
+     * @param  {Object}   subject      The object to reduce over.
+     * @param  {Function} fn           The reducer function.
+     * @param  {mixed}    initialValue The initial value for the reducer, defaults to subject[0].
+     * @param  {Object}   thisContext  The context for the reducer.
+     * @return {mixed}                 The final result.
+     */
+
+
+    var reduce = function fastReduceObject(subject, fn, initialValue, thisContext) {
+      var keys = Object.keys(subject),
+          length = keys.length,
+          iterator = thisContext !== undefined ? bindInternal4(fn, thisContext) : fn,
+          i,
+          key,
+          result;
+
+      if (initialValue === undefined) {
+        i = 1;
+        result = subject[keys[0]];
+      } else {
+        i = 0;
+        result = initialValue;
+      }
+
+      for (; i < length; i++) {
+        key = keys[i];
+        result = iterator(result, subject[key], key, subject);
+      }
+
+      return result;
+    };
+
+    function toHex(unicode) {
+      var result = '';
+
+      for (var i = 0; i < unicode.length; i++) {
+        var hex = unicode.charCodeAt(i).toString(16);
+        result += ('000' + hex).slice(-4);
+      }
+
+      return result;
+    }
+
+    function defineIcons(prefix, icons) {
+      var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      var _params$skipHooks = params.skipHooks,
+          skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
+      var normalized = Object.keys(icons).reduce(function (acc, iconName) {
+        var icon = icons[iconName];
+        var expanded = !!icon.icon;
+
+        if (expanded) {
+          acc[icon.iconName] = icon.icon;
+        } else {
+          acc[iconName] = icon;
+        }
+
+        return acc;
+      }, {});
+
+      if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
+        namespace.hooks.addPack(prefix, normalized);
+      } else {
+        namespace.styles[prefix] = _objectSpread({}, namespace.styles[prefix] || {}, normalized);
+      }
+      /**
+       * Font Awesome 4 used the prefix of `fa` for all icons. With the introduction
+       * of new styles we needed to differentiate between them. Prefix `fa` is now an alias
+       * for `fas` so we'll easy the upgrade process for our users by automatically defining
+       * this as well.
+       */
+
+
+      if (prefix === 'fas') {
+        defineIcons('fa', icons);
+      }
+    }
+
+    var styles = namespace.styles,
+        shims = namespace.shims;
+    var _byUnicode = {};
+    var _byLigature = {};
+    var _byOldName = {};
+
+    var build = function build() {
+      var lookup = function lookup(reducer) {
+        return reduce(styles, function (o, style, prefix) {
+          o[prefix] = reduce(style, reducer, {});
+          return o;
+        }, {});
+      };
+
+      _byUnicode = lookup(function (acc, icon, iconName) {
+        if (icon[3]) {
+          acc[icon[3]] = iconName;
+        }
+
+        return acc;
+      });
+      _byLigature = lookup(function (acc, icon, iconName) {
+        var ligatures = icon[2];
+        acc[iconName] = iconName;
+        ligatures.forEach(function (ligature) {
+          acc[ligature] = iconName;
+        });
+        return acc;
+      });
+      var hasRegular = 'far' in styles;
+      _byOldName = reduce(shims, function (acc, shim) {
+        var oldName = shim[0];
+        var prefix = shim[1];
+        var iconName = shim[2];
+
+        if (prefix === 'far' && !hasRegular) {
+          prefix = 'fas';
+        }
+
+        acc[oldName] = {
+          prefix: prefix,
+          iconName: iconName
+        };
+        return acc;
+      }, {});
+    };
+
+    build();
+
+    function byUnicode(prefix, unicode) {
+      return (_byUnicode[prefix] || {})[unicode];
+    }
+
+    function byLigature(prefix, ligature) {
+      return (_byLigature[prefix] || {})[ligature];
+    }
+
+    function byOldName(name) {
+      return _byOldName[name] || {
+        prefix: null,
+        iconName: null
+      };
+    }
+
+    var styles$1 = namespace.styles;
+
+    var emptyCanonicalIcon = function emptyCanonicalIcon() {
+      return {
+        prefix: null,
+        iconName: null,
+        rest: []
+      };
+    };
+
+    function getCanonicalIcon(values) {
+      return values.reduce(function (acc, cls) {
+        var iconName = getIconName(config.familyPrefix, cls);
+
+        if (styles$1[cls]) {
+          acc.prefix = cls;
+        } else if (config.autoFetchSvg && ['fas', 'far', 'fal', 'fad', 'fab', 'fa'].indexOf(cls) > -1) {
+          acc.prefix = cls;
+        } else if (iconName) {
+          var shim = acc.prefix === 'fa' ? byOldName(iconName) : {};
+          acc.iconName = shim.iconName || iconName;
+          acc.prefix = shim.prefix || acc.prefix;
+        } else if (cls !== config.replacementClass && cls.indexOf('fa-w-') !== 0) {
+          acc.rest.push(cls);
+        }
+
+        return acc;
+      }, emptyCanonicalIcon());
+    }
+
+    function iconFromMapping(mapping, prefix, iconName) {
+      if (mapping && mapping[prefix] && mapping[prefix][iconName]) {
+        return {
+          prefix: prefix,
+          iconName: iconName,
+          icon: mapping[prefix][iconName]
+        };
+      }
+    }
+
+    function toHtml(abstractNodes) {
+      var tag = abstractNodes.tag,
+          _abstractNodes$attrib = abstractNodes.attributes,
+          attributes = _abstractNodes$attrib === void 0 ? {} : _abstractNodes$attrib,
+          _abstractNodes$childr = abstractNodes.children,
+          children = _abstractNodes$childr === void 0 ? [] : _abstractNodes$childr;
+
+      if (typeof abstractNodes === 'string') {
+        return htmlEscape(abstractNodes);
+      } else {
+        return "<".concat(tag, " ").concat(joinAttributes(attributes), ">").concat(children.map(toHtml).join(''), "</").concat(tag, ">");
+      }
+    }
+
+    var noop$2 = function noop() {};
+
+    function isWatched(node) {
+      var i2svg = node.getAttribute ? node.getAttribute(DATA_FA_I2SVG) : null;
+      return typeof i2svg === 'string';
+    }
+
+    function getMutator() {
+      if (config.autoReplaceSvg === true) {
+        return mutators.replace;
+      }
+
+      var mutator = mutators[config.autoReplaceSvg];
+      return mutator || mutators.replace;
+    }
+
+    var mutators = {
+      replace: function replace(mutation) {
+        var node = mutation[0];
+        var _abstract3 = mutation[1];
+
+        var newOuterHTML = _abstract3.map(function (a) {
+          return toHtml(a);
+        }).join('\n');
+
+        if (node.parentNode && node.outerHTML) {
+          node.outerHTML = newOuterHTML + (config.keepOriginalSource && node.tagName.toLowerCase() !== 'svg' ? "<!-- ".concat(node.outerHTML, " -->") : '');
+        } else if (node.parentNode) {
+          var newNode = document.createElement('span');
+          node.parentNode.replaceChild(newNode, node);
+          newNode.outerHTML = newOuterHTML;
+        }
+      },
+      nest: function nest(mutation) {
+        var node = mutation[0];
+        var _abstract4 = mutation[1]; // If we already have a replaced node we do not want to continue nesting within it.
+        // Short-circuit to the standard replacement
+
+        if (~classArray(node).indexOf(config.replacementClass)) {
+          return mutators.replace(mutation);
+        }
+
+        var forSvg = new RegExp("".concat(config.familyPrefix, "-.*"));
+        delete _abstract4[0].attributes.style;
+        delete _abstract4[0].attributes.id;
+
+        var splitClasses = _abstract4[0].attributes["class"].split(' ').reduce(function (acc, cls) {
+          if (cls === config.replacementClass || cls.match(forSvg)) {
+            acc.toSvg.push(cls);
+          } else {
+            acc.toNode.push(cls);
+          }
+
+          return acc;
+        }, {
+          toNode: [],
+          toSvg: []
+        });
+
+        _abstract4[0].attributes["class"] = splitClasses.toSvg.join(' ');
+
+        var newInnerHTML = _abstract4.map(function (a) {
+          return toHtml(a);
+        }).join('\n');
+
+        node.setAttribute('class', splitClasses.toNode.join(' '));
+        node.setAttribute(DATA_FA_I2SVG, '');
+        node.innerHTML = newInnerHTML;
+      }
+    };
+
+    function performOperationSync(op) {
+      op();
+    }
+
+    function perform(mutations, callback) {
+      var callbackFunction = typeof callback === 'function' ? callback : noop$2;
+
+      if (mutations.length === 0) {
+        callbackFunction();
+      } else {
+        var frame = performOperationSync;
+
+        if (config.mutateApproach === MUTATION_APPROACH_ASYNC) {
+          frame = WINDOW.requestAnimationFrame || performOperationSync;
+        }
+
+        frame(function () {
+          var mutator = getMutator();
+          var mark = perf.begin('mutate');
+          mutations.map(mutator);
+          mark();
+          callbackFunction();
+        });
+      }
+    }
+
+    var disabled = false;
+
+    function disableObservation() {
+      disabled = true;
+    }
+
+    function enableObservation() {
+      disabled = false;
+    }
+
+    var mo = null;
+
+    function observe(options) {
+      if (!MUTATION_OBSERVER) {
+        return;
+      }
+
+      if (!config.observeMutations) {
+        return;
+      }
+
+      var treeCallback = options.treeCallback,
+          nodeCallback = options.nodeCallback,
+          pseudoElementsCallback = options.pseudoElementsCallback,
+          _options$observeMutat = options.observeMutationsRoot,
+          observeMutationsRoot = _options$observeMutat === void 0 ? DOCUMENT : _options$observeMutat;
+      mo = new MUTATION_OBSERVER(function (objects) {
+        if (disabled) return;
+        toArray(objects).forEach(function (mutationRecord) {
+          if (mutationRecord.type === 'childList' && mutationRecord.addedNodes.length > 0 && !isWatched(mutationRecord.addedNodes[0])) {
+            if (config.searchPseudoElements) {
+              pseudoElementsCallback(mutationRecord.target);
+            }
+
+            treeCallback(mutationRecord.target);
+          }
+
+          if (mutationRecord.type === 'attributes' && mutationRecord.target.parentNode && config.searchPseudoElements) {
+            pseudoElementsCallback(mutationRecord.target.parentNode);
+          }
+
+          if (mutationRecord.type === 'attributes' && isWatched(mutationRecord.target) && ~ATTRIBUTES_WATCHED_FOR_MUTATION.indexOf(mutationRecord.attributeName)) {
+            if (mutationRecord.attributeName === 'class') {
+              var _getCanonicalIcon = getCanonicalIcon(classArray(mutationRecord.target)),
+                  prefix = _getCanonicalIcon.prefix,
+                  iconName = _getCanonicalIcon.iconName;
+
+              if (prefix) mutationRecord.target.setAttribute('data-prefix', prefix);
+              if (iconName) mutationRecord.target.setAttribute('data-icon', iconName);
+            } else {
+              nodeCallback(mutationRecord.target);
+            }
+          }
+        });
+      });
+      if (!IS_DOM) return;
+      mo.observe(observeMutationsRoot, {
+        childList: true,
+        attributes: true,
+        characterData: true,
+        subtree: true
+      });
+    }
+
+    function disconnect() {
+      if (!mo) return;
+      mo.disconnect();
+    }
+
+    function styleParser(node) {
+      var style = node.getAttribute('style');
+      var val = [];
+
+      if (style) {
+        val = style.split(';').reduce(function (acc, style) {
+          var styles = style.split(':');
+          var prop = styles[0];
+          var value = styles.slice(1);
+
+          if (prop && value.length > 0) {
+            acc[prop] = value.join(':').trim();
+          }
+
+          return acc;
+        }, {});
+      }
+
+      return val;
+    }
+
+    function classParser(node) {
+      var existingPrefix = node.getAttribute('data-prefix');
+      var existingIconName = node.getAttribute('data-icon');
+      var innerText = node.innerText !== undefined ? node.innerText.trim() : '';
+      var val = getCanonicalIcon(classArray(node));
+
+      if (existingPrefix && existingIconName) {
+        val.prefix = existingPrefix;
+        val.iconName = existingIconName;
+      }
+
+      if (val.prefix && innerText.length > 1) {
+        val.iconName = byLigature(val.prefix, node.innerText);
+      } else if (val.prefix && innerText.length === 1) {
+        val.iconName = byUnicode(val.prefix, toHex(node.innerText));
+      }
+
+      return val;
+    }
+
+    var parseTransformString = function parseTransformString(transformString) {
+      var transform = {
+        size: 16,
+        x: 0,
+        y: 0,
+        flipX: false,
+        flipY: false,
+        rotate: 0
+      };
+
+      if (!transformString) {
+        return transform;
+      } else {
+        return transformString.toLowerCase().split(' ').reduce(function (acc, n) {
+          var parts = n.toLowerCase().split('-');
+          var first = parts[0];
+          var rest = parts.slice(1).join('-');
+
+          if (first && rest === 'h') {
+            acc.flipX = true;
+            return acc;
+          }
+
+          if (first && rest === 'v') {
+            acc.flipY = true;
+            return acc;
+          }
+
+          rest = parseFloat(rest);
+
+          if (isNaN(rest)) {
+            return acc;
+          }
+
+          switch (first) {
+            case 'grow':
+              acc.size = acc.size + rest;
+              break;
+
+            case 'shrink':
+              acc.size = acc.size - rest;
+              break;
+
+            case 'left':
+              acc.x = acc.x - rest;
+              break;
+
+            case 'right':
+              acc.x = acc.x + rest;
+              break;
+
+            case 'up':
+              acc.y = acc.y - rest;
+              break;
+
+            case 'down':
+              acc.y = acc.y + rest;
+              break;
+
+            case 'rotate':
+              acc.rotate = acc.rotate + rest;
+              break;
+          }
+
+          return acc;
+        }, transform);
+      }
+    };
+
+    function transformParser(node) {
+      return parseTransformString(node.getAttribute('data-fa-transform'));
+    }
+
+    function symbolParser(node) {
+      var symbol = node.getAttribute('data-fa-symbol');
+      return symbol === null ? false : symbol === '' ? true : symbol;
+    }
+
+    function attributesParser(node) {
+      var extraAttributes = toArray(node.attributes).reduce(function (acc, attr) {
+        if (acc.name !== 'class' && acc.name !== 'style') {
+          acc[attr.name] = attr.value;
+        }
+
+        return acc;
+      }, {});
+      var title = node.getAttribute('title');
+      var titleId = node.getAttribute('data-fa-title-id');
+
+      if (config.autoA11y) {
+        if (title) {
+          extraAttributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(titleId || nextUniqueId());
+        } else {
+          extraAttributes['aria-hidden'] = 'true';
+          extraAttributes['focusable'] = 'false';
+        }
+      }
+
+      return extraAttributes;
+    }
+
+    function maskParser(node) {
+      var mask = node.getAttribute('data-fa-mask');
+
+      if (!mask) {
+        return emptyCanonicalIcon();
+      } else {
+        return getCanonicalIcon(mask.split(' ').map(function (i) {
+          return i.trim();
+        }));
+      }
+    }
+
+    function blankMeta() {
+      return {
+        iconName: null,
+        title: null,
+        titleId: null,
+        prefix: null,
+        transform: meaninglessTransform,
+        symbol: false,
+        mask: null,
+        maskId: null,
+        extra: {
+          classes: [],
+          styles: {},
+          attributes: {}
+        }
+      };
+    }
+
+    function parseMeta(node) {
+      var _classParser = classParser(node),
+          iconName = _classParser.iconName,
+          prefix = _classParser.prefix,
+          extraClasses = _classParser.rest;
+
+      var extraStyles = styleParser(node);
+      var transform = transformParser(node);
+      var symbol = symbolParser(node);
+      var extraAttributes = attributesParser(node);
+      var mask = maskParser(node);
+      return {
+        iconName: iconName,
+        title: node.getAttribute('title'),
+        titleId: node.getAttribute('data-fa-title-id'),
+        prefix: prefix,
+        transform: transform,
+        symbol: symbol,
+        mask: mask,
+        maskId: node.getAttribute('data-fa-mask-id'),
+        extra: {
+          classes: extraClasses,
+          styles: extraStyles,
+          attributes: extraAttributes
+        }
+      };
+    }
+
+    function MissingIcon(error) {
+      this.name = 'MissingIcon';
+      this.message = error || 'Icon unavailable';
+      this.stack = new Error().stack;
+    }
+
+    MissingIcon.prototype = Object.create(Error.prototype);
+    MissingIcon.prototype.constructor = MissingIcon;
+    var FILL = {
+      fill: 'currentColor'
+    };
+    var ANIMATION_BASE = {
+      attributeType: 'XML',
+      repeatCount: 'indefinite',
+      dur: '2s'
+    };
+    var RING = {
+      tag: 'path',
+      attributes: _objectSpread({}, FILL, {
+        d: 'M156.5,447.7l-12.6,29.5c-18.7-9.5-35.9-21.2-51.5-34.9l22.7-22.7C127.6,430.5,141.5,440,156.5,447.7z M40.6,272H8.5 c1.4,21.2,5.4,41.7,11.7,61.1L50,321.2C45.1,305.5,41.8,289,40.6,272z M40.6,240c1.4-18.8,5.2-37,11.1-54.1l-29.5-12.6 C14.7,194.3,10,216.7,8.5,240H40.6z M64.3,156.5c7.8-14.9,17.2-28.8,28.1-41.5L69.7,92.3c-13.7,15.6-25.5,32.8-34.9,51.5 L64.3,156.5z M397,419.6c-13.9,12-29.4,22.3-46.1,30.4l11.9,29.8c20.7-9.9,39.8-22.6,56.9-37.6L397,419.6z M115,92.4 c13.9-12,29.4-22.3,46.1-30.4l-11.9-29.8c-20.7,9.9-39.8,22.6-56.8,37.6L115,92.4z M447.7,355.5c-7.8,14.9-17.2,28.8-28.1,41.5 l22.7,22.7c13.7-15.6,25.5-32.9,34.9-51.5L447.7,355.5z M471.4,272c-1.4,18.8-5.2,37-11.1,54.1l29.5,12.6 c7.5-21.1,12.2-43.5,13.6-66.8H471.4z M321.2,462c-15.7,5-32.2,8.2-49.2,9.4v32.1c21.2-1.4,41.7-5.4,61.1-11.7L321.2,462z M240,471.4c-18.8-1.4-37-5.2-54.1-11.1l-12.6,29.5c21.1,7.5,43.5,12.2,66.8,13.6V471.4z M462,190.8c5,15.7,8.2,32.2,9.4,49.2h32.1 c-1.4-21.2-5.4-41.7-11.7-61.1L462,190.8z M92.4,397c-12-13.9-22.3-29.4-30.4-46.1l-29.8,11.9c9.9,20.7,22.6,39.8,37.6,56.9 L92.4,397z M272,40.6c18.8,1.4,36.9,5.2,54.1,11.1l12.6-29.5C317.7,14.7,295.3,10,272,8.5V40.6z M190.8,50 c15.7-5,32.2-8.2,49.2-9.4V8.5c-21.2,1.4-41.7,5.4-61.1,11.7L190.8,50z M442.3,92.3L419.6,115c12,13.9,22.3,29.4,30.5,46.1 l29.8-11.9C470,128.5,457.3,109.4,442.3,92.3z M397,92.4l22.7-22.7c-15.6-13.7-32.8-25.5-51.5-34.9l-12.6,29.5 C370.4,72.1,384.4,81.5,397,92.4z'
+      })
+    };
+
+    var OPACITY_ANIMATE = _objectSpread({}, ANIMATION_BASE, {
+      attributeName: 'opacity'
+    });
+
+    var DOT = {
+      tag: 'circle',
+      attributes: _objectSpread({}, FILL, {
+        cx: '256',
+        cy: '364',
+        r: '28'
+      }),
+      children: [{
+        tag: 'animate',
+        attributes: _objectSpread({}, ANIMATION_BASE, {
+          attributeName: 'r',
+          values: '28;14;28;28;14;28;'
+        })
+      }, {
+        tag: 'animate',
+        attributes: _objectSpread({}, OPACITY_ANIMATE, {
+          values: '1;0;1;1;0;1;'
+        })
+      }]
+    };
+    var QUESTION = {
+      tag: 'path',
+      attributes: _objectSpread({}, FILL, {
+        opacity: '1',
+        d: 'M263.7,312h-16c-6.6,0-12-5.4-12-12c0-71,77.4-63.9,77.4-107.8c0-20-17.8-40.2-57.4-40.2c-29.1,0-44.3,9.6-59.2,28.7 c-3.9,5-11.1,6-16.2,2.4l-13.1-9.2c-5.6-3.9-6.9-11.8-2.6-17.2c21.2-27.2,46.4-44.7,91.2-44.7c52.3,0,97.4,29.8,97.4,80.2 c0,67.6-77.4,63.5-77.4,107.8C275.7,306.6,270.3,312,263.7,312z'
+      }),
+      children: [{
+        tag: 'animate',
+        attributes: _objectSpread({}, OPACITY_ANIMATE, {
+          values: '1;0;0;0;0;1;'
+        })
+      }]
+    };
+    var EXCLAMATION = {
+      tag: 'path',
+      attributes: _objectSpread({}, FILL, {
+        opacity: '0',
+        d: 'M232.5,134.5l7,168c0.3,6.4,5.6,11.5,12,11.5h9c6.4,0,11.7-5.1,12-11.5l7-168c0.3-6.8-5.2-12.5-12-12.5h-23 C237.7,122,232.2,127.7,232.5,134.5z'
+      }),
+      children: [{
+        tag: 'animate',
+        attributes: _objectSpread({}, OPACITY_ANIMATE, {
+          values: '0;0;1;1;0;0;'
+        })
+      }]
+    };
+    var missing = {
+      tag: 'g',
+      children: [RING, DOT, QUESTION, EXCLAMATION]
+    };
+    var styles$2 = namespace.styles;
+
+    function asFoundIcon(icon) {
+      var width = icon[0];
+      var height = icon[1];
+
+      var _icon$slice = icon.slice(4),
+          _icon$slice2 = _slicedToArray(_icon$slice, 1),
+          vectorData = _icon$slice2[0];
+
+      var element = null;
+
+      if (Array.isArray(vectorData)) {
+        element = {
+          tag: 'g',
+          attributes: {
+            "class": "".concat(config.familyPrefix, "-").concat(DUOTONE_CLASSES.GROUP)
+          },
+          children: [{
+            tag: 'path',
+            attributes: {
+              "class": "".concat(config.familyPrefix, "-").concat(DUOTONE_CLASSES.SECONDARY),
+              fill: 'currentColor',
+              d: vectorData[0]
+            }
+          }, {
+            tag: 'path',
+            attributes: {
+              "class": "".concat(config.familyPrefix, "-").concat(DUOTONE_CLASSES.PRIMARY),
+              fill: 'currentColor',
+              d: vectorData[1]
+            }
+          }]
+        };
+      } else {
+        element = {
+          tag: 'path',
+          attributes: {
+            fill: 'currentColor',
+            d: vectorData
+          }
+        };
+      }
+
+      return {
+        found: true,
+        width: width,
+        height: height,
+        icon: element
+      };
+    }
+
+    function findIcon(iconName, prefix) {
+      return new picked(function (resolve, reject) {
+        var val = {
+          found: false,
+          width: 512,
+          height: 512,
+          icon: missing
+        };
+
+        if (iconName && prefix && styles$2[prefix] && styles$2[prefix][iconName]) {
+          var icon = styles$2[prefix][iconName];
+          return resolve(asFoundIcon(icon));
+        }
+
+        var headers = {};
+
+        if (_typeof(WINDOW.FontAwesomeKitConfig) === 'object' && typeof window.FontAwesomeKitConfig.token === 'string') {
+          headers['fa-kit-token'] = WINDOW.FontAwesomeKitConfig.token;
+        }
+
+        if (iconName && prefix && !config.showMissingIcons) {
+          reject(new MissingIcon("Icon is missing for prefix ".concat(prefix, " with icon name ").concat(iconName)));
+        } else {
+          resolve(val);
+        }
+      });
+    }
+
+    var styles$3 = namespace.styles;
+
+    function generateSvgReplacementMutation(node, nodeMeta) {
+      var iconName = nodeMeta.iconName,
+          title = nodeMeta.title,
+          titleId = nodeMeta.titleId,
+          prefix = nodeMeta.prefix,
+          transform = nodeMeta.transform,
+          symbol = nodeMeta.symbol,
+          mask = nodeMeta.mask,
+          maskId = nodeMeta.maskId,
+          extra = nodeMeta.extra;
+      return new picked(function (resolve, reject) {
+        picked.all([findIcon(iconName, prefix), findIcon(mask.iconName, mask.prefix)]).then(function (_ref) {
+          var _ref2 = _slicedToArray(_ref, 2),
+              main = _ref2[0],
+              mask = _ref2[1];
+
+          resolve([node, makeInlineSvgAbstract({
+            icons: {
+              main: main,
+              mask: mask
+            },
+            prefix: prefix,
+            iconName: iconName,
+            transform: transform,
+            symbol: symbol,
+            mask: mask,
+            maskId: maskId,
+            title: title,
+            titleId: titleId,
+            extra: extra,
+            watchable: true
+          })]);
+        });
+      });
+    }
+
+    function generateLayersText(node, nodeMeta) {
+      var title = nodeMeta.title,
+          transform = nodeMeta.transform,
+          extra = nodeMeta.extra;
+      var width = null;
+      var height = null;
+
+      if (IS_IE) {
+        var computedFontSize = parseInt(getComputedStyle(node).fontSize, 10);
+        var boundingClientRect = node.getBoundingClientRect();
+        width = boundingClientRect.width / computedFontSize;
+        height = boundingClientRect.height / computedFontSize;
+      }
+
+      if (config.autoA11y && !title) {
+        extra.attributes['aria-hidden'] = 'true';
+      }
+
+      return picked.resolve([node, makeLayersTextAbstract({
+        content: node.innerHTML,
+        width: width,
+        height: height,
+        transform: transform,
+        title: title,
+        extra: extra,
+        watchable: true
+      })]);
+    }
+
+    function generateMutation(node) {
+      var nodeMeta = parseMeta(node);
+
+      if (~nodeMeta.extra.classes.indexOf(LAYERS_TEXT_CLASSNAME)) {
+        return generateLayersText(node, nodeMeta);
+      } else {
+        return generateSvgReplacementMutation(node, nodeMeta);
+      }
+    }
+
+    function onTree(root) {
+      var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      if (!IS_DOM) return;
+      var htmlClassList = DOCUMENT.documentElement.classList;
+
+      var hclAdd = function hclAdd(suffix) {
+        return htmlClassList.add("".concat(HTML_CLASS_I2SVG_BASE_CLASS, "-").concat(suffix));
+      };
+
+      var hclRemove = function hclRemove(suffix) {
+        return htmlClassList.remove("".concat(HTML_CLASS_I2SVG_BASE_CLASS, "-").concat(suffix));
+      };
+
+      var prefixes = config.autoFetchSvg ? Object.keys(PREFIX_TO_STYLE) : Object.keys(styles$3);
+      var prefixesDomQuery = [".".concat(LAYERS_TEXT_CLASSNAME, ":not([").concat(DATA_FA_I2SVG, "])")].concat(prefixes.map(function (p) {
+        return ".".concat(p, ":not([").concat(DATA_FA_I2SVG, "])");
+      })).join(', ');
+
+      if (prefixesDomQuery.length === 0) {
+        return;
+      }
+
+      var candidates = [];
+
+      try {
+        candidates = toArray(root.querySelectorAll(prefixesDomQuery));
+      } catch (e) {// noop
+      }
+
+      if (candidates.length > 0) {
+        hclAdd('pending');
+        hclRemove('complete');
+      } else {
+        return;
+      }
+
+      var mark = perf.begin('onTree');
+      var mutations = candidates.reduce(function (acc, node) {
+        try {
+          var mutation = generateMutation(node);
+
+          if (mutation) {
+            acc.push(mutation);
+          }
+        } catch (e) {
+          if (!PRODUCTION) {
+            if (e instanceof MissingIcon) {
+              console.error(e);
+            }
+          }
+        }
+
+        return acc;
+      }, []);
+      return new picked(function (resolve, reject) {
+        picked.all(mutations).then(function (resolvedMutations) {
+          perform(resolvedMutations, function () {
+            hclAdd('active');
+            hclAdd('complete');
+            hclRemove('pending');
+            if (typeof callback === 'function') callback();
+            mark();
+            resolve();
+          });
+        })["catch"](function () {
+          mark();
+          reject();
+        });
+      });
+    }
+
+    function onNode(node) {
+      var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      generateMutation(node).then(function (mutation) {
+        if (mutation) {
+          perform([mutation], callback);
+        }
+      });
+    }
+
+    function replaceForPosition(node, position) {
+      var pendingAttribute = "".concat(DATA_FA_PSEUDO_ELEMENT_PENDING).concat(position.replace(':', '-'));
+      return new picked(function (resolve, reject) {
+        if (node.getAttribute(pendingAttribute) !== null) {
+          // This node is already being processed
+          return resolve();
+        }
+
+        var children = toArray(node.children);
+        var alreadyProcessedPseudoElement = children.filter(function (c) {
+          return c.getAttribute(DATA_FA_PSEUDO_ELEMENT) === position;
+        })[0];
+        var styles = WINDOW.getComputedStyle(node, position);
+        var fontFamily = styles.getPropertyValue('font-family').match(FONT_FAMILY_PATTERN);
+        var fontWeight = styles.getPropertyValue('font-weight');
+        var content = styles.getPropertyValue('content');
+
+        if (alreadyProcessedPseudoElement && !fontFamily) {
+          // If we've already processed it but the current computed style does not result in a font-family,
+          // that probably means that a class name that was previously present to make the icon has been
+          // removed. So we now should delete the icon.
+          node.removeChild(alreadyProcessedPseudoElement);
+          return resolve();
+        } else if (fontFamily && content !== 'none' && content !== '') {
+          var prefix = ~['Solid', 'Regular', 'Light', 'Duotone', 'Brands'].indexOf(fontFamily[1]) ? STYLE_TO_PREFIX[fontFamily[1].toLowerCase()] : FONT_WEIGHT_TO_PREFIX[fontWeight];
+          var hexValue = toHex(content.length === 3 ? content.substr(1, 1) : content);
+          var iconName = byUnicode(prefix, hexValue);
+          var iconIdentifier = iconName; // Only convert the pseudo element in this :before/:after position into an icon if we haven't
+          // already done so with the same prefix and iconName
+
+          if (iconName && (!alreadyProcessedPseudoElement || alreadyProcessedPseudoElement.getAttribute(DATA_PREFIX) !== prefix || alreadyProcessedPseudoElement.getAttribute(DATA_ICON) !== iconIdentifier)) {
+            node.setAttribute(pendingAttribute, iconIdentifier);
+
+            if (alreadyProcessedPseudoElement) {
+              // Delete the old one, since we're replacing it with a new one
+              node.removeChild(alreadyProcessedPseudoElement);
+            }
+
+            var meta = blankMeta();
+            var extra = meta.extra;
+            extra.attributes[DATA_FA_PSEUDO_ELEMENT] = position;
+            findIcon(iconName, prefix).then(function (main) {
+              var _abstract5 = makeInlineSvgAbstract(_objectSpread({}, meta, {
+                icons: {
+                  main: main,
+                  mask: emptyCanonicalIcon()
+                },
+                prefix: prefix,
+                iconName: iconIdentifier,
+                extra: extra,
+                watchable: true
+              }));
+
+              var element = DOCUMENT.createElement('svg');
+
+              if (position === ':before') {
+                node.insertBefore(element, node.firstChild);
+              } else {
+                node.appendChild(element);
+              }
+
+              element.outerHTML = _abstract5.map(function (a) {
+                return toHtml(a);
+              }).join('\n');
+              node.removeAttribute(pendingAttribute);
+              resolve();
+            })["catch"](reject);
+          } else {
+            resolve();
+          }
+        } else {
+          resolve();
+        }
+      });
+    }
+
+    function replace(node) {
+      return picked.all([replaceForPosition(node, ':before'), replaceForPosition(node, ':after')]);
+    }
+
+    function processable(node) {
+      return node.parentNode !== document.head && !~TAGNAMES_TO_SKIP_FOR_PSEUDOELEMENTS.indexOf(node.tagName.toUpperCase()) && !node.getAttribute(DATA_FA_PSEUDO_ELEMENT) && (!node.parentNode || node.parentNode.tagName !== 'svg');
+    }
+
+    function searchPseudoElements(root) {
+      if (!IS_DOM) return;
+      return new picked(function (resolve, reject) {
+        var operations = toArray(root.querySelectorAll('*')).filter(processable).map(replace);
+        var end = perf.begin('searchPseudoElements');
+        disableObservation();
+        picked.all(operations).then(function () {
+          end();
+          enableObservation();
+          resolve();
+        })["catch"](function () {
+          end();
+          enableObservation();
+          reject();
+        });
+      });
+    }
+
+    var baseStyles = "svg:not(:root).svg-inline--fa {\n  overflow: visible;\n}\n\n.svg-inline--fa {\n  display: inline-block;\n  font-size: inherit;\n  height: 1em;\n  overflow: visible;\n  vertical-align: -0.125em;\n}\n.svg-inline--fa.fa-lg {\n  vertical-align: -0.225em;\n}\n.svg-inline--fa.fa-w-1 {\n  width: 0.0625em;\n}\n.svg-inline--fa.fa-w-2 {\n  width: 0.125em;\n}\n.svg-inline--fa.fa-w-3 {\n  width: 0.1875em;\n}\n.svg-inline--fa.fa-w-4 {\n  width: 0.25em;\n}\n.svg-inline--fa.fa-w-5 {\n  width: 0.3125em;\n}\n.svg-inline--fa.fa-w-6 {\n  width: 0.375em;\n}\n.svg-inline--fa.fa-w-7 {\n  width: 0.4375em;\n}\n.svg-inline--fa.fa-w-8 {\n  width: 0.5em;\n}\n.svg-inline--fa.fa-w-9 {\n  width: 0.5625em;\n}\n.svg-inline--fa.fa-w-10 {\n  width: 0.625em;\n}\n.svg-inline--fa.fa-w-11 {\n  width: 0.6875em;\n}\n.svg-inline--fa.fa-w-12 {\n  width: 0.75em;\n}\n.svg-inline--fa.fa-w-13 {\n  width: 0.8125em;\n}\n.svg-inline--fa.fa-w-14 {\n  width: 0.875em;\n}\n.svg-inline--fa.fa-w-15 {\n  width: 0.9375em;\n}\n.svg-inline--fa.fa-w-16 {\n  width: 1em;\n}\n.svg-inline--fa.fa-w-17 {\n  width: 1.0625em;\n}\n.svg-inline--fa.fa-w-18 {\n  width: 1.125em;\n}\n.svg-inline--fa.fa-w-19 {\n  width: 1.1875em;\n}\n.svg-inline--fa.fa-w-20 {\n  width: 1.25em;\n}\n.svg-inline--fa.fa-pull-left {\n  margin-right: 0.3em;\n  width: auto;\n}\n.svg-inline--fa.fa-pull-right {\n  margin-left: 0.3em;\n  width: auto;\n}\n.svg-inline--fa.fa-border {\n  height: 1.5em;\n}\n.svg-inline--fa.fa-li {\n  width: 2em;\n}\n.svg-inline--fa.fa-fw {\n  width: 1.25em;\n}\n\n.fa-layers svg.svg-inline--fa {\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.fa-layers {\n  display: inline-block;\n  height: 1em;\n  position: relative;\n  text-align: center;\n  vertical-align: -0.125em;\n  width: 1em;\n}\n.fa-layers svg.svg-inline--fa {\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.fa-layers-counter, .fa-layers-text {\n  display: inline-block;\n  position: absolute;\n  text-align: center;\n}\n\n.fa-layers-text {\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.fa-layers-counter {\n  background-color: #ff253a;\n  border-radius: 1em;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  color: #fff;\n  height: 1.5em;\n  line-height: 1;\n  max-width: 5em;\n  min-width: 1.5em;\n  overflow: hidden;\n  padding: 0.25em;\n  right: 0;\n  text-overflow: ellipsis;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top right;\n          transform-origin: top right;\n}\n\n.fa-layers-bottom-right {\n  bottom: 0;\n  right: 0;\n  top: auto;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: bottom right;\n          transform-origin: bottom right;\n}\n\n.fa-layers-bottom-left {\n  bottom: 0;\n  left: 0;\n  right: auto;\n  top: auto;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: bottom left;\n          transform-origin: bottom left;\n}\n\n.fa-layers-top-right {\n  right: 0;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top right;\n          transform-origin: top right;\n}\n\n.fa-layers-top-left {\n  left: 0;\n  right: auto;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top left;\n          transform-origin: top left;\n}\n\n.fa-lg {\n  font-size: 1.3333333333em;\n  line-height: 0.75em;\n  vertical-align: -0.0667em;\n}\n\n.fa-xs {\n  font-size: 0.75em;\n}\n\n.fa-sm {\n  font-size: 0.875em;\n}\n\n.fa-1x {\n  font-size: 1em;\n}\n\n.fa-2x {\n  font-size: 2em;\n}\n\n.fa-3x {\n  font-size: 3em;\n}\n\n.fa-4x {\n  font-size: 4em;\n}\n\n.fa-5x {\n  font-size: 5em;\n}\n\n.fa-6x {\n  font-size: 6em;\n}\n\n.fa-7x {\n  font-size: 7em;\n}\n\n.fa-8x {\n  font-size: 8em;\n}\n\n.fa-9x {\n  font-size: 9em;\n}\n\n.fa-10x {\n  font-size: 10em;\n}\n\n.fa-fw {\n  text-align: center;\n  width: 1.25em;\n}\n\n.fa-ul {\n  list-style-type: none;\n  margin-left: 2.5em;\n  padding-left: 0;\n}\n.fa-ul > li {\n  position: relative;\n}\n\n.fa-li {\n  left: -2em;\n  position: absolute;\n  text-align: center;\n  width: 2em;\n  line-height: inherit;\n}\n\n.fa-border {\n  border: solid 0.08em #eee;\n  border-radius: 0.1em;\n  padding: 0.2em 0.25em 0.15em;\n}\n\n.fa-pull-left {\n  float: left;\n}\n\n.fa-pull-right {\n  float: right;\n}\n\n.fa.fa-pull-left,\n.fas.fa-pull-left,\n.far.fa-pull-left,\n.fal.fa-pull-left,\n.fab.fa-pull-left {\n  margin-right: 0.3em;\n}\n.fa.fa-pull-right,\n.fas.fa-pull-right,\n.far.fa-pull-right,\n.fal.fa-pull-right,\n.fab.fa-pull-right {\n  margin-left: 0.3em;\n}\n\n.fa-spin {\n  -webkit-animation: fa-spin 2s infinite linear;\n          animation: fa-spin 2s infinite linear;\n}\n\n.fa-pulse {\n  -webkit-animation: fa-spin 1s infinite steps(8);\n          animation: fa-spin 1s infinite steps(8);\n}\n\n@-webkit-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n\n@keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n.fa-rotate-90 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)\";\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n\n.fa-rotate-180 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)\";\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n\n.fa-rotate-270 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)\";\n  -webkit-transform: rotate(270deg);\n          transform: rotate(270deg);\n}\n\n.fa-flip-horizontal {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)\";\n  -webkit-transform: scale(-1, 1);\n          transform: scale(-1, 1);\n}\n\n.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(1, -1);\n          transform: scale(1, -1);\n}\n\n.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(-1, -1);\n          transform: scale(-1, -1);\n}\n\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical,\n:root .fa-flip-both {\n  -webkit-filter: none;\n          filter: none;\n}\n\n.fa-stack {\n  display: inline-block;\n  height: 2em;\n  position: relative;\n  width: 2.5em;\n}\n\n.fa-stack-1x,\n.fa-stack-2x {\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.svg-inline--fa.fa-stack-1x {\n  height: 1em;\n  width: 1.25em;\n}\n.svg-inline--fa.fa-stack-2x {\n  height: 2em;\n  width: 2.5em;\n}\n\n.fa-inverse {\n  color: #fff;\n}\n\n.sr-only {\n  border: 0;\n  clip: rect(0, 0, 0, 0);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n}\n\n.sr-only-focusable:active, .sr-only-focusable:focus {\n  clip: auto;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n}\n\n.svg-inline--fa .fa-primary {\n  fill: var(--fa-primary-color, currentColor);\n  opacity: 1;\n  opacity: var(--fa-primary-opacity, 1);\n}\n\n.svg-inline--fa .fa-secondary {\n  fill: var(--fa-secondary-color, currentColor);\n  opacity: 0.4;\n  opacity: var(--fa-secondary-opacity, 0.4);\n}\n\n.svg-inline--fa.fa-swap-opacity .fa-primary {\n  opacity: 0.4;\n  opacity: var(--fa-secondary-opacity, 0.4);\n}\n\n.svg-inline--fa.fa-swap-opacity .fa-secondary {\n  opacity: 1;\n  opacity: var(--fa-primary-opacity, 1);\n}\n\n.svg-inline--fa mask .fa-primary,\n.svg-inline--fa mask .fa-secondary {\n  fill: black;\n}\n\n.fad.fa-inverse {\n  color: #fff;\n}";
+
+    function css() {
+      var dfp = DEFAULT_FAMILY_PREFIX;
+      var drc = DEFAULT_REPLACEMENT_CLASS;
+      var fp = config.familyPrefix;
+      var rc = config.replacementClass;
+      var s = baseStyles;
+
+      if (fp !== dfp || rc !== drc) {
+        var dPatt = new RegExp("\\.".concat(dfp, "\\-"), 'g');
+        var customPropPatt = new RegExp("\\--".concat(dfp, "\\-"), 'g');
+        var rPatt = new RegExp("\\.".concat(drc), 'g');
+        s = s.replace(dPatt, ".".concat(fp, "-")).replace(customPropPatt, "--".concat(fp, "-")).replace(rPatt, ".".concat(rc));
+      }
+
+      return s;
+    }
+
+    var Library =
+    /*#__PURE__*/
+    function () {
+      function Library() {
+        _classCallCheck(this, Library);
+
+        this.definitions = {};
+      }
+
+      _createClass(Library, [{
+        key: "add",
+        value: function add() {
+          var _this = this;
+
+          for (var _len = arguments.length, definitions = new Array(_len), _key = 0; _key < _len; _key++) {
+            definitions[_key] = arguments[_key];
+          }
+
+          var additions = definitions.reduce(this._pullDefinitions, {});
+          Object.keys(additions).forEach(function (key) {
+            _this.definitions[key] = _objectSpread({}, _this.definitions[key] || {}, additions[key]);
+            defineIcons(key, additions[key]);
+            build();
+          });
+        }
+      }, {
+        key: "reset",
+        value: function reset() {
+          this.definitions = {};
+        }
+      }, {
+        key: "_pullDefinitions",
+        value: function _pullDefinitions(additions, definition) {
+          var normalized = definition.prefix && definition.iconName && definition.icon ? {
+            0: definition
+          } : definition;
+          Object.keys(normalized).map(function (key) {
+            var _normalized$key = normalized[key],
+                prefix = _normalized$key.prefix,
+                iconName = _normalized$key.iconName,
+                icon = _normalized$key.icon;
+            if (!additions[prefix]) additions[prefix] = {};
+            additions[prefix][iconName] = icon;
+          });
+          return additions;
+        }
+      }]);
+
+      return Library;
+    }();
+
+    function ensureCss() {
+      if (config.autoAddCss && !_cssInserted) {
+        insertCss(css());
+        _cssInserted = true;
+      }
+    }
+
+    function apiObject(val, abstractCreator) {
+      Object.defineProperty(val, 'abstract', {
+        get: abstractCreator
+      });
+      Object.defineProperty(val, 'html', {
+        get: function get() {
+          return val["abstract"].map(function (a) {
+            return toHtml(a);
+          });
+        }
+      });
+      Object.defineProperty(val, 'node', {
+        get: function get() {
+          if (!IS_DOM) return;
+          var container = DOCUMENT.createElement('div');
+          container.innerHTML = val.html;
+          return container.children;
+        }
+      });
+      return val;
+    }
+
+    function findIconDefinition(iconLookup) {
+      var _iconLookup$prefix = iconLookup.prefix,
+          prefix = _iconLookup$prefix === void 0 ? 'fa' : _iconLookup$prefix,
+          iconName = iconLookup.iconName;
+      if (!iconName) return;
+      return iconFromMapping(library.definitions, prefix, iconName) || iconFromMapping(namespace.styles, prefix, iconName);
+    }
+
+    function resolveIcons(next) {
+      return function (maybeIconDefinition) {
+        var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+        var iconDefinition = (maybeIconDefinition || {}).icon ? maybeIconDefinition : findIconDefinition(maybeIconDefinition || {});
+        var mask = params.mask;
+
+        if (mask) {
+          mask = (mask || {}).icon ? mask : findIconDefinition(mask || {});
+        }
+
+        return next(iconDefinition, _objectSpread({}, params, {
+          mask: mask
+        }));
+      };
+    }
+
+    var library = new Library();
+
+    var noAuto = function noAuto() {
+      config.autoReplaceSvg = false;
+      config.observeMutations = false;
+      disconnect();
+    };
+
+    var _cssInserted = false;
+    var dom = {
+      i2svg: function i2svg() {
+        var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+        if (IS_DOM) {
+          ensureCss();
+          var _params$node = params.node,
+              node = _params$node === void 0 ? DOCUMENT : _params$node,
+              _params$callback = params.callback,
+              callback = _params$callback === void 0 ? function () {} : _params$callback;
+
+          if (config.searchPseudoElements) {
+            searchPseudoElements(node);
+          }
+
+          return onTree(node, callback);
+        } else {
+          return picked.reject('Operation requires a DOM of some kind.');
+        }
+      },
+      css: css,
+      insertCss: function insertCss$$1() {
+        if (!_cssInserted) {
+          insertCss(css());
+          _cssInserted = true;
+        }
+      },
+      watch: function watch() {
+        var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        var autoReplaceSvgRoot = params.autoReplaceSvgRoot,
+            observeMutationsRoot = params.observeMutationsRoot;
+
+        if (config.autoReplaceSvg === false) {
+          config.autoReplaceSvg = true;
+        }
+
+        config.observeMutations = true;
+        domready(function () {
+          autoReplace({
+            autoReplaceSvgRoot: autoReplaceSvgRoot
+          });
+          observe({
+            treeCallback: onTree,
+            nodeCallback: onNode,
+            pseudoElementsCallback: searchPseudoElements,
+            observeMutationsRoot: observeMutationsRoot
+          });
+        });
+      }
+    };
+    var parse = {
+      transform: function transform(transformString) {
+        return parseTransformString(transformString);
+      }
+    };
+    var icon = resolveIcons(function (iconDefinition) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var _params$transform = params.transform,
+          transform = _params$transform === void 0 ? meaninglessTransform : _params$transform,
+          _params$symbol = params.symbol,
+          symbol = _params$symbol === void 0 ? false : _params$symbol,
+          _params$mask = params.mask,
+          mask = _params$mask === void 0 ? null : _params$mask,
+          _params$maskId = params.maskId,
+          maskId = _params$maskId === void 0 ? null : _params$maskId,
+          _params$title = params.title,
+          title = _params$title === void 0 ? null : _params$title,
+          _params$titleId = params.titleId,
+          titleId = _params$titleId === void 0 ? null : _params$titleId,
+          _params$classes = params.classes,
+          classes = _params$classes === void 0 ? [] : _params$classes,
+          _params$attributes = params.attributes,
+          attributes = _params$attributes === void 0 ? {} : _params$attributes,
+          _params$styles = params.styles,
+          styles = _params$styles === void 0 ? {} : _params$styles;
+      if (!iconDefinition) return;
+      var prefix = iconDefinition.prefix,
+          iconName = iconDefinition.iconName,
+          icon = iconDefinition.icon;
+      return apiObject(_objectSpread({
+        type: 'icon'
+      }, iconDefinition), function () {
+        ensureCss();
+
+        if (config.autoA11y) {
+          if (title) {
+            attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(titleId || nextUniqueId());
+          } else {
+            attributes['aria-hidden'] = 'true';
+            attributes['focusable'] = 'false';
+          }
+        }
+
+        return makeInlineSvgAbstract({
+          icons: {
+            main: asFoundIcon(icon),
+            mask: mask ? asFoundIcon(mask.icon) : {
+              found: false,
+              width: null,
+              height: null,
+              icon: {}
+            }
+          },
+          prefix: prefix,
+          iconName: iconName,
+          transform: _objectSpread({}, meaninglessTransform, transform),
+          symbol: symbol,
+          title: title,
+          maskId: maskId,
+          titleId: titleId,
+          extra: {
+            attributes: attributes,
+            styles: styles,
+            classes: classes
+          }
+        });
+      });
+    });
+
+    var text = function text(content) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var _params$transform2 = params.transform,
+          transform = _params$transform2 === void 0 ? meaninglessTransform : _params$transform2,
+          _params$title2 = params.title,
+          title = _params$title2 === void 0 ? null : _params$title2,
+          _params$classes2 = params.classes,
+          classes = _params$classes2 === void 0 ? [] : _params$classes2,
+          _params$attributes2 = params.attributes,
+          attributes = _params$attributes2 === void 0 ? {} : _params$attributes2,
+          _params$styles2 = params.styles,
+          styles = _params$styles2 === void 0 ? {} : _params$styles2;
+      return apiObject({
+        type: 'text',
+        content: content
+      }, function () {
+        ensureCss();
+        return makeLayersTextAbstract({
+          content: content,
+          transform: _objectSpread({}, meaninglessTransform, transform),
+          title: title,
+          extra: {
+            attributes: attributes,
+            styles: styles,
+            classes: ["".concat(config.familyPrefix, "-layers-text")].concat(_toConsumableArray(classes))
+          }
+        });
+      });
+    };
+
+    var counter = function counter(content) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var _params$title3 = params.title,
+          title = _params$title3 === void 0 ? null : _params$title3,
+          _params$classes3 = params.classes,
+          classes = _params$classes3 === void 0 ? [] : _params$classes3,
+          _params$attributes3 = params.attributes,
+          attributes = _params$attributes3 === void 0 ? {} : _params$attributes3,
+          _params$styles3 = params.styles,
+          styles = _params$styles3 === void 0 ? {} : _params$styles3;
+      return apiObject({
+        type: 'counter',
+        content: content
+      }, function () {
+        ensureCss();
+        return makeLayersCounterAbstract({
+          content: content.toString(),
+          title: title,
+          extra: {
+            attributes: attributes,
+            styles: styles,
+            classes: ["".concat(config.familyPrefix, "-layers-counter")].concat(_toConsumableArray(classes))
+          }
+        });
+      });
+    };
+
+    var layer = function layer(assembler) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var _params$classes4 = params.classes,
+          classes = _params$classes4 === void 0 ? [] : _params$classes4;
+      return apiObject({
+        type: 'layer'
+      }, function () {
+        ensureCss();
+        var children = [];
+        assembler(function (args) {
+          Array.isArray(args) ? args.map(function (a) {
+            children = children.concat(a["abstract"]);
+          }) : children = children.concat(args["abstract"]);
+        });
+        return [{
+          tag: 'span',
+          attributes: {
+            "class": ["".concat(config.familyPrefix, "-layers")].concat(_toConsumableArray(classes)).join(' ')
+          },
+          children: children
+        }];
+      });
+    };
+
+    var api = {
+      noAuto: noAuto,
+      config: config,
+      dom: dom,
+      library: library,
+      parse: parse,
+      findIconDefinition: findIconDefinition,
+      icon: icon,
+      text: text,
+      counter: counter,
+      layer: layer,
+      toHtml: toHtml
+    };
+
+    var autoReplace = function autoReplace() {
+      var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var _params$autoReplaceSv = params.autoReplaceSvgRoot,
+          autoReplaceSvgRoot = _params$autoReplaceSv === void 0 ? DOCUMENT : _params$autoReplaceSv;
+      if ((Object.keys(namespace.styles).length > 0 || config.autoFetchSvg) && IS_DOM && config.autoReplaceSvg) api.dom.i2svg({
+        node: autoReplaceSvgRoot
+      });
+    };
+    /***/
+
   },
 
   /***/
@@ -87153,18 +91053,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subject__WEBPACK_IMP) {
       _inherits(AsyncSubject, _Subject__WEBPACK_IMP);
 
-      var _super49 = _createSuper(AsyncSubject);
+      var _super50 = _createSuper(AsyncSubject);
 
       function AsyncSubject() {
-        var _this105;
+        var _this107;
 
-        _classCallCheck(this, AsyncSubject);
+        _classCallCheck2(this, AsyncSubject);
 
-        _this105 = _super49.apply(this, arguments);
-        _this105.value = null;
-        _this105.hasNext = false;
-        _this105.hasCompleted = false;
-        return _this105;
+        _this107 = _super50.apply(this, arguments);
+        _this107.value = null;
+        _this107.hasNext = false;
+        _this107.hasCompleted = false;
+        return _this107;
       }
 
       _createClass2(AsyncSubject, [{
@@ -87253,16 +91153,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subject__WEBPACK_IMP2) {
       _inherits(BehaviorSubject, _Subject__WEBPACK_IMP2);
 
-      var _super50 = _createSuper(BehaviorSubject);
+      var _super51 = _createSuper(BehaviorSubject);
 
       function BehaviorSubject(_value) {
-        var _this106;
+        var _this108;
 
-        _classCallCheck(this, BehaviorSubject);
+        _classCallCheck2(this, BehaviorSubject);
 
-        _this106 = _super50.call(this);
-        _this106._value = _value;
-        return _this106;
+        _this108 = _super51.call(this);
+        _this108._value = _value;
+        return _this108;
       }
 
       _createClass2(BehaviorSubject, [{
@@ -87337,19 +91237,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_) {
       _inherits(InnerSubscriber, _Subscriber__WEBPACK_);
 
-      var _super51 = _createSuper(InnerSubscriber);
+      var _super52 = _createSuper(InnerSubscriber);
 
       function InnerSubscriber(parent, outerValue, outerIndex) {
-        var _this107;
+        var _this109;
 
-        _classCallCheck(this, InnerSubscriber);
+        _classCallCheck2(this, InnerSubscriber);
 
-        _this107 = _super51.call(this);
-        _this107.parent = parent;
-        _this107.outerValue = outerValue;
-        _this107.outerIndex = outerIndex;
-        _this107.index = 0;
-        return _this107;
+        _this109 = _super52.call(this);
+        _this109.parent = parent;
+        _this109.outerValue = outerValue;
+        _this109.outerIndex = outerIndex;
+        _this109.index = 0;
+        return _this109;
       }
 
       _createClass2(InnerSubscriber, [{
@@ -87434,7 +91334,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function Notification(kind, value, error) {
-        _classCallCheck(this, Notification);
+        _classCallCheck2(this, Notification);
 
         this.kind = kind;
         this.value = value;
@@ -87583,7 +91483,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function Observable(subscribe) {
-        _classCallCheck(this, Observable);
+        _classCallCheck2(this, Observable);
 
         this._isScalar = false;
 
@@ -87645,12 +91545,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "forEach",
         value: function forEach(next, promiseCtor) {
-          var _this108 = this;
+          var _this110 = this;
 
           promiseCtor = getPromiseCtor(promiseCtor);
           return new promiseCtor(function (resolve, reject) {
             var subscription;
-            subscription = _this108.subscribe(function (value) {
+            subscription = _this110.subscribe(function (value) {
               try {
                 next(value);
               } catch (err) {
@@ -87677,8 +91577,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "pipe",
         value: function pipe() {
-          for (var _len15 = arguments.length, operations = new Array(_len15), _key15 = 0; _key15 < _len15; _key15++) {
-            operations[_key15] = arguments[_key15];
+          for (var _len18 = arguments.length, operations = new Array(_len18), _key18 = 0; _key18 < _len18; _key18++) {
+            operations[_key18] = arguments[_key18];
           }
 
           if (operations.length === 0) {
@@ -87690,13 +91590,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "toPromise",
         value: function toPromise(promiseCtor) {
-          var _this109 = this;
+          var _this111 = this;
 
           promiseCtor = getPromiseCtor(promiseCtor);
           return new promiseCtor(function (resolve, reject) {
             var value;
 
-            _this109.subscribe(function (x) {
+            _this111.subscribe(function (x) {
               return value = x;
             }, function (err) {
               return reject(err);
@@ -87809,12 +91709,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_2) {
       _inherits(OuterSubscriber, _Subscriber__WEBPACK_2);
 
-      var _super52 = _createSuper(OuterSubscriber);
+      var _super53 = _createSuper(OuterSubscriber);
 
       function OuterSubscriber() {
-        _classCallCheck(this, OuterSubscriber);
+        _classCallCheck2(this, OuterSubscriber);
 
-        return _super52.apply(this, arguments);
+        return _super53.apply(this, arguments);
       }
 
       _createClass2(OuterSubscriber, [{
@@ -87902,32 +91802,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subject__WEBPACK_IMP3) {
       _inherits(ReplaySubject, _Subject__WEBPACK_IMP3);
 
-      var _super53 = _createSuper(ReplaySubject);
+      var _super54 = _createSuper(ReplaySubject);
 
       function ReplaySubject() {
-        var _this110;
+        var _this112;
 
         var bufferSize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Number.POSITIVE_INFINITY;
         var windowTime = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Number.POSITIVE_INFINITY;
         var scheduler = arguments.length > 2 ? arguments[2] : undefined;
 
-        _classCallCheck(this, ReplaySubject);
+        _classCallCheck2(this, ReplaySubject);
 
-        _this110 = _super53.call(this);
-        _this110.scheduler = scheduler;
-        _this110._events = [];
-        _this110._infiniteTimeWindow = false;
-        _this110._bufferSize = bufferSize < 1 ? 1 : bufferSize;
-        _this110._windowTime = windowTime < 1 ? 1 : windowTime;
+        _this112 = _super54.call(this);
+        _this112.scheduler = scheduler;
+        _this112._events = [];
+        _this112._infiniteTimeWindow = false;
+        _this112._bufferSize = bufferSize < 1 ? 1 : bufferSize;
+        _this112._windowTime = windowTime < 1 ? 1 : windowTime;
 
         if (windowTime === Number.POSITIVE_INFINITY) {
-          _this110._infiniteTimeWindow = true;
-          _this110.next = _this110.nextInfiniteTimeWindow;
+          _this112._infiniteTimeWindow = true;
+          _this112.next = _this112.nextInfiniteTimeWindow;
         } else {
-          _this110.next = _this110.nextTimeWindow;
+          _this112.next = _this112.nextTimeWindow;
         }
 
-        return _this110;
+        return _this112;
       }
 
       _createClass2(ReplaySubject, [{
@@ -87981,8 +91881,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               subscriber.next(_events[i]);
             }
           } else {
-            for (var _i19 = 0; _i19 < len && !subscriber.closed; _i19++) {
-              subscriber.next(_events[_i19].value);
+            for (var _i21 = 0; _i21 < len && !subscriber.closed; _i21++) {
+              subscriber.next(_events[_i21].value);
             }
           }
 
@@ -88034,7 +91934,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }(_Subject__WEBPACK_IMPORTED_MODULE_0__["Subject"]);
 
     var ReplayEvent = function ReplayEvent(time, value) {
-      _classCallCheck(this, ReplayEvent);
+      _classCallCheck2(this, ReplayEvent);
 
       this.time = time;
       this.value = value;
@@ -88070,7 +91970,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function Scheduler(SchedulerAction) {
         var now = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Scheduler.now;
 
-        _classCallCheck(this, Scheduler);
+        _classCallCheck2(this, Scheduler);
 
         this.SchedulerAction = SchedulerAction;
         this.now = now;
@@ -88169,16 +92069,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_3) {
       _inherits(SubjectSubscriber, _Subscriber__WEBPACK_3);
 
-      var _super54 = _createSuper(SubjectSubscriber);
+      var _super55 = _createSuper(SubjectSubscriber);
 
       function SubjectSubscriber(destination) {
-        var _this111;
+        var _this113;
 
-        _classCallCheck(this, SubjectSubscriber);
+        _classCallCheck2(this, SubjectSubscriber);
 
-        _this111 = _super54.call(this, destination);
-        _this111.destination = destination;
-        return _this111;
+        _this113 = _super55.call(this, destination);
+        _this113.destination = destination;
+        return _this113;
       }
 
       return SubjectSubscriber;
@@ -88189,20 +92089,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Observable__WEBPACK_) {
       _inherits(Subject, _Observable__WEBPACK_);
 
-      var _super55 = _createSuper(Subject);
+      var _super56 = _createSuper(Subject);
 
       function Subject() {
-        var _this112;
+        var _this114;
 
-        _classCallCheck(this, Subject);
+        _classCallCheck2(this, Subject);
 
-        _this112 = _super55.call(this);
-        _this112.observers = [];
-        _this112.closed = false;
-        _this112.isStopped = false;
-        _this112.hasError = false;
-        _this112.thrownError = null;
-        return _this112;
+        _this114 = _super56.call(this);
+        _this114.observers = [];
+        _this114.closed = false;
+        _this114.isStopped = false;
+        _this114.hasError = false;
+        _this114.thrownError = null;
+        return _this114;
       }
 
       _createClass2(Subject, [{
@@ -88226,10 +92126,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (!this.isStopped) {
             var observers = this.observers;
-            var _len16 = observers.length;
+            var _len19 = observers.length;
             var copy = observers.slice();
 
-            for (var i = 0; i < _len16; i++) {
+            for (var i = 0; i < _len19; i++) {
               copy[i].next(value);
             }
           }
@@ -88325,17 +92225,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subject) {
       _inherits(AnonymousSubject, _Subject);
 
-      var _super56 = _createSuper(AnonymousSubject);
+      var _super57 = _createSuper(AnonymousSubject);
 
       function AnonymousSubject(destination, source) {
-        var _this113;
+        var _this115;
 
-        _classCallCheck(this, AnonymousSubject);
+        _classCallCheck2(this, AnonymousSubject);
 
-        _this113 = _super56.call(this);
-        _this113.destination = destination;
-        _this113.source = source;
-        return _this113;
+        _this115 = _super57.call(this);
+        _this115.destination = destination;
+        _this115.source = source;
+        return _this115;
       }
 
       _createClass2(AnonymousSubject, [{
@@ -88416,18 +92316,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscription__WEBPAC) {
       _inherits(SubjectSubscription, _Subscription__WEBPAC);
 
-      var _super57 = _createSuper(SubjectSubscription);
+      var _super58 = _createSuper(SubjectSubscription);
 
       function SubjectSubscription(subject, subscriber) {
-        var _this114;
+        var _this116;
 
-        _classCallCheck(this, SubjectSubscription);
+        _classCallCheck2(this, SubjectSubscription);
 
-        _this114 = _super57.call(this);
-        _this114.subject = subject;
-        _this114.subscriber = subscriber;
-        _this114.closed = false;
-        return _this114;
+        _this116 = _super58.call(this);
+        _this116.subject = subject;
+        _this116.subscriber = subscriber;
+        _this116.closed = false;
+        return _this116;
       }
 
       _createClass2(SubjectSubscription, [{
@@ -88528,50 +92428,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscription__WEBPAC2) {
       _inherits(Subscriber, _Subscription__WEBPAC2);
 
-      var _super58 = _createSuper(Subscriber);
+      var _super59 = _createSuper(Subscriber);
 
       function Subscriber(destinationOrNext, error, complete) {
-        var _this115;
+        var _this117;
 
-        _classCallCheck(this, Subscriber);
+        _classCallCheck2(this, Subscriber);
 
-        _this115 = _super58.call(this);
-        _this115.syncErrorValue = null;
-        _this115.syncErrorThrown = false;
-        _this115.syncErrorThrowable = false;
-        _this115.isStopped = false;
+        _this117 = _super59.call(this);
+        _this117.syncErrorValue = null;
+        _this117.syncErrorThrown = false;
+        _this117.syncErrorThrowable = false;
+        _this117.isStopped = false;
 
         switch (arguments.length) {
           case 0:
-            _this115.destination = _Observer__WEBPACK_IMPORTED_MODULE_1__["empty"];
+            _this117.destination = _Observer__WEBPACK_IMPORTED_MODULE_1__["empty"];
             break;
 
           case 1:
             if (!destinationOrNext) {
-              _this115.destination = _Observer__WEBPACK_IMPORTED_MODULE_1__["empty"];
+              _this117.destination = _Observer__WEBPACK_IMPORTED_MODULE_1__["empty"];
               break;
             }
 
             if (typeof destinationOrNext === 'object') {
               if (destinationOrNext instanceof Subscriber) {
-                _this115.syncErrorThrowable = destinationOrNext.syncErrorThrowable;
-                _this115.destination = destinationOrNext;
-                destinationOrNext.add(_assertThisInitialized(_this115));
+                _this117.syncErrorThrowable = destinationOrNext.syncErrorThrowable;
+                _this117.destination = destinationOrNext;
+                destinationOrNext.add(_assertThisInitialized(_this117));
               } else {
-                _this115.syncErrorThrowable = true;
-                _this115.destination = new SafeSubscriber(_assertThisInitialized(_this115), destinationOrNext);
+                _this117.syncErrorThrowable = true;
+                _this117.destination = new SafeSubscriber(_assertThisInitialized(_this117), destinationOrNext);
               }
 
               break;
             }
 
           default:
-            _this115.syncErrorThrowable = true;
-            _this115.destination = new SafeSubscriber(_assertThisInitialized(_this115), destinationOrNext, error, complete);
+            _this117.syncErrorThrowable = true;
+            _this117.destination = new SafeSubscriber(_assertThisInitialized(_this117), destinationOrNext, error, complete);
             break;
         }
 
-        return _this115;
+        return _this117;
       }
 
       _createClass2(Subscriber, [{
@@ -88660,18 +92560,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber) {
       _inherits(SafeSubscriber, _Subscriber);
 
-      var _super59 = _createSuper(SafeSubscriber);
+      var _super60 = _createSuper(SafeSubscriber);
 
       function SafeSubscriber(_parentSubscriber, observerOrNext, error, complete) {
-        var _this116;
+        var _this118;
 
-        _classCallCheck(this, SafeSubscriber);
+        _classCallCheck2(this, SafeSubscriber);
 
-        _this116 = _super59.call(this);
-        _this116._parentSubscriber = _parentSubscriber;
+        _this118 = _super60.call(this);
+        _this118._parentSubscriber = _parentSubscriber;
         var next;
 
-        var context = _assertThisInitialized(_this116);
+        var context = _assertThisInitialized(_this118);
 
         if (Object(_util_isFunction__WEBPACK_IMPORTED_MODULE_0__["isFunction"])(observerOrNext)) {
           next = observerOrNext;
@@ -88684,18 +92584,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             context = Object.create(observerOrNext);
 
             if (Object(_util_isFunction__WEBPACK_IMPORTED_MODULE_0__["isFunction"])(context.unsubscribe)) {
-              _this116.add(context.unsubscribe.bind(context));
+              _this118.add(context.unsubscribe.bind(context));
             }
 
-            context.unsubscribe = _this116.unsubscribe.bind(_assertThisInitialized(_this116));
+            context.unsubscribe = _this118.unsubscribe.bind(_assertThisInitialized(_this118));
           }
         }
 
-        _this116._context = context;
-        _this116._next = next;
-        _this116._error = error;
-        _this116._complete = complete;
-        return _this116;
+        _this118._context = context;
+        _this118._next = next;
+        _this118._error = error;
+        _this118._complete = complete;
+        return _this118;
       }
 
       _createClass2(SafeSubscriber, [{
@@ -88751,14 +92651,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "complete",
         value: function complete() {
-          var _this117 = this;
+          var _this119 = this;
 
           if (!this.isStopped) {
             var _parentSubscriber = this._parentSubscriber;
 
             if (this._complete) {
               var wrappedComplete = function wrappedComplete() {
-                return _this117._complete.call(_this117._context);
+                return _this119._complete.call(_this119._context);
               };
 
               if (!_config__WEBPACK_IMPORTED_MODULE_4__["config"].useDeprecatedSynchronousErrorHandling || !_parentSubscriber.syncErrorThrowable) {
@@ -88878,7 +92778,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function Subscription(unsubscribe) {
-        _classCallCheck(this, Subscription);
+        _classCallCheck2(this, Subscription);
 
         this.closed = false;
         this._parentOrParents = null;
@@ -88925,9 +92825,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (Object(_util_isArray__WEBPACK_IMPORTED_MODULE_0__["isArray"])(_subscriptions)) {
             var _index2 = -1;
 
-            var _len17 = _subscriptions.length;
+            var _len20 = _subscriptions.length;
 
-            while (++_index2 < _len17) {
+            while (++_index2 < _len20) {
               var sub = _subscriptions[_index2];
 
               if (Object(_util_isObject__WEBPACK_IMPORTED_MODULE_1__["isObject"])(sub)) {
@@ -89148,19 +93048,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Observable__WEBPACK_2) {
       _inherits(ConnectableObservable, _Observable__WEBPACK_2);
 
-      var _super60 = _createSuper(ConnectableObservable);
+      var _super61 = _createSuper(ConnectableObservable);
 
       function ConnectableObservable(source, subjectFactory) {
-        var _this118;
+        var _this120;
 
-        _classCallCheck(this, ConnectableObservable);
+        _classCallCheck2(this, ConnectableObservable);
 
-        _this118 = _super60.call(this);
-        _this118.source = source;
-        _this118.subjectFactory = subjectFactory;
-        _this118._refCount = 0;
-        _this118._isComplete = false;
-        return _this118;
+        _this120 = _super61.call(this);
+        _this120.source = source;
+        _this120.subjectFactory = subjectFactory;
+        _this120._refCount = 0;
+        _this120._isComplete = false;
+        return _this120;
       }
 
       _createClass2(ConnectableObservable, [{
@@ -89249,16 +93149,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subject__WEBPACK_IMP4) {
       _inherits(ConnectableSubscriber, _Subject__WEBPACK_IMP4);
 
-      var _super61 = _createSuper(ConnectableSubscriber);
+      var _super62 = _createSuper(ConnectableSubscriber);
 
       function ConnectableSubscriber(destination, connectable) {
-        var _this119;
+        var _this121;
 
-        _classCallCheck(this, ConnectableSubscriber);
+        _classCallCheck2(this, ConnectableSubscriber);
 
-        _this119 = _super61.call(this, destination);
-        _this119.connectable = connectable;
-        return _this119;
+        _this121 = _super62.call(this, destination);
+        _this121.connectable = connectable;
+        return _this121;
       }
 
       _createClass2(ConnectableSubscriber, [{
@@ -89303,7 +93203,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function RefCountOperator(connectable) {
-        _classCallCheck(this, RefCountOperator);
+        _classCallCheck2(this, RefCountOperator);
 
         this.connectable = connectable;
       }
@@ -89332,16 +93232,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_4) {
       _inherits(RefCountSubscriber, _Subscriber__WEBPACK_4);
 
-      var _super62 = _createSuper(RefCountSubscriber);
+      var _super63 = _createSuper(RefCountSubscriber);
 
       function RefCountSubscriber(destination, connectable) {
-        var _this120;
+        var _this122;
 
-        _classCallCheck(this, RefCountSubscriber);
+        _classCallCheck2(this, RefCountSubscriber);
 
-        _this120 = _super62.call(this, destination);
-        _this120.connectable = connectable;
-        return _this120;
+        _this122 = _super63.call(this, destination);
+        _this122.connectable = connectable;
+        return _this122;
       }
 
       _createClass2(RefCountSubscriber, [{
@@ -89429,30 +93329,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Observable__WEBPACK_3) {
       _inherits(SubscribeOnObservable, _Observable__WEBPACK_3);
 
-      var _super63 = _createSuper(SubscribeOnObservable);
+      var _super64 = _createSuper(SubscribeOnObservable);
 
       function SubscribeOnObservable(source) {
-        var _this121;
+        var _this123;
 
         var delayTime = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
         var scheduler = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _scheduler_asap__WEBPACK_IMPORTED_MODULE_1__["asap"];
 
-        _classCallCheck(this, SubscribeOnObservable);
+        _classCallCheck2(this, SubscribeOnObservable);
 
-        _this121 = _super63.call(this);
-        _this121.source = source;
-        _this121.delayTime = delayTime;
-        _this121.scheduler = scheduler;
+        _this123 = _super64.call(this);
+        _this123.source = source;
+        _this123.delayTime = delayTime;
+        _this123.scheduler = scheduler;
 
         if (!Object(_util_isNumeric__WEBPACK_IMPORTED_MODULE_2__["isNumeric"])(delayTime) || delayTime < 0) {
-          _this121.delayTime = 0;
+          _this123.delayTime = 0;
         }
 
         if (!scheduler || typeof scheduler.schedule !== 'function') {
-          _this121.scheduler = _scheduler_asap__WEBPACK_IMPORTED_MODULE_1__["asap"];
+          _this123.scheduler = _scheduler_asap__WEBPACK_IMPORTED_MODULE_1__["asap"];
         }
 
-        return _this121;
+        return _this123;
       }
 
       _createClass2(SubscribeOnObservable, [{
@@ -89552,15 +93452,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         } else {
           return function () {
             return bindCallback(callbackFunc, scheduler).apply(void 0, arguments).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_2__["map"])(function (args) {
-              return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_4__["isArray"])(args) ? resultSelector.apply(void 0, _toConsumableArray(args)) : resultSelector(args);
+              return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_4__["isArray"])(args) ? resultSelector.apply(void 0, _toConsumableArray2(args)) : resultSelector(args);
             }));
           };
         }
       }
 
       return function () {
-        for (var _len18 = arguments.length, args = new Array(_len18), _key16 = 0; _key16 < _len18; _key16++) {
-          args[_key16] = arguments[_key16];
+        for (var _len21 = arguments.length, args = new Array(_len21), _key19 = 0; _key19 < _len21; _key19++) {
+          args[_key19] = arguments[_key19];
         }
 
         var context = this;
@@ -89577,8 +93477,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               subject = new _AsyncSubject__WEBPACK_IMPORTED_MODULE_1__["AsyncSubject"]();
 
               var handler = function handler() {
-                for (var _len19 = arguments.length, innerArgs = new Array(_len19), _key17 = 0; _key17 < _len19; _key17++) {
-                  innerArgs[_key17] = arguments[_key17];
+                for (var _len22 = arguments.length, innerArgs = new Array(_len22), _key20 = 0; _key20 < _len22; _key20++) {
+                  innerArgs[_key20] = arguments[_key20];
                 }
 
                 subject.next(innerArgs.length <= 1 ? innerArgs[0] : innerArgs);
@@ -89610,7 +93510,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     function dispatch(state) {
-      var _this122 = this;
+      var _this124 = this;
 
       var self = this;
       var args = state.args,
@@ -89625,20 +93525,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         subject = params.subject = new _AsyncSubject__WEBPACK_IMPORTED_MODULE_1__["AsyncSubject"]();
 
         var handler = function handler() {
-          for (var _len20 = arguments.length, innerArgs = new Array(_len20), _key18 = 0; _key18 < _len20; _key18++) {
-            innerArgs[_key18] = arguments[_key18];
+          for (var _len23 = arguments.length, innerArgs = new Array(_len23), _key21 = 0; _key21 < _len23; _key21++) {
+            innerArgs[_key21] = arguments[_key21];
           }
 
           var value = innerArgs.length <= 1 ? innerArgs[0] : innerArgs;
 
-          _this122.add(scheduler.schedule(dispatchNext, 0, {
+          _this124.add(scheduler.schedule(dispatchNext, 0, {
             value: value,
             subject: subject
           }));
         };
 
         try {
-          callbackFunc.apply(context, [].concat(_toConsumableArray(args), [handler]));
+          callbackFunc.apply(context, [].concat(_toConsumableArray2(args), [handler]));
         } catch (err) {
           subject.error(err);
         }
@@ -89727,15 +93627,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         } else {
           return function () {
             return bindNodeCallback(callbackFunc, scheduler).apply(void 0, arguments).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_2__["map"])(function (args) {
-              return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_5__["isArray"])(args) ? resultSelector.apply(void 0, _toConsumableArray(args)) : resultSelector(args);
+              return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_5__["isArray"])(args) ? resultSelector.apply(void 0, _toConsumableArray2(args)) : resultSelector(args);
             }));
           };
         }
       }
 
       return function () {
-        for (var _len21 = arguments.length, args = new Array(_len21), _key19 = 0; _key19 < _len21; _key19++) {
-          args[_key19] = arguments[_key19];
+        for (var _len24 = arguments.length, args = new Array(_len24), _key22 = 0; _key22 < _len24; _key22++) {
+          args[_key22] = arguments[_key22];
         }
 
         var params = {
@@ -89754,8 +93654,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               subject = params.subject = new _AsyncSubject__WEBPACK_IMPORTED_MODULE_1__["AsyncSubject"]();
 
               var handler = function handler() {
-                for (var _len22 = arguments.length, innerArgs = new Array(_len22), _key20 = 0; _key20 < _len22; _key20++) {
-                  innerArgs[_key20] = arguments[_key20];
+                for (var _len25 = arguments.length, innerArgs = new Array(_len25), _key23 = 0; _key23 < _len25; _key23++) {
+                  innerArgs[_key23] = arguments[_key23];
                 }
 
                 var err = innerArgs.shift();
@@ -89793,7 +93693,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     function dispatch(state) {
-      var _this123 = this;
+      var _this125 = this;
 
       var params = state.params,
           subscriber = state.subscriber,
@@ -89807,21 +93707,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         subject = params.subject = new _AsyncSubject__WEBPACK_IMPORTED_MODULE_1__["AsyncSubject"]();
 
         var handler = function handler() {
-          for (var _len23 = arguments.length, innerArgs = new Array(_len23), _key21 = 0; _key21 < _len23; _key21++) {
-            innerArgs[_key21] = arguments[_key21];
+          for (var _len26 = arguments.length, innerArgs = new Array(_len26), _key24 = 0; _key24 < _len26; _key24++) {
+            innerArgs[_key24] = arguments[_key24];
           }
 
           var err = innerArgs.shift();
 
           if (err) {
-            _this123.add(scheduler.schedule(dispatchError, 0, {
+            _this125.add(scheduler.schedule(dispatchError, 0, {
               err: err,
               subject: subject
             }));
           } else {
             var value = innerArgs.length <= 1 ? innerArgs[0] : innerArgs;
 
-            _this123.add(scheduler.schedule(dispatchNext, 0, {
+            _this125.add(scheduler.schedule(dispatchNext, 0, {
               value: value,
               subject: subject
             }));
@@ -89829,7 +93729,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         try {
-          callbackFunc.apply(context, [].concat(_toConsumableArray(args), [handler]));
+          callbackFunc.apply(context, [].concat(_toConsumableArray2(args), [handler]));
         } catch (err) {
           this.add(scheduler.schedule(dispatchError, 0, {
             err: err,
@@ -89923,8 +93823,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var NONE = {};
 
     function combineLatest() {
-      for (var _len24 = arguments.length, observables = new Array(_len24), _key22 = 0; _key22 < _len24; _key22++) {
-        observables[_key22] = arguments[_key22];
+      for (var _len27 = arguments.length, observables = new Array(_len27), _key25 = 0; _key25 < _len27; _key25++) {
+        observables[_key25] = arguments[_key25];
       }
 
       var resultSelector = null;
@@ -89949,7 +93849,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function CombineLatestOperator(resultSelector) {
-        _classCallCheck(this, CombineLatestOperator);
+        _classCallCheck2(this, CombineLatestOperator);
 
         this.resultSelector = resultSelector;
       }
@@ -89969,19 +93869,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB) {
       _inherits(CombineLatestSubscriber, _OuterSubscriber__WEB);
 
-      var _super64 = _createSuper(CombineLatestSubscriber);
+      var _super65 = _createSuper(CombineLatestSubscriber);
 
       function CombineLatestSubscriber(destination, resultSelector) {
-        var _this124;
+        var _this126;
 
-        _classCallCheck(this, CombineLatestSubscriber);
+        _classCallCheck2(this, CombineLatestSubscriber);
 
-        _this124 = _super64.call(this, destination);
-        _this124.resultSelector = resultSelector;
-        _this124.active = 0;
-        _this124.values = [];
-        _this124.observables = [];
-        return _this124;
+        _this126 = _super65.call(this, destination);
+        _this126.resultSelector = resultSelector;
+        _this126.active = 0;
+        _this126.values = [];
+        _this126.observables = [];
+        return _this126;
       }
 
       _createClass2(CombineLatestSubscriber, [{
@@ -90255,8 +94155,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/observable/from.js");
 
     function forkJoin() {
-      for (var _len25 = arguments.length, sources = new Array(_len25), _key23 = 0; _key23 < _len25; _key23++) {
-        sources[_key23] = arguments[_key23];
+      for (var _len28 = arguments.length, sources = new Array(_len28), _key26 = 0; _key26 < _len28; _key26++) {
+        sources[_key26] = arguments[_key26];
       }
 
       if (sources.length === 1) {
@@ -90278,7 +94178,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var resultSelector = sources.pop();
         sources = sources.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(sources[0]) ? sources[0] : sources;
         return forkJoinInternal(sources, null).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_2__["map"])(function (args) {
-          return resultSelector.apply(void 0, _toConsumableArray(args));
+          return resultSelector.apply(void 0, _toConsumableArray2(args));
         }));
       }
 
@@ -90298,7 +94198,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var completed = 0;
         var emitted = 0;
 
-        var _loop3 = function _loop3(i) {
+        var _loop4 = function _loop4(i) {
           var source = Object(_from__WEBPACK_IMPORTED_MODULE_4__["from"])(sources[i]);
           var hasValue = false;
           subscriber.add(source.subscribe({
@@ -90330,7 +94230,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         for (var i = 0; i < len; i++) {
-          _loop3(i);
+          _loop4(i);
         }
       });
     } //# sourceMappingURL=forkJoin.js.map
@@ -90499,7 +94399,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       if (resultSelector) {
         return fromEvent(target, eventName, options).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (args) {
-          return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(args) ? resultSelector.apply(void 0, _toConsumableArray(args)) : resultSelector(args);
+          return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(args) ? resultSelector.apply(void 0, _toConsumableArray2(args)) : resultSelector(args);
         }));
       }
 
@@ -90541,7 +94441,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return _source2.removeListener(eventName, handler);
         };
       } else if (sourceObj && sourceObj.length) {
-        for (var i = 0, _len26 = sourceObj.length; i < _len26; i++) {
+        for (var i = 0, _len29 = sourceObj.length; i < _len29; i++) {
           setupSubscription(sourceObj[i], eventName, handler, subscriber, options);
         }
       } else {
@@ -90614,14 +94514,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function fromEventPattern(addHandler, removeHandler, resultSelector) {
       if (resultSelector) {
         return fromEventPattern(addHandler, removeHandler).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (args) {
-          return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(args) ? resultSelector.apply(void 0, _toConsumableArray(args)) : resultSelector(args);
+          return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(args) ? resultSelector.apply(void 0, _toConsumableArray2(args)) : resultSelector(args);
         }));
       }
 
       return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
         var handler = function handler() {
-          for (var _len27 = arguments.length, e = new Array(_len27), _key24 = 0; _key24 < _len27; _key24++) {
-            e[_key24] = arguments[_key24];
+          for (var _len30 = arguments.length, e = new Array(_len30), _key27 = 0; _key27 < _len30; _key27++) {
+            e[_key27] = arguments[_key27];
           }
 
           return subscriber.next(e.length === 1 ? e[0] : e);
@@ -90998,8 +94898,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var concurrent = Number.POSITIVE_INFINITY;
       var scheduler = null;
 
-      for (var _len28 = arguments.length, observables = new Array(_len28), _key25 = 0; _key25 < _len28; _key25++) {
-        observables[_key25] = arguments[_key25];
+      for (var _len31 = arguments.length, observables = new Array(_len31), _key28 = 0; _key28 < _len31; _key28++) {
+        observables[_key28] = arguments[_key28];
       }
 
       var last = observables[observables.length - 1];
@@ -91112,8 +95012,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/scheduled/scheduleArray.js");
 
     function of() {
-      for (var _len29 = arguments.length, args = new Array(_len29), _key26 = 0; _key26 < _len29; _key26++) {
-        args[_key26] = arguments[_key26];
+      for (var _len32 = arguments.length, args = new Array(_len32), _key29 = 0; _key29 < _len32; _key29++) {
+        args[_key29] = arguments[_key29];
       }
 
       var scheduler = args[args.length - 1];
@@ -91175,8 +95075,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/observable/empty.js");
 
     function onErrorResumeNext() {
-      for (var _len30 = arguments.length, sources = new Array(_len30), _key27 = 0; _key27 < _len30; _key27++) {
-        sources[_key27] = arguments[_key27];
+      for (var _len33 = arguments.length, sources = new Array(_len33), _key30 = 0; _key30 < _len33; _key30++) {
+        sources[_key30] = arguments[_key30];
       }
 
       if (sources.length === 0) {
@@ -91187,12 +95087,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           remainder = sources.slice(1);
 
       if (sources.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_2__["isArray"])(first)) {
-        return onErrorResumeNext.apply(void 0, _toConsumableArray(first));
+        return onErrorResumeNext.apply(void 0, _toConsumableArray2(first));
       }
 
       return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
         var subNext = function subNext() {
-          return subscriber.add(onErrorResumeNext.apply(void 0, _toConsumableArray(remainder)).subscribe(subscriber));
+          return subscriber.add(onErrorResumeNext.apply(void 0, _toConsumableArray2(remainder)).subscribe(subscriber));
         };
 
         return Object(_from__WEBPACK_IMPORTED_MODULE_1__["from"])(first).subscribe({
@@ -91415,8 +95315,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/util/subscribeToResult.js");
 
     function race() {
-      for (var _len31 = arguments.length, observables = new Array(_len31), _key28 = 0; _key28 < _len31; _key28++) {
-        observables[_key28] = arguments[_key28];
+      for (var _len34 = arguments.length, observables = new Array(_len34), _key31 = 0; _key31 < _len34; _key31++) {
+        observables[_key31] = arguments[_key31];
       }
 
       if (observables.length === 1) {
@@ -91434,7 +95334,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function RaceOperator() {
-        _classCallCheck(this, RaceOperator);
+        _classCallCheck2(this, RaceOperator);
       }
 
       _createClass2(RaceOperator, [{
@@ -91452,18 +95352,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB2) {
       _inherits(RaceSubscriber, _OuterSubscriber__WEB2);
 
-      var _super65 = _createSuper(RaceSubscriber);
+      var _super66 = _createSuper(RaceSubscriber);
 
       function RaceSubscriber(destination) {
-        var _this125;
+        var _this127;
 
-        _classCallCheck(this, RaceSubscriber);
+        _classCallCheck2(this, RaceSubscriber);
 
-        _this125 = _super65.call(this, destination);
-        _this125.hasFirst = false;
-        _this125.observables = [];
-        _this125.subscriptions = [];
-        return _this125;
+        _this127 = _super66.call(this, destination);
+        _this127.hasFirst = false;
+        _this127.observables = [];
+        _this127.subscriptions = [];
+        return _this127;
       }
 
       _createClass2(RaceSubscriber, [{
@@ -91660,9 +95560,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    function dispatch(_ref12) {
-      var error = _ref12.error,
-          subscriber = _ref12.subscriber;
+    function dispatch(_ref13) {
+      var error = _ref13.error,
+          subscriber = _ref13.subscriber;
       subscriber.error(error);
     } //# sourceMappingURL=throwError.js.map
 
@@ -91903,8 +95803,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/symbol/iterator.js");
 
     function zip() {
-      for (var _len32 = arguments.length, observables = new Array(_len32), _key29 = 0; _key29 < _len32; _key29++) {
-        observables[_key29] = arguments[_key29];
+      for (var _len35 = arguments.length, observables = new Array(_len35), _key32 = 0; _key32 < _len35; _key32++) {
+        observables[_key32] = arguments[_key32];
       }
 
       var resultSelector = observables[observables.length - 1];
@@ -91920,7 +95820,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ZipOperator(resultSelector) {
-        _classCallCheck(this, ZipOperator);
+        _classCallCheck2(this, ZipOperator);
 
         this.resultSelector = resultSelector;
       }
@@ -91940,21 +95840,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_5) {
       _inherits(ZipSubscriber, _Subscriber__WEBPACK_5);
 
-      var _super66 = _createSuper(ZipSubscriber);
+      var _super67 = _createSuper(ZipSubscriber);
 
       function ZipSubscriber(destination, resultSelector) {
-        var _this126;
+        var _this128;
 
         var values = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : Object.create(null);
 
-        _classCallCheck(this, ZipSubscriber);
+        _classCallCheck2(this, ZipSubscriber);
 
-        _this126 = _super66.call(this, destination);
-        _this126.iterators = [];
-        _this126.active = 0;
-        _this126.resultSelector = typeof resultSelector === 'function' ? resultSelector : null;
-        _this126.values = values;
-        return _this126;
+        _this128 = _super67.call(this, destination);
+        _this128.iterators = [];
+        _this128.active = 0;
+        _this128.resultSelector = typeof resultSelector === 'function' ? resultSelector : null;
+        _this128.values = values;
+        return _this128;
       }
 
       _createClass2(ZipSubscriber, [{
@@ -92022,8 +95922,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var shouldComplete = false;
           var args = [];
 
-          for (var _i20 = 0; _i20 < len; _i20++) {
-            var _iterator19 = iterators[_i20];
+          for (var _i22 = 0; _i22 < len; _i22++) {
+            var _iterator19 = iterators[_i22];
 
             var result = _iterator19.next();
 
@@ -92072,7 +95972,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function StaticIterator(iterator) {
-        _classCallCheck(this, StaticIterator);
+        _classCallCheck2(this, StaticIterator);
 
         this.iterator = iterator;
         this.nextResult = iterator.next();
@@ -92105,7 +96005,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function StaticArrayIterator(array) {
-        _classCallCheck(this, StaticArrayIterator);
+        _classCallCheck2(this, StaticArrayIterator);
 
         this.array = array;
         this.index = 0;
@@ -92151,20 +96051,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB3) {
       _inherits(ZipBufferIterator, _OuterSubscriber__WEB3);
 
-      var _super67 = _createSuper(ZipBufferIterator);
+      var _super68 = _createSuper(ZipBufferIterator);
 
       function ZipBufferIterator(destination, parent, observable) {
-        var _this127;
+        var _this129;
 
-        _classCallCheck(this, ZipBufferIterator);
+        _classCallCheck2(this, ZipBufferIterator);
 
-        _this127 = _super67.call(this, destination);
-        _this127.parent = parent;
-        _this127.observable = observable;
-        _this127.stillUnsubscribed = true;
-        _this127.buffer = [];
-        _this127.isComplete = false;
-        return _this127;
+        _this129 = _super68.call(this, destination);
+        _this129.parent = parent;
+        _this129.observable = observable;
+        _this129.stillUnsubscribed = true;
+        _this129.buffer = [];
+        _this129.isComplete = false;
+        return _this129;
       }
 
       _createClass2(ZipBufferIterator, [{
@@ -92271,7 +96171,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function AuditOperator(durationSelector) {
-        _classCallCheck(this, AuditOperator);
+        _classCallCheck2(this, AuditOperator);
 
         this.durationSelector = durationSelector;
       }
@@ -92291,17 +96191,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB4) {
       _inherits(AuditSubscriber, _OuterSubscriber__WEB4);
 
-      var _super68 = _createSuper(AuditSubscriber);
+      var _super69 = _createSuper(AuditSubscriber);
 
       function AuditSubscriber(destination, durationSelector) {
-        var _this128;
+        var _this130;
 
-        _classCallCheck(this, AuditSubscriber);
+        _classCallCheck2(this, AuditSubscriber);
 
-        _this128 = _super68.call(this, destination);
-        _this128.durationSelector = durationSelector;
-        _this128.hasValue = false;
-        return _this128;
+        _this130 = _super69.call(this, destination);
+        _this130.durationSelector = durationSelector;
+        _this130.hasValue = false;
+        return _this130;
       }
 
       _createClass2(AuditSubscriber, [{
@@ -92458,7 +96358,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function BufferOperator(closingNotifier) {
-        _classCallCheck(this, BufferOperator);
+        _classCallCheck2(this, BufferOperator);
 
         this.closingNotifier = closingNotifier;
       }
@@ -92478,19 +96378,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB5) {
       _inherits(BufferSubscriber, _OuterSubscriber__WEB5);
 
-      var _super69 = _createSuper(BufferSubscriber);
+      var _super70 = _createSuper(BufferSubscriber);
 
       function BufferSubscriber(destination, closingNotifier) {
-        var _this129;
+        var _this131;
 
-        _classCallCheck(this, BufferSubscriber);
+        _classCallCheck2(this, BufferSubscriber);
 
-        _this129 = _super69.call(this, destination);
-        _this129.buffer = [];
+        _this131 = _super70.call(this, destination);
+        _this131.buffer = [];
 
-        _this129.add(Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_1__["subscribeToResult"])(_assertThisInitialized(_this129), closingNotifier));
+        _this131.add(Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_1__["subscribeToResult"])(_assertThisInitialized(_this131), closingNotifier));
 
-        return _this129;
+        return _this131;
       }
 
       _createClass2(BufferSubscriber, [{
@@ -92551,7 +96451,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function BufferCountOperator(bufferSize, startBufferEvery) {
-        _classCallCheck(this, BufferCountOperator);
+        _classCallCheck2(this, BufferCountOperator);
 
         this.bufferSize = bufferSize;
         this.startBufferEvery = startBufferEvery;
@@ -92578,17 +96478,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_6) {
       _inherits(BufferCountSubscriber, _Subscriber__WEBPACK_6);
 
-      var _super70 = _createSuper(BufferCountSubscriber);
+      var _super71 = _createSuper(BufferCountSubscriber);
 
       function BufferCountSubscriber(destination, bufferSize) {
-        var _this130;
+        var _this132;
 
-        _classCallCheck(this, BufferCountSubscriber);
+        _classCallCheck2(this, BufferCountSubscriber);
 
-        _this130 = _super70.call(this, destination);
-        _this130.bufferSize = bufferSize;
-        _this130.buffer = [];
-        return _this130;
+        _this132 = _super71.call(this, destination);
+        _this132.bufferSize = bufferSize;
+        _this132.buffer = [];
+        return _this132;
       }
 
       _createClass2(BufferCountSubscriber, [{
@@ -92623,19 +96523,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_7) {
       _inherits(BufferSkipCountSubscriber, _Subscriber__WEBPACK_7);
 
-      var _super71 = _createSuper(BufferSkipCountSubscriber);
+      var _super72 = _createSuper(BufferSkipCountSubscriber);
 
       function BufferSkipCountSubscriber(destination, bufferSize, startBufferEvery) {
-        var _this131;
+        var _this133;
 
-        _classCallCheck(this, BufferSkipCountSubscriber);
+        _classCallCheck2(this, BufferSkipCountSubscriber);
 
-        _this131 = _super71.call(this, destination);
-        _this131.bufferSize = bufferSize;
-        _this131.startBufferEvery = startBufferEvery;
-        _this131.buffers = [];
-        _this131.count = 0;
-        return _this131;
+        _this133 = _super72.call(this, destination);
+        _this133.bufferSize = bufferSize;
+        _this133.startBufferEvery = startBufferEvery;
+        _this133.buffers = [];
+        _this133.count = 0;
+        return _this133;
       }
 
       _createClass2(BufferSkipCountSubscriber, [{
@@ -92754,7 +96654,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function BufferTimeOperator(bufferTimeSpan, bufferCreationInterval, maxBufferSize, scheduler) {
-        _classCallCheck(this, BufferTimeOperator);
+        _classCallCheck2(this, BufferTimeOperator);
 
         this.bufferTimeSpan = bufferTimeSpan;
         this.bufferCreationInterval = bufferCreationInterval;
@@ -92773,7 +96673,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     var Context = function Context() {
-      _classCallCheck(this, Context);
+      _classCallCheck2(this, Context);
 
       this.buffer = [];
     };
@@ -92783,50 +96683,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_8) {
       _inherits(BufferTimeSubscriber, _Subscriber__WEBPACK_8);
 
-      var _super72 = _createSuper(BufferTimeSubscriber);
+      var _super73 = _createSuper(BufferTimeSubscriber);
 
       function BufferTimeSubscriber(destination, bufferTimeSpan, bufferCreationInterval, maxBufferSize, scheduler) {
-        var _this132;
+        var _this134;
 
-        _classCallCheck(this, BufferTimeSubscriber);
+        _classCallCheck2(this, BufferTimeSubscriber);
 
-        _this132 = _super72.call(this, destination);
-        _this132.bufferTimeSpan = bufferTimeSpan;
-        _this132.bufferCreationInterval = bufferCreationInterval;
-        _this132.maxBufferSize = maxBufferSize;
-        _this132.scheduler = scheduler;
-        _this132.contexts = [];
+        _this134 = _super73.call(this, destination);
+        _this134.bufferTimeSpan = bufferTimeSpan;
+        _this134.bufferCreationInterval = bufferCreationInterval;
+        _this134.maxBufferSize = maxBufferSize;
+        _this134.scheduler = scheduler;
+        _this134.contexts = [];
 
-        var context = _this132.openContext();
+        var context = _this134.openContext();
 
-        _this132.timespanOnly = bufferCreationInterval == null || bufferCreationInterval < 0;
+        _this134.timespanOnly = bufferCreationInterval == null || bufferCreationInterval < 0;
 
-        if (_this132.timespanOnly) {
+        if (_this134.timespanOnly) {
           var timeSpanOnlyState = {
-            subscriber: _assertThisInitialized(_this132),
+            subscriber: _assertThisInitialized(_this134),
             context: context,
             bufferTimeSpan: bufferTimeSpan
           };
 
-          _this132.add(context.closeAction = scheduler.schedule(dispatchBufferTimeSpanOnly, bufferTimeSpan, timeSpanOnlyState));
+          _this134.add(context.closeAction = scheduler.schedule(dispatchBufferTimeSpanOnly, bufferTimeSpan, timeSpanOnlyState));
         } else {
           var closeState = {
-            subscriber: _assertThisInitialized(_this132),
+            subscriber: _assertThisInitialized(_this134),
             context: context
           };
           var creationState = {
             bufferTimeSpan: bufferTimeSpan,
             bufferCreationInterval: bufferCreationInterval,
-            subscriber: _assertThisInitialized(_this132),
+            subscriber: _assertThisInitialized(_this134),
             scheduler: scheduler
           };
 
-          _this132.add(context.closeAction = scheduler.schedule(dispatchBufferClose, bufferTimeSpan, closeState));
+          _this134.add(context.closeAction = scheduler.schedule(dispatchBufferClose, bufferTimeSpan, closeState));
 
-          _this132.add(scheduler.schedule(dispatchBufferCreation, bufferCreationInterval, creationState));
+          _this134.add(scheduler.schedule(dispatchBufferCreation, bufferCreationInterval, creationState));
         }
 
-        return _this132;
+        return _this134;
       }
 
       _createClass2(BufferTimeSubscriber, [{
@@ -93006,7 +96906,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function BufferToggleOperator(openings, closingSelector) {
-        _classCallCheck(this, BufferToggleOperator);
+        _classCallCheck2(this, BufferToggleOperator);
 
         this.openings = openings;
         this.closingSelector = closingSelector;
@@ -93027,21 +96927,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB6) {
       _inherits(BufferToggleSubscriber, _OuterSubscriber__WEB6);
 
-      var _super73 = _createSuper(BufferToggleSubscriber);
+      var _super74 = _createSuper(BufferToggleSubscriber);
 
       function BufferToggleSubscriber(destination, openings, closingSelector) {
-        var _this133;
+        var _this135;
 
-        _classCallCheck(this, BufferToggleSubscriber);
+        _classCallCheck2(this, BufferToggleSubscriber);
 
-        _this133 = _super73.call(this, destination);
-        _this133.openings = openings;
-        _this133.closingSelector = closingSelector;
-        _this133.contexts = [];
+        _this135 = _super74.call(this, destination);
+        _this135.openings = openings;
+        _this135.closingSelector = closingSelector;
+        _this135.contexts = [];
 
-        _this133.add(Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_1__["subscribeToResult"])(_assertThisInitialized(_this133), openings));
+        _this135.add(Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_1__["subscribeToResult"])(_assertThisInitialized(_this135), openings));
 
-        return _this133;
+        return _this135;
       }
 
       _createClass2(BufferToggleSubscriber, [{
@@ -93203,7 +97103,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function BufferWhenOperator(closingSelector) {
-        _classCallCheck(this, BufferWhenOperator);
+        _classCallCheck2(this, BufferWhenOperator);
 
         this.closingSelector = closingSelector;
       }
@@ -93223,20 +97123,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB7) {
       _inherits(BufferWhenSubscriber, _OuterSubscriber__WEB7);
 
-      var _super74 = _createSuper(BufferWhenSubscriber);
+      var _super75 = _createSuper(BufferWhenSubscriber);
 
       function BufferWhenSubscriber(destination, closingSelector) {
-        var _this134;
+        var _this136;
 
-        _classCallCheck(this, BufferWhenSubscriber);
+        _classCallCheck2(this, BufferWhenSubscriber);
 
-        _this134 = _super74.call(this, destination);
-        _this134.closingSelector = closingSelector;
-        _this134.subscribing = false;
+        _this136 = _super75.call(this, destination);
+        _this136.closingSelector = closingSelector;
+        _this136.subscribing = false;
 
-        _this134.openBuffer();
+        _this136.openBuffer();
 
-        return _this134;
+        return _this136;
       }
 
       _createClass2(BufferWhenSubscriber, [{
@@ -93367,7 +97267,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function CatchOperator(selector) {
-        _classCallCheck(this, CatchOperator);
+        _classCallCheck2(this, CatchOperator);
 
         this.selector = selector;
       }
@@ -93387,17 +97287,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB8) {
       _inherits(CatchSubscriber, _OuterSubscriber__WEB8);
 
-      var _super75 = _createSuper(CatchSubscriber);
+      var _super76 = _createSuper(CatchSubscriber);
 
       function CatchSubscriber(destination, selector, caught) {
-        var _this135;
+        var _this137;
 
-        _classCallCheck(this, CatchSubscriber);
+        _classCallCheck2(this, CatchSubscriber);
 
-        _this135 = _super75.call(this, destination);
-        _this135.selector = selector;
-        _this135.caught = caught;
-        return _this135;
+        _this137 = _super76.call(this, destination);
+        _this137.selector = selector;
+        _this137.caught = caught;
+        return _this137;
       }
 
       _createClass2(CatchSubscriber, [{
@@ -93511,8 +97411,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var none = {};
 
     function combineLatest() {
-      for (var _len33 = arguments.length, observables = new Array(_len33), _key30 = 0; _key30 < _len33; _key30++) {
-        observables[_key30] = arguments[_key30];
+      for (var _len36 = arguments.length, observables = new Array(_len36), _key33 = 0; _key33 < _len36; _key33++) {
+        observables[_key33] = arguments[_key33];
       }
 
       var project = null;
@@ -93526,7 +97426,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       return function (source) {
-        return source.lift.call(Object(_observable_from__WEBPACK_IMPORTED_MODULE_2__["from"])([source].concat(_toConsumableArray(observables))), new _observable_combineLatest__WEBPACK_IMPORTED_MODULE_1__["CombineLatestOperator"](project));
+        return source.lift.call(Object(_observable_from__WEBPACK_IMPORTED_MODULE_2__["from"])([source].concat(_toConsumableArray2(observables))), new _observable_combineLatest__WEBPACK_IMPORTED_MODULE_1__["CombineLatestOperator"](project));
       };
     } //# sourceMappingURL=combineLatest.js.map
 
@@ -93561,8 +97461,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/observable/concat.js");
 
     function concat() {
-      for (var _len34 = arguments.length, observables = new Array(_len34), _key31 = 0; _key31 < _len34; _key31++) {
-        observables[_key31] = arguments[_key31];
+      for (var _len37 = arguments.length, observables = new Array(_len37), _key34 = 0; _key34 < _len37; _key34++) {
+        observables[_key34] = arguments[_key34];
       }
 
       return function (source) {
@@ -93714,7 +97614,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function CountOperator(predicate, source) {
-        _classCallCheck(this, CountOperator);
+        _classCallCheck2(this, CountOperator);
 
         this.predicate = predicate;
         this.source = source;
@@ -93735,19 +97635,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_9) {
       _inherits(CountSubscriber, _Subscriber__WEBPACK_9);
 
-      var _super76 = _createSuper(CountSubscriber);
+      var _super77 = _createSuper(CountSubscriber);
 
       function CountSubscriber(destination, predicate, source) {
-        var _this136;
+        var _this138;
 
-        _classCallCheck(this, CountSubscriber);
+        _classCallCheck2(this, CountSubscriber);
 
-        _this136 = _super76.call(this, destination);
-        _this136.predicate = predicate;
-        _this136.source = source;
-        _this136.count = 0;
-        _this136.index = 0;
-        return _this136;
+        _this138 = _super77.call(this, destination);
+        _this138.predicate = predicate;
+        _this138.source = source;
+        _this138.count = 0;
+        _this138.index = 0;
+        return _this138;
       }
 
       _createClass2(CountSubscriber, [{
@@ -93832,7 +97732,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DebounceOperator(durationSelector) {
-        _classCallCheck(this, DebounceOperator);
+        _classCallCheck2(this, DebounceOperator);
 
         this.durationSelector = durationSelector;
       }
@@ -93852,18 +97752,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB9) {
       _inherits(DebounceSubscriber, _OuterSubscriber__WEB9);
 
-      var _super77 = _createSuper(DebounceSubscriber);
+      var _super78 = _createSuper(DebounceSubscriber);
 
       function DebounceSubscriber(destination, durationSelector) {
-        var _this137;
+        var _this139;
 
-        _classCallCheck(this, DebounceSubscriber);
+        _classCallCheck2(this, DebounceSubscriber);
 
-        _this137 = _super77.call(this, destination);
-        _this137.durationSelector = durationSelector;
-        _this137.hasValue = false;
-        _this137.durationSubscription = null;
-        return _this137;
+        _this139 = _super78.call(this, destination);
+        _this139.durationSelector = durationSelector;
+        _this139.hasValue = false;
+        _this139.durationSubscription = null;
+        return _this139;
       }
 
       _createClass2(DebounceSubscriber, [{
@@ -93984,7 +97884,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DebounceTimeOperator(dueTime, scheduler) {
-        _classCallCheck(this, DebounceTimeOperator);
+        _classCallCheck2(this, DebounceTimeOperator);
 
         this.dueTime = dueTime;
         this.scheduler = scheduler;
@@ -94005,20 +97905,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_10) {
       _inherits(DebounceTimeSubscriber, _Subscriber__WEBPACK_10);
 
-      var _super78 = _createSuper(DebounceTimeSubscriber);
+      var _super79 = _createSuper(DebounceTimeSubscriber);
 
       function DebounceTimeSubscriber(destination, dueTime, scheduler) {
-        var _this138;
+        var _this140;
 
-        _classCallCheck(this, DebounceTimeSubscriber);
+        _classCallCheck2(this, DebounceTimeSubscriber);
 
-        _this138 = _super78.call(this, destination);
-        _this138.dueTime = dueTime;
-        _this138.scheduler = scheduler;
-        _this138.debouncedSubscription = null;
-        _this138.lastValue = null;
-        _this138.hasValue = false;
-        return _this138;
+        _this140 = _super79.call(this, destination);
+        _this140.dueTime = dueTime;
+        _this140.scheduler = scheduler;
+        _this140.debouncedSubscription = null;
+        _this140.lastValue = null;
+        _this140.hasValue = false;
+        return _this140;
       }
 
       _createClass2(DebounceTimeSubscriber, [{
@@ -94108,7 +98008,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DefaultIfEmptyOperator(defaultValue) {
-        _classCallCheck(this, DefaultIfEmptyOperator);
+        _classCallCheck2(this, DefaultIfEmptyOperator);
 
         this.defaultValue = defaultValue;
       }
@@ -94128,17 +98028,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_11) {
       _inherits(DefaultIfEmptySubscriber, _Subscriber__WEBPACK_11);
 
-      var _super79 = _createSuper(DefaultIfEmptySubscriber);
+      var _super80 = _createSuper(DefaultIfEmptySubscriber);
 
       function DefaultIfEmptySubscriber(destination, defaultValue) {
-        var _this139;
+        var _this141;
 
-        _classCallCheck(this, DefaultIfEmptySubscriber);
+        _classCallCheck2(this, DefaultIfEmptySubscriber);
 
-        _this139 = _super79.call(this, destination);
-        _this139.defaultValue = defaultValue;
-        _this139.isEmpty = true;
-        return _this139;
+        _this141 = _super80.call(this, destination);
+        _this141.defaultValue = defaultValue;
+        _this141.isEmpty = true;
+        return _this141;
       }
 
       _createClass2(DefaultIfEmptySubscriber, [{
@@ -94222,7 +98122,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DelayOperator(delay, scheduler) {
-        _classCallCheck(this, DelayOperator);
+        _classCallCheck2(this, DelayOperator);
 
         this.delay = delay;
         this.scheduler = scheduler;
@@ -94243,20 +98143,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_12) {
       _inherits(DelaySubscriber, _Subscriber__WEBPACK_12);
 
-      var _super80 = _createSuper(DelaySubscriber);
+      var _super81 = _createSuper(DelaySubscriber);
 
       function DelaySubscriber(destination, delay, scheduler) {
-        var _this140;
+        var _this142;
 
-        _classCallCheck(this, DelaySubscriber);
+        _classCallCheck2(this, DelaySubscriber);
 
-        _this140 = _super80.call(this, destination);
-        _this140.delay = delay;
-        _this140.scheduler = scheduler;
-        _this140.queue = [];
-        _this140.active = false;
-        _this140.errored = false;
-        return _this140;
+        _this142 = _super81.call(this, destination);
+        _this142.delay = delay;
+        _this142.scheduler = scheduler;
+        _this142.queue = [];
+        _this142.active = false;
+        _this142.errored = false;
+        return _this142;
       }
 
       _createClass2(DelaySubscriber, [{
@@ -94331,7 +98231,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }(_Subscriber__WEBPACK_IMPORTED_MODULE_2__["Subscriber"]);
 
     var DelayMessage = function DelayMessage(time, notification) {
-      _classCallCheck(this, DelayMessage);
+      _classCallCheck2(this, DelayMessage);
 
       this.time = time;
       this.notification = notification;
@@ -94401,7 +98301,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DelayWhenOperator(delayDurationSelector) {
-        _classCallCheck(this, DelayWhenOperator);
+        _classCallCheck2(this, DelayWhenOperator);
 
         this.delayDurationSelector = delayDurationSelector;
       }
@@ -94421,19 +98321,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB10) {
       _inherits(DelayWhenSubscriber, _OuterSubscriber__WEB10);
 
-      var _super81 = _createSuper(DelayWhenSubscriber);
+      var _super82 = _createSuper(DelayWhenSubscriber);
 
       function DelayWhenSubscriber(destination, delayDurationSelector) {
-        var _this141;
+        var _this143;
 
-        _classCallCheck(this, DelayWhenSubscriber);
+        _classCallCheck2(this, DelayWhenSubscriber);
 
-        _this141 = _super81.call(this, destination);
-        _this141.delayDurationSelector = delayDurationSelector;
-        _this141.completed = false;
-        _this141.delayNotifierSubscriptions = [];
-        _this141.index = 0;
-        return _this141;
+        _this143 = _super82.call(this, destination);
+        _this143.delayDurationSelector = delayDurationSelector;
+        _this143.completed = false;
+        _this143.delayNotifierSubscriptions = [];
+        _this143.index = 0;
+        return _this143;
       }
 
       _createClass2(DelayWhenSubscriber, [{
@@ -94521,17 +98421,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Observable__WEBPACK_4) {
       _inherits(SubscriptionDelayObservable, _Observable__WEBPACK_4);
 
-      var _super82 = _createSuper(SubscriptionDelayObservable);
+      var _super83 = _createSuper(SubscriptionDelayObservable);
 
       function SubscriptionDelayObservable(source, subscriptionDelay) {
-        var _this142;
+        var _this144;
 
-        _classCallCheck(this, SubscriptionDelayObservable);
+        _classCallCheck2(this, SubscriptionDelayObservable);
 
-        _this142 = _super82.call(this);
-        _this142.source = source;
-        _this142.subscriptionDelay = subscriptionDelay;
-        return _this142;
+        _this144 = _super83.call(this);
+        _this144.source = source;
+        _this144.subscriptionDelay = subscriptionDelay;
+        return _this144;
       }
 
       _createClass2(SubscriptionDelayObservable, [{
@@ -94549,18 +98449,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_13) {
       _inherits(SubscriptionDelaySubscriber, _Subscriber__WEBPACK_13);
 
-      var _super83 = _createSuper(SubscriptionDelaySubscriber);
+      var _super84 = _createSuper(SubscriptionDelaySubscriber);
 
       function SubscriptionDelaySubscriber(parent, source) {
-        var _this143;
+        var _this145;
 
-        _classCallCheck(this, SubscriptionDelaySubscriber);
+        _classCallCheck2(this, SubscriptionDelaySubscriber);
 
-        _this143 = _super83.call(this);
-        _this143.parent = parent;
-        _this143.source = source;
-        _this143.sourceSubscribed = false;
-        return _this143;
+        _this145 = _super84.call(this);
+        _this145.parent = parent;
+        _this145.source = source;
+        _this145.sourceSubscribed = false;
+        return _this145;
       }
 
       _createClass2(SubscriptionDelaySubscriber, [{
@@ -94634,7 +98534,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DeMaterializeOperator() {
-        _classCallCheck(this, DeMaterializeOperator);
+        _classCallCheck2(this, DeMaterializeOperator);
       }
 
       _createClass2(DeMaterializeOperator, [{
@@ -94652,12 +98552,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_14) {
       _inherits(DeMaterializeSubscriber, _Subscriber__WEBPACK_14);
 
-      var _super84 = _createSuper(DeMaterializeSubscriber);
+      var _super85 = _createSuper(DeMaterializeSubscriber);
 
       function DeMaterializeSubscriber(destination) {
-        _classCallCheck(this, DeMaterializeSubscriber);
+        _classCallCheck2(this, DeMaterializeSubscriber);
 
-        return _super84.call(this, destination);
+        return _super85.call(this, destination);
       }
 
       _createClass2(DeMaterializeSubscriber, [{
@@ -94722,7 +98622,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DistinctOperator(keySelector, flushes) {
-        _classCallCheck(this, DistinctOperator);
+        _classCallCheck2(this, DistinctOperator);
 
         this.keySelector = keySelector;
         this.flushes = flushes;
@@ -94743,22 +98643,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB11) {
       _inherits(DistinctSubscriber, _OuterSubscriber__WEB11);
 
-      var _super85 = _createSuper(DistinctSubscriber);
+      var _super86 = _createSuper(DistinctSubscriber);
 
       function DistinctSubscriber(destination, keySelector, flushes) {
-        var _this144;
+        var _this146;
 
-        _classCallCheck(this, DistinctSubscriber);
+        _classCallCheck2(this, DistinctSubscriber);
 
-        _this144 = _super85.call(this, destination);
-        _this144.keySelector = keySelector;
-        _this144.values = new Set();
+        _this146 = _super86.call(this, destination);
+        _this146.keySelector = keySelector;
+        _this146.values = new Set();
 
         if (flushes) {
-          _this144.add(Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_1__["subscribeToResult"])(_assertThisInitialized(_this144), flushes));
+          _this146.add(Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_1__["subscribeToResult"])(_assertThisInitialized(_this146), flushes));
         }
 
-        return _this144;
+        return _this146;
       }
 
       _createClass2(DistinctSubscriber, [{
@@ -94850,7 +98750,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DistinctUntilChangedOperator(compare, keySelector) {
-        _classCallCheck(this, DistinctUntilChangedOperator);
+        _classCallCheck2(this, DistinctUntilChangedOperator);
 
         this.compare = compare;
         this.keySelector = keySelector;
@@ -94871,22 +98771,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_15) {
       _inherits(DistinctUntilChangedSubscriber, _Subscriber__WEBPACK_15);
 
-      var _super86 = _createSuper(DistinctUntilChangedSubscriber);
+      var _super87 = _createSuper(DistinctUntilChangedSubscriber);
 
       function DistinctUntilChangedSubscriber(destination, compare, keySelector) {
-        var _this145;
+        var _this147;
 
-        _classCallCheck(this, DistinctUntilChangedSubscriber);
+        _classCallCheck2(this, DistinctUntilChangedSubscriber);
 
-        _this145 = _super86.call(this, destination);
-        _this145.keySelector = keySelector;
-        _this145.hasKey = false;
+        _this147 = _super87.call(this, destination);
+        _this147.keySelector = keySelector;
+        _this147.hasKey = false;
 
         if (typeof compare === 'function') {
-          _this145.compare = compare;
+          _this147.compare = compare;
         }
 
-        return _this145;
+        return _this147;
       }
 
       _createClass2(DistinctUntilChangedSubscriber, [{
@@ -95071,8 +98971,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/observable/of.js");
 
     function endWith() {
-      for (var _len35 = arguments.length, array = new Array(_len35), _key32 = 0; _key32 < _len35; _key32++) {
-        array[_key32] = arguments[_key32];
+      for (var _len38 = arguments.length, array = new Array(_len38), _key35 = 0; _key35 < _len38; _key35++) {
+        array[_key35] = arguments[_key35];
       }
 
       return function (source) {
@@ -95120,7 +99020,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function EveryOperator(predicate, thisArg, source) {
-        _classCallCheck(this, EveryOperator);
+        _classCallCheck2(this, EveryOperator);
 
         this.predicate = predicate;
         this.thisArg = thisArg;
@@ -95142,20 +99042,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_16) {
       _inherits(EverySubscriber, _Subscriber__WEBPACK_16);
 
-      var _super87 = _createSuper(EverySubscriber);
+      var _super88 = _createSuper(EverySubscriber);
 
       function EverySubscriber(destination, predicate, thisArg, source) {
-        var _this146;
+        var _this148;
 
-        _classCallCheck(this, EverySubscriber);
+        _classCallCheck2(this, EverySubscriber);
 
-        _this146 = _super87.call(this, destination);
-        _this146.predicate = predicate;
-        _this146.thisArg = thisArg;
-        _this146.source = source;
-        _this146.index = 0;
-        _this146.thisArg = thisArg || _assertThisInitialized(_this146);
-        return _this146;
+        _this148 = _super88.call(this, destination);
+        _this148.predicate = predicate;
+        _this148.thisArg = thisArg;
+        _this148.source = source;
+        _this148.index = 0;
+        _this148.thisArg = thisArg || _assertThisInitialized(_this148);
+        return _this148;
       }
 
       _createClass2(EverySubscriber, [{
@@ -95236,7 +99136,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SwitchFirstOperator() {
-        _classCallCheck(this, SwitchFirstOperator);
+        _classCallCheck2(this, SwitchFirstOperator);
       }
 
       _createClass2(SwitchFirstOperator, [{
@@ -95254,17 +99154,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB12) {
       _inherits(SwitchFirstSubscriber, _OuterSubscriber__WEB12);
 
-      var _super88 = _createSuper(SwitchFirstSubscriber);
+      var _super89 = _createSuper(SwitchFirstSubscriber);
 
       function SwitchFirstSubscriber(destination) {
-        var _this147;
+        var _this149;
 
-        _classCallCheck(this, SwitchFirstSubscriber);
+        _classCallCheck2(this, SwitchFirstSubscriber);
 
-        _this147 = _super88.call(this, destination);
-        _this147.hasCompleted = false;
-        _this147.hasSubscription = false;
-        return _this147;
+        _this149 = _super89.call(this, destination);
+        _this149.hasCompleted = false;
+        _this149.hasSubscription = false;
+        return _this149;
       }
 
       _createClass2(SwitchFirstSubscriber, [{
@@ -95373,7 +99273,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ExhaustMapOperator(project) {
-        _classCallCheck(this, ExhaustMapOperator);
+        _classCallCheck2(this, ExhaustMapOperator);
 
         this.project = project;
       }
@@ -95393,19 +99293,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB13) {
       _inherits(ExhaustMapSubscriber, _OuterSubscriber__WEB13);
 
-      var _super89 = _createSuper(ExhaustMapSubscriber);
+      var _super90 = _createSuper(ExhaustMapSubscriber);
 
       function ExhaustMapSubscriber(destination, project) {
-        var _this148;
+        var _this150;
 
-        _classCallCheck(this, ExhaustMapSubscriber);
+        _classCallCheck2(this, ExhaustMapSubscriber);
 
-        _this148 = _super89.call(this, destination);
-        _this148.project = project;
-        _this148.hasSubscription = false;
-        _this148.hasCompleted = false;
-        _this148.index = 0;
-        return _this148;
+        _this150 = _super90.call(this, destination);
+        _this150.project = project;
+        _this150.hasSubscription = false;
+        _this150.hasCompleted = false;
+        _this150.index = 0;
+        return _this150;
       }
 
       _createClass2(ExhaustMapSubscriber, [{
@@ -95542,7 +99442,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ExpandOperator(project, concurrent, scheduler) {
-        _classCallCheck(this, ExpandOperator);
+        _classCallCheck2(this, ExpandOperator);
 
         this.project = project;
         this.concurrent = concurrent;
@@ -95564,26 +99464,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB14) {
       _inherits(ExpandSubscriber, _OuterSubscriber__WEB14);
 
-      var _super90 = _createSuper(ExpandSubscriber);
+      var _super91 = _createSuper(ExpandSubscriber);
 
       function ExpandSubscriber(destination, project, concurrent, scheduler) {
-        var _this149;
+        var _this151;
 
-        _classCallCheck(this, ExpandSubscriber);
+        _classCallCheck2(this, ExpandSubscriber);
 
-        _this149 = _super90.call(this, destination);
-        _this149.project = project;
-        _this149.concurrent = concurrent;
-        _this149.scheduler = scheduler;
-        _this149.index = 0;
-        _this149.active = 0;
-        _this149.hasCompleted = false;
+        _this151 = _super91.call(this, destination);
+        _this151.project = project;
+        _this151.concurrent = concurrent;
+        _this151.scheduler = scheduler;
+        _this151.index = 0;
+        _this151.active = 0;
+        _this151.hasCompleted = false;
 
         if (concurrent < Number.POSITIVE_INFINITY) {
-          _this149.buffer = [];
+          _this151.buffer = [];
         }
 
-        return _this149;
+        return _this151;
       }
 
       _createClass2(ExpandSubscriber, [{
@@ -95719,7 +99619,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function FilterOperator(predicate, thisArg) {
-        _classCallCheck(this, FilterOperator);
+        _classCallCheck2(this, FilterOperator);
 
         this.predicate = predicate;
         this.thisArg = thisArg;
@@ -95740,18 +99640,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_17) {
       _inherits(FilterSubscriber, _Subscriber__WEBPACK_17);
 
-      var _super91 = _createSuper(FilterSubscriber);
+      var _super92 = _createSuper(FilterSubscriber);
 
       function FilterSubscriber(destination, predicate, thisArg) {
-        var _this150;
+        var _this152;
 
-        _classCallCheck(this, FilterSubscriber);
+        _classCallCheck2(this, FilterSubscriber);
 
-        _this150 = _super91.call(this, destination);
-        _this150.predicate = predicate;
-        _this150.thisArg = thisArg;
-        _this150.count = 0;
-        return _this150;
+        _this152 = _super92.call(this, destination);
+        _this152.predicate = predicate;
+        _this152.thisArg = thisArg;
+        _this152.count = 0;
+        return _this152;
       }
 
       _createClass2(FilterSubscriber, [{
@@ -95821,7 +99721,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function FinallyOperator(callback) {
-        _classCallCheck(this, FinallyOperator);
+        _classCallCheck2(this, FinallyOperator);
 
         this.callback = callback;
       }
@@ -95841,18 +99741,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_18) {
       _inherits(FinallySubscriber, _Subscriber__WEBPACK_18);
 
-      var _super92 = _createSuper(FinallySubscriber);
+      var _super93 = _createSuper(FinallySubscriber);
 
       function FinallySubscriber(destination, callback) {
-        var _this151;
+        var _this153;
 
-        _classCallCheck(this, FinallySubscriber);
+        _classCallCheck2(this, FinallySubscriber);
 
-        _this151 = _super92.call(this, destination);
+        _this153 = _super93.call(this, destination);
 
-        _this151.add(new _Subscription__WEBPACK_IMPORTED_MODULE_1__["Subscription"](callback));
+        _this153.add(new _Subscription__WEBPACK_IMPORTED_MODULE_1__["Subscription"](callback));
 
-        return _this151;
+        return _this153;
       }
 
       return FinallySubscriber;
@@ -95914,7 +99814,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function FindValueOperator(predicate, source, yieldIndex, thisArg) {
-        _classCallCheck(this, FindValueOperator);
+        _classCallCheck2(this, FindValueOperator);
 
         this.predicate = predicate;
         this.source = source;
@@ -95937,20 +99837,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_19) {
       _inherits(FindValueSubscriber, _Subscriber__WEBPACK_19);
 
-      var _super93 = _createSuper(FindValueSubscriber);
+      var _super94 = _createSuper(FindValueSubscriber);
 
       function FindValueSubscriber(destination, predicate, source, yieldIndex, thisArg) {
-        var _this152;
+        var _this154;
 
-        _classCallCheck(this, FindValueSubscriber);
+        _classCallCheck2(this, FindValueSubscriber);
 
-        _this152 = _super93.call(this, destination);
-        _this152.predicate = predicate;
-        _this152.source = source;
-        _this152.yieldIndex = yieldIndex;
-        _this152.thisArg = thisArg;
-        _this152.index = 0;
-        return _this152;
+        _this154 = _super94.call(this, destination);
+        _this154.predicate = predicate;
+        _this154.source = source;
+        _this154.yieldIndex = yieldIndex;
+        _this154.thisArg = thisArg;
+        _this154.index = 0;
+        return _this154;
       }
 
       _createClass2(FindValueSubscriber, [{
@@ -96159,7 +100059,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function GroupByOperator(keySelector, elementSelector, durationSelector, subjectSelector) {
-        _classCallCheck(this, GroupByOperator);
+        _classCallCheck2(this, GroupByOperator);
 
         this.keySelector = keySelector;
         this.elementSelector = elementSelector;
@@ -96182,22 +100082,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_20) {
       _inherits(GroupBySubscriber, _Subscriber__WEBPACK_20);
 
-      var _super94 = _createSuper(GroupBySubscriber);
+      var _super95 = _createSuper(GroupBySubscriber);
 
       function GroupBySubscriber(destination, keySelector, elementSelector, durationSelector, subjectSelector) {
-        var _this153;
+        var _this155;
 
-        _classCallCheck(this, GroupBySubscriber);
+        _classCallCheck2(this, GroupBySubscriber);
 
-        _this153 = _super94.call(this, destination);
-        _this153.keySelector = keySelector;
-        _this153.elementSelector = elementSelector;
-        _this153.durationSelector = durationSelector;
-        _this153.subjectSelector = subjectSelector;
-        _this153.groups = null;
-        _this153.attemptedToUnsubscribe = false;
-        _this153.count = 0;
-        return _this153;
+        _this155 = _super95.call(this, destination);
+        _this155.keySelector = keySelector;
+        _this155.elementSelector = elementSelector;
+        _this155.durationSelector = durationSelector;
+        _this155.subjectSelector = subjectSelector;
+        _this155.groups = null;
+        _this155.attemptedToUnsubscribe = false;
+        _this155.count = 0;
+        return _this155;
       }
 
       _createClass2(GroupBySubscriber, [{
@@ -96314,18 +100214,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_21) {
       _inherits(GroupDurationSubscriber, _Subscriber__WEBPACK_21);
 
-      var _super95 = _createSuper(GroupDurationSubscriber);
+      var _super96 = _createSuper(GroupDurationSubscriber);
 
       function GroupDurationSubscriber(key, group, parent) {
-        var _this154;
+        var _this156;
 
-        _classCallCheck(this, GroupDurationSubscriber);
+        _classCallCheck2(this, GroupDurationSubscriber);
 
-        _this154 = _super95.call(this, group);
-        _this154.key = key;
-        _this154.group = group;
-        _this154.parent = parent;
-        return _this154;
+        _this156 = _super96.call(this, group);
+        _this156.key = key;
+        _this156.group = group;
+        _this156.parent = parent;
+        return _this156;
       }
 
       _createClass2(GroupDurationSubscriber, [{
@@ -96354,18 +100254,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Observable__WEBPACK_5) {
       _inherits(GroupedObservable, _Observable__WEBPACK_5);
 
-      var _super96 = _createSuper(GroupedObservable);
+      var _super97 = _createSuper(GroupedObservable);
 
       function GroupedObservable(key, groupSubject, refCountSubscription) {
-        var _this155;
+        var _this157;
 
-        _classCallCheck(this, GroupedObservable);
+        _classCallCheck2(this, GroupedObservable);
 
-        _this155 = _super96.call(this);
-        _this155.key = key;
-        _this155.groupSubject = groupSubject;
-        _this155.refCountSubscription = refCountSubscription;
-        return _this155;
+        _this157 = _super97.call(this);
+        _this157.key = key;
+        _this157.groupSubject = groupSubject;
+        _this157.refCountSubscription = refCountSubscription;
+        return _this157;
       }
 
       _createClass2(GroupedObservable, [{
@@ -96392,17 +100292,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscription__WEBPAC3) {
       _inherits(InnerRefCountSubscription, _Subscription__WEBPAC3);
 
-      var _super97 = _createSuper(InnerRefCountSubscription);
+      var _super98 = _createSuper(InnerRefCountSubscription);
 
       function InnerRefCountSubscription(parent) {
-        var _this156;
+        var _this158;
 
-        _classCallCheck(this, InnerRefCountSubscription);
+        _classCallCheck2(this, InnerRefCountSubscription);
 
-        _this156 = _super97.call(this);
-        _this156.parent = parent;
+        _this158 = _super98.call(this);
+        _this158.parent = parent;
         parent.count++;
-        return _this156;
+        return _this158;
       }
 
       _createClass2(InnerRefCountSubscription, [{
@@ -96465,7 +100365,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function IgnoreElementsOperator() {
-        _classCallCheck(this, IgnoreElementsOperator);
+        _classCallCheck2(this, IgnoreElementsOperator);
       }
 
       _createClass2(IgnoreElementsOperator, [{
@@ -96483,12 +100383,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_22) {
       _inherits(IgnoreElementsSubscriber, _Subscriber__WEBPACK_22);
 
-      var _super98 = _createSuper(IgnoreElementsSubscriber);
+      var _super99 = _createSuper(IgnoreElementsSubscriber);
 
       function IgnoreElementsSubscriber() {
-        _classCallCheck(this, IgnoreElementsSubscriber);
+        _classCallCheck2(this, IgnoreElementsSubscriber);
 
-        return _super98.apply(this, arguments);
+        return _super99.apply(this, arguments);
       }
 
       _createClass2(IgnoreElementsSubscriber, [{
@@ -96539,7 +100439,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function IsEmptyOperator() {
-        _classCallCheck(this, IsEmptyOperator);
+        _classCallCheck2(this, IsEmptyOperator);
       }
 
       _createClass2(IsEmptyOperator, [{
@@ -96557,12 +100457,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_23) {
       _inherits(IsEmptySubscriber, _Subscriber__WEBPACK_23);
 
-      var _super99 = _createSuper(IsEmptySubscriber);
+      var _super100 = _createSuper(IsEmptySubscriber);
 
       function IsEmptySubscriber(destination) {
-        _classCallCheck(this, IsEmptySubscriber);
+        _classCallCheck2(this, IsEmptySubscriber);
 
-        return _super99.call(this, destination);
+        return _super100.call(this, destination);
       }
 
       _createClass2(IsEmptySubscriber, [{
@@ -96708,7 +100608,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function MapOperator(project, thisArg) {
-        _classCallCheck(this, MapOperator);
+        _classCallCheck2(this, MapOperator);
 
         this.project = project;
         this.thisArg = thisArg;
@@ -96729,18 +100629,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_24) {
       _inherits(MapSubscriber, _Subscriber__WEBPACK_24);
 
-      var _super100 = _createSuper(MapSubscriber);
+      var _super101 = _createSuper(MapSubscriber);
 
       function MapSubscriber(destination, project, thisArg) {
-        var _this157;
+        var _this159;
 
-        _classCallCheck(this, MapSubscriber);
+        _classCallCheck2(this, MapSubscriber);
 
-        _this157 = _super100.call(this, destination);
-        _this157.project = project;
-        _this157.count = 0;
-        _this157.thisArg = thisArg || _assertThisInitialized(_this157);
-        return _this157;
+        _this159 = _super101.call(this, destination);
+        _this159.project = project;
+        _this159.count = 0;
+        _this159.thisArg = thisArg || _assertThisInitialized(_this159);
+        return _this159;
       }
 
       _createClass2(MapSubscriber, [{
@@ -96802,7 +100702,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function MapToOperator(value) {
-        _classCallCheck(this, MapToOperator);
+        _classCallCheck2(this, MapToOperator);
 
         this.value = value;
       }
@@ -96822,16 +100722,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_25) {
       _inherits(MapToSubscriber, _Subscriber__WEBPACK_25);
 
-      var _super101 = _createSuper(MapToSubscriber);
+      var _super102 = _createSuper(MapToSubscriber);
 
       function MapToSubscriber(destination, value) {
-        var _this158;
+        var _this160;
 
-        _classCallCheck(this, MapToSubscriber);
+        _classCallCheck2(this, MapToSubscriber);
 
-        _this158 = _super101.call(this, destination);
-        _this158.value = value;
-        return _this158;
+        _this160 = _super102.call(this, destination);
+        _this160.value = value;
+        return _this160;
       }
 
       _createClass2(MapToSubscriber, [{
@@ -96890,7 +100790,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function MaterializeOperator() {
-        _classCallCheck(this, MaterializeOperator);
+        _classCallCheck2(this, MaterializeOperator);
       }
 
       _createClass2(MaterializeOperator, [{
@@ -96908,12 +100808,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_26) {
       _inherits(MaterializeSubscriber, _Subscriber__WEBPACK_26);
 
-      var _super102 = _createSuper(MaterializeSubscriber);
+      var _super103 = _createSuper(MaterializeSubscriber);
 
       function MaterializeSubscriber(destination) {
-        _classCallCheck(this, MaterializeSubscriber);
+        _classCallCheck2(this, MaterializeSubscriber);
 
-        return _super102.call(this, destination);
+        return _super103.call(this, destination);
       }
 
       _createClass2(MaterializeSubscriber, [{
@@ -97010,8 +100910,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/observable/merge.js");
 
     function merge() {
-      for (var _len36 = arguments.length, observables = new Array(_len36), _key33 = 0; _key33 < _len36; _key33++) {
-        observables[_key33] = arguments[_key33];
+      for (var _len39 = arguments.length, observables = new Array(_len39), _key36 = 0; _key36 < _len39; _key36++) {
+        observables[_key36] = arguments[_key36];
       }
 
       return function (source) {
@@ -97152,7 +101052,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function MergeMapOperator(project) {
         var concurrent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Number.POSITIVE_INFINITY;
 
-        _classCallCheck(this, MergeMapOperator);
+        _classCallCheck2(this, MergeMapOperator);
 
         this.project = project;
         this.concurrent = concurrent;
@@ -97173,23 +101073,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB15) {
       _inherits(MergeMapSubscriber, _OuterSubscriber__WEB15);
 
-      var _super103 = _createSuper(MergeMapSubscriber);
+      var _super104 = _createSuper(MergeMapSubscriber);
 
       function MergeMapSubscriber(destination, project) {
-        var _this159;
+        var _this161;
 
         var concurrent = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : Number.POSITIVE_INFINITY;
 
-        _classCallCheck(this, MergeMapSubscriber);
+        _classCallCheck2(this, MergeMapSubscriber);
 
-        _this159 = _super103.call(this, destination);
-        _this159.project = project;
-        _this159.concurrent = concurrent;
-        _this159.hasCompleted = false;
-        _this159.buffer = [];
-        _this159.active = 0;
-        _this159.index = 0;
-        return _this159;
+        _this161 = _super104.call(this, destination);
+        _this161.project = project;
+        _this161.concurrent = concurrent;
+        _this161.hasCompleted = false;
+        _this161.buffer = [];
+        _this161.active = 0;
+        _this161.index = 0;
+        return _this161;
       }
 
       _createClass2(MergeMapSubscriber, [{
@@ -97377,7 +101277,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function MergeScanOperator(accumulator, seed, concurrent) {
-        _classCallCheck(this, MergeScanOperator);
+        _classCallCheck2(this, MergeScanOperator);
 
         this.accumulator = accumulator;
         this.seed = seed;
@@ -97399,23 +101299,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB16) {
       _inherits(MergeScanSubscriber, _OuterSubscriber__WEB16);
 
-      var _super104 = _createSuper(MergeScanSubscriber);
+      var _super105 = _createSuper(MergeScanSubscriber);
 
       function MergeScanSubscriber(destination, accumulator, acc, concurrent) {
-        var _this160;
+        var _this162;
 
-        _classCallCheck(this, MergeScanSubscriber);
+        _classCallCheck2(this, MergeScanSubscriber);
 
-        _this160 = _super104.call(this, destination);
-        _this160.accumulator = accumulator;
-        _this160.acc = acc;
-        _this160.concurrent = concurrent;
-        _this160.hasValue = false;
-        _this160.hasCompleted = false;
-        _this160.buffer = [];
-        _this160.active = 0;
-        _this160.index = 0;
-        return _this160;
+        _this162 = _super105.call(this, destination);
+        _this162.accumulator = accumulator;
+        _this162.acc = acc;
+        _this162.concurrent = concurrent;
+        _this162.hasValue = false;
+        _this162.hasCompleted = false;
+        _this162.buffer = [];
+        _this162.active = 0;
+        _this162.index = 0;
+        return _this162;
       }
 
       _createClass2(MergeScanSubscriber, [{
@@ -97600,7 +101500,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function MulticastOperator(subjectFactory, selector) {
-        _classCallCheck(this, MulticastOperator);
+        _classCallCheck2(this, MulticastOperator);
 
         this.subjectFactory = subjectFactory;
         this.selector = selector;
@@ -97687,7 +101587,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function ObserveOnOperator(scheduler) {
         var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
-        _classCallCheck(this, ObserveOnOperator);
+        _classCallCheck2(this, ObserveOnOperator);
 
         this.scheduler = scheduler;
         this.delay = delay;
@@ -97708,19 +101608,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_27) {
       _inherits(ObserveOnSubscriber, _Subscriber__WEBPACK_27);
 
-      var _super105 = _createSuper(ObserveOnSubscriber);
+      var _super106 = _createSuper(ObserveOnSubscriber);
 
       function ObserveOnSubscriber(destination, scheduler) {
-        var _this161;
+        var _this163;
 
         var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
-        _classCallCheck(this, ObserveOnSubscriber);
+        _classCallCheck2(this, ObserveOnSubscriber);
 
-        _this161 = _super105.call(this, destination);
-        _this161.scheduler = scheduler;
-        _this161.delay = delay;
-        return _this161;
+        _this163 = _super106.call(this, destination);
+        _this163.scheduler = scheduler;
+        _this163.delay = delay;
+        return _this163;
       }
 
       _createClass2(ObserveOnSubscriber, [{
@@ -97760,7 +101660,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }(_Subscriber__WEBPACK_IMPORTED_MODULE_0__["Subscriber"]);
 
     var ObserveOnMessage = function ObserveOnMessage(notification, destination) {
-      _classCallCheck(this, ObserveOnMessage);
+      _classCallCheck2(this, ObserveOnMessage);
 
       this.notification = notification;
       this.destination = destination;
@@ -97827,8 +101727,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/util/subscribeToResult.js");
 
     function onErrorResumeNext() {
-      for (var _len37 = arguments.length, nextSources = new Array(_len37), _key34 = 0; _key34 < _len37; _key34++) {
-        nextSources[_key34] = arguments[_key34];
+      for (var _len40 = arguments.length, nextSources = new Array(_len40), _key37 = 0; _key37 < _len40; _key37++) {
+        nextSources[_key37] = arguments[_key37];
       }
 
       if (nextSources.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(nextSources[0])) {
@@ -97841,8 +101741,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     function onErrorResumeNextStatic() {
-      for (var _len38 = arguments.length, nextSources = new Array(_len38), _key35 = 0; _key35 < _len38; _key35++) {
-        nextSources[_key35] = arguments[_key35];
+      for (var _len41 = arguments.length, nextSources = new Array(_len41), _key38 = 0; _key38 < _len41; _key38++) {
+        nextSources[_key38] = arguments[_key38];
       }
 
       var source = null;
@@ -97859,7 +101759,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function OnErrorResumeNextOperator(nextSources) {
-        _classCallCheck(this, OnErrorResumeNextOperator);
+        _classCallCheck2(this, OnErrorResumeNextOperator);
 
         this.nextSources = nextSources;
       }
@@ -97879,17 +101779,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB17) {
       _inherits(OnErrorResumeNextSubscriber, _OuterSubscriber__WEB17);
 
-      var _super106 = _createSuper(OnErrorResumeNextSubscriber);
+      var _super107 = _createSuper(OnErrorResumeNextSubscriber);
 
       function OnErrorResumeNextSubscriber(destination, nextSources) {
-        var _this162;
+        var _this164;
 
-        _classCallCheck(this, OnErrorResumeNextSubscriber);
+        _classCallCheck2(this, OnErrorResumeNextSubscriber);
 
-        _this162 = _super106.call(this, destination);
-        _this162.destination = destination;
-        _this162.nextSources = nextSources;
-        return _this162;
+        _this164 = _super107.call(this, destination);
+        _this164.destination = destination;
+        _this164.nextSources = nextSources;
+        return _this164;
       }
 
       _createClass2(OnErrorResumeNextSubscriber, [{
@@ -97977,7 +101877,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function PairwiseOperator() {
-        _classCallCheck(this, PairwiseOperator);
+        _classCallCheck2(this, PairwiseOperator);
       }
 
       _createClass2(PairwiseOperator, [{
@@ -97995,16 +101895,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_28) {
       _inherits(PairwiseSubscriber, _Subscriber__WEBPACK_28);
 
-      var _super107 = _createSuper(PairwiseSubscriber);
+      var _super108 = _createSuper(PairwiseSubscriber);
 
       function PairwiseSubscriber(destination) {
-        var _this163;
+        var _this165;
 
-        _classCallCheck(this, PairwiseSubscriber);
+        _classCallCheck2(this, PairwiseSubscriber);
 
-        _this163 = _super107.call(this, destination);
-        _this163.hasPrev = false;
-        return _this163;
+        _this165 = _super108.call(this, destination);
+        _this165.hasPrev = false;
+        return _this165;
       }
 
       _createClass2(PairwiseSubscriber, [{
@@ -98102,8 +102002,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/operators/map.js");
 
     function pluck() {
-      for (var _len39 = arguments.length, properties = new Array(_len39), _key36 = 0; _key36 < _len39; _key36++) {
-        properties[_key36] = arguments[_key36];
+      for (var _len42 = arguments.length, properties = new Array(_len42), _key39 = 0; _key39 < _len42; _key39++) {
+        properties[_key39] = arguments[_key39];
       }
 
       var length = properties.length;
@@ -98350,8 +102250,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/observable/race.js");
 
     function race() {
-      for (var _len40 = arguments.length, observables = new Array(_len40), _key37 = 0; _key37 < _len40; _key37++) {
-        observables[_key37] = arguments[_key37];
+      for (var _len43 = arguments.length, observables = new Array(_len43), _key40 = 0; _key40 < _len43; _key40++) {
+        observables[_key40] = arguments[_key40];
       }
 
       return function raceOperatorFunction(source) {
@@ -98359,7 +102259,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           observables = observables[0];
         }
 
-        return source.lift.call(Object(_observable_race__WEBPACK_IMPORTED_MODULE_1__["race"]).apply(void 0, [source].concat(_toConsumableArray(observables))));
+        return source.lift.call(Object(_observable_race__WEBPACK_IMPORTED_MODULE_1__["race"]).apply(void 0, [source].concat(_toConsumableArray2(observables))));
       };
     } //# sourceMappingURL=race.js.map
 
@@ -98465,7 +102365,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function RefCountOperator(connectable) {
-        _classCallCheck(this, RefCountOperator);
+        _classCallCheck2(this, RefCountOperator);
 
         this.connectable = connectable;
       }
@@ -98494,16 +102394,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_29) {
       _inherits(RefCountSubscriber, _Subscriber__WEBPACK_29);
 
-      var _super108 = _createSuper(RefCountSubscriber);
+      var _super109 = _createSuper(RefCountSubscriber);
 
       function RefCountSubscriber(destination, connectable) {
-        var _this164;
+        var _this166;
 
-        _classCallCheck(this, RefCountSubscriber);
+        _classCallCheck2(this, RefCountSubscriber);
 
-        _this164 = _super108.call(this, destination);
-        _this164.connectable = connectable;
-        return _this164;
+        _this166 = _super109.call(this, destination);
+        _this166.connectable = connectable;
+        return _this166;
       }
 
       _createClass2(RefCountSubscriber, [{
@@ -98597,7 +102497,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function RepeatOperator(count, source) {
-        _classCallCheck(this, RepeatOperator);
+        _classCallCheck2(this, RepeatOperator);
 
         this.count = count;
         this.source = source;
@@ -98618,17 +102518,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_30) {
       _inherits(RepeatSubscriber, _Subscriber__WEBPACK_30);
 
-      var _super109 = _createSuper(RepeatSubscriber);
+      var _super110 = _createSuper(RepeatSubscriber);
 
       function RepeatSubscriber(destination, count, source) {
-        var _this165;
+        var _this167;
 
-        _classCallCheck(this, RepeatSubscriber);
+        _classCallCheck2(this, RepeatSubscriber);
 
-        _this165 = _super109.call(this, destination);
-        _this165.count = count;
-        _this165.source = source;
-        return _this165;
+        _this167 = _super110.call(this, destination);
+        _this167.count = count;
+        _this167.source = source;
+        return _this167;
       }
 
       _createClass2(RepeatSubscriber, [{
@@ -98704,7 +102604,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function RepeatWhenOperator(notifier) {
-        _classCallCheck(this, RepeatWhenOperator);
+        _classCallCheck2(this, RepeatWhenOperator);
 
         this.notifier = notifier;
       }
@@ -98724,18 +102624,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB18) {
       _inherits(RepeatWhenSubscriber, _OuterSubscriber__WEB18);
 
-      var _super110 = _createSuper(RepeatWhenSubscriber);
+      var _super111 = _createSuper(RepeatWhenSubscriber);
 
       function RepeatWhenSubscriber(destination, notifier, source) {
-        var _this166;
+        var _this168;
 
-        _classCallCheck(this, RepeatWhenSubscriber);
+        _classCallCheck2(this, RepeatWhenSubscriber);
 
-        _this166 = _super110.call(this, destination);
-        _this166.notifier = notifier;
-        _this166.source = source;
-        _this166.sourceIsBeingSubscribedTo = true;
-        return _this166;
+        _this168 = _super111.call(this, destination);
+        _this168.notifier = notifier;
+        _this168.source = source;
+        _this168.sourceIsBeingSubscribedTo = true;
+        return _this168;
       }
 
       _createClass2(RepeatWhenSubscriber, [{
@@ -98861,7 +102761,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function RetryOperator(count, source) {
-        _classCallCheck(this, RetryOperator);
+        _classCallCheck2(this, RetryOperator);
 
         this.count = count;
         this.source = source;
@@ -98882,17 +102782,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_31) {
       _inherits(RetrySubscriber, _Subscriber__WEBPACK_31);
 
-      var _super111 = _createSuper(RetrySubscriber);
+      var _super112 = _createSuper(RetrySubscriber);
 
       function RetrySubscriber(destination, count, source) {
-        var _this167;
+        var _this169;
 
-        _classCallCheck(this, RetrySubscriber);
+        _classCallCheck2(this, RetrySubscriber);
 
-        _this167 = _super111.call(this, destination);
-        _this167.count = count;
-        _this167.source = source;
-        return _this167;
+        _this169 = _super112.call(this, destination);
+        _this169.count = count;
+        _this169.source = source;
+        return _this169;
       }
 
       _createClass2(RetrySubscriber, [{
@@ -98968,7 +102868,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function RetryWhenOperator(notifier, source) {
-        _classCallCheck(this, RetryWhenOperator);
+        _classCallCheck2(this, RetryWhenOperator);
 
         this.notifier = notifier;
         this.source = source;
@@ -98989,17 +102889,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB19) {
       _inherits(RetryWhenSubscriber, _OuterSubscriber__WEB19);
 
-      var _super112 = _createSuper(RetryWhenSubscriber);
+      var _super113 = _createSuper(RetryWhenSubscriber);
 
       function RetryWhenSubscriber(destination, notifier, source) {
-        var _this168;
+        var _this170;
 
-        _classCallCheck(this, RetryWhenSubscriber);
+        _classCallCheck2(this, RetryWhenSubscriber);
 
-        _this168 = _super112.call(this, destination);
-        _this168.notifier = notifier;
-        _this168.source = source;
-        return _this168;
+        _this170 = _super113.call(this, destination);
+        _this170.notifier = notifier;
+        _this170.source = source;
+        return _this170;
       }
 
       _createClass2(RetryWhenSubscriber, [{
@@ -99114,7 +103014,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SampleOperator(notifier) {
-        _classCallCheck(this, SampleOperator);
+        _classCallCheck2(this, SampleOperator);
 
         this.notifier = notifier;
       }
@@ -99137,16 +103037,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB20) {
       _inherits(SampleSubscriber, _OuterSubscriber__WEB20);
 
-      var _super113 = _createSuper(SampleSubscriber);
+      var _super114 = _createSuper(SampleSubscriber);
 
       function SampleSubscriber() {
-        var _this169;
+        var _this171;
 
-        _classCallCheck(this, SampleSubscriber);
+        _classCallCheck2(this, SampleSubscriber);
 
-        _this169 = _super113.apply(this, arguments);
-        _this169.hasValue = false;
-        return _this169;
+        _this171 = _super114.apply(this, arguments);
+        _this171.hasValue = false;
+        return _this171;
       }
 
       _createClass2(SampleSubscriber, [{
@@ -99225,7 +103125,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SampleTimeOperator(period, scheduler) {
-        _classCallCheck(this, SampleTimeOperator);
+        _classCallCheck2(this, SampleTimeOperator);
 
         this.period = period;
         this.scheduler = scheduler;
@@ -99246,24 +103146,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_32) {
       _inherits(SampleTimeSubscriber, _Subscriber__WEBPACK_32);
 
-      var _super114 = _createSuper(SampleTimeSubscriber);
+      var _super115 = _createSuper(SampleTimeSubscriber);
 
       function SampleTimeSubscriber(destination, period, scheduler) {
-        var _this170;
+        var _this172;
 
-        _classCallCheck(this, SampleTimeSubscriber);
+        _classCallCheck2(this, SampleTimeSubscriber);
 
-        _this170 = _super114.call(this, destination);
-        _this170.period = period;
-        _this170.scheduler = scheduler;
-        _this170.hasValue = false;
+        _this172 = _super115.call(this, destination);
+        _this172.period = period;
+        _this172.scheduler = scheduler;
+        _this172.hasValue = false;
 
-        _this170.add(scheduler.schedule(dispatchNotification, period, {
-          subscriber: _assertThisInitialized(_this170),
+        _this172.add(scheduler.schedule(dispatchNotification, period, {
+          subscriber: _assertThisInitialized(_this172),
           period: period
         }));
 
-        return _this170;
+        return _this172;
       }
 
       _createClass2(SampleTimeSubscriber, [{
@@ -99340,7 +103240,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function ScanOperator(accumulator, seed) {
         var hasSeed = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
-        _classCallCheck(this, ScanOperator);
+        _classCallCheck2(this, ScanOperator);
 
         this.accumulator = accumulator;
         this.seed = seed;
@@ -99362,19 +103262,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_33) {
       _inherits(ScanSubscriber, _Subscriber__WEBPACK_33);
 
-      var _super115 = _createSuper(ScanSubscriber);
+      var _super116 = _createSuper(ScanSubscriber);
 
       function ScanSubscriber(destination, accumulator, _seed, hasSeed) {
-        var _this171;
+        var _this173;
 
-        _classCallCheck(this, ScanSubscriber);
+        _classCallCheck2(this, ScanSubscriber);
 
-        _this171 = _super115.call(this, destination);
-        _this171.accumulator = accumulator;
-        _this171._seed = _seed;
-        _this171.hasSeed = hasSeed;
-        _this171.index = 0;
-        return _this171;
+        _this173 = _super116.call(this, destination);
+        _this173.accumulator = accumulator;
+        _this173._seed = _seed;
+        _this173.hasSeed = hasSeed;
+        _this173.index = 0;
+        return _this173;
       }
 
       _createClass2(ScanSubscriber, [{
@@ -99468,7 +103368,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SequenceEqualOperator(compareTo, comparator) {
-        _classCallCheck(this, SequenceEqualOperator);
+        _classCallCheck2(this, SequenceEqualOperator);
 
         this.compareTo = compareTo;
         this.comparator = comparator;
@@ -99489,23 +103389,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_34) {
       _inherits(SequenceEqualSubscriber, _Subscriber__WEBPACK_34);
 
-      var _super116 = _createSuper(SequenceEqualSubscriber);
+      var _super117 = _createSuper(SequenceEqualSubscriber);
 
       function SequenceEqualSubscriber(destination, compareTo, comparator) {
-        var _this172;
+        var _this174;
 
-        _classCallCheck(this, SequenceEqualSubscriber);
+        _classCallCheck2(this, SequenceEqualSubscriber);
 
-        _this172 = _super116.call(this, destination);
-        _this172.compareTo = compareTo;
-        _this172.comparator = comparator;
-        _this172._a = [];
-        _this172._b = [];
-        _this172._oneComplete = false;
+        _this174 = _super117.call(this, destination);
+        _this174.compareTo = compareTo;
+        _this174.comparator = comparator;
+        _this174._a = [];
+        _this174._b = [];
+        _this174._oneComplete = false;
 
-        _this172.destination.add(compareTo.subscribe(new SequenceEqualCompareToSubscriber(destination, _assertThisInitialized(_this172))));
+        _this174.destination.add(compareTo.subscribe(new SequenceEqualCompareToSubscriber(destination, _assertThisInitialized(_this174))));
 
-        return _this172;
+        return _this174;
       }
 
       _createClass2(SequenceEqualSubscriber, [{
@@ -99592,16 +103492,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_35) {
       _inherits(SequenceEqualCompareToSubscriber, _Subscriber__WEBPACK_35);
 
-      var _super117 = _createSuper(SequenceEqualCompareToSubscriber);
+      var _super118 = _createSuper(SequenceEqualCompareToSubscriber);
 
       function SequenceEqualCompareToSubscriber(destination, parent) {
-        var _this173;
+        var _this175;
 
-        _classCallCheck(this, SequenceEqualCompareToSubscriber);
+        _classCallCheck2(this, SequenceEqualCompareToSubscriber);
 
-        _this173 = _super117.call(this, destination);
-        _this173.parent = parent;
-        return _this173;
+        _this175 = _super118.call(this, destination);
+        _this175.parent = parent;
+        return _this175;
       }
 
       _createClass2(SequenceEqualCompareToSubscriber, [{
@@ -99727,13 +103627,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       };
     }
 
-    function shareReplayOperator(_ref13) {
-      var _ref13$bufferSize = _ref13.bufferSize,
-          bufferSize = _ref13$bufferSize === void 0 ? Number.POSITIVE_INFINITY : _ref13$bufferSize,
-          _ref13$windowTime = _ref13.windowTime,
-          windowTime = _ref13$windowTime === void 0 ? Number.POSITIVE_INFINITY : _ref13$windowTime,
-          useRefCount = _ref13.refCount,
-          scheduler = _ref13.scheduler;
+    function shareReplayOperator(_ref14) {
+      var _ref14$bufferSize = _ref14.bufferSize,
+          bufferSize = _ref14$bufferSize === void 0 ? Number.POSITIVE_INFINITY : _ref14$bufferSize,
+          _ref14$windowTime = _ref14.windowTime,
+          windowTime = _ref14$windowTime === void 0 ? Number.POSITIVE_INFINITY : _ref14$windowTime,
+          useRefCount = _ref14.refCount,
+          scheduler = _ref14.scheduler;
       var subject;
       var refCount = 0;
       var subscription;
@@ -99821,7 +103721,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SingleOperator(predicate, source) {
-        _classCallCheck(this, SingleOperator);
+        _classCallCheck2(this, SingleOperator);
 
         this.predicate = predicate;
         this.source = source;
@@ -99842,19 +103742,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_36) {
       _inherits(SingleSubscriber, _Subscriber__WEBPACK_36);
 
-      var _super118 = _createSuper(SingleSubscriber);
+      var _super119 = _createSuper(SingleSubscriber);
 
       function SingleSubscriber(destination, predicate, source) {
-        var _this174;
+        var _this176;
 
-        _classCallCheck(this, SingleSubscriber);
+        _classCallCheck2(this, SingleSubscriber);
 
-        _this174 = _super118.call(this, destination);
-        _this174.predicate = predicate;
-        _this174.source = source;
-        _this174.seenValue = false;
-        _this174.index = 0;
-        return _this174;
+        _this176 = _super119.call(this, destination);
+        _this176.predicate = predicate;
+        _this176.source = source;
+        _this176.seenValue = false;
+        _this176.index = 0;
+        return _this176;
       }
 
       _createClass2(SingleSubscriber, [{
@@ -99946,7 +103846,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SkipOperator(total) {
-        _classCallCheck(this, SkipOperator);
+        _classCallCheck2(this, SkipOperator);
 
         this.total = total;
       }
@@ -99966,17 +103866,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_37) {
       _inherits(SkipSubscriber, _Subscriber__WEBPACK_37);
 
-      var _super119 = _createSuper(SkipSubscriber);
+      var _super120 = _createSuper(SkipSubscriber);
 
       function SkipSubscriber(destination, total) {
-        var _this175;
+        var _this177;
 
-        _classCallCheck(this, SkipSubscriber);
+        _classCallCheck2(this, SkipSubscriber);
 
-        _this175 = _super119.call(this, destination);
-        _this175.total = total;
-        _this175.count = 0;
-        return _this175;
+        _this177 = _super120.call(this, destination);
+        _this177.total = total;
+        _this177.count = 0;
+        return _this177;
       }
 
       _createClass2(SkipSubscriber, [{
@@ -100037,7 +103937,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SkipLastOperator(_skipCount) {
-        _classCallCheck(this, SkipLastOperator);
+        _classCallCheck2(this, SkipLastOperator);
 
         this._skipCount = _skipCount;
 
@@ -100065,18 +103965,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_38) {
       _inherits(SkipLastSubscriber, _Subscriber__WEBPACK_38);
 
-      var _super120 = _createSuper(SkipLastSubscriber);
+      var _super121 = _createSuper(SkipLastSubscriber);
 
       function SkipLastSubscriber(destination, _skipCount) {
-        var _this176;
+        var _this178;
 
-        _classCallCheck(this, SkipLastSubscriber);
+        _classCallCheck2(this, SkipLastSubscriber);
 
-        _this176 = _super120.call(this, destination);
-        _this176._skipCount = _skipCount;
-        _this176._count = 0;
-        _this176._ring = new Array(_skipCount);
-        return _this176;
+        _this178 = _super121.call(this, destination);
+        _this178._skipCount = _skipCount;
+        _this178._count = 0;
+        _this178._ring = new Array(_skipCount);
+        return _this178;
       }
 
       _createClass2(SkipLastSubscriber, [{
@@ -100152,7 +104052,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SkipUntilOperator(notifier) {
-        _classCallCheck(this, SkipUntilOperator);
+        _classCallCheck2(this, SkipUntilOperator);
 
         this.notifier = notifier;
       }
@@ -100172,29 +104072,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB21) {
       _inherits(SkipUntilSubscriber, _OuterSubscriber__WEB21);
 
-      var _super121 = _createSuper(SkipUntilSubscriber);
+      var _super122 = _createSuper(SkipUntilSubscriber);
 
       function SkipUntilSubscriber(destination, notifier) {
-        var _this177;
+        var _this179;
 
-        _classCallCheck(this, SkipUntilSubscriber);
+        _classCallCheck2(this, SkipUntilSubscriber);
 
-        _this177 = _super121.call(this, destination);
-        _this177.hasValue = false;
-        var innerSubscriber = new _InnerSubscriber__WEBPACK_IMPORTED_MODULE_1__["InnerSubscriber"](_assertThisInitialized(_this177), undefined, undefined);
+        _this179 = _super122.call(this, destination);
+        _this179.hasValue = false;
+        var innerSubscriber = new _InnerSubscriber__WEBPACK_IMPORTED_MODULE_1__["InnerSubscriber"](_assertThisInitialized(_this179), undefined, undefined);
 
-        _this177.add(innerSubscriber);
+        _this179.add(innerSubscriber);
 
-        _this177.innerSubscription = innerSubscriber;
-        var innerSubscription = Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_2__["subscribeToResult"])(_assertThisInitialized(_this177), notifier, undefined, undefined, innerSubscriber);
+        _this179.innerSubscription = innerSubscriber;
+        var innerSubscription = Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_2__["subscribeToResult"])(_assertThisInitialized(_this179), notifier, undefined, undefined, innerSubscriber);
 
         if (innerSubscription !== innerSubscriber) {
-          _this177.add(innerSubscription);
+          _this179.add(innerSubscription);
 
-          _this177.innerSubscription = innerSubscription;
+          _this179.innerSubscription = innerSubscription;
         }
 
-        return _this177;
+        return _this179;
       }
 
       _createClass2(SkipUntilSubscriber, [{
@@ -100261,7 +104161,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SkipWhileOperator(predicate) {
-        _classCallCheck(this, SkipWhileOperator);
+        _classCallCheck2(this, SkipWhileOperator);
 
         this.predicate = predicate;
       }
@@ -100281,18 +104181,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_39) {
       _inherits(SkipWhileSubscriber, _Subscriber__WEBPACK_39);
 
-      var _super122 = _createSuper(SkipWhileSubscriber);
+      var _super123 = _createSuper(SkipWhileSubscriber);
 
       function SkipWhileSubscriber(destination, predicate) {
-        var _this178;
+        var _this180;
 
-        _classCallCheck(this, SkipWhileSubscriber);
+        _classCallCheck2(this, SkipWhileSubscriber);
 
-        _this178 = _super122.call(this, destination);
-        _this178.predicate = predicate;
-        _this178.skipping = true;
-        _this178.index = 0;
-        return _this178;
+        _this180 = _super123.call(this, destination);
+        _this180.predicate = predicate;
+        _this180.skipping = true;
+        _this180.index = 0;
+        return _this180;
       }
 
       _createClass2(SkipWhileSubscriber, [{
@@ -100360,8 +104260,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/util/isScheduler.js");
 
     function startWith() {
-      for (var _len41 = arguments.length, array = new Array(_len41), _key38 = 0; _key38 < _len41; _key38++) {
-        array[_key38] = arguments[_key38];
+      for (var _len44 = arguments.length, array = new Array(_len44), _key41 = 0; _key41 < _len44; _key41++) {
+        array[_key41] = arguments[_key41];
       }
 
       var scheduler = array[array.length - 1];
@@ -100419,7 +104319,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SubscribeOnOperator(scheduler, delay) {
-        _classCallCheck(this, SubscribeOnOperator);
+        _classCallCheck2(this, SubscribeOnOperator);
 
         this.scheduler = scheduler;
         this.delay = delay;
@@ -100549,7 +104449,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function SwitchMapOperator(project) {
-        _classCallCheck(this, SwitchMapOperator);
+        _classCallCheck2(this, SwitchMapOperator);
 
         this.project = project;
       }
@@ -100569,17 +104469,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB22) {
       _inherits(SwitchMapSubscriber, _OuterSubscriber__WEB22);
 
-      var _super123 = _createSuper(SwitchMapSubscriber);
+      var _super124 = _createSuper(SwitchMapSubscriber);
 
       function SwitchMapSubscriber(destination, project) {
-        var _this179;
+        var _this181;
 
-        _classCallCheck(this, SwitchMapSubscriber);
+        _classCallCheck2(this, SwitchMapSubscriber);
 
-        _this179 = _super123.call(this, destination);
-        _this179.project = project;
-        _this179.index = 0;
-        return _this179;
+        _this181 = _super124.call(this, destination);
+        _this181.project = project;
+        _this181.index = 0;
+        return _this181;
       }
 
       _createClass2(SwitchMapSubscriber, [{
@@ -100746,7 +104646,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function TakeOperator(total) {
-        _classCallCheck(this, TakeOperator);
+        _classCallCheck2(this, TakeOperator);
 
         this.total = total;
 
@@ -100770,17 +104670,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_40) {
       _inherits(TakeSubscriber, _Subscriber__WEBPACK_40);
 
-      var _super124 = _createSuper(TakeSubscriber);
+      var _super125 = _createSuper(TakeSubscriber);
 
       function TakeSubscriber(destination, total) {
-        var _this180;
+        var _this182;
 
-        _classCallCheck(this, TakeSubscriber);
+        _classCallCheck2(this, TakeSubscriber);
 
-        _this180 = _super124.call(this, destination);
-        _this180.total = total;
-        _this180.count = 0;
-        return _this180;
+        _this182 = _super125.call(this, destination);
+        _this182.total = total;
+        _this182.count = 0;
+        return _this182;
       }
 
       _createClass2(TakeSubscriber, [{
@@ -100859,7 +104759,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function TakeLastOperator(total) {
-        _classCallCheck(this, TakeLastOperator);
+        _classCallCheck2(this, TakeLastOperator);
 
         this.total = total;
 
@@ -100883,18 +104783,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_41) {
       _inherits(TakeLastSubscriber, _Subscriber__WEBPACK_41);
 
-      var _super125 = _createSuper(TakeLastSubscriber);
+      var _super126 = _createSuper(TakeLastSubscriber);
 
       function TakeLastSubscriber(destination, total) {
-        var _this181;
+        var _this183;
 
-        _classCallCheck(this, TakeLastSubscriber);
+        _classCallCheck2(this, TakeLastSubscriber);
 
-        _this181 = _super125.call(this, destination);
-        _this181.total = total;
-        _this181.ring = new Array();
-        _this181.count = 0;
-        return _this181;
+        _this183 = _super126.call(this, destination);
+        _this183.total = total;
+        _this183.ring = new Array();
+        _this183.count = 0;
+        return _this183;
       }
 
       _createClass2(TakeLastSubscriber, [{
@@ -100980,7 +104880,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function TakeUntilOperator(notifier) {
-        _classCallCheck(this, TakeUntilOperator);
+        _classCallCheck2(this, TakeUntilOperator);
 
         this.notifier = notifier;
       }
@@ -101008,16 +104908,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB23) {
       _inherits(TakeUntilSubscriber, _OuterSubscriber__WEB23);
 
-      var _super126 = _createSuper(TakeUntilSubscriber);
+      var _super127 = _createSuper(TakeUntilSubscriber);
 
       function TakeUntilSubscriber(destination) {
-        var _this182;
+        var _this184;
 
-        _classCallCheck(this, TakeUntilSubscriber);
+        _classCallCheck2(this, TakeUntilSubscriber);
 
-        _this182 = _super126.call(this, destination);
-        _this182.seenValue = false;
-        return _this182;
+        _this184 = _super127.call(this, destination);
+        _this184.seenValue = false;
+        return _this184;
       }
 
       _createClass2(TakeUntilSubscriber, [{
@@ -101075,7 +104975,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function TakeWhileOperator(predicate, inclusive) {
-        _classCallCheck(this, TakeWhileOperator);
+        _classCallCheck2(this, TakeWhileOperator);
 
         this.predicate = predicate;
         this.inclusive = inclusive;
@@ -101096,18 +104996,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_42) {
       _inherits(TakeWhileSubscriber, _Subscriber__WEBPACK_42);
 
-      var _super127 = _createSuper(TakeWhileSubscriber);
+      var _super128 = _createSuper(TakeWhileSubscriber);
 
       function TakeWhileSubscriber(destination, predicate, inclusive) {
-        var _this183;
+        var _this185;
 
-        _classCallCheck(this, TakeWhileSubscriber);
+        _classCallCheck2(this, TakeWhileSubscriber);
 
-        _this183 = _super127.call(this, destination);
-        _this183.predicate = predicate;
-        _this183.inclusive = inclusive;
-        _this183.index = 0;
-        return _this183;
+        _this185 = _super128.call(this, destination);
+        _this185.predicate = predicate;
+        _this185.inclusive = inclusive;
+        _this185.index = 0;
+        return _this185;
       }
 
       _createClass2(TakeWhileSubscriber, [{
@@ -101197,7 +105097,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DoOperator(nextOrObserver, error, complete) {
-        _classCallCheck(this, DoOperator);
+        _classCallCheck2(this, DoOperator);
 
         this.nextOrObserver = nextOrObserver;
         this.error = error;
@@ -101219,31 +105119,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_43) {
       _inherits(TapSubscriber, _Subscriber__WEBPACK_43);
 
-      var _super128 = _createSuper(TapSubscriber);
+      var _super129 = _createSuper(TapSubscriber);
 
       function TapSubscriber(destination, observerOrNext, error, complete) {
-        var _this184;
+        var _this186;
 
-        _classCallCheck(this, TapSubscriber);
+        _classCallCheck2(this, TapSubscriber);
 
-        _this184 = _super128.call(this, destination);
-        _this184._tapNext = _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
-        _this184._tapError = _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
-        _this184._tapComplete = _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
-        _this184._tapError = error || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
-        _this184._tapComplete = complete || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
+        _this186 = _super129.call(this, destination);
+        _this186._tapNext = _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
+        _this186._tapError = _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
+        _this186._tapComplete = _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
+        _this186._tapError = error || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
+        _this186._tapComplete = complete || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
 
         if (Object(_util_isFunction__WEBPACK_IMPORTED_MODULE_2__["isFunction"])(observerOrNext)) {
-          _this184._context = _assertThisInitialized(_this184);
-          _this184._tapNext = observerOrNext;
+          _this186._context = _assertThisInitialized(_this186);
+          _this186._tapNext = observerOrNext;
         } else if (observerOrNext) {
-          _this184._context = observerOrNext;
-          _this184._tapNext = observerOrNext.next || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
-          _this184._tapError = observerOrNext.error || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
-          _this184._tapComplete = observerOrNext.complete || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
+          _this186._context = observerOrNext;
+          _this186._tapNext = observerOrNext.next || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
+          _this186._tapError = observerOrNext.error || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
+          _this186._tapComplete = observerOrNext.complete || _util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"];
         }
 
-        return _this184;
+        return _this186;
       }
 
       _createClass2(TapSubscriber, [{
@@ -101345,7 +105245,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ThrottleOperator(durationSelector, leading, trailing) {
-        _classCallCheck(this, ThrottleOperator);
+        _classCallCheck2(this, ThrottleOperator);
 
         this.durationSelector = durationSelector;
         this.leading = leading;
@@ -101367,20 +105267,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB24) {
       _inherits(ThrottleSubscriber, _OuterSubscriber__WEB24);
 
-      var _super129 = _createSuper(ThrottleSubscriber);
+      var _super130 = _createSuper(ThrottleSubscriber);
 
       function ThrottleSubscriber(destination, durationSelector, _leading, _trailing) {
-        var _this185;
+        var _this187;
 
-        _classCallCheck(this, ThrottleSubscriber);
+        _classCallCheck2(this, ThrottleSubscriber);
 
-        _this185 = _super129.call(this, destination);
-        _this185.destination = destination;
-        _this185.durationSelector = durationSelector;
-        _this185._leading = _leading;
-        _this185._trailing = _trailing;
-        _this185._hasValue = false;
-        return _this185;
+        _this187 = _super130.call(this, destination);
+        _this187.destination = destination;
+        _this187.durationSelector = durationSelector;
+        _this187._leading = _leading;
+        _this187._trailing = _trailing;
+        _this187._hasValue = false;
+        return _this187;
       }
 
       _createClass2(ThrottleSubscriber, [{
@@ -101515,7 +105415,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ThrottleTimeOperator(duration, scheduler, leading, trailing) {
-        _classCallCheck(this, ThrottleTimeOperator);
+        _classCallCheck2(this, ThrottleTimeOperator);
 
         this.duration = duration;
         this.scheduler = scheduler;
@@ -101538,21 +105438,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_44) {
       _inherits(ThrottleTimeSubscriber, _Subscriber__WEBPACK_44);
 
-      var _super130 = _createSuper(ThrottleTimeSubscriber);
+      var _super131 = _createSuper(ThrottleTimeSubscriber);
 
       function ThrottleTimeSubscriber(destination, duration, scheduler, leading, trailing) {
-        var _this186;
+        var _this188;
 
-        _classCallCheck(this, ThrottleTimeSubscriber);
+        _classCallCheck2(this, ThrottleTimeSubscriber);
 
-        _this186 = _super130.call(this, destination);
-        _this186.duration = duration;
-        _this186.scheduler = scheduler;
-        _this186.leading = leading;
-        _this186.trailing = trailing;
-        _this186._hasTrailingValue = false;
-        _this186._trailingValue = null;
-        return _this186;
+        _this188 = _super131.call(this, destination);
+        _this188.duration = duration;
+        _this188.scheduler = scheduler;
+        _this188.leading = leading;
+        _this188.trailing = trailing;
+        _this188._hasTrailingValue = false;
+        _this188._trailingValue = null;
+        return _this188;
       }
 
       _createClass2(ThrottleTimeSubscriber, [{
@@ -101660,7 +105560,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ThrowIfEmptyOperator(errorFactory) {
-        _classCallCheck(this, ThrowIfEmptyOperator);
+        _classCallCheck2(this, ThrowIfEmptyOperator);
 
         this.errorFactory = errorFactory;
       }
@@ -101680,17 +105580,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_45) {
       _inherits(ThrowIfEmptySubscriber, _Subscriber__WEBPACK_45);
 
-      var _super131 = _createSuper(ThrowIfEmptySubscriber);
+      var _super132 = _createSuper(ThrowIfEmptySubscriber);
 
       function ThrowIfEmptySubscriber(destination, errorFactory) {
-        var _this187;
+        var _this189;
 
-        _classCallCheck(this, ThrowIfEmptySubscriber);
+        _classCallCheck2(this, ThrowIfEmptySubscriber);
 
-        _this187 = _super131.call(this, destination);
-        _this187.errorFactory = errorFactory;
-        _this187.hasValue = false;
-        return _this187;
+        _this189 = _super132.call(this, destination);
+        _this189.errorFactory = errorFactory;
+        _this189.hasValue = false;
+        return _this189;
       }
 
       _createClass2(ThrowIfEmptySubscriber, [{
@@ -101783,8 +105683,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var scheduler = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _scheduler_async__WEBPACK_IMPORTED_MODULE_0__["async"];
       return function (source) {
         return Object(_observable_defer__WEBPACK_IMPORTED_MODULE_2__["defer"])(function () {
-          return source.pipe(Object(_scan__WEBPACK_IMPORTED_MODULE_1__["scan"])(function (_ref14, value) {
-            var current = _ref14.current;
+          return source.pipe(Object(_scan__WEBPACK_IMPORTED_MODULE_1__["scan"])(function (_ref15, value) {
+            var current = _ref15.current;
             return {
               value: value,
               current: scheduler.now(),
@@ -101794,10 +105694,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             current: scheduler.now(),
             value: undefined,
             last: undefined
-          }), Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (_ref15) {
-            var current = _ref15.current,
-                last = _ref15.last,
-                value = _ref15.value;
+          }), Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (_ref16) {
+            var current = _ref16.current,
+                last = _ref16.last,
+                value = _ref16.value;
             return new TimeInterval(value, current - last);
           }));
         });
@@ -101805,7 +105705,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     var TimeInterval = function TimeInterval(value, interval) {
-      _classCallCheck(this, TimeInterval);
+      _classCallCheck2(this, TimeInterval);
 
       this.value = value;
       this.interval = interval;
@@ -101925,7 +105825,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function TimeoutWithOperator(waitFor, absoluteTimeout, withObservable, scheduler) {
-        _classCallCheck(this, TimeoutWithOperator);
+        _classCallCheck2(this, TimeoutWithOperator);
 
         this.waitFor = waitFor;
         this.absoluteTimeout = absoluteTimeout;
@@ -101948,23 +105848,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB25) {
       _inherits(TimeoutWithSubscriber, _OuterSubscriber__WEB25);
 
-      var _super132 = _createSuper(TimeoutWithSubscriber);
+      var _super133 = _createSuper(TimeoutWithSubscriber);
 
       function TimeoutWithSubscriber(destination, absoluteTimeout, waitFor, withObservable, scheduler) {
-        var _this188;
+        var _this190;
 
-        _classCallCheck(this, TimeoutWithSubscriber);
+        _classCallCheck2(this, TimeoutWithSubscriber);
 
-        _this188 = _super132.call(this, destination);
-        _this188.absoluteTimeout = absoluteTimeout;
-        _this188.waitFor = waitFor;
-        _this188.withObservable = withObservable;
-        _this188.scheduler = scheduler;
-        _this188.action = null;
+        _this190 = _super133.call(this, destination);
+        _this190.absoluteTimeout = absoluteTimeout;
+        _this190.waitFor = waitFor;
+        _this190.withObservable = withObservable;
+        _this190.scheduler = scheduler;
+        _this190.action = null;
 
-        _this188.scheduleTimeout();
+        _this190.scheduleTimeout();
 
-        return _this188;
+        return _this190;
       }
 
       _createClass2(TimeoutWithSubscriber, [{
@@ -102058,7 +105958,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     var Timestamp = function Timestamp(value, timestamp) {
-      _classCallCheck(this, Timestamp);
+      _classCallCheck2(this, Timestamp);
 
       this.value = value;
       this.timestamp = timestamp;
@@ -102159,7 +106059,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function WindowOperator(windowBoundaries) {
-        _classCallCheck(this, WindowOperator);
+        _classCallCheck2(this, WindowOperator);
 
         this.windowBoundaries = windowBoundaries;
       }
@@ -102186,17 +106086,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB26) {
       _inherits(WindowSubscriber, _OuterSubscriber__WEB26);
 
-      var _super133 = _createSuper(WindowSubscriber);
+      var _super134 = _createSuper(WindowSubscriber);
 
       function WindowSubscriber(destination) {
-        var _this189;
+        var _this191;
 
-        _classCallCheck(this, WindowSubscriber);
+        _classCallCheck2(this, WindowSubscriber);
 
-        _this189 = _super133.call(this, destination);
-        _this189.window = new _Subject__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
-        destination.next(_this189.window);
-        return _this189;
+        _this191 = _super134.call(this, destination);
+        _this191.window = new _Subject__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
+        destination.next(_this191.window);
+        return _this191;
       }
 
       _createClass2(WindowSubscriber, [{
@@ -102301,7 +106201,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function WindowCountOperator(windowSize, startWindowEvery) {
-        _classCallCheck(this, WindowCountOperator);
+        _classCallCheck2(this, WindowCountOperator);
 
         this.windowSize = windowSize;
         this.startWindowEvery = startWindowEvery;
@@ -102322,21 +106222,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_46) {
       _inherits(WindowCountSubscriber, _Subscriber__WEBPACK_46);
 
-      var _super134 = _createSuper(WindowCountSubscriber);
+      var _super135 = _createSuper(WindowCountSubscriber);
 
       function WindowCountSubscriber(destination, windowSize, startWindowEvery) {
-        var _this190;
+        var _this192;
 
-        _classCallCheck(this, WindowCountSubscriber);
+        _classCallCheck2(this, WindowCountSubscriber);
 
-        _this190 = _super134.call(this, destination);
-        _this190.destination = destination;
-        _this190.windowSize = windowSize;
-        _this190.startWindowEvery = startWindowEvery;
-        _this190.windows = [new _Subject__WEBPACK_IMPORTED_MODULE_1__["Subject"]()];
-        _this190.count = 0;
-        destination.next(_this190.windows[0]);
-        return _this190;
+        _this192 = _super135.call(this, destination);
+        _this192.destination = destination;
+        _this192.windowSize = windowSize;
+        _this192.startWindowEvery = startWindowEvery;
+        _this192.windows = [new _Subject__WEBPACK_IMPORTED_MODULE_1__["Subject"]()];
+        _this192.count = 0;
+        destination.next(_this192.windows[0]);
+        return _this192;
       }
 
       _createClass2(WindowCountSubscriber, [{
@@ -102486,7 +106386,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function WindowTimeOperator(windowTimeSpan, windowCreationInterval, maxWindowSize, scheduler) {
-        _classCallCheck(this, WindowTimeOperator);
+        _classCallCheck2(this, WindowTimeOperator);
 
         this.windowTimeSpan = windowTimeSpan;
         this.windowCreationInterval = windowCreationInterval;
@@ -102509,16 +106409,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subject__WEBPACK_IMP5) {
       _inherits(CountedSubject, _Subject__WEBPACK_IMP5);
 
-      var _super135 = _createSuper(CountedSubject);
+      var _super136 = _createSuper(CountedSubject);
 
       function CountedSubject() {
-        var _this191;
+        var _this193;
 
-        _classCallCheck(this, CountedSubject);
+        _classCallCheck2(this, CountedSubject);
 
-        _this191 = _super135.apply(this, arguments);
-        _this191._numberOfNextedValues = 0;
-        return _this191;
+        _this193 = _super136.apply(this, arguments);
+        _this193._numberOfNextedValues = 0;
+        return _this193;
       }
 
       _createClass2(CountedSubject, [{
@@ -102543,50 +106443,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscriber__WEBPACK_47) {
       _inherits(WindowTimeSubscriber, _Subscriber__WEBPACK_47);
 
-      var _super136 = _createSuper(WindowTimeSubscriber);
+      var _super137 = _createSuper(WindowTimeSubscriber);
 
       function WindowTimeSubscriber(destination, windowTimeSpan, windowCreationInterval, maxWindowSize, scheduler) {
-        var _this192;
+        var _this194;
 
-        _classCallCheck(this, WindowTimeSubscriber);
+        _classCallCheck2(this, WindowTimeSubscriber);
 
-        _this192 = _super136.call(this, destination);
-        _this192.destination = destination;
-        _this192.windowTimeSpan = windowTimeSpan;
-        _this192.windowCreationInterval = windowCreationInterval;
-        _this192.maxWindowSize = maxWindowSize;
-        _this192.scheduler = scheduler;
-        _this192.windows = [];
+        _this194 = _super137.call(this, destination);
+        _this194.destination = destination;
+        _this194.windowTimeSpan = windowTimeSpan;
+        _this194.windowCreationInterval = windowCreationInterval;
+        _this194.maxWindowSize = maxWindowSize;
+        _this194.scheduler = scheduler;
+        _this194.windows = [];
 
-        var window = _this192.openWindow();
+        var window = _this194.openWindow();
 
         if (windowCreationInterval !== null && windowCreationInterval >= 0) {
           var closeState = {
-            subscriber: _assertThisInitialized(_this192),
+            subscriber: _assertThisInitialized(_this194),
             window: window,
             context: null
           };
           var creationState = {
             windowTimeSpan: windowTimeSpan,
             windowCreationInterval: windowCreationInterval,
-            subscriber: _assertThisInitialized(_this192),
+            subscriber: _assertThisInitialized(_this194),
             scheduler: scheduler
           };
 
-          _this192.add(scheduler.schedule(dispatchWindowClose, windowTimeSpan, closeState));
+          _this194.add(scheduler.schedule(dispatchWindowClose, windowTimeSpan, closeState));
 
-          _this192.add(scheduler.schedule(dispatchWindowCreation, windowCreationInterval, creationState));
+          _this194.add(scheduler.schedule(dispatchWindowCreation, windowCreationInterval, creationState));
         } else {
           var timeSpanOnlyState = {
-            subscriber: _assertThisInitialized(_this192),
+            subscriber: _assertThisInitialized(_this194),
             window: window,
             windowTimeSpan: windowTimeSpan
           };
 
-          _this192.add(scheduler.schedule(dispatchWindowTimeSpanOnly, windowTimeSpan, timeSpanOnlyState));
+          _this194.add(scheduler.schedule(dispatchWindowTimeSpanOnly, windowTimeSpan, timeSpanOnlyState));
         }
 
-        return _this192;
+        return _this194;
       }
 
       _createClass2(WindowTimeSubscriber, [{
@@ -102758,7 +106658,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function WindowToggleOperator(openings, closingSelector) {
-        _classCallCheck(this, WindowToggleOperator);
+        _classCallCheck2(this, WindowToggleOperator);
 
         this.openings = openings;
         this.closingSelector = closingSelector;
@@ -102779,21 +106679,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB27) {
       _inherits(WindowToggleSubscriber, _OuterSubscriber__WEB27);
 
-      var _super137 = _createSuper(WindowToggleSubscriber);
+      var _super138 = _createSuper(WindowToggleSubscriber);
 
       function WindowToggleSubscriber(destination, openings, closingSelector) {
-        var _this193;
+        var _this195;
 
-        _classCallCheck(this, WindowToggleSubscriber);
+        _classCallCheck2(this, WindowToggleSubscriber);
 
-        _this193 = _super137.call(this, destination);
-        _this193.openings = openings;
-        _this193.closingSelector = closingSelector;
-        _this193.contexts = [];
+        _this195 = _super138.call(this, destination);
+        _this195.openings = openings;
+        _this195.closingSelector = closingSelector;
+        _this195.contexts = [];
 
-        _this193.add(_this193.openSubscription = Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_3__["subscribeToResult"])(_assertThisInitialized(_this193), openings, openings));
+        _this195.add(_this195.openSubscription = Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_3__["subscribeToResult"])(_assertThisInitialized(_this195), openings, openings));
 
-        return _this193;
+        return _this195;
       }
 
       _createClass2(WindowToggleSubscriber, [{
@@ -102802,9 +106702,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var contexts = this.contexts;
 
           if (contexts) {
-            var _len42 = contexts.length;
+            var _len45 = contexts.length;
 
-            for (var i = 0; i < _len42; i++) {
+            for (var i = 0; i < _len45; i++) {
               contexts[i].window.next(value);
             }
           }
@@ -102816,10 +106716,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.contexts = null;
 
           if (contexts) {
-            var _len43 = contexts.length;
+            var _len46 = contexts.length;
             var index = -1;
 
-            while (++index < _len43) {
+            while (++index < _len46) {
               var context = contexts[index];
               context.window.error(err);
               context.subscription.unsubscribe();
@@ -102835,10 +106735,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.contexts = null;
 
           if (contexts) {
-            var _len44 = contexts.length;
+            var _len47 = contexts.length;
             var index = -1;
 
-            while (++index < _len44) {
+            while (++index < _len47) {
               var context = contexts[index];
               context.window.complete();
               context.subscription.unsubscribe();
@@ -102854,10 +106754,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.contexts = null;
 
           if (contexts) {
-            var _len45 = contexts.length;
+            var _len48 = contexts.length;
             var index = -1;
 
-            while (++index < _len45) {
+            while (++index < _len48) {
               var context = contexts[index];
               context.window.unsubscribe();
               context.subscription.unsubscribe();
@@ -102983,7 +106883,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function WindowOperator(closingSelector) {
-        _classCallCheck(this, WindowOperator);
+        _classCallCheck2(this, WindowOperator);
 
         this.closingSelector = closingSelector;
       }
@@ -103003,20 +106903,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB28) {
       _inherits(WindowSubscriber, _OuterSubscriber__WEB28);
 
-      var _super138 = _createSuper(WindowSubscriber);
+      var _super139 = _createSuper(WindowSubscriber);
 
       function WindowSubscriber(destination, closingSelector) {
-        var _this194;
+        var _this196;
 
-        _classCallCheck(this, WindowSubscriber);
+        _classCallCheck2(this, WindowSubscriber);
 
-        _this194 = _super138.call(this, destination);
-        _this194.destination = destination;
-        _this194.closingSelector = closingSelector;
+        _this196 = _super139.call(this, destination);
+        _this196.destination = destination;
+        _this196.closingSelector = closingSelector;
 
-        _this194.openWindow();
+        _this196.openWindow();
 
-        return _this194;
+        return _this196;
       }
 
       _createClass2(WindowSubscriber, [{
@@ -103133,8 +107033,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/util/subscribeToResult.js");
 
     function withLatestFrom() {
-      for (var _len46 = arguments.length, args = new Array(_len46), _key39 = 0; _key39 < _len46; _key39++) {
-        args[_key39] = arguments[_key39];
+      for (var _len49 = arguments.length, args = new Array(_len49), _key42 = 0; _key42 < _len49; _key42++) {
+        args[_key42] = arguments[_key42];
       }
 
       return function (source) {
@@ -103153,7 +107053,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function WithLatestFromOperator(observables, project) {
-        _classCallCheck(this, WithLatestFromOperator);
+        _classCallCheck2(this, WithLatestFromOperator);
 
         this.observables = observables;
         this.project = project;
@@ -103174,31 +107074,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_OuterSubscriber__WEB29) {
       _inherits(WithLatestFromSubscriber, _OuterSubscriber__WEB29);
 
-      var _super139 = _createSuper(WithLatestFromSubscriber);
+      var _super140 = _createSuper(WithLatestFromSubscriber);
 
       function WithLatestFromSubscriber(destination, observables, project) {
-        var _this195;
+        var _this197;
 
-        _classCallCheck(this, WithLatestFromSubscriber);
+        _classCallCheck2(this, WithLatestFromSubscriber);
 
-        _this195 = _super139.call(this, destination);
-        _this195.observables = observables;
-        _this195.project = project;
-        _this195.toRespond = [];
+        _this197 = _super140.call(this, destination);
+        _this197.observables = observables;
+        _this197.project = project;
+        _this197.toRespond = [];
         var len = observables.length;
-        _this195.values = new Array(len);
+        _this197.values = new Array(len);
 
         for (var i = 0; i < len; i++) {
-          _this195.toRespond.push(i);
+          _this197.toRespond.push(i);
         }
 
-        for (var _i21 = 0; _i21 < len; _i21++) {
-          var observable = observables[_i21];
+        for (var _i23 = 0; _i23 < len; _i23++) {
+          var observable = observables[_i23];
 
-          _this195.add(Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_1__["subscribeToResult"])(_assertThisInitialized(_this195), observable, observable, _i21));
+          _this197.add(Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_1__["subscribeToResult"])(_assertThisInitialized(_this197), observable, observable, _i23));
         }
 
-        return _this195;
+        return _this197;
       }
 
       _createClass2(WithLatestFromSubscriber, [{
@@ -103222,7 +107122,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "_next",
         value: function _next(value) {
           if (this.toRespond.length === 0) {
-            var args = [value].concat(_toConsumableArray(this.values));
+            var args = [value].concat(_toConsumableArray2(this.values));
 
             if (this.project) {
               this._tryProject(args);
@@ -103281,8 +107181,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/observable/zip.js");
 
     function zip() {
-      for (var _len47 = arguments.length, observables = new Array(_len47), _key40 = 0; _key40 < _len47; _key40++) {
-        observables[_key40] = arguments[_key40];
+      for (var _len50 = arguments.length, observables = new Array(_len50), _key43 = 0; _key43 < _len50; _key43++) {
+        observables[_key43] = arguments[_key43];
       }
 
       return function zipOperatorFunction(source) {
@@ -103718,12 +107618,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Subscription__WEBPAC4) {
       _inherits(Action, _Subscription__WEBPAC4);
 
-      var _super140 = _createSuper(Action);
+      var _super141 = _createSuper(Action);
 
       function Action(scheduler, work) {
-        _classCallCheck(this, Action);
+        _classCallCheck2(this, Action);
 
-        return _super140.call(this);
+        return _super141.call(this);
       }
 
       _createClass2(Action, [{
@@ -103772,17 +107672,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_AsyncAction__WEBPACK) {
       _inherits(AnimationFrameAction, _AsyncAction__WEBPACK);
 
-      var _super141 = _createSuper(AnimationFrameAction);
+      var _super142 = _createSuper(AnimationFrameAction);
 
       function AnimationFrameAction(scheduler, work) {
-        var _this196;
+        var _this198;
 
-        _classCallCheck(this, AnimationFrameAction);
+        _classCallCheck2(this, AnimationFrameAction);
 
-        _this196 = _super141.call(this, scheduler, work);
-        _this196.scheduler = scheduler;
-        _this196.work = work;
-        return _this196;
+        _this198 = _super142.call(this, scheduler, work);
+        _this198.scheduler = scheduler;
+        _this198.work = work;
+        return _this198;
       }
 
       _createClass2(AnimationFrameAction, [{
@@ -103855,12 +107755,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_AsyncScheduler__WEBP) {
       _inherits(AnimationFrameScheduler, _AsyncScheduler__WEBP);
 
-      var _super142 = _createSuper(AnimationFrameScheduler);
+      var _super143 = _createSuper(AnimationFrameScheduler);
 
       function AnimationFrameScheduler() {
-        _classCallCheck(this, AnimationFrameScheduler);
+        _classCallCheck2(this, AnimationFrameScheduler);
 
-        return _super142.apply(this, arguments);
+        return _super143.apply(this, arguments);
       }
 
       _createClass2(AnimationFrameScheduler, [{
@@ -103936,17 +107836,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_AsyncAction__WEBPACK2) {
       _inherits(AsapAction, _AsyncAction__WEBPACK2);
 
-      var _super143 = _createSuper(AsapAction);
+      var _super144 = _createSuper(AsapAction);
 
       function AsapAction(scheduler, work) {
-        var _this197;
+        var _this199;
 
-        _classCallCheck(this, AsapAction);
+        _classCallCheck2(this, AsapAction);
 
-        _this197 = _super143.call(this, scheduler, work);
-        _this197.scheduler = scheduler;
-        _this197.work = work;
-        return _this197;
+        _this199 = _super144.call(this, scheduler, work);
+        _this199.scheduler = scheduler;
+        _this199.work = work;
+        return _this199;
       }
 
       _createClass2(AsapAction, [{
@@ -104018,12 +107918,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_AsyncScheduler__WEBP2) {
       _inherits(AsapScheduler, _AsyncScheduler__WEBP2);
 
-      var _super144 = _createSuper(AsapScheduler);
+      var _super145 = _createSuper(AsapScheduler);
 
       function AsapScheduler() {
-        _classCallCheck(this, AsapScheduler);
+        _classCallCheck2(this, AsapScheduler);
 
-        return _super144.apply(this, arguments);
+        return _super145.apply(this, arguments);
       }
 
       _createClass2(AsapScheduler, [{
@@ -104093,18 +107993,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Action__WEBPACK_IMPO) {
       _inherits(AsyncAction, _Action__WEBPACK_IMPO);
 
-      var _super145 = _createSuper(AsyncAction);
+      var _super146 = _createSuper(AsyncAction);
 
       function AsyncAction(scheduler, work) {
-        var _this198;
+        var _this200;
 
-        _classCallCheck(this, AsyncAction);
+        _classCallCheck2(this, AsyncAction);
 
-        _this198 = _super145.call(this, scheduler, work);
-        _this198.scheduler = scheduler;
-        _this198.work = work;
-        _this198.pending = false;
-        return _this198;
+        _this200 = _super146.call(this, scheduler, work);
+        _this200.scheduler = scheduler;
+        _this200.work = work;
+        _this200.pending = false;
+        return _this200;
       }
 
       _createClass2(AsyncAction, [{
@@ -104244,26 +108144,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_Scheduler__WEBPACK_I) {
       _inherits(AsyncScheduler, _Scheduler__WEBPACK_I);
 
-      var _super146 = _createSuper(AsyncScheduler);
+      var _super147 = _createSuper(AsyncScheduler);
 
       function AsyncScheduler(SchedulerAction) {
-        var _this199;
+        var _this201;
 
         var now = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _Scheduler__WEBPACK_IMPORTED_MODULE_0__["Scheduler"].now;
 
-        _classCallCheck(this, AsyncScheduler);
+        _classCallCheck2(this, AsyncScheduler);
 
-        _this199 = _super146.call(this, SchedulerAction, function () {
-          if (AsyncScheduler.delegate && AsyncScheduler.delegate !== _assertThisInitialized(_this199)) {
+        _this201 = _super147.call(this, SchedulerAction, function () {
+          if (AsyncScheduler.delegate && AsyncScheduler.delegate !== _assertThisInitialized(_this201)) {
             return AsyncScheduler.delegate.now();
           } else {
             return now();
           }
         });
-        _this199.actions = [];
-        _this199.active = false;
-        _this199.scheduled = undefined;
-        return _this199;
+        _this201.actions = [];
+        _this201.active = false;
+        _this201.scheduled = undefined;
+        return _this201;
       }
 
       _createClass2(AsyncScheduler, [{
@@ -104347,17 +108247,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_AsyncAction__WEBPACK3) {
       _inherits(QueueAction, _AsyncAction__WEBPACK3);
 
-      var _super147 = _createSuper(QueueAction);
+      var _super148 = _createSuper(QueueAction);
 
       function QueueAction(scheduler, work) {
-        var _this200;
+        var _this202;
 
-        _classCallCheck(this, QueueAction);
+        _classCallCheck2(this, QueueAction);
 
-        _this200 = _super147.call(this, scheduler, work);
-        _this200.scheduler = scheduler;
-        _this200.work = work;
-        return _this200;
+        _this202 = _super148.call(this, scheduler, work);
+        _this202.scheduler = scheduler;
+        _this202.work = work;
+        return _this202;
       }
 
       _createClass2(QueueAction, [{
@@ -104430,12 +108330,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_AsyncScheduler__WEBP3) {
       _inherits(QueueScheduler, _AsyncScheduler__WEBP3);
 
-      var _super148 = _createSuper(QueueScheduler);
+      var _super149 = _createSuper(QueueScheduler);
 
       function QueueScheduler() {
-        _classCallCheck(this, QueueScheduler);
+        _classCallCheck2(this, QueueScheduler);
 
-        return _super148.apply(this, arguments);
+        return _super149.apply(this, arguments);
       }
 
       return QueueScheduler;
@@ -104488,23 +108388,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_AsyncScheduler__WEBP4) {
       _inherits(VirtualTimeScheduler, _AsyncScheduler__WEBP4);
 
-      var _super149 = _createSuper(VirtualTimeScheduler);
+      var _super150 = _createSuper(VirtualTimeScheduler);
 
       function VirtualTimeScheduler() {
-        var _this201;
+        var _this203;
 
         var SchedulerAction = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : VirtualAction;
         var maxFrames = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Number.POSITIVE_INFINITY;
 
-        _classCallCheck(this, VirtualTimeScheduler);
+        _classCallCheck2(this, VirtualTimeScheduler);
 
-        _this201 = _super149.call(this, SchedulerAction, function () {
-          return _this201.frame;
+        _this203 = _super150.call(this, SchedulerAction, function () {
+          return _this203.frame;
         });
-        _this201.maxFrames = maxFrames;
-        _this201.frame = 0;
-        _this201.index = -1;
-        return _this201;
+        _this203.maxFrames = maxFrames;
+        _this203.frame = 0;
+        _this203.index = -1;
+        return _this203;
       }
 
       _createClass2(VirtualTimeScheduler, [{
@@ -104543,22 +108443,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function (_AsyncAction__WEBPACK4) {
       _inherits(VirtualAction, _AsyncAction__WEBPACK4);
 
-      var _super150 = _createSuper(VirtualAction);
+      var _super151 = _createSuper(VirtualAction);
 
       function VirtualAction(scheduler, work) {
-        var _this202;
+        var _this204;
 
         var index = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : scheduler.index += 1;
 
-        _classCallCheck(this, VirtualAction);
+        _classCallCheck2(this, VirtualAction);
 
-        _this202 = _super150.call(this, scheduler, work);
-        _this202.scheduler = scheduler;
-        _this202.work = work;
-        _this202.index = index;
-        _this202.active = true;
-        _this202.index = scheduler.index = index;
-        return _this202;
+        _this204 = _super151.call(this, scheduler, work);
+        _this204.scheduler = scheduler;
+        _this204.work = work;
+        _this204.index = index;
+        _this204.active = true;
+        _this204.index = scheduler.index = index;
+        return _this204;
       }
 
       _createClass2(VirtualAction, [{
@@ -105668,8 +109568,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/rxjs/_esm2015/internal/util/noop.js");
 
     function pipe() {
-      for (var _len48 = arguments.length, fns = new Array(_len48), _key41 = 0; _key41 < _len48; _key41++) {
-        fns[_key41] = arguments[_key41];
+      for (var _len51 = arguments.length, fns = new Array(_len51), _key44 = 0; _key44 < _len51; _key44++) {
+        fns[_key44] = arguments[_key44];
       }
 
       return pipeFromArray(fns);
@@ -105811,7 +109711,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var subscribeToArray = function subscribeToArray(array) {
       return function (subscriber) {
-        for (var i = 0, _len49 = array.length; i < _len49 && !subscriber.closed; i++) {
+        for (var i = 0, _len52 = array.length; i < _len52 && !subscriber.closed; i++) {
           subscriber.next(array[i]);
         }
 
@@ -107342,6 +111242,599 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return _internal_operators_zipAll__WEBPACK_IMPORTED_MODULE_102__["zipAll"];
     }); //# sourceMappingURL=index.js.map
 
+    /***/
+
+  },
+
+  /***/
+  "./node_modules/tslib/tslib.es6.js":
+  /*!*****************************************!*\
+    !*** ./node_modules/tslib/tslib.es6.js ***!
+    \*****************************************/
+
+  /*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
+
+  /***/
+  function node_modulesTslibTslibEs6Js(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__extends", function () {
+      return __extends;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__assign", function () {
+      return _assign;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__rest", function () {
+      return __rest;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__decorate", function () {
+      return __decorate;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__param", function () {
+      return __param;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__metadata", function () {
+      return __metadata;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__awaiter", function () {
+      return __awaiter;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__generator", function () {
+      return __generator;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__exportStar", function () {
+      return __exportStar;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__values", function () {
+      return __values;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__read", function () {
+      return __read;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__spread", function () {
+      return __spread;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__spreadArrays", function () {
+      return __spreadArrays;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__await", function () {
+      return __await;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function () {
+      return __asyncGenerator;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function () {
+      return __asyncDelegator;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__asyncValues", function () {
+      return __asyncValues;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function () {
+      return __makeTemplateObject;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__importStar", function () {
+      return __importStar;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__importDefault", function () {
+      return __importDefault;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function () {
+      return __classPrivateFieldGet;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function () {
+      return __classPrivateFieldSet;
+    });
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+    this file except in compliance with the License. You may obtain a copy of the
+    License at http://www.apache.org/licenses/LICENSE-2.0
+    
+    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+    WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+    MERCHANTABLITY OR NON-INFRINGEMENT.
+    
+    See the Apache Version 2.0 License for specific language governing permissions
+    and limitations under the License.
+    ***************************************************************************** */
+
+    /* global Reflect, Promise */
+
+
+    var _extendStatics = function extendStatics(d, b) {
+      _extendStatics = Object.setPrototypeOf || {
+        __proto__: []
+      } instanceof Array && function (d, b) {
+        d.__proto__ = b;
+      } || function (d, b) {
+        for (var p in b) {
+          if (b.hasOwnProperty(p)) d[p] = b[p];
+        }
+      };
+
+      return _extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+      _extendStatics(d, b);
+
+      function __() {
+        this.constructor = d;
+      }
+
+      d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
+
+    var _assign = function __assign() {
+      _assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+          s = arguments[i];
+
+          for (var p in s) {
+            if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+          }
+        }
+
+        return t;
+      };
+
+      return _assign.apply(this, arguments);
+    };
+
+    function __rest(s, e) {
+      var t = {};
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+      }
+
+      if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+        if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+      }
+      return t;
+    }
+
+    function __decorate(decorators, target, key, desc) {
+      var c = arguments.length,
+          r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+          d;
+      if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+      }
+      return c > 3 && r && Object.defineProperty(target, key, r), r;
+    }
+
+    function __param(paramIndex, decorator) {
+      return function (target, key) {
+        decorator(target, key, paramIndex);
+      };
+    }
+
+    function __metadata(metadataKey, metadataValue) {
+      if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+    }
+
+    function __awaiter(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function (resolve) {
+          resolve(value);
+        });
+      }
+
+      return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+
+        function step(result) {
+          result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    }
+
+    function __generator(thisArg, body) {
+      var _ = {
+        label: 0,
+        sent: function sent() {
+          if (t[0] & 1) throw t[1];
+          return t[1];
+        },
+        trys: [],
+        ops: []
+      },
+          f,
+          y,
+          t,
+          g;
+      return g = {
+        next: verb(0),
+        "throw": verb(1),
+        "return": verb(2)
+      }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
+        return this;
+      }), g;
+
+      function verb(n) {
+        return function (v) {
+          return step([n, v]);
+        };
+      }
+
+      function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+
+        while (_) {
+          try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+
+            switch (op[0]) {
+              case 0:
+              case 1:
+                t = op;
+                break;
+
+              case 4:
+                _.label++;
+                return {
+                  value: op[1],
+                  done: false
+                };
+
+              case 5:
+                _.label++;
+                y = op[1];
+                op = [0];
+                continue;
+
+              case 7:
+                op = _.ops.pop();
+
+                _.trys.pop();
+
+                continue;
+
+              default:
+                if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+                  _ = 0;
+                  continue;
+                }
+
+                if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+                  _.label = op[1];
+                  break;
+                }
+
+                if (op[0] === 6 && _.label < t[1]) {
+                  _.label = t[1];
+                  t = op;
+                  break;
+                }
+
+                if (t && _.label < t[2]) {
+                  _.label = t[2];
+
+                  _.ops.push(op);
+
+                  break;
+                }
+
+                if (t[2]) _.ops.pop();
+
+                _.trys.pop();
+
+                continue;
+            }
+
+            op = body.call(thisArg, _);
+          } catch (e) {
+            op = [6, e];
+            y = 0;
+          } finally {
+            f = t = 0;
+          }
+        }
+
+        if (op[0] & 5) throw op[1];
+        return {
+          value: op[0] ? op[1] : void 0,
+          done: true
+        };
+      }
+    }
+
+    function __exportStar(m, exports) {
+      for (var p in m) {
+        if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+      }
+    }
+
+    function __values(o) {
+      var s = typeof Symbol === "function" && Symbol.iterator,
+          m = s && o[s],
+          i = 0;
+      if (m) return m.call(o);
+      if (o && typeof o.length === "number") return {
+        next: function next() {
+          if (o && i >= o.length) o = void 0;
+          return {
+            value: o && o[i++],
+            done: !o
+          };
+        }
+      };
+      throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+    }
+
+    function __read(o, n) {
+      var m = typeof Symbol === "function" && o[Symbol.iterator];
+      if (!m) return o;
+      var i = m.call(o),
+          r,
+          ar = [],
+          e;
+
+      try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+          ar.push(r.value);
+        }
+      } catch (error) {
+        e = {
+          error: error
+        };
+      } finally {
+        try {
+          if (r && !r.done && (m = i["return"])) m.call(i);
+        } finally {
+          if (e) throw e.error;
+        }
+      }
+
+      return ar;
+    }
+
+    function __spread() {
+      for (var ar = [], i = 0; i < arguments.length; i++) {
+        ar = ar.concat(__read(arguments[i]));
+      }
+
+      return ar;
+    }
+
+    function __spreadArrays() {
+      for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
+        s += arguments[i].length;
+      }
+
+      for (var r = Array(s), k = 0, i = 0; i < il; i++) {
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) {
+          r[k] = a[j];
+        }
+      }
+
+      return r;
+    }
+
+    ;
+
+    function __await(v) {
+      return this instanceof __await ? (this.v = v, this) : new __await(v);
+    }
+
+    function __asyncGenerator(thisArg, _arguments, generator) {
+      if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+      var g = generator.apply(thisArg, _arguments || []),
+          i,
+          q = [];
+      return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () {
+        return this;
+      }, i;
+
+      function verb(n) {
+        if (g[n]) i[n] = function (v) {
+          return new Promise(function (a, b) {
+            q.push([n, v, a, b]) > 1 || resume(n, v);
+          });
+        };
+      }
+
+      function resume(n, v) {
+        try {
+          step(g[n](v));
+        } catch (e) {
+          settle(q[0][3], e);
+        }
+      }
+
+      function step(r) {
+        r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
+      }
+
+      function fulfill(value) {
+        resume("next", value);
+      }
+
+      function reject(value) {
+        resume("throw", value);
+      }
+
+      function settle(f, v) {
+        if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]);
+      }
+    }
+
+    function __asyncDelegator(o) {
+      var i, p;
+      return i = {}, verb("next"), verb("throw", function (e) {
+        throw e;
+      }), verb("return"), i[Symbol.iterator] = function () {
+        return this;
+      }, i;
+
+      function verb(n, f) {
+        i[n] = o[n] ? function (v) {
+          return (p = !p) ? {
+            value: __await(o[n](v)),
+            done: n === "return"
+          } : f ? f(v) : v;
+        } : f;
+      }
+    }
+
+    function __asyncValues(o) {
+      if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+      var m = o[Symbol.asyncIterator],
+          i;
+      return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () {
+        return this;
+      }, i);
+
+      function verb(n) {
+        i[n] = o[n] && function (v) {
+          return new Promise(function (resolve, reject) {
+            v = o[n](v), settle(resolve, reject, v.done, v.value);
+          });
+        };
+      }
+
+      function settle(resolve, reject, d, v) {
+        Promise.resolve(v).then(function (v) {
+          resolve({
+            value: v,
+            done: d
+          });
+        }, reject);
+      }
+    }
+
+    function __makeTemplateObject(cooked, raw) {
+      if (Object.defineProperty) {
+        Object.defineProperty(cooked, "raw", {
+          value: raw
+        });
+      } else {
+        cooked.raw = raw;
+      }
+
+      return cooked;
+    }
+
+    ;
+
+    function __importStar(mod) {
+      if (mod && mod.__esModule) return mod;
+      var result = {};
+      if (mod != null) for (var k in mod) {
+        if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+      }
+      result["default"] = mod;
+      return result;
+    }
+
+    function __importDefault(mod) {
+      return mod && mod.__esModule ? mod : {
+        "default": mod
+      };
+    }
+
+    function __classPrivateFieldGet(receiver, privateMap) {
+      if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+      }
+
+      return privateMap.get(receiver);
+    }
+
+    function __classPrivateFieldSet(receiver, privateMap, value) {
+      if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
+      }
+
+      privateMap.set(receiver, value);
+      return value;
+    }
     /***/
 
   }
