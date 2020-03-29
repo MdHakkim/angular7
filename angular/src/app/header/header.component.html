@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title of the document</title>
+</head>
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col-10">
+            <h4>LOGO IMAGE APPEAR</h4>
+        </div>
+        <div class="col-1">
+            <button type="button" (click)="exploreClick()" class="btn rounded btn-sm btn-secondary">Explore</button>
+        </div>
+        <div class="col-1">
+            <button type="button" (click)="joinUsClick()" [ngClass]="['btn','rounded','btn-sm','btn-secondary']">Join us</button>
+        </div>
+    </div>
+</div>

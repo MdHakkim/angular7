@@ -1,0 +1,15 @@
+.nav-img{
+    width: 26px;
+    margin: 0px auto;
+}
+.nav-text{
+    width: 100%;
+    line-height: 1.1;
+}
+.lab-pad{
+    padding-right: 5px;
+}
+.dev-busi-pad{
+    padding-top: 10px;
+    font-size: 13px;
+}
