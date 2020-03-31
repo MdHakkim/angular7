@@ -7,7 +7,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
   CaptionName: string = "Business Logo";
-  bCaptionName: string;
+  bCaptionName: string = "Business Profile";
   isbShown: boolean = true;
   isiShown: boolean = false;
   // @ViewChild(SidepanelComponent, { static: false }) sidepanel: SidepanelComponent;
