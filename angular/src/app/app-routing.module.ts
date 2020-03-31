@@ -4,7 +4,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
-  { path: '', component: ProjectComponent},
+  { path: '', component: RegistrationComponent }, //ProjectComponent
   { path: 'joinus', component: RegistrationComponent},
 ];
 

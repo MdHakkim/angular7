@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SidepanelComponent } from './sidepanel/sidepanel.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProjectComponent,
     HeaderComponent,
     FooterComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    SidepanelComponent
   ],
   imports: [
     BrowserModule,
