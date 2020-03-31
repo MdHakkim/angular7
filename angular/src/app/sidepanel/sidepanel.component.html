@@ -1,0 +1,39 @@
+<span *ngIf="isbShown; then businessTemplate"></span>
+<span *ngIf="isiShown; then individualTemplate"></span>
+<ng-template #businessTemplate>
+    <div class="col-10 dev-pad0 mb-3 border">
+        <div class="d-block border">
+            <h5>{{CaptionName}}</h5>
+        </div>
+        <div class="d-block pt-2 pr-2 pl-2 pb-3">
+            <a href="">
+                <img class="img-fluid" src="assets/image/bg.jpg">
+            </a>
+            <a href="">Remove image</a>
+        </div>
+    </div>
+    <div class="col-10 dev-pad0 border">
+        <div class="d-block border">
+            <h5>{{businessProf}}</h5>
+        </div>
+        <div class="d-block pt-2 pr-2 pl-2 pb-3">
+            <a href="">
+                <img class="img-fluid" src="assets/image/bg.jpg">
+            </a>
+            <a href="">Remove image</a>
+        </div>
+    </div>
+</ng-template>
+<ng-template #individualTemplate>
+    <div class="col-10 dev-pad0 border">
+        <div class="d-block border">
+            <h5>{{CaptionName}}</h5>
+        </div>
+        <div class="d-block pt-2 pr-2 pl-2 pb-3">
+            <a href="">
+                <img class="img-fluid" src="assets/image/bg.jpg">
+            </a>
+            <a href="">Remove image</a>
+        </div>
+    </div>
+</ng-template>
