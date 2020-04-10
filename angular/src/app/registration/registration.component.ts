@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-// import { SidepanelComponent } from '../sidepanel/sidepanel.component';
+import { ApiServiceService } from '../api-service.service';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -11,11 +11,18 @@ export class RegistrationComponent implements OnInit {
   isbShown: boolean = true;
   isiShown: boolean = false;
   // @ViewChild(SidepanelComponent, { static: false }) sidepanel: SidepanelComponent;
-  constructor() { }
+  constructor(public restApi: ApiServiceService) {
+    // this.loadEmployee();
+   }
   ngOnInit(): void {
-    
+    // this.loadEmployee();
   }
-  
+  // loadEmployee(){
+  //    this.restApi.getRequest().subscribe((data) => {
+  //     console.log(data,"hakkim testing");
+  //     alert();
+  //   })
+  // }
   sideBarToggle(event,param){
     if(param=="B"){
       this.CaptionName = "Business Logo";

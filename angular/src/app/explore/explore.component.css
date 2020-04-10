@@ -1,0 +1,108 @@
+.dev-container{
+    max-width: 1436px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dev-flex{
+    display: flex;
+}
+.dev-linebtn{
+    width: 46px;
+    border: none;
+    background: white;
+    overflow: hidden;
+}
+.dev-img-div{
+    padding: 4em 0em 3em 0em;
+    background-color: grey;
+}
+.dev-linetop{
+    background: white;
+    height: 4px;
+    margin-bottom: 3px;
+    display: block;
+}
+.dev-line-btn{
+    background: rgb(1, 1, 148);
+}
+.dotbtn {
+    width: 4px;
+    height: 4px;
+    background: rgb(117, 115, 115);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    margin:2px 2px auto;
+}
+.dev-shap-btn{
+    width: calc(2em + -2px);
+    line-height: 1px;
+    height: calc(2em + -1px);
+    padding: 2px;
+    border: 1px solid #d8cfcf;
+}
+.dev-underine{
+    text-decoration: underline;
+}
+.dev-bgcolor{
+    background: #d9f2ee;
+}
+.dev-ml-8{
+    margin:1em 40em 1em 1em;
+}
+.dev-block{
+    display: block;
+    width:100%;
+}
+.dev-pag{
+    display: inline-block;  
+}
+.dev-tag{
+    display: inline-block;  
+    background-color: rgb(155, 234, 245);
+}
+.dev-serive{
+    width: 100%;  
+}
+.dev-pd{
+    padding-left: 26px;
+    padding-right: 26px;
+    padding-bottom: 3px;
+    line-height: 1.1;
+    margin-left: 2px;
+}
+.dev-radius-cornor{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.dev-pag{
+    margin-bottom: 4px;
+}
+.dev-group{
+    display: flex;
+}
+.dev-card{
+    display: flex;
+}
+.dev-pipeline{
+    height: 17px;
+    border-right: 1px solid black;
+    margin-left: 6px;
+    margin-right: 6px;
+    position: relative;
+    top: 5px;
+}
+.dev-pd-0{
+    padding:0px !important;
+}
+.dev-ml-2{
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+}
+.dev-pdr-1{
+    padding-right: 0px !important;
+    padding-left: 6px !important;
+}

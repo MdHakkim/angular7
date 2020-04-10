@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   exploreClick(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/explore']);
   }
   joinUsClick(){
     this.router.navigate(['/joinus']);

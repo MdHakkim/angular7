@@ -1,0 +1,32 @@
+.dev-logo{
+    width:4%;
+}
+.dev-red-color{
+    width: 14.5%;
+    padding: 5px;
+    background-color: red;
+}
+.dev-yellow-color{
+    width: 14.2%;
+    padding: 5px;
+    background-color: yellow;
+}
+.dev-green-color{
+    width: 14.2%;
+    padding: 5px;
+    background-color: green;
+}
+.dev-blue-color{
+    width: 14.2%;
+    padding: 5px;
+    background-color: blue;
+}
+.dev-lightblue-color{
+    width: 14.2%;
+    padding: 5px;
+    background-color: rgb(88, 98, 240);
+}
+.dev-exp-w{
+    width: 7em;
+    color: blue;
+}

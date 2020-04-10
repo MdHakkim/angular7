@@ -8,7 +8,10 @@ import { FooterComponent } from './footer/footer.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SidepanelComponent } from './sidepanel/sidepanel.component';
-
+import { LocationStrategy, Location, PathLocationStrategy } from '@angular/common';
+import { ExploreComponent } from './explore/explore.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,14 +19,17 @@ import { SidepanelComponent } from './sidepanel/sidepanel.component';
     HeaderComponent,
     FooterComponent,
     RegistrationComponent,
-    SidepanelComponent
+    SidepanelComponent,
+    ExploreComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

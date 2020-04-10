@@ -7,14 +7,21 @@
 </head>
 <div class="container-fluid">
     <div class="row mt-2">
-        <div class="col-10">
-            <h4>LOGO IMAGE APPEAR</h4>
+        <div class="col-9">
+            <a routerLink=""><img class="dev-logo" src="assets/image/logo.png"></a>
         </div>
-        <div class="col-1">
-            <button type="button" (click)="exploreClick()" class="btn rounded btn-sm btn-secondary">Explore</button>
+        <div class="col-3 mt-2 flex-row">
+            <button type="button" (click)="joinUsClick()" class="pull-right dev-exp-w" [ngClass]="['btn','rounded-pill','btn-sm','border','border-primary']">Join us</button>
+            <button type="button" (click)="exploreClick()" class="btn mr-2 pull-right dev-exp-w rounded-pill btn-sm border border-primary">Explore</button>
         </div>
-        <div class="col-1">
-            <button type="button" (click)="joinUsClick()" [ngClass]="['btn','rounded','btn-sm','btn-secondary']">Join us</button>
-        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="dev-red-color"></div>
+        <div class="dev-yellow-color"></div>
+        <div class="dev-green-color"></div>
+        <div class="dev-blue-color"></div>
+        <div class="dev-lightblue-color"></div>
+        <div class="dev-red-color"></div>
+        <div class="dev-yellow-color"></div>
     </div>
 </div>
