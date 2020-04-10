@@ -2,6 +2,7 @@
     max-width: 1436px;
     margin-left: auto;
     margin-right: auto;
+    min-height: 576px;
 }
 .dev-flex{
     display: flex;

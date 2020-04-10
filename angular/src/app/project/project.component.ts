@@ -41,7 +41,7 @@ export class ProjectComponent implements OnInit {
   }
 
   public indiviContent(){
-    this.restApi.get_business_Request().subscribe((response) => {
+    this.restApi.get_individual_Request().subscribe((response) => {
       this.individual = response.result;
     },
     (error) => {
