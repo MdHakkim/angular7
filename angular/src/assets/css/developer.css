@@ -8,7 +8,7 @@
     color:white;
 }
 .pd-left{
-    padding-left: 10em;
+    padding-left: 4em;
 }
 .pd-both{
     padding-left: 8em;
@@ -24,4 +24,7 @@
 }
 .dev-pad0{
     padding:0;
+}
+.container1{
+    max-width: 1200px;
 }

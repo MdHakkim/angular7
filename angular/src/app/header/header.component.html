@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title of the document</title>
 </head>
-<div class="container-fluid">
+<div class="container">
     <div class="row mt-2">
         <div class="col-9">
-            <a routerLink=""><img class="dev-logo" src="assets/image/logo.png"></a>
+            <div class="dev-logo">
+                <a routerLink="">
+                    <img class="dev-img" src="assets/image/logo.png">
+                </a>
+            </div>
         </div>
-        <div class="col-3 mt-2 flex-row">
-            <button type="button" (click)="joinUsClick()" class="pull-right dev-exp-w" [ngClass]="['btn','rounded-pill','btn-sm','border','border-primary']">Join us</button>
+        <div class="col-3 mt-3 flex-row">
+            <button type="button" (click)="joinUsClick()" class="pull-right dev-exp-w" [ngClass]="['btn','rounded-pill','btn-sm','border','border-primary']">Login</button>
             <button type="button" (click)="exploreClick()" class="btn mr-2 pull-right dev-exp-w rounded-pill btn-sm border border-primary">Explore</button>
         </div>
     </div>

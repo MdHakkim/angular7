@@ -1,5 +1,9 @@
 .dev-logo{
-    width:4%;
+    max-width: 140px;
+    display: inline-block;
+}
+.dev-img{
+    width: 100%;
 }
 .dev-red-color{
     width: 14.5%;

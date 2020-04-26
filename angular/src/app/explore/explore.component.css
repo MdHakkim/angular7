@@ -1,8 +1,5 @@
 .dev-container{
-    max-width: 1436px;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: 576px;
+    min-height: 554px;
 }
 .dev-flex{
     display: flex;
@@ -15,7 +12,7 @@
 }
 .dev-img-div{
     padding: 4em 0em 3em 0em;
-    background-color: grey;
+    background-color: #d9f2ee;
 }
 .dev-linetop{
     background: white;

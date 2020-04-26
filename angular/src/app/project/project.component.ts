@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit,OnDestroy  } from '@angular/core'
 import { ApiServiceService } from '../api-service.service';
 import { ShareDataService } from '../share-data.service';
 
@@ -14,16 +14,19 @@ export class ProjectComponent implements OnInit {
   business : (string | number)[];  
   individual : (string | number)[];  
   passArray: any = [];
-  message:string;
-  profession :string;
-  country :string;
-  area :string;
+  message:any;
+  profession :string="";
+  country :any;
+  countrylist :any;
+  area :any;
+  arealist :any;
   constructor(public restApi: ApiServiceService,private sharedata:ShareDataService) { }
   ngOnInit(): void {
     this.busiContent();
     this.indiviContent();
-    // this.sharedata.currentMessage.subscribe(message => this.message = message);
-    console.log(this.message,"share data");
+    this.searchCountry();
+    this.country=0;
+    this.area=0;
   }
 
   busiContent(){
@@ -52,13 +55,37 @@ export class ProjectComponent implements OnInit {
     )
   }
 
-  searchClick(){
+  searchClick(event,param){
+    this.passArray = [];
+    this.passArray.push(param);
     this.passArray.push(this.profession);
     this.passArray.push(this.country);
     this.passArray.push(this.area);
     this.sharedata.sendMessage(this.passArray);
-    console.log(this.passArray);
+    // console.log(this.passArray);
+    // this.sharedata.keyword=this.profession;
+    // this.sharedata.country=this.country;
+    // this.sharedata.area=this.area;
   }
+
+  routeparam(params){
+    this.sharedata.sendMessage(params);
+  }
+
+  searchCountry(){
+    this.errorMessage = "";
+    this.restApi.get_country_Request().subscribe((response) => {
+      this.countrylist = response;
+      console.log(response,"test");
+    },
+    (error) => {
+      console.error('Request failed with error')
+      this.errorMessage = error;
+      this.loading = false;
+    }
+    )
+  }
+
   setColors(){
       var style = {
         "backgroung":"lime",
@@ -68,4 +95,12 @@ export class ProjectComponent implements OnInit {
     return style;
   }
 
+  getArea(value){
+    let cntyCode= value;
+    let keyword= this.profession;
+    this.restApi.getArea(cntyCode,keyword).subscribe((response) => {
+      this.arealist = response.result;
+    })
+    this.area=0;
+  }
 }

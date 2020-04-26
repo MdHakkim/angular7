@@ -1,17 +1,24 @@
-<div class="container-fluid pl-5 pr-5">
+<div class="container">
+<div class="row"  *ngIf="showMsg">
+    <div class="col-xs-12">
+        <p class="alert alert-success">
+            {{showDbMessage}}
+        </p>
+    </div>
+    </div>
 <div class="row">
-    <div class="col-8">
-        <ul class="nav nav-pills nav-fill">
-            <li class="">
-                <a class="nav-link active" (click)="sideBarToggle($event,'B')" [style.display]="'flex'" id="home-tab" data-toggle="tab" href="#business" role="tab" aria-controls="home" aria-selected="true">
+    <div class="col-8 pl-0">
+        <ul class="nav nav-pills nav-fill border">
+            <li class="w-50">
+                <a [ngClass]="{'active':businesbool}" class="nav-link dev-radius" #businessTab (click)="sideBarToggle($event,'B')" [style.display]="'flex'"  data-toggle="tab" href="#business" role="tab" aria-controls="home" aria-selected="true">
                     <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
                     <div class="nav-text">Business
                         <span style="word-wrap: break-word;display: block;">Register as service provider</span>
                     </div>
                 </a>
             </li>
-            <li class="">
-                <a class="nav-link" (click)="sideBarToggle($event,'I')" [style.display]="'flex'" id="home-tab" data-toggle="tab" href="#individual" role="tab" aria-controls="home" aria-selected="true">
+            <li class="w-50">
+                <a [ngClass]="{'active':individubool}" class="nav-link dev-radius" #individualTab (click)="sideBarToggle($event,'I')" [style.display]="'flex'"     data-toggle="tab" href="#individual" role="tab" aria-controls="home" aria-selected="true">
                     <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
                     <div class="nav-text">Individual
                         <span style="word-wrap: break-word;display: block;">Register as service seeker</span>
@@ -20,152 +27,318 @@
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active dev-busi-pad pt-3 pb-3" id="business" role="tabpanel" aria-labelledby="business-tab">
-                <div class="form-group row">
-                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label">Business Owner :</label>
-                    <div class="col-lg-5">
-                        <input class="form-control form-control-sm" type="text" placeholder="First Name" value="">
-                    </div>
-                    <div class="col-lg-5">
-                        <input class="form-control form-control-sm" type="text" placeholder="Last Name" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Business name :</label>
-                    <div class="col-lg-10">
-                        <input class="form-control form-control-sm" placeholder="FirstName" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Contact number :</label>
-                    <div class="col-lg-3">
-                        <input class="form-control form-control-sm" placeholder="Area Cpde" type="text" value="">
-                    </div>
-                    <div class="col-lg-7">
-                        <input class="form-control form-control-sm" placeholder="Phone Number" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Email :</label>
-                    <div class="col-lg-10">
-                        <input class="form-control form-control-sm" placeholder="ex: example@gmail.com" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Address :</label>
-                    <div class="col-lg-10">
-                        <input class="form-control form-control-sm" placeholder="street Address" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-2 col-form-label form-control-label"></label>
-                    <div class="col-lg-10">
-                        <input class="form-control form-control-sm" placeholder="Street address line 2" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-2 col-form-label form-control-label"></label>
-                    <div class="col-lg-5">
-                        <input class="form-control form-control-sm" placeholder="City" type="text" value="">
-                    </div>
-                    <div class="col-lg-5">
-                        <input class="form-control form-control-sm" placeholder="State / Country" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Type of business :</label>
-                    <div class="col-lg-10">
-                        <input class="form-control form-control-sm" placeholder="Select your Business" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Message :</label>
-                    <div class="col-lg-10">
-                        <textarea rows="5" name="message2" id="message2" placeholder="Express your Services" class="form-control form-control-sm"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <h4>Choose any of our subscription plan: </h4>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
-                                Join our standard subscription ( 50 KD)-AD will be displayed on the Explore page for 1 Month.
-                            </label>
+                <div [ngClass]="{'active show':businesbool}" class="tab-pane fade dev-busi-pad pt-3 pb-3" id="business" role="tabpanel" aria-labelledby="business-tab">
+                    <form [formGroup]="checkoutForm" (ngSubmit)="submitFunc(checkoutForm.value)">
+                    <div class="form-group row">
+                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label">Business Owner :</label>
+                        <div class="col-lg-5">
+                            <input class="form-control form-control-sm" formControlName="first_name" type="text" placeholder="First Name" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" value="">
+                            <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                                <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <input class="form-control form-control-sm" formControlName="last_name" type="text" placeholder="Last Name" value="">
                         </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
-                                Join our premium subscription ( 50 KD)-AD will be displayed on the Home page for 1 Year.
-                            </label>
+                    <div class="form-group row">
+                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Business name :</label>
+                        <div class="col-lg-10">
+                            <input class="form-control form-control-sm" formControlName="business_name" placeholder="Business Name" type="text" value="">
                         </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-                            <label class="form-check-label" for="gridRadios1">
-                                I agree with the terms and condition and accept them
-                            </label>
+                    <div class="form-group row">
+                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Contact number :</label>
+                        <div class="col-lg-1 dev-pd-r0">
+                            <input class="form-control form-control-sm" formControlName="contactcode" placeholder="Country Code" type="text" value="">
+                        </div>
+                        <div class="col-lg-9">
+                            <input class="form-control form-control-sm" formControlName="phone" placeholder="Phone Number" type="text" value="">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Email :</label>
+                        <div class="col-lg-10">
+                            <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Website :</label>
+                        <div class="col-lg-10">
+                            <input class="form-control form-control-sm" formControlName="website" placeholder="http://www.domainname.com" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Address :</label>
+                        <div class="col-lg-10">
+                            <input class="form-control form-control-sm" formControlName="add1" placeholder="street Address" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label form-control-label"></label>
+                        <div class="col-lg-10">
+                            <input class="form-control form-control-sm" formControlName="add2" placeholder="Street address line 2" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label form-control-label"></label>
+                        <div class="col-lg-5">
+                            <select class="custom-select mr-sm-2 custom-select-sm" (change)="changeCity()" id="country" [(ngModel)]="country" formControlName="country" name="country">
+                                <option value="0">Choose Country</option>
+                                <option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">{{countryrow.cn_desc}}</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5 cityprnt">
+                            <select class="selectpicker form-control form-control-sm" data-live-search="true" id="city" formControlName="city" [(ngModel)]="city">
+                                <option value="0">Choose City</option>
+                                <option *ngFor="let cityrow of citylist" [value]="cityrow.city_id">{{cityrow.city_desc}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-5"></div>
+                        <label class="col-lg-2 col-form-label form-control-label"></label>
+                        <div class="col-lg-5 areaprnt">
+                            <select class="selectpicker form-control form-control-sm" data-live-search="true" id="area" formControlName="area" [(ngModel)]="area" name="area">
+                                <option value="0">Choose Area</option>
+                                <option *ngFor="let arearow of arealist" [value]="arearow.area_id">{{arearow.area_desc}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row businessprnt">
+                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Type of business :</label>
+                        <div class="col-lg-5" >
+                            <select class="selectpicker form-control form-control-sm" data-live-search="true" id="business_type" [(ngModel)]="business_type" formControlName="business_type" name="business_type">
+                                <option value="0">Choose Business</option>
+                                <option *ngFor="let businesrow of businesslist" [value]="businesrow.id">{{businesrow.desc}}</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5 serviceprnt">
+                            <select multiple class="selectpicker form-control form-control-sm" (change)="onChange($event)" data-live-search="true" id="service_id" [(ngModel)]="service_id" formControlName="service_id" name="service_id">
+                                <option value="0">Choose Service</option>
+                                <option *ngFor="let servicerow of servicelist" (click)="insertArray(servicerow.id)" [value]="servicerow.id">{{servicerow.desc}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Password :</label>
+                        <div class="col-lg-5">
+                            <input class="form-control form-control-sm" formControlName="password" placeholder="Password" type="text" value="" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="Retype-Password" type="text" [ngClass]="{ 'is-invalid': submitted && f.retypepassword.errors }"  value="">
+                            <div *ngIf="submitted && f.retypepassword.errors" class="invalid-feedback">
+                                <div *ngIf="f.retypepassword.errors.required">Confirm Password is required</div>
+                                <div *ngIf="f.retypepassword.errors.mustMatch">Passwords must match</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">About Us :</label>
+                        <div class="col-lg-10">
+                            <textarea rows="5" formControlName="remarks" placeholder="Express your Services" class="form-control form-control-sm"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <h4>Choose any of our subscription plan: </h4>
+                        </div>
+                    </div>
+                    <div *ngFor="let subscrirow of subscrilist;let i = index" class="form-group row">
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" value="{{subscrirow.id}}" (click)="checkBoxGet($event)" formControlName="subscription_{{i+1}}" name="{{dynamicname[i]}}" type="checkbox">
+                                <label class="form-check-label" for="gridCheck1">
+                                    {{subscrirow.desc}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group row">
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" [checked]="permiumyear === 'Y'" (change)="permiumyear = $event.target.checked ? 'Y' : 'N'" formControlName="subscription_2" name="permiumyear" type="checkbox">
+                                <label class="form-check-label" for="gridCheck1">
+                                    Join our premium subscription ( 50 KD)-AD will be displayed on the Home page for 1 Year.
+                                </label>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="Agree" name="agree">
+                                <label class="form-check-label" for="gridRadios1">
+                                    I agree with the terms and condition and accept them
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary btn-sm">Register Now</button>
+                        </div>
+                    </div>
+                </form>
                 </div>
-                <div class="row">
-                    <button type="button" class="btn btn-primary btn-sm">Register Now</button>
+                <div [ngClass]="{'active show':individubool}" class="tab-pane fade dev-busi-pad pt-3 pb-3" id="individual" role="tabpanel" aria-labelledby="individual-tab">
+                    <form [formGroup]="individualForm" (ngSubmit)="submitIndividual(individualForm.value)">
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label">Person Name :</label>
+                            <div class="col-lg-5">
+                                <input class="form-control form-control-sm" formControlName="first_name" type="text" placeholder="First Name" [ngClass]="{ 'is-invalid': insubmitted && i.first_name.errors }" value="">
+                                <div *ngIf="insubmitted && i.first_name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <input class="form-control form-control-sm" formControlName="last_name" type="text" placeholder="Last Name" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Type of Profession :</label>
+                            <div class="col-lg-5 businessprnt">
+                                <!-- <input class="form-control form-control-sm" formControlName="business_name" placeholder="Business Name" type="text" value=""> -->
+                                <select class="selectpicker form-control form-control-sm" data-live-search="true" id="business_type" [(ngModel)]="ind_business_type" formControlName="business_type" name="ind_business_type">
+                                    <option value="0">Choose Profession</option>
+                                    <option *ngFor="let businesrow of businesslist" [value]="businesrow.id">{{businesrow.desc}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-5">
+                                <select class="custom-select mr-sm-2 custom-select-sm" id="gender" [(ngModel)]="gender" formControlName="gender" name="gender">
+                                    <option value="0">Gender</option>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Contact number :</label>
+                            <div class="col-lg-1 dev-pd-r0">
+                                <input class="form-control form-control-sm" formControlName="contactcode" placeholder="Country Code" type="text" value="">
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control form-control-sm" formControlName="phone" placeholder="Phone Number" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Email :</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Website :</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" formControlName="website" placeholder="http://www.domainname.com" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Address :</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" formControlName="add1" placeholder="street Address" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label form-control-label"></label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" formControlName="add2" placeholder="Street address line 2" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label form-control-label"></label>
+                            <div class="col-lg-5">
+                                <select class="custom-select mr-sm-2 custom-select-sm" (change)="changeCity()" id="country" [(ngModel)]="ind_country" formControlName="country" name="ind_country">
+                                    <option value="0">Choose Country</option>
+                                    <option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">{{countryrow.cn_desc}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-5 cityprnt">
+                                <select class="selectpicker form-control form-control-sm" data-live-search="true" id="city" formControlName="city" [(ngModel)]="ind_city" name="ind_city">
+                                    <option value="0">Choose City</option>
+                                    <option *ngFor="let cityrow of citylist" [value]="cityrow.city_id">{{cityrow.city_desc}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-5"></div>
+                            <label class="col-lg-2 col-form-label form-control-label"></label>
+                            <div class="col-lg-5 areaprnt">
+                                <select class="selectpicker form-control form-control-sm" data-live-search="true" id="area" formControlName="area" [(ngModel)]="ind_area" name="ind_area">
+                                    <option value="0">Choose Area</option>
+                                    <option *ngFor="let arearow of arealist" [value]="arearow.area_id">{{arearow.area_desc}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row businessprnt">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Type of Service :</label>
+                            
+                            <div class="col-lg-5 serviceprnt">
+                                <select multiple class="selectpicker form-control form-control-sm" (change)="onChange($event)" data-live-search="true" id="service_id" [(ngModel)]="ind_service_id" formControlName="service_id" name="ind_service_id">
+                                    <option value="0">Choose Service</option>
+                                    <option *ngFor="let servicerow of servicelist" (click)="insertArray(servicerow.id)" [value]="servicerow.id">{{servicerow.desc}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">Password :</label>
+                            <div class="col-lg-5">
+                                <input class="form-control form-control-sm" formControlName="password" placeholder="Password" type="text" value="" [ngClass]="{ 'is-invalid': insubmitted && i.password.errors }" >
+                                <div *ngIf="insubmitted && i.password.errors" class="invalid-feedback">
+                                    <div *ngIf="i.password.errors.required">Password is required</div>
+                                    <div *ngIf="i.password.errors.minlength">Password must be at least 6 characters</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="Retype-Password" type="text" [ngClass]="{ 'is-invalid': insubmitted && i.retypepassword.errors }"  value="">
+                                <div *ngIf="insubmitted && i.retypepassword.errors" class="invalid-feedback">
+                                    <div *ngIf="i.retypepassword.errors.required">Confirm Password is required</div>
+                                    <div *ngIf="i.retypepassword.errors.mustMatch">Passwords must match</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label">About Us :</label>
+                            <div class="col-lg-10">
+                                <textarea rows="5" formControlName="remarks" placeholder="Express your Services" class="form-control form-control-sm"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10"> 
+                                <h4>Choose any of our subscription plan: </h4>
+                            </div>
+                        </div>
+                        <div *ngFor="let subscrirow of subscrilist;let i = index" class="form-group row">
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input"  formControlName="subscription_{{i+1}}" name="{{dynamicname[i]}}" type="checkbox">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        {{subscrirow.desc}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="Agree" name="agree">
+                                    <label class="form-check-label" for="gridRadios1">
+                                        I agree with the terms and condition and accept them
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary btn-sm">Register Now</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <div class="tab-pane fade dev-busi-pad pt-3 pb-3" id="individual" role="tabpanel" aria-labelledby="individual-tab">
-                <div class="form-group row">
-                    <div class="col-lg-6">
-                        <input class="form-control form-control-sm" placeholder="First Name" type="text" value="">
-                    </div>
-                    <div class="col-lg-6">
-                        <input class="form-control form-control-sm" placeholder="Last Name" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-lg-6">
-                        <input class="form-control form-control-sm" placeholder="Type of profession" type="text" value="">
-                    </div>
-                    <div class="col-lg-6">
-                        <input class="form-control form-control-sm" placeholder="Gender" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-lg-6">
-                        <input class="form-control form-control-sm" placeholder="Email" type="text" value="">
-                    </div>
-                    <div class="col-lg-6">
-                        <input class="form-control form-control-sm" placeholder="Phone" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-lg-6">
-                        <input class="form-control form-control-sm" placeholder="Password" type="text" value="">
-                    </div>
-                    <div class="col-lg-6">
-                        <input class="form-control form-control-sm" placeholder="Location" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-lg-6">
-                        <input class="form-control form-control-sm" placeholder="Retype Password" type="text" value="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label [ngClass]="'lab-pad-ind'" class="col-lg-1 col-form-label form-control-label">Message :</label>
-                    <div class="col-lg-11">
-                        <textarea rows="5" name="message2" placeholder="Express your job" id="message2" class="form-control form-control-sm"></textarea>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="col-4">
@@ -173,7 +346,7 @@
         <!-- <div class="col-10 dev-pad0 border">
             <div class="d-block border">
                 <h5>Business Profile</h5>
-            </div>
+            </div>  
             <div class="d-block pt-2 pr-2 pl-2 pb-3">
                 <a href="">
                     <img class="img-fluid" src="assets/image/bg.jpg">

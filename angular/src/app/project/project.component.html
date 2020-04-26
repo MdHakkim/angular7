@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row pt-3 pb-3 bg-lightblue dev-white">
-        <div class="col-6 pd-left">
+        <div class="col-5 pd-left">
             <div class="row pt-3 justify-content-start rounded bg-darkblue">
                 <div class="col">
                     <h5 class="text-center">What are you looking for</h5>
@@ -10,21 +10,26 @@
                                 placeholder="Professions / Services">
                         </div>
                         <div class="form-group">
-                            <input type="text" [(ngModel)]="country" name="country" class="form-control" id="country"
-                                placeholder="Country">
+                            <select class="custom-select mr-sm-2" (change)="getArea($event.target.value)" id="country" [(ngModel)]="country" name="country">
+                                <option [ngValue]="0">Choose Country</option>
+                                <option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">{{countryrow.cn_desc}}</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" [(ngModel)]="area" name="area" class="form-control" id="area"
-                                placeholder="Area">
+                            <select class="custom-select mr-sm-2" id="area" [(ngModel)]="area" name="area">
+                                <option [ngValue]="0">Choose Area</option>
+                                <option *ngFor="let arearow of arealist" [value]="arearow.id">{{arearow.desc}}</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <a (click)="searchClick()" [routerLink]="['explore']" type="submit" class="btn btn-primary">Search Now</a>
-                            <a [routerLink]="['explore']" type="submit" class="btn btn-primary float-right">Advance Search</a>
+                            <a (click)="searchClick($event,'S')" [routerLink]="['explore']" type="submit" class="btn btn-primary">Search Now</a>
+                            <a (click)="searchClick($event,'A')" [routerLink]="['explore']" type="submit" class="btn btn-primary float-right">Advance Search</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <div class="col-1"></div>
         <div class="col-6 pd-both">
             <div class="mb-2">
                 <h5 class="mb-6 mb-3">Smart Seach</h5>
@@ -34,26 +39,26 @@
             </div>
             <div class="col">
                 <div class="float-right mb-3">
-                    if you are Company : <button type="submit" [routerLink]="['joinus']"
+                    if you are Company : <button type="submit" [routerLink]="['joinus']" (click)="routeparam('B')"
                         class="btn text-center btn-sm dev-butsize bg-darkblue dev-color text-right">Express Your <br>
                         Services</button>
                 </div>
             </div>
             <div class="col">
                 <div class="float-right">
-                    if you are an Individual : <button type="submit" [routerLink]="['joinus']"
+                    if you are an Individual : <button type="submit" [routerLink]="['joinus']" (click)="routeparam('A')"
                         class="btn btn-sm text-center dev-butsize bg-darkblue dev-color text-right">Express Your <br>
                         Job</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row mr-2 ml-2">
+    <div class="row">
         <div class="col mr-2">
             <div class="col text-center">
                 <h3>Business</h3>
             </div>
-            <div *ngFor="let busirow of business;" class="row pb-3 mb-2 border border-dark">
+            <div *ngFor="let busirow of business;" class="row pb-3 mb-2 border border-dark dev-minH">
                 <div class="col-2 pt-3"><img class="w-100" [src]="busirow.image"></div>
                 <div class="col-10">
                     <h4 class="text-center dev-pdr">{{busirow.display_name}}</h4>
@@ -65,7 +70,7 @@
             <div class="col text-center">
                 <h3>Individuals</h3>
             </div>
-            <div *ngFor="let indivirow of individual;" class="row pb-3 mb-2 border border-dark">
+            <div *ngFor="let indivirow of individual;" class="row pb-3 mb-2 border border-dark dev-minH">
                 <div class="col-2 pt-3"><img class="w-100" [src]="indivirow.image"></div>
                 <div class="col-10">
                     <h4 class="text-center dev-pdr">{{indivirow.display_name}}</h4>
@@ -74,7 +79,7 @@
             </div>
         </div>
     </div>
-    <div class="row m-2">
+    <div class="row pb-2">
         <div class="col border border-dark p-5">
             <h2>AD</h2>
         </div>

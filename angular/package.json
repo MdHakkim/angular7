@@ -23,9 +23,12 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "bootstrap": "^4.4.1",
+    "bootstrap-select": "^1.13.13",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
+    "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
+    "rxjs-compat": "^6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
