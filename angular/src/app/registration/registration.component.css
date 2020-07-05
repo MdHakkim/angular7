@@ -22,3 +22,26 @@
 .dev-pd-r0{
     padding-right:0px;
 }
+.dev-pd-lf{
+    padding-left: 38px;
+    margin-top: 10px;
+}
+.originalSubmit{ display: block; }
+.duplicateSubmit{ 
+    display: none; 
+    
+}
+@media (max-width: 800px) { 
+    .originalSubmit{ display: none; }
+    .duplicateSubmit{ display: block; }
+    .dev-pd-lf{ padding-left: 0px; }
+    .dev-pd-r0{
+        padding-right: 4%;
+    }
+}
+
+@media (max-width: 420px) { 
+    .dev-pd-r0{
+        padding-right: 4%;
+    }
+}

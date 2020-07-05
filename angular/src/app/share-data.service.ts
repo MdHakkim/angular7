@@ -11,6 +11,11 @@ export class ShareDataService {
   keyword:string;
   country:string;
   area:string;
+  private customSubject = new Subject<any>();
+  customObservable = this.customSubject.asObservable();
+  callComponentMethod(value:any) {
+    this.customSubject.next(value);
+  }
   // private subject = new Subject<any>();
   // message$ = this.subject.asObservable();
   // getMessage(): Observable<any> {

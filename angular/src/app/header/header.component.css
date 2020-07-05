@@ -32,5 +32,27 @@
 }
 .dev-exp-w{
     width: 7em;
+    margin-bottom: 0px;
     color: blue;
+    padding: 8px 4px 8px 4px;
+}
+.dev-menu{
+    text-align: right;
+}
+.dev-tp{
+    margin-top: 1em;
+}
+.dev-btn{
+    border-color: rgb(88, 98, 240);
+    color: blue;
+}
+@media (max-width: 800px) { 
+    .dev-menu{ text-align: justify; }
+    .dev-logo{ margin-top: 22px; }
+    /* .dev-tp{ margin-top: 1em; } */
+}
+@media (max-width: 450px) { 
+    .dev-menu{ text-align: justify; }
+    .dev-logo{ margin-top: 22px; }
+    .dev-tp{ margin-top: 2em; }
 }

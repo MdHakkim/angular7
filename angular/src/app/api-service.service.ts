@@ -21,11 +21,53 @@ export class ApiServiceService {
   api_subscription_URL = 'http://api.shrekat.com/api/subscription_list?id=';
   api_servicelist_URL = 'http://api.shrekat.com/api/available_service?id=';
   api_area_lov_URL = 'http://api.shrekat.com/api/all_area_in_city?id=';
+  api_login_URL = 'http://api.shrekat.com/api/login/verify';
+  api_editprofile_URL = 'http://api.shrekat.com/api/portal/edit_profile?email=';
+  api_updateprofile_URL = 'http://api.shrekat.com/api/portal/update_profile';
+  api_contact_URL = 'http://api.shrekat.com/api/from_website_contact';
+  api_footerPage_URL = 'http://api.shrekat.com/api/page/';
+  api_geoLocation_URL = 'http://api.shrekat.com/api/geo_info';
   headers = new HttpHeaders({
     'Content-Type': 'application/json' });
   options = { headers: this.headers };
+  login(logindata): Observable<any>{
+    return this.httpClient.post<any>(this.api_login_URL,logindata,this.options).
+    pipe(
+      retry(1),catchError(this.handleError)
+    )
+  }
+  updateProfile(logindata): Observable<any>{
+    return this.httpClient.post<any>(this.api_updateprofile_URL,logindata,this.options).
+    pipe(
+      retry(1),catchError(this.handleError)
+    )
+  }
+  contactForm(contactform): Observable<any>{
+    return this.httpClient.post<any>(this.api_contact_URL,contactform,this.options).
+    pipe(
+      retry(1),catchError(this.handleError)
+    )
+  }
+  geoLocation(): Observable<any>{
+    return this.httpClient.get(this.api_geoLocation_URL).
+    pipe(
+      retry(1),catchError(this.handleError)
+    )
+  }
+  footerPage(params): Observable<any>{
+    return this.httpClient.get(this.api_footerPage_URL+params).
+    pipe(
+      retry(1),catchError(this.handleError)
+    )
+  }
+  fetch_editProfile(email,token): Observable<any>{
+    return this.httpClient.get(this.api_editprofile_URL+email+'&token='+token).
+    pipe(
+      retry(1),catchError(this.handleError)
+    )
+  }
   submitRegistration(formData): Observable<any>{
-    console.log(formData,"amhere");
+    // console.log(formData,"amhere");
     return this.httpClient.post<any>(this.api_register_URL,formData,this.options).
     pipe(
       retry(1),catchError(this.handleError)
@@ -67,15 +109,15 @@ export class ApiServiceService {
       retry(1),catchError(this.handleError)
     )
   }
-  fetch_search_Request(keyword,countrylov,category): Observable<any>{
+  fetch_search_Request(countrylov,keyword,category): Observable<any>{
     return this.httpClient.get(this.api_search_URL+countrylov+'&keyword='+keyword+'&area=&category='+category).
     pipe(
       retry(1),catchError(this.handleError)
     )
   }
 
-  fetch_advancesearch_Request(countryAdv,keyword,serviceAdv,areaAdv,categoryAdv,genderAdv,onlineYN,profileYN): Observable<any>{
-    return this.httpClient.get(this.api_search_URL+countryAdv+'&keyword='+keyword+'&service='+serviceAdv+'&area='+areaAdv+'&category='+categoryAdv+'&gender='+genderAdv+'&online_appoint_yn='+onlineYN+'&_image='+profileYN).
+  fetch_advancesearch_Request(countryAdv,keyword,serviceAdv,areaAdv,categoryAdv,genderAdv,onlineYN,profileYN,orderby,showpost): Observable<any>{
+    return this.httpClient.get(this.api_search_URL+countryAdv+'&keyword='+keyword+'&service='+serviceAdv+'&area='+areaAdv+'&category='+categoryAdv+'&gender='+genderAdv+'&online_appoint_yn='+onlineYN+'&_image='+profileYN+'&order_by='+orderby+'&show_post='+showpost).
     pipe(
       retry(1),catchError(this.handleError)
     )
@@ -126,7 +168,7 @@ export class ApiServiceService {
       
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(errorMessage);
+    console.log(errorMessage);
     return throwError(errorMessage);
  }
 }

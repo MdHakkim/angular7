@@ -3,6 +3,8 @@
 }
 .dev-flex{
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 .dev-linebtn{
     width: 46px;
@@ -11,8 +13,14 @@
     overflow: hidden;
 }
 .dev-img-div{
-    padding: 4em 0em 3em 0em;
-    background-color: #d9f2ee;
+    width: 100px;
+    /* background-color: #e3dfdf3b; */
+}
+.dev-setFlex{
+    display: flex;
+    width: 100%;
+    height: 6em;
+    margin: 4px 0px 0px 4px;
 }
 .dev-linetop{
     background: white;
@@ -20,8 +28,13 @@
     margin-bottom: 3px;
     display: block;
 }
-.dev-line-btn{
-    background: rgb(1, 1, 148);
+
+.showActive{
+    background: rgb(1, 1, 148) !important;
+    border-color: blue !important;
+}
+.showActive .dotbtn{
+    background: white;
 }
 .dotbtn {
     width: 4px;
@@ -47,7 +60,7 @@
     background: #d9f2ee;
 }
 .dev-ml-8{
-    margin:1em 40em 1em 1em;
+    margin:0.5em 40em 0.5em 0em;
 }
 .dev-block{
     display: block;
@@ -66,6 +79,25 @@
 .dev-pd{
     padding-left: 26px;
     padding-right: 26px;
+    padding-bottom: 3px;
+    line-height: 1.1;
+    margin-left: 2px;
+}
+.dev-mx-h{
+    padding-bottom: 14px;
+}
+.dev-dynm-h{
+    height: 11em;
+    padding-bottom: 14px;
+}
+.dev-left-data{
+    width: 100%;
+    display: block;
+    padding-left: 12px;
+}
+.dev-tag-pd{
+    padding-left: 14px;
+    padding-right: 14px;
     padding-bottom: 3px;
     line-height: 1.1;
     margin-left: 2px;
@@ -103,4 +135,31 @@
 .dev-pdr-1{
     padding-right: 0px !important;
     padding-left: 6px !important;
+}
+.dev-panel{
+    display: flex;
+    padding:0px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.dev-line-btn{
+    background: #ababab;
+}
+.dev-button{
+    box-shadow: 1px 2px 2px 0px #bab9b9;
+    cursor: pointer;
+    
+}
+
+@media (max-width: 420px) { 
+    .dev-sm{ padding-right: 6px !important; }
+    .dev-bgcolor{ padding: 4px;}
+    .dev-flex{ margin:0px; }
+    .dev-panel{ margin:4px; }
+    .dev-pdr-0{
+        padding-right: 0 !important;
+    }
+    .dev-pd1-0{
+        padding-right: 0 !important;
+    }
 }

@@ -1,19 +1,17 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
 .bg-lightblue{
     background-color: #4D79FF;
 }
 .bg-darkblue{
     background-color: #002699;
 }
+.bg-darkblue a{
+    color: white;
+}
 .dev-white{
     color:white;
 }
-.pd-left{
-    padding-left: 4em;
-}
-.pd-both{
-    padding-left: 8em;
-    padding-right: 8em;
-}
+
 .dev-color{
     color:white;
     line-height: 1.1;
@@ -27,4 +25,18 @@
 }
 .container1{
     max-width: 1200px;
+}
+.dev-container{
+    min-height: 548px;
+}
+.pageContent{
+    word-wrap: anywhere;
+}
+
+.sortClass .ng-select .ng-select-container{
+    min-height: 10px !important;
+}
+
+.sortClass .ng-select.ng-select-single .ng-select-container{
+    height: 31px !important;
 }

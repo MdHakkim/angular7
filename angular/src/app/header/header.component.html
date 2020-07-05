@@ -7,19 +7,42 @@
 </head>
 <div class="container">
     <div class="row mt-2">
-        <div class="col-9">
+        <div class="col-6">
             <div class="dev-logo">
                 <a routerLink="">
                     <img class="dev-img" src="assets/image/logo.png">
                 </a>
             </div>
         </div>
-        <div class="col-3 mt-3 flex-row">
-            <button type="button" (click)="joinUsClick()" class="pull-right dev-exp-w" [ngClass]="['btn','rounded-pill','btn-sm','border','border-primary']">Login</button>
-            <button type="button" (click)="exploreClick()" class="btn mr-2 pull-right dev-exp-w rounded-pill btn-sm border border-primary">Explore</button>
+        <div class="col-2">
+            
+        </div>
+        <div class="col-4 dev-tp dev-menu">
+            <div class="dropdown"  style="display:inline;margin-right: 5px;">
+                <button class="btn btn-secondary rounded-pill dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-language" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" (click)="transulate('en')" type="button">En</button>
+                  <button class="dropdown-item"  (click)="transulate('ar')" type="button">Ar</button>
+                </div>
+              </div>
+            <!-- <a type="button" (click)="exploreClick()" class="btn mr-2 mb-1 dev-exp-w rounded-pill btn-sm border border-primary">Explore</a> -->
+            <a type="button" *ngIf="condition; else elseBlock" (click)="joinUsClick()" class="dev-exp-w btn rounded-pill btn-sm border border-primary">Login</a>
+            <ng-template #elseBlock>
+                <a class="dropdown">
+                    <button type="button" class="btn dev-btn rounded-pill dropdown-toggle" data-toggle="dropdown">
+                        {{userName}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" [routerLink]="['editProfile']">Edit Profile</a>
+                        <a class="dropdown-item" (click)="logout()">Logout</a>
+                    </div>
+                </a>
+            </ng-template>
         </div>
     </div>
-    <div class="row mb-2">
+    <div class="row mb-2 mt-2">
         <div class="dev-red-color"></div>
         <div class="dev-yellow-color"></div>
         <div class="dev-green-color"></div>

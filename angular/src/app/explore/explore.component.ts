@@ -1,9 +1,10 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit,OnDestroy,ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from '../api-service.service';
 import { ShareDataService } from '../share-data.service';
 import { Subscription } from "rxjs";
-
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+declare var $:any;
 @Component({
   selector: 'app-explore',
   templateUrl: './explore.component.html',
@@ -16,15 +17,15 @@ export class ExploreComponent implements OnInit {
   country : string[]; 
   passArray: any;
   Keyword : string="";
-  countrylov : string;
+  countrylov : any;
   area : string;
   category : string;
   service : string;
-  serviceAdv : string="";
-  countryAdv : any="";
-  areaAdv : string="";
-  categoryAdv : any="";
-  genderAdv : string="";
+  serviceAdv : string;
+  countryAdv : any;
+  areaAdv : string;
+  categoryAdv : any;
+  genderAdv : string;
   language:string;
   noneAdv:string;
   onlineYN:string="N";
@@ -32,52 +33,64 @@ export class ExploreComponent implements OnInit {
   private subscription :Subscription;
   private subscrib :Subscription;
   flag:string;
-  constructor(private restApi: ApiServiceService,private sharedata:ShareDataService,private route: ActivatedRoute, private router: Router) {
+  orderby:string;
+  showpost:string;  
+  showPdf:any;
+  geoLocation = localStorage.getItem("geoLocation");
+  constructor(private restApi: ApiServiceService,private sharedata:ShareDataService,private route: ActivatedRoute, private router: Router,private _elementRef : ElementRef,private sanitizer: DomSanitizer) {
     
    }
   
    async ngOnInit(){
-    await this.searchCountry();
-    // this.searchContent();
-    // this.searchArea();
-    await this.searchService();
-    this.category="0";
-    this.subscription = await this.sharedata.getMessage().subscribe(
+    this.orderby="";
+    this.showpost="";
+    this.searchService();
+    this.searchCountry().then(()=>{
+    this.subscription=this.sharedata.getMessage().subscribe(
     (data) =>{ 
       if(data.length>0){
-        console.log(data,"testing me");
+        console.log(data,"Innser me");
           this.flag = data[0];
           this.Keyword = data[1];
           this.countrylov = data[2];
           this.countryAdv = data[2];
-          this.getArea(this.countryAdv);
-          this.areaAdv = data[3];
+          this.getArea(this.countryAdv,'AS');
+          setTimeout(() => {
+            this.areaAdv = data[3];
+          },100);
           if(this.flag=='S'){
             document.getElementById('searchButton').click();
           }else{
             document.getElementById('advanceSeach').click();
           }
       }else{
-        this.countrylov='0';
-        this.countryAdv='0';
+        this.countrylov=Number(this.geoLocation);
+        this.countryAdv=Number(this.geoLocation);
+        this.getArea(event,'A');
       }
       },error => {
         console.log("EE:",error);
-      });    
+      });
+    });
+  }
+  ngAfterViewInit() {
+    
   }
 
   searchCountry(){
     this.errorMessage = "";
-    this.restApi.get_country_Request().subscribe((response) => {
-      this.country = response;
-      this.countryAdv='0';
-    },
-    (error) => {
-      console.error('Request failed with error')
-      this.errorMessage = error;
-      this.loading = false;
-    }
-    )
+      return new Promise((resolve, reject) => {        
+        this.restApi.get_country_Request().subscribe((response) => {
+          this.country = response;
+          resolve();
+        },
+        (error) => {
+          console.error('Request failed with error')
+          this.errorMessage = error;
+          this.loading = false;
+        }
+      );
+    });
   }
   
   searchService(){
@@ -109,8 +122,6 @@ export class ExploreComponent implements OnInit {
   servicelist(id){
     this.errorMessage = "";
     this.subscription.unsubscribe();
-    alert(id);
-    
     let returnlists = [];
     this.subscrib=this.restApi.get_servicelist_Request(id).subscribe((response) => {
       
@@ -124,39 +135,93 @@ export class ExploreComponent implements OnInit {
       this.loading = false;
     }, () => this.subscrib.unsubscribe()
     )
-    // this.subscrib.unsubscribe();  
     return returnlists;
   }
 
-  searchInformation(){
+  // searchInformation(){
+  //   let category = this.category;
+  //   let keyword = this.Keyword;
+  //   console.log(category,"CHECK DEINFE");
+  //   if(category==undefined){
+  //     category = "";
+  //   }
+  //   this.errorMessage = "";
+  //   this.subscription = this.restApi.fetch_search_Request(this.countrylov,this.Keyword,category).subscribe((response) => {
+  //     this.searchData = response.result;
+  //     console.log(response,"google");
+  //   })
+  // }
+
+  advanceSearch(param=''){
+    this.errorMessage = "";
     let category = this.category;
-    if(category=='0'){
+    let gender = this.genderAdv;
+    let service = this.serviceAdv;
+    if(param==''){
+      var country = this.countryAdv;
+    }else{
+      var country = this.countrylov;
+    }
+    if(category==undefined){
       category = "";
     }
-    this.errorMessage = "";
-    this.subscription = this.restApi.fetch_search_Request(this.Keyword,this.countrylov,category).subscribe((response) => {
+    if(gender==undefined){
+      gender = "";
+    }
+    if(service==undefined){
+      service = "";
+    }
+    let area = (this.areaAdv==null? '' : this.areaAdv)
+    this.restApi.fetch_advancesearch_Request(country,this.Keyword,service,area,category,gender,this.onlineYN,this.profileYN,this.orderby,this.showpost).subscribe((response) => {
       this.searchData = response.result;
       console.log(response,"google");
     })
   }
 
-  advanceSearch(){
-    console.log(this.Keyword,"keyowrd");
-    this.errorMessage = "";
-    this.restApi.fetch_advancesearch_Request(this.countryAdv,this.Keyword,this.serviceAdv,this.areaAdv,this.categoryAdv,this.genderAdv,this.onlineYN,this.profileYN).subscribe((response) => {
-      this.searchData = response.result;
-      console.log(response,"google");
-    })
+  categoryChange(){
+    this.category=this.category;
   }
-
-  getArea(value){
-    let cntyCode= value;
-    let keyword= this.Keyword;
-    this.restApi.getArea(cntyCode,keyword).subscribe((response) => {
+  restArea(){
+    this.areaAdv=null;
+    let cntyCode= this.countrylov;
+    this.countryAdv=cntyCode;
+    this.restApi.getArea(cntyCode,'').subscribe((response) => {
       this.area = response.result;
+    });
+  }
+  getArea(event,param){
+    let cntyCode= this.countryAdv;
+    this.countrylov=cntyCode;
+    this.areaAdv=null;
+    let areadesc = ((param=='A' || param=='AS')  ? '' :event.target.value);
+    this.restApi.getArea(cntyCode,areadesc).subscribe((response) => {
+      this.area = response.result;
+    },(err) => console.error(err),()=>{
+     
     })
   }
-
+  getModel(params){
+    console.log(params,"stest");
+    this.showPdf=this.sanitizer.bypassSecurityTrustResourceUrl(<string>params);
+  }
+  changeArea(){
+    this.areaAdv=this.areaAdv;
+  }
+  advanceClick(){
+      
+  }
+  acitveClass=true;
+  acitveSplit=false;
+  gridView($param){
+    if($param=='SP'){
+      this.acitveSplit=true;
+      this.acitveClass=false;
+    }else{
+      this.acitveClass=true;
+      this.acitveSplit=false;
+    }
+    
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

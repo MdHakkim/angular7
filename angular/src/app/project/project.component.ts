@@ -1,6 +1,8 @@
-import { Component, OnInit,OnDestroy  } from '@angular/core'
+import { Component, OnInit,OnDestroy,ElementRef  } from '@angular/core'
 import { ApiServiceService } from '../api-service.service';
 import { ShareDataService } from '../share-data.service';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+declare var $:any;
 
 @Component({
   selector: 'app-project',
@@ -8,7 +10,7 @@ import { ShareDataService } from '../share-data.service';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-  srcImage ="assets/image/bgimg.jpg";
+  srcImage ="/assets/image/bgimg.jpg";
   errorMessage;
   loading: boolean = false;
   business : (string | number)[];  
@@ -20,15 +22,37 @@ export class ProjectComponent implements OnInit {
   countrylist :any;
   area :any;
   arealist :any;
-  constructor(public restApi: ApiServiceService,private sharedata:ShareDataService) { }
+  geoLocation:any;
+  showPdf:any;
+  // oneTimeCall:boolean=false;
+  // geoLocationStart:boolean=false;
+  constructor(public restApi: ApiServiceService,private sharedata:ShareDataService,private _elementRef : ElementRef,private sanitizer: DomSanitizer) { 
+    
+  }
   ngOnInit(): void {
+    this.errorMessage = "";
+    const geoLocation = localStorage.getItem("geoLocation");
+    if(geoLocation==null){
+      this.restApi.geoLocation().subscribe((response) => {
+        let countryDefult = response.result.country_code;
+        this.country= Number(countryDefult);
+        localStorage.setItem('geoLocation', countryDefult);
+      },
+      (error) => {
+        console.error('Request failed with error');
+        this.errorMessage = error;
+      });
+    }
     this.busiContent();
     this.indiviContent();
     this.searchCountry();
-    this.country=0;
-    this.area=0;
+    this.geoLocation = localStorage.getItem("geoLocation");
+    this.country= Number(this.geoLocation);
+    this.getArea(event,'A');
   }
-
+  ngAfterViewInit() {
+    
+  }
   busiContent(){
     this.errorMessage = "";
     this.restApi.get_business_Request().subscribe((response) => {
@@ -54,7 +78,10 @@ export class ProjectComponent implements OnInit {
     }
     )
   }
-
+  getModel(params){
+    console.log(params,"stest");
+    this.showPdf=this.sanitizer.bypassSecurityTrustResourceUrl(<string>params);
+  }
   searchClick(event,param){
     this.passArray = [];
     this.passArray.push(param);
@@ -62,10 +89,17 @@ export class ProjectComponent implements OnInit {
     this.passArray.push(this.country);
     this.passArray.push(this.area);
     this.sharedata.sendMessage(this.passArray);
-    // console.log(this.passArray);
-    // this.sharedata.keyword=this.profession;
-    // this.sharedata.country=this.country;
-    // this.sharedata.area=this.area;
+  }
+
+  getArea(event,param){
+    let cntyCode= this.country;
+    let areadesc = (param=='A' ? '' :event.target.value);
+    this.restApi.getArea(cntyCode,areadesc).subscribe((response) => {
+      this.area=null;
+      this.arealist = response.result;
+    },(err) => console.error(err),()=>{
+      
+    })
   }
 
   routeparam(params){
@@ -95,12 +129,4 @@ export class ProjectComponent implements OnInit {
     return style;
   }
 
-  getArea(value){
-    let cntyCode= value;
-    let keyword= this.profession;
-    this.restApi.getArea(cntyCode,keyword).subscribe((response) => {
-      this.arealist = response.result;
-    })
-    this.area=0;
-  }
 }
