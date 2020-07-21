@@ -1,0 +1,222 @@
+<div class="container dev-container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-5">
+            <h4 translate="">Search_result</h4>
+        </div>
+        <div class="col-sm-6 col-md-2 col-lg-2  dev-pdr-1 dev-sm mb-2 sortClass"> 
+            <ng-select placeholder="{{'Choose_Area' | translate}}" (change)="advanceSearch('ALL');changeArea()" (keyup)="getArea($event,'')" name="areaAdv" [searchable]="true" [clearable]="true" [(ngModel)]="areaAdv">
+                <ng-option *ngFor="let arearow of area" [value]="arearow.id">
+                    {{arearow.desc}}
+                </ng-option>
+            </ng-select>
+        </div>
+        <div class="col-sm-6 col-md-2 col-lg-2 dev-pdr-1 dev-sm mb-2"> 
+            <select class="custom-select custom-select-sm mr-sm-2" (change)="advanceSearch('ALL')" [(ngModel)]="orderby">
+                <option value="" translate="">Order_by</option>
+                <option value="A-Z">A-Z</option>
+                <option value="Z-A">Z-A</option>
+            </select>
+        </div>
+        <div class="col-sm-6 col-md-2 col-lg-2 dev-pdr-1 dev-sm mb-2"> 
+            <select class="custom-select custom-select-sm mr-sm-2" (change)="advanceSearch('ALL')" [(ngModel)]="showpost">
+                <option value="" translate="">Show_post</option>
+                <option value="latest">New Posts</option>
+                <option value="oldest">Old Posts</option>
+            </select>
+        </div>
+        
+        <div (click)="gridView('SP')" [ngClass]="{'showActive':acitveSplit==true}" class="dev-shap-btn ar-btnleft rounded ml-2 mb-2 dev-button">
+            <span class="dotbtn"></span>
+            <span class="dotbtn"></span>
+            <span class="dotbtn"></span>
+            <span class="dotbtn"></span>
+            <span class="dotbtn"></span>
+            <span class="dotbtn"></span>
+            <span class="dotbtn"></span>
+            <span class="dotbtn"></span>
+            <span class="dotbtn"></span>
+        </div>
+        <button (click)="gridView('FU')" [ngClass]="{'showActive':acitveClass==true}" type="button" class="dev-shap-btn dev-line-btn rounded ml-2 dev-button">
+            <span class="dev-linetop"></span>
+            <span class="dev-linetop"></span>
+            <span class="dev-linetop m-0"></span>
+        </button>
+    </div>
+    <div class="row">
+        <div class="pt-3 pb-3 dev-flex col-lg-12 dev-bgcolor">
+            <div class="col-sm-6 col-md-6 col-lg-3 dev-pdr-1 mb-2">
+                <input class="form-control" placeholder="{{'Keyword' | translate}}" [(ngModel)]="Keyword" type="text">
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 dev-pdr-1 mb-2">
+                <ng-select placeholder="Choose Country" [searchable]="true" [clearable]="true" (change)="restArea()" [(ngModel)]="countrylov">
+                    <ng-option *ngFor="let countryrow of country" [value]="countryrow.cn_id">
+                        {{countryrow.cn_desc}}
+                    </ng-option>
+                </ng-select>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 dev-pdr-1 mb-2">
+                <ng-select placeholder="{{'Choose_category' | translate}}" [searchable]="true" (change)="categoryChange()" [clearable]="true" [(ngModel)]="category">
+                    <ng-option value="INDIVIDUAL">Individual</ng-option>
+                    <ng-option value="COMPANY">Company</ng-option>
+                </ng-select>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 mt-1">
+                <button type="button" (click)="advanceSearch('ALL')" id="searchButton" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                <a data-toggle="modal" data-target="#advanceModel" (click)="advanceClick()" id="advanceSeach" class="dev-underine ml-2" translate="">Advance_Search</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let searchrow of searchData" [ngClass]="(acitveClass)? 'col-lg-9':'col-lg-4'" class="col-sm-12 col-md-12 p-0">
+            <div class="dev-panel border rounded mr-1">
+                <div class="col-12 dev-pd-0">
+                    <div class="dev-setFlex">
+                        <div class="dev-img-div rounded-circle">
+                            <img class="w-100 rounded-circle" [src]="searchrow.image">
+                        </div>
+                        <div class="dev-left-data">
+                            <div class="rounded"><span class="border dev-pd dev-radius rounded dev-tag">{{searchrow.display_name}}</span></div>
+                            <div class="rounded"><span class="border dev-pd dev-radius rounded dev-tag">{{searchrow.org_type}}</span><span class="border dev-pd dev-tag rounded dev-radius">{{searchrow.business_type}}</span></div>
+                        </div>
+                    </div>
+                    <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
+                        <h5>{{searchrow.remarks | slice:0:50}}</h5>
+                        <div class="dev-serive">
+                            <p class="dev-pag" translate="">Serives_Provided</p>
+                            <span *ngFor="let servicerow of searchrow.service" class="dev-tag border dev-radius-cornor dev-tag-pd">{{servicerow.service_name}}</span>
+                        </div>
+                    </div>
+                    <div class="dev-block pl-2">
+                        <ul class="list-unstyled">
+                            <li class="input-group"><p class="dev-pag"><i class="fa fa-phone" aria-hidden="true"></i> {{searchrow.ph_no}}</p></li>
+                            <li class="input-group"><p class="dev-pag"><i class="fa fa-envelope" aria-hidden="true"></i> {{searchrow.email}}</p></li>
+                            <li class="input-group"><p class="dev-pag"><i class="fa fa-map-marker" aria-hidden="true"></i> {{searchrow.area}}</p></li>
+                            <li class="input-group"><p class="dev-pag">
+                                <button type="button" data-toggle="modal" (click)="getModel(searchrow.portfolio)" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm" translate="">Portfolio</button>
+                            </li>
+                        </ul>
+                        <div class="dev-link">
+                            <!-- <input type="hidden" value="{{busirow.portfolio}}" [(ngModel)]="get"> -->
+                            
+                        </div>
+                        <div class="dev-card border-top pl-2 pt-2">
+                            <p>No. of Views : <span>65</span></p>
+                            <div class="dev-pipeline"></div>
+                            <p>Member since : <span>17/6/2018</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="PortfolioModel" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" translate="">Portfolio_Detail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <iframe class="embed-responsive-item" style="width: 100%;height: 30em;" [src]="showPdf" allowfullscreen></iframe>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="modal" id="advanceModel">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" translate="">Advance_Search</h5>
+                <button type="button" class="close dev-modelClass" data-dismiss="modal">×</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group row">
+                            <label class="col-lg-12 col-form-label" translate="">Filter_by_service</label>
+                            <div class="col-lg-12">
+                                <!-- <ng-select placeholder="{{'Choose_service' | translate }}" (keyup)="searchService($event)" name="serviceAdv" [searchable]="true" [clearable]="true" [(ngModel)]="serviceAdv" > -->
+                                    <ng-select placeholder="{{'Choose_service' | translate}}" (keyup)="searchService($event)" name="serviceAdv" [searchable]="true" [clearable]="true" [(ngModel)]="serviceAdv" [ngModelOptions]="{standalone: true}">
+                                    <ng-option *ngFor="let servicerow of service" [value]="servicerow.id">
+                                        {{servicerow.desc_new}}
+                                    </ng-option>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group row">
+                            <label class="col-lg-12 col-form-label" translate="">Filter_by_location</label>
+                            <div class="col-lg-6 pr-1 dev-pdr-0 mb-2">
+                                <ng-select placeholder="Choose Country" (change)="getArea($event,'A')" name="countryAdv" [searchable]="true" [clearable]="true" [(ngModel)]="countryAdv">
+                                    <ng-option *ngFor="let countryrow of country" [value]="countryrow.cn_id">
+                                        {{countryrow.cn_desc}}
+                                    </ng-option>
+                                </ng-select>
+                            </div>
+                            <div class="col-lg-6 pl-0 dev-pdl-0">
+                                <ng-select placeholder="{{'Choose_area' | translate }}" (change)="changeArea()" (keyup)="getArea($event,'')" name="areaAdv" [searchable]="true" [clearable]="true" [(ngModel)]="areaAdv">
+                                    <ng-option *ngFor="let arearow of area" [value]="arearow.id">
+                                        {{arearow.desc}}
+                                    </ng-option>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group row">
+                            <label class="col-lg-12 col-form-label" translate="">Filter_by_category</label>
+                            <div class="col-lg-12">
+                                <ng-select placeholder="{{'Choose_category' | translate }}" (change)="categoryChange()" name="category" [searchable]="true" [clearable]="true" [(ngModel)]="category">
+                                    <ng-option value="INDIVIDUAL">Individual</ng-option>
+                                    <ng-option value="COMPANY">Company</ng-option>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group row">
+                            <label class="col-lg-12 col-form-label" translate="">Filter_by_gender</label>
+                            <div class="col-lg-12">
+                                <ng-select placeholder="{{'Choose_Gender' | translate }}" name="genderAdv" [searchable]="true" [clearable]="true" [(ngModel)]="genderAdv">
+                                    <ng-option value="M">Male</ng-option>
+                                    <ng-option value="F">Female</ng-option>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group row">
+                            <label class="col-lg-12 col-form-label" translate="">Misc</label>
+                            <div class="col-lg-6">
+                                <div class="form-check form-check-inline mb-3">
+                                    <input type="checkbox" class="form-check-input" id="onlineYN" [checked]="onlineYN === 'Y'" 
+                                    (change)="onlineYN = $event.target.checked ? 'Y' : 'N'"  name="onlineYN">
+                                    <label class="form-check-label" for="customCheck" translate="">Online_Appointment</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-check form-check-inline mb-3">
+                                    <input type="checkbox" class="form-check-input" id="profileYN" [checked]="profileYN === 'Y'" 
+                                    (change)="profileYN = $event.target.checked ? 'Y' : 'N'"  name="profileYN">
+                                    <label class="form-check-label" for="customCheck" translate="">With_Profile_Photo</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="advanceSearch('')" data-dismiss="modal" class="btn btn-primary" translate="">Search</button>
+              </div>
+        </div>
+    </div>
+</div>

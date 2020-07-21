@@ -1,0 +1,15 @@
+body{
+    direction: ltr;
+}
+.dev-rigth{
+    margin-right: auto;
+}
+.dev-pd-r0{
+    padding-right:0px;
+}
+.buttonBottom{
+    margin-bottom: 3px;
+}
+@media (max-width: 480px) { 
+    .buttonCreate{ margin-left: -5px;}
+}

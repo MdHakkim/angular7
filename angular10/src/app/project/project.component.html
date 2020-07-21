@@ -1,0 +1,114 @@
+<div class="bg-lightblue dev-white">
+    <div class="container">
+        <div class="row pt-3 pb-3">
+            <div class="col-sm-12 col-md-6 col-lg-5 pd-2">
+                <div class="col pt-3 pb-2 rounded bg-darkblue">
+                    <!-- <div class="col"> -->
+                        <h5 translate class="text-center">What_are_you_looking_for</h5>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="profession" name="profession" class="form-control" id="profession"
+                                    placeholder="{{ 'Professions_Services' | translate }}">
+                            </div>
+                            <div class="form-group">
+                                <ng-select placeholder="Choose Country" bindLabel="countrylist" bindValue="countrylist"  (change)="getArea($event,'A')" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country">
+                                    <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
+                                        {{countryrow.cn_desc}}
+                                    </ng-option>
+                                </ng-select>
+                            </div>
+                            <div class="form-group areaprnt">
+                                <ng-select placeholder="{{ 'Choose_Area' | translate }}" (keyup)="getArea($event,'')" name="area" [searchable]="true" [clearable]="true" [(ngModel)]="area">
+                                    <ng-option *ngFor="let arearow of arealist" [value]="arearow.id">
+                                        {{arearow.desc}}
+                                    </ng-option>
+                                </ng-select>
+                            </div>
+                            <div class="form-group dev-flex">
+                                <a (click)="searchClick($event,'S')" [routerLink]="['explore']" type="submit" class="btn btn-primary dev-rigth ar-rigth" translate>Search_Now</a>
+                                <a (click)="searchClick($event,'A')" [routerLink]="['explore']" type="submit" class="btn btn-primary" translate>Advance_Search</a>
+                            </div>
+                        </form>
+                    <!-- </div> -->
+                </div>
+            </div>
+            <!-- <div class="col-sm-0 col-md-0 col-lg-1"></div> -->
+            <div class="col-sm-12 col-md-6 col-lg-7 pd-both">
+                <div class="mb-2">
+                    <h5 translate class="mb-6 mb-3">Smart_Search</h5>
+                </div>
+                <div class="mb-5">
+                    <p translate>Shrekat_is_built_to_search_smart_and_fastest_in_providing_your_search_results</p>
+                </div>
+                <div class="dev-col mb-3">
+                    <span style="display: inline-block;min-width: 10em;" translate>If_you_are_company</span> : <button type="submit" [routerLink]="['joinus']" (click)="routeparam('B')" class="btn text-center btn-sm dev-butsize bg-darkblue dev-color text-right" translate>Express_Your_Services</button>
+                </div>
+                <div class="dev-col">
+                    <span style="display: inline-block;min-width: 10em;" translate>If_you_are_an_Individual</span> : <button type="submit" [routerLink]="['joinus']" (click)="routeparam('A')" class="btn btn-sm text-center dev-butsize bg-darkblue dev-color text-right" translate>Express_Your_Job</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 pr-4 dev-mb">
+            <div class="col text-center">
+                <h3 translate>Business</h3>
+            </div>
+            <div *ngFor="let busirow of business;" class="row pb-3 mb-2 border border-dark">
+                <div class="col-2 pt-3"><img class="w-100" [src]="busirow.image"></div>
+                <div class="col-10 dev-minH">
+                    <h4 class="text-center dev-pdr">{{busirow.display_name}}</h4>
+                    <p class="m-0">{{busirow.remarks}}</p>
+                </div>
+                <div class="dev-link">
+                    <!-- <input type="hidden" value="{{busirow.portfolio}}" [(ngModel)]="get"> -->
+                    <button type="button" data-toggle="modal" (click)="getModel(busirow.portfolio)" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm">Portfolio</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-6 dev-mb">
+            <div class="col text-center">
+                <h3 translate>Individual</h3>
+            </div>
+            <div *ngFor="let indivirow of individual;" class="row pb-3 mb-2 border border-dark">
+                <div class="col-2 pt-3"><img class="w-100" [src]="indivirow.image"></div>
+                <div class="col-10 dev-minH">
+                    <h4 class="text-center dev-pdr">{{indivirow.display_name}}</h4>
+                   <p class="m-0">{{indivirow.remarks}}</p> 
+                </div>
+                <div class="dev-link"><button type="button" data-toggle="modal" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm">Portfolio</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-2">
+        <div class="col border border-dark p-5">
+            <h2>AD</h2>
+        </div>
+        <div class="col border border-dark p-5">
+            <h2>AD</h2>
+        </div>
+        <div class="col border border-dark p-5">
+            <h2>AD</h2>
+        </div>
+    </div>
+    <div class="modal" id="PortfolioModel" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Portfolio Detail</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <iframe class="embed-responsive-item" style="width: 100%;height: 30em;" [src]="showPdf" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

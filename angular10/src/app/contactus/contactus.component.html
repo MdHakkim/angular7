@@ -1,0 +1,57 @@
+<div class="container dev-container">
+    <div class="row"  *ngIf="showMsg">
+        <div class="col-xs-12">
+            <p class="alert alert-success">
+                {{showDbMessage}}
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            <h5 [innerHTML]="name" translate=""></h5>
+            <div class="pageContent" translate="" [innerHTML]="paragraph"></div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            <form [formGroup]="contactForm" (ngSubmit)="submitForm(contactForm.value)">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2" translate="">Your_Name</label>
+                    <input type="text" name="user_name" formControlName="user_name" class="form-control input-sm" id="user_name"
+                        placeholder="{{ 'Your_Name' | translate }}" [ngClass]="{ 'is-invalid': submitted && f.user_name.errors }">
+                        <div *ngIf="submitted && f.user_name.errors" class="invalid-feedback">
+                            <div *ngIf="f.user_name.errors.required">Name is required</div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2" translate="">Email_Address</label>
+                    <input type="text" name="user_email" formControlName="user_email" class="form-control input-sm" id="email"
+                        placeholder="{{ 'Email_Address' | translate }}" [ngClass]="{ 'is-invalid': submitted && f.user_email.errors }">
+                        <div *ngIf="submitted && f.user_email.errors" class="invalid-feedback">
+                            <div *ngIf="f.user_email.errors.required">Email is required</div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2" translate="">Mobile</label>
+                    <input type="text" name="user_phone" formControlName="user_phone" class="form-control input-sm" id="user_phone"
+                        placeholder="{{ 'Mobile' | translate }}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2" translate="">Subject</label>
+                    <input type="text" name="user_subject" formControlName="user_subject" class="form-control input-sm" id="user_subject" placeholder="{{ 'Subject' | translate }}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2" translate="">Message</label>
+                    <textarea class="form-control" placeholder="{{ 'Message' | translate }}" formControlName="user_content" id="user_content" rows="3" [ngClass]="{ 'is-invalid': submitted && f.user_content.errors }"></textarea>
+                    <div *ngIf="submitted && f.user_content.errors" class="invalid-feedback">
+                        <div *ngIf="f.user_content.errors.required">Message is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group pull-left">
+                    <button type="submit" [disabled]="disabledButton" class="btn btn-primary float-right" translate="">send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

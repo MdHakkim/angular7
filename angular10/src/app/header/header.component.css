@@ -1,0 +1,78 @@
+.dev-logo{
+    max-width: 140px;
+    display: inline-block;
+}
+.dev-img{
+    width: 100%;
+}
+.dev-red-color{
+    width: 14.5%;
+    padding: 5px;
+    background-color: red;
+}
+.dev-yellow-color{
+    width: 14.2%;
+    padding: 5px;
+    background-color: yellow;
+}
+.dev-min{
+    min-width: 80px !important;
+}
+.dev-btn-bg{
+    background: white;
+    color: black;
+}
+.dev-green-color{
+    width: 14.2%;
+    padding: 5px;
+    background-color: green;
+}
+.dev-blue-color{
+    width: 14.2%;
+    padding: 5px;
+    background-color: blue;
+}
+.dev-lightblue-color{
+    width: 14.2%;
+    padding: 5px;
+    background-color: rgb(88, 98, 240);
+}
+.dev-exp-w{
+    width: 7em;
+    margin-bottom: 0px;
+    color: blue;
+    padding: 8px 4px 8px 4px;
+}
+.dev-menu{
+    text-align: right;
+}
+.dev-tp{
+    margin-top: 1em;
+}
+.dev-btn{
+    border-color: rgb(88, 98, 240);
+    color: blue;
+}
+.buttonCreate{
+    border:1px solid #055ee4;
+    min-width: 94px;
+    cursor: pointer;
+    color: blue;
+    text-align: center;
+    padding: 5px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+@media (max-width: 800px) { 
+    .dev-menu{ text-align: justify; }
+    .dev-logo{ margin-top: 22px; }
+    .dev-btn-bg{ margin-bottom: 2px;margin-left: 12px; }
+}
+@media (max-width: 480px) { 
+    .dev-menu{ text-align: justify; }
+    .dev-logo{ margin-top: 35px; }
+    .dev-tp{ margin-top: 2em; }
+    .dev-btn-bg{ margin-bottom: 2px;margin-left: 120px; }
+}

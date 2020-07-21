@@ -1,0 +1,36 @@
+body{
+    direction: rtl;
+    text-align: right;
+}
+.ar-right{
+    text-align: left !important;
+}
+.ar-rigth{
+    margin-left: auto !important;
+}
+.dev-pd-r0{
+    padding-right: -1px !important;
+    padding-left: 0px !important;
+}
+.ar-btnleft{
+    margin: auto;
+}
+.form-check-label{
+    margin-right:16px;
+}
+.dev-modelClass{
+    margin: 0px !important;
+}
+.lab-pad{
+    padding-right: 16px !important;
+}
+.dev-butsize{
+    width: 7em !important;
+}
+.buttonBottom{
+    margin-bottom: 3px;
+}
+@media (max-width: 480px) { 
+    .dev-btn-bg{ margin-bottom: 2px !important;margin-left: 0px !important; }
+    .buttonCreate{ margin-right: 0px;}
+}

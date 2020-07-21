@@ -1,0 +1,192 @@
+<div class="container">
+    <div class="row"  *ngIf="showMsg">
+        <div class="col-xs-12">
+            <p class="alert alert-success">
+                {{showDbMessage}}
+            </p>
+        </div>
+        </div>
+    <div class="row"><div class="col-8"><h5>{{Titlecaption}}</h5></div></div>
+    <form [formGroup]="checkoutForm" (keydown.enter)="$event.preventDefault()" (ngSubmit)="submitBusiness(checkoutForm.value)">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-8">
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label" translate="">Business_owner</label>
+                    <div class="col-lg-4 mb-2">
+                        <input class="form-control form-control-sm" formControlName="first_name" type="text" placeholder="{{'First_name' | translate }}" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" value="">
+                        <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                            <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <input class="form-control form-control-sm" formControlName="last_name" type="text" placeholder="{{'Last_name' | translate }}" value="">
+                        <input class="form-control form-control-sm" formControlName="company" type="hidden">
+                        <input class="form-control form-control-sm" formControlName="token" type="hidden">
+                        <input class="form-control form-control-sm" formControlName="image_1" type="hidden">
+                        <input class="form-control form-control-sm" formControlName="image_2" type="hidden">
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="isCompany; else isIndividual">
+                    <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Business_name</label>
+                    <div class="col-lg-8">
+                        <input class="form-control form-control-sm" formControlName="business_name" placeholder="{{ 'Business_name' | translate }}" type="text" value="">
+                    </div>
+                </div>
+                <ng-template #isIndividual>
+                    <div class="form-group row">
+                        <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Type_of_Profession</label>
+                        <div class="col-lg-4 mb-2 businessprnt">
+                            <ng-select placeholder="{{ 'Choose_Business' | translate }}" formControlName="business_type" (keyup)="getbusiness($event)" name="ind_business_type" [searchable]="true" [clearable]="true" [(ngModel)]="ind_business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
+                                <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
+                                    {{businesrow.desc}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                        <div class="col-lg-4">
+                            <ng-select placeholder="{{ 'Choose_Gender' | translate }}" formControlName="gender" name="gender" [searchable]="true" [clearable]="true" [(ngModel)]="gender">
+                                <ng-option translate="" value="M">
+                                    Male
+                                </ng-option>
+                                <ng-option translate="" value="F">
+                                    Female
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+                </ng-template>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Contact_number</label>
+                    <div class="col-lg-8">
+                        <input class="form-control form-control-sm"  formControlName="phone" placeholder="{{ 'Contact_number' | translate }}" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Email</label>
+                    <div class="col-lg-8">
+                        <input class="form-control form-control-sm" readonly formControlName="email" placeholder="ex: example@gmail.com" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Website</label>
+                    <div class="col-lg-8">
+                        <input class="form-control form-control-sm" formControlName="website" placeholder="http://www.domainname.com" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Address</label>
+                    <div class="col-lg-8">
+                        <input class="form-control form-control-sm" formControlName="add1" placeholder="{{ 'Street_address' | translate }}" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                    <div class="col-lg-8">
+                        <input class="form-control form-control-sm" formControlName="add2" placeholder="{{ 'Street_address_line' | translate }}" type="text" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                    <div class="col-lg-4 mb-2">
+                        <ng-select placeholder="Choose Country" formControlName="country" (change)="changeCity()" name="country" [searchable]="true" [clearable]="true" bindLabel="value"
+                        bindValue="value" [(ngModel)]="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                            <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
+                                {{countryrow.cn_desc}}
+                            </ng-option>
+                        </ng-select>
+                        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                            <div *ngIf="f.country.errors.required">Country is required</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 cityprnt">
+                        <ng-select placeholder="{{ 'Choose_city' | translate }}" formControlName="city" (change)="changeArea()" (keyup)="getcity($event)" name="city" [searchable]="true" [clearable]="true" [(ngModel)]="city">
+                            <ng-option *ngFor="let cityrow of citylist" [value]="cityrow.city_id">
+                                {{cityrow.city_desc}}
+                            </ng-option>
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4"></div>
+                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                    <div class="col-lg-4 areaprnt">
+                        <ng-select placeholder="{{ 'Choose_area' | translate }}" formControlName="area" (keyup)="getArea($event)" name="area" [searchable]="true" [clearable]="true" [(ngModel)]="area">
+                            <ng-option *ngFor="let arearow of arealist" [value]="arearow.area_id">
+                                {{arearow.area_desc}}
+                            </ng-option>
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">{{commoncaption}}</label>
+                    <ng-template [ngIf]="isCompany">
+                        <div class="col-lg-4 mb-2" >
+                            <ng-select placeholder="{{ 'Choose_Business' | translate }}" formControlName="business_type" (keyup)="getbusiness($event)" name="business_type" [searchable]="true" [clearable]="true" [(ngModel)]="business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
+                                <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
+                                    {{businesrow.desc}}
+                                </ng-option>
+                            </ng-select>
+                            <div *ngIf="submitted && f.business_type.errors" class="invalid-feedback">
+                                <div *ngIf="f.business_type.errors.required">Service is required</div>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <div [ngClass]="isCompany ? 'col-lg-4' : 'col-lg-8'">
+                        <ng-select placeholder="{{ 'Choose_service' | translate }}" (ngModelChange)="onChangeService($event)" (keyup)="getservice($event)" name="service_id" [searchable]="true" [clearable]="true" multiple="true" [(ngModel)]="service_id" [ngModelOptions]="{standalone: true}" bindLabel="servicelist.desc" bindValue="servicelist.id" [ngClass]="{ 'is-invalid': submitted && f.service_id.errors }">
+                            <ng-option *ngFor="let servicerow of servicelist" [value]="servicerow.id">
+                                {{servicerow.desc}}
+                            </ng-option>
+                        </ng-select>
+                        <div *ngIf="submitted && f.service_id.errors" class="invalid-feedback">
+                            <div *ngIf="f.service_id.errors.required">Service is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Add_New_Service</label>
+                    <div class="col-lg-8">
+                        <tag-input [(ngModel)]="tagservice"
+                                (onFocus)="onSelect()"                            
+                                [ngModelOptions]="{standalone: true}"
+                                [modelAsStrings]="true">
+                        </tag-input>
+                        <!-- (keyup.enter)="onSelect($event)"  -->
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">About_us</label>
+                    <div class="col-lg-8">
+                        <textarea rows="5" formControlName="remarks" placeholder="{{ 'Express_you_services' | translate }}" class="form-control form-control-sm"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="col-10 dev-pad0 mb-3 border dev-border-cir" *ngFor="let imagerow of imageArray">
+                    <div class="d-block border dev-head-bg p-1">
+                        <h6 translate="">{{imagerow.Name}}</h6>
+                    </div>
+                    <div class="d-block pt-2 pr-2 pl-2 pb-2">
+                        <div class="dev-img">
+                            <a href="javascript: void(0);" *ngIf="imagerow.Condition">
+                                <img class="img-fluid" *ngIf="imagerow.Condition=='LogoUrl'" src="{{LogoUrl}}">
+                                <!-- <img class="img-fluid"  src="{{previewUrl}}"> -->
+                                <iframe style="width: 100%;border: none;" allowTransparency="true"  frameborder="0" *ngIf="imagerow.Condition=='previewUrl'" [src]="previewUrl"></iframe>
+                            </a>
+                        </div>
+                        <div class="dev-borwser">
+                            <!-- <a class="dev-side" href="javascript: void(0);">Remove image</a> -->
+                            <a class="dev-side dev-color mt-1" href="javascript: void(0);">
+                                <input type="file" *ngIf="imagerow.Condition=='LogoUrl'" (change)="fileProgress($event,imagerow.Flag)">
+                                <input type="file" *ngIf="imagerow.Condition=='previewUrl'" accept="application/pdf" (change)="fileProgress($event,imagerow.Flag)">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-success btn-sm" translate="">update</button>
+            </div>
+        </div>
+    </form>
+</div>
