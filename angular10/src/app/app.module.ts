@@ -30,6 +30,8 @@ import { VisionMissionComponent } from './vision-mission/vision-mission.componen
 import {HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { NewPasswordComponent } from './new-password/new-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     TermsConditionComponent,
     FaqComponent,
     OurStoryComponent,
-    VisionMissionComponent
+    VisionMissionComponent,
+    NewPasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

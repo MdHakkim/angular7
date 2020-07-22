@@ -1,4 +1,4 @@
-<div class="container bg-darkblue">
+<div *ngIf="isLoggedIn | async" class="container bg-darkblue">
     <div class="row ml-1 mr-1 pt-3 dev-white">
         <div class="col-md-6 col-lg-4 justify-content-center" style="display: flex;">
             <a class="dev-foot-img" routerLink=""><img class="dev-logo" [src]="logoLang"></a>

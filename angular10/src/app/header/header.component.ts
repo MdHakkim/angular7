@@ -1,10 +1,11 @@
 import { Component, OnInit,Inject  } from '@angular/core';
 import { Router,NavigationStart } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { ShareDataService } from '../share-data.service';
 import { ApiServiceService } from '../api-service.service';
 import {TranslateService} from '@ngx-translate/core';
 import { DOCUMENT } from '@angular/common';
+// import { Observable } from "rxjs";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,6 +17,7 @@ export class HeaderComponent implements OnInit {
   languageDrop:any='';
   languageSet:any='';
   errorMessage:any;
+  isLoggedIn: Observable<boolean>;
   logoLang:any='assets/image/logo_en.png';
   constructor(public router: Router,private sharedata:ShareDataService,public restApi: ApiServiceService,private translate: TranslateService,@Inject(DOCUMENT) private document: Document) { 
     translate.setDefaultLang('en');
@@ -23,7 +25,7 @@ export class HeaderComponent implements OnInit {
     this.languageDrop='العربية';
     this.languageSet='ar';
     this.restApi.lang_code='en';
-
+    this.isLoggedIn = this.restApi.isLoggedIn();
   }
 
   ngOnInit(): void {  
@@ -69,6 +71,7 @@ export class HeaderComponent implements OnInit {
   }
   joinUsClick(){
     this.router.navigate(['/joinus']);
+    this.restApi.loginTest();
   }
   logout(){
     localStorage.removeItem('secure');

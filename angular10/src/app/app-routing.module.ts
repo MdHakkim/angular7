@@ -10,6 +10,7 @@ import { TermsConditionComponent } from './terms-condition/terms-condition.compo
 import { FaqComponent } from './faq/faq.component';
 import { OurStoryComponent } from './our-story/our-story.component';
 import { VisionMissionComponent } from './vision-mission/vision-mission.component';
+import { NewPasswordComponent } from './new-password/new-password.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'faq', component: FaqComponent},
   { path: 'ourstory', component: OurStoryComponent},
   { path: 'visionmission', component: VisionMissionComponent},
+  { path: 'createPassword', component: NewPasswordComponent },
   { path: '**', redirectTo: '/' }
 ];
 

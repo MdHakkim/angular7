@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title of the document</title>
 </head>
-<div class="container">
+<div *ngIf="isLoggedIn  | async" class="container">
     <div class="row mt-2">
         <div class="col-6">
             <div class="dev-logo">

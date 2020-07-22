@@ -9,7 +9,11 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class ApiServiceService {
   private behave = new BehaviorSubject<any[]>([]); 
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   lang_code:any='';
+  isLoggedIn(): Observable<boolean> {
+    return this.loggedIn.asObservable();
+  }
   constructor(private httpClient: HttpClient) { }
   api_busi_URL = 'http://api.shrekat.com/api/premium_home?country=1&category=COMPANY&lang_code=';
   api_indi_URL = 'http://api.shrekat.com/api/premium_home?country=1&category=INDIVIDUAL&lang_code=';
@@ -30,6 +34,7 @@ export class ApiServiceService {
   api_contact_URL = 'http://api.shrekat.com/api/from_website_contact'; // not done.
   api_footerPage_URL = 'http://api.shrekat.com/api/page/';
   api_geoLocation_URL = 'http://api.shrekat.com/api/geo_info';
+  api_forgotPass_URL = 'http://api.shrekat.com/api/forgotPassword';
   headers = new HttpHeaders({'Content-Type': 'application/json' });
   options = { headers: this.headers };
   private customSubject = new Subject<any>();
@@ -168,6 +173,12 @@ export class ApiServiceService {
       retry(1),catchError(this.handleError)
     )
   }
+  forgotPassword(getEmail): Observable<any> {
+    return this.httpClient.get(this.api_forgotPass_URL + getEmail+ '&lang_code=' + this.lang_code).
+      pipe(
+        retry(1), catchError(this.handleError)
+      )
+  }
   handleError(error) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
@@ -180,4 +191,7 @@ export class ApiServiceService {
     console.log(errorMessage);
     return throwError(errorMessage);
  }
+  loginTest(): void {
+    this.loggedIn.next(false);
+  }
 }
