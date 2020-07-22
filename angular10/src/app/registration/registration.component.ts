@@ -65,6 +65,7 @@ export class RegistrationComponent implements OnInit {
   agreeCheck:any=true;
   Agree:any='';
   geoLocation = localStorage.getItem("geoLocation");
+  emailAddresss:any="";
   //gender neeed to add.
   constructor(public restApi: ApiServiceService,private formBuilder: FormBuilder,private _elementRef : ElementRef,private sharedata:ShareDataService,private router: Router) {
     this.loginForm = this.formBuilder.group({
@@ -528,5 +529,22 @@ export class RegistrationComponent implements OnInit {
     });
   }
   // tag component 
-  
+  EmailMessage=false;
+  showWindowMessage='';
+  generatePassword(){
+    let getEmail = this.emailAddresss;
+    if(getEmail!==''){
+      this.EmailMessage = false;
+      this.restApi.forgotPassword(getEmail).subscribe((response) => {
+
+      });
+    }else{
+      this.EmailMessage = true;
+      this.showWindowMessage = 'Email verfication link send to your register email address.';
+      setTimeout(()=> {
+        this.showWindowMessage='';
+        this.EmailMessage = false;
+      }, 3000);
+    }
+  }
 }

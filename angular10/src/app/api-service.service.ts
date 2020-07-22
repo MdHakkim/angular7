@@ -30,6 +30,7 @@ export class ApiServiceService {
   api_contact_URL = 'http://api.shrekat.com/api/from_website_contact'; // not done.
   api_footerPage_URL = 'http://api.shrekat.com/api/page/';
   api_geoLocation_URL = 'http://api.shrekat.com/api/geo_info';
+  api_forgotPass_URL = 'http://api.shrekat.com/api/forgotPassword';
   headers = new HttpHeaders({'Content-Type': 'application/json' });
   options = { headers: this.headers };
   private customSubject = new Subject<any>();
@@ -167,6 +168,12 @@ export class ApiServiceService {
     pipe(
       retry(1),catchError(this.handleError)
     )
+  }
+  forgotPassword(getEmail): Observable<any> {
+    return this.httpClient.get(this.api_forgotPass_URL + getEmail+ '&lang_code=' + this.lang_code).
+      pipe(
+        retry(1), catchError(this.handleError)
+      )
   }
   handleError(error) {
     let errorMessage = '';
