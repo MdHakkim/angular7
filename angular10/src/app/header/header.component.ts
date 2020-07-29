@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit {
   }
   joinUsClick(){
     this.router.navigate(['/joinus']);
-    this.restApi.loginTest();
+    //this.restApi.loginTest();
   }
   logout(){
     localStorage.removeItem('secure');

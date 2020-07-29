@@ -36,14 +36,14 @@
                     <div class="form-group row">
                         <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Type_of_Profession</label>
                         <div class="col-lg-4 mb-2 businessprnt">
-                            <ng-select placeholder="{{ 'Choose_Business' | translate }}" formControlName="business_type" (keyup)="getbusiness($event)" name="ind_business_type" [searchable]="true" [clearable]="true" [(ngModel)]="ind_business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
+                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_Business' | translate }}" formControlName="business_type" (keyup)="getbusiness($event)" name="ind_business_type" [searchable]="true" [clearable]="true" [(ngModel)]="ind_business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
                                 <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
                                     {{businesrow.desc}}
                                 </ng-option>
                             </ng-select>
                         </div>
                         <div class="col-lg-4">
-                            <ng-select placeholder="{{ 'Choose_Gender' | translate }}" formControlName="gender" name="gender" [searchable]="true" [clearable]="true" [(ngModel)]="gender">
+                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_Gender' | translate }}" formControlName="gender" name="gender" [searchable]="true" [clearable]="true" [(ngModel)]="gender">
                                 <ng-option translate="" value="M">
                                     Male
                                 </ng-option>
@@ -87,7 +87,7 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label"></label>
                     <div class="col-lg-4 mb-2">
-                        <ng-select placeholder="Choose Country" formControlName="country" (change)="changeCity()" name="country" [searchable]="true" [clearable]="true" bindLabel="value"
+                        <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_Country' | translate }}" formControlName="country" (change)="changeCity()" name="country" [searchable]="true" [clearable]="true" bindLabel="value"
                         bindValue="value" [(ngModel)]="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
                             <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
                                 {{countryrow.cn_desc}}
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 cityprnt">
-                        <ng-select placeholder="{{ 'Choose_city' | translate }}" formControlName="city" (change)="changeArea()" (keyup)="getcity($event)" name="city" [searchable]="true" [clearable]="true" [(ngModel)]="city">
+                        <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_city' | translate }}" formControlName="city" (change)="changeArea()" (keyup)="getcity($event)" name="city" [searchable]="true" [clearable]="true" [(ngModel)]="city">
                             <ng-option *ngFor="let cityrow of citylist" [value]="cityrow.city_id">
                                 {{cityrow.city_desc}}
                             </ng-option>
@@ -109,7 +109,7 @@
                     <div class="col-lg-4"></div>
                     <label class="col-lg-3 col-form-label form-control-label"></label>
                     <div class="col-lg-4 areaprnt">
-                        <ng-select placeholder="{{ 'Choose_area' | translate }}" formControlName="area" (keyup)="getArea($event)" name="area" [searchable]="true" [clearable]="true" [(ngModel)]="area">
+                        <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_area' | translate }}" formControlName="area" (keyup)="getArea($event)" name="area" [searchable]="true" [clearable]="true" [(ngModel)]="area">
                             <ng-option *ngFor="let arearow of arealist" [value]="arearow.area_id">
                                 {{arearow.area_desc}}
                             </ng-option>
@@ -120,7 +120,7 @@
                     <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">{{commoncaption}}</label>
                     <ng-template [ngIf]="isCompany">
                         <div class="col-lg-4 mb-2" >
-                            <ng-select placeholder="{{ 'Choose_Business' | translate }}" formControlName="business_type" (keyup)="getbusiness($event)" name="business_type" [searchable]="true" [clearable]="true" [(ngModel)]="business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
+                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_Business' | translate }}" formControlName="business_type" (keyup)="getbusiness($event)" name="business_type" [searchable]="true" [clearable]="true" [(ngModel)]="business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
                                 <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
                                     {{businesrow.desc}}
                                 </ng-option>
@@ -131,7 +131,7 @@
                         </div>
                     </ng-template>
                     <div [ngClass]="isCompany ? 'col-lg-4' : 'col-lg-8'">
-                        <ng-select placeholder="{{ 'Choose_service' | translate }}" (ngModelChange)="onChangeService($event)" (keyup)="getservice($event)" name="service_id" [searchable]="true" [clearable]="true" multiple="true" [(ngModel)]="service_id" [ngModelOptions]="{standalone: true}" bindLabel="servicelist.desc" bindValue="servicelist.id" [ngClass]="{ 'is-invalid': submitted && f.service_id.errors }">
+                        <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_service' | translate }}" (ngModelChange)="onChangeService($event)" (keyup)="getservice($event)" name="service_id" [searchable]="true" [clearable]="true" multiple="true" [(ngModel)]="service_id" [ngModelOptions]="{standalone: true}" bindLabel="servicelist.desc" bindValue="servicelist.id" [ngClass]="{ 'is-invalid': submitted && f.service_id.errors }">
                             <ng-option *ngFor="let servicerow of servicelist" [value]="servicerow.id">
                                 {{servicerow.desc}}
                             </ng-option>

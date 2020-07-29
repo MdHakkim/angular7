@@ -11,14 +11,14 @@
                                     placeholder="{{ 'Professions_Services' | translate }}">
                             </div>
                             <div class="form-group">
-                                <ng-select placeholder="{{ 'Choose_Country' | translate }}" bindLabel="countrylist" bindValue="countrylist"  (change)="getArea($event,'A')" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country">
+                                <ng-select placeholder="{{ 'Choose_Country' | translate }}" bindLabel="countrylist" bindValue="countrylist" notFoundText="{{ 'No_Item_Found' | translate }}"  (change)="getArea($event,'A')" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country">
                                     <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
                                         {{countryrow.cn_desc}}
                                     </ng-option>
                                 </ng-select>
                             </div>
                             <div class="form-group areaprnt">
-                                <ng-select placeholder="{{ 'Choose_Area' | translate }}" (keyup)="getArea($event,'')" name="area" [searchable]="true" [clearable]="true" [(ngModel)]="area">
+                                <ng-select placeholder="{{ 'Choose_Area' | translate }}" notFoundText="{{ 'No_Item_Found' | translate }}" (keyup)="getArea($event,'')" name="area" [searchable]="true" [clearable]="true" [(ngModel)]="area">
                                     <ng-option *ngFor="let arearow of arealist" [value]="arearow.id">
                                         {{arearow.desc}}
                                     </ng-option>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="dev-link">
                     <!-- <input type="hidden" value="{{busirow.portfolio}}" [(ngModel)]="get"> -->
-                    <button type="button" data-toggle="modal" (click)="getModel(busirow.portfolio)" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm">Portfolio</button>
+                    <button type="button" data-toggle="modal" (click)="getModel(busirow.portfolio)" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm" translate="">Portfolio</button>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
                     <h4 class="text-center dev-pdr">{{indivirow.display_name}}</h4>
                    <p class="m-0">{{indivirow.remarks}}</p> 
                 </div>
-                <div class="dev-link"><button type="button" data-toggle="modal" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm">Portfolio</button></div>
+                <div class="dev-link"><button type="button" data-toggle="modal" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm" translate="">Portfolio</button></div>
             </div>
         </div>
     </div>
@@ -97,8 +97,8 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Portfolio Detail</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title" translate="">Portfolio_Detail</h5>
+              <button type="button" class="close dev-close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -106,7 +106,7 @@
                 <iframe class="embed-responsive-item" style="width: 100%;height: 30em;" [src]="showPdf" allowfullscreen></iframe>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" translate="">Close</button>
             </div>
           </div>
         </div>
