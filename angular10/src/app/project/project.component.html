@@ -11,7 +11,7 @@
                                     placeholder="{{ 'Professions_Services' | translate }}">
                             </div>
                             <div class="form-group">
-                                <ng-select placeholder="Choose Country" bindLabel="countrylist" bindValue="countrylist"  (change)="getArea($event,'A')" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country">
+                                <ng-select placeholder="{{ 'Choose_Country' | translate }}" bindLabel="countrylist" bindValue="countrylist"  (change)="getArea($event,'A')" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country">
                                     <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
                                         {{countryrow.cn_desc}}
                                     </ng-option>

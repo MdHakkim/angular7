@@ -25,16 +25,22 @@ export class ContactusComponent implements OnInit {
   name:any;
   paragraph:any;
   ngOnInit(): void {
+    this.generateFunction();
+    this.restApi.getLanguage().subscribe((response) => {
+      this.generateFunction();
+    });
+  }
+  generateFunction() {
     this.errorMessage = "";
     this.restApi.footerPage(6).subscribe((response) => {
       this.name = response[0].pg_name;
       this.paragraph = response[0].pg_desc;
-      console.log(response,"test");
+      console.log(response, "test");
     },
-    (error) => {
-      console.error('Request failed with error')
-      this.errorMessage = error;
-    }
+      (error) => {
+        console.error('Request failed with error')
+        this.errorMessage = error;
+      }
     )
   }
   get f() { return this.contactForm.controls; }

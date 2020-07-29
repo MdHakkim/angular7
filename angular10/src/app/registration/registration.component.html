@@ -83,7 +83,7 @@
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label form-control-label"></label>
                         <div class="col-lg-5 mb-2">
-                            <ng-select placeholder="Choose Country" formControlName="country" (change)="changeCity($event)" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country"  [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                            <ng-select placeholder="{{ 'Choose_Country' | translate }}" formControlName="country" (change)="changeCity($event)" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country"  [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
                                 <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
                                     {{countryrow.cn_desc}}
                                 </ng-option>
@@ -137,7 +137,7 @@
                     <div class="form-group row">
                         <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Add_New_Service</label>
                         <div class="col-lg-10">
-                            <tag-input [(ngModel)]="tagservice"
+                            <tag-input placeholder="{{'Add_New_Service' | translate}}" secondaryPlaceholder="{{'Add_New_Service' | translate}}" [(ngModel)]="tagservice"
                                     (onFocus)="onSelect()"     
                                     [ngModelOptions]="{standalone: true}"
                                     [modelAsStrings]="true">
@@ -218,7 +218,7 @@
                             <div class="col-lg-5 businessprnt mb-2">
                                 <ng-select placeholder="{{'Choose_business' | translate}}" formControlName="business_type" (keyup)="getbusiness($event,'AC')" name="ind_business_type" [searchable]="true" [clearable]="true" [(ngModel)]="ind_business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
                                     <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
-                                        {{businesrow.desc}}
+                                        {{businesrow.desc_new}}
                                     </ng-option>
                                 </ng-select>
                             </div>
@@ -269,7 +269,7 @@
                         <div class="form-group row">
                             <label class="col-lg-2 col-form-label form-control-label"></label>
                             <div class="col-lg-5 mb-2">
-                                <ng-select placeholder="Choose Country" formControlName="country" (change)="changeCity($event)" name="ind_country" [searchable]="true" [clearable]="true" [(ngModel)]="ind_country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                                <ng-select placeholder="{{ 'Choose_Country' | translate }}" formControlName="country" (change)="changeCity($event)" name="ind_country" [searchable]="true" [clearable]="true" [(ngModel)]="ind_country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
                                     <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
                                         {{countryrow.cn_desc}}
                                     </ng-option>
@@ -307,7 +307,7 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Add_New_Service</label>
                             <div class="col-lg-10">
-                                <tag-input [(ngModel)]="tagservice"
+                                <tag-input placeholder="{{'Add_New_Service' | translate}}" secondaryPlaceholder="{{'Add_New_Service' | translate}}" [(ngModel)]="tagservice"
                                         (onFocus)="onSelect()"                            
                                         [ngModelOptions]="{standalone: true}"
                                         [modelAsStrings]="true">

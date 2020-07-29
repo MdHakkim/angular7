@@ -48,7 +48,7 @@
                 <input class="form-control" placeholder="{{'Keyword' | translate}}" [(ngModel)]="Keyword" type="text">
             </div>
             <div class="col-sm-6 col-md-6 col-lg-3 dev-pdr-1 mb-2">
-                <ng-select placeholder="Choose Country" [searchable]="true" [clearable]="true" (change)="restArea()" [(ngModel)]="countrylov">
+                <ng-select placeholder="{{ 'Choose_Country' | translate }}" [searchable]="true" [clearable]="true" (change)="restArea()" [(ngModel)]="countrylov">
                     <ng-option *ngFor="let countryrow of country" [value]="countryrow.cn_id">
                         {{countryrow.cn_desc}}
                     </ng-option>
