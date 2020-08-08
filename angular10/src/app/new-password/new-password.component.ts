@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormArray, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { ApiServiceService } from '../api-service.service';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-new-password',
@@ -9,7 +10,8 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class NewPasswordComponent implements OnInit {
   newPassword: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+  isActive:boolean=true;
+  constructor(private formBuilder: FormBuilder, public restApi: ApiServiceService) {
     this.newPassword = this.formBuilder.group({
       password: ['', Validators.required],
       retypepassword: ['', Validators.required],
@@ -17,9 +19,15 @@ export class NewPasswordComponent implements OnInit {
       user_subject: [''],
       user_content: ['', Validators.required],
     });
+    this.restApi.loginTest();
+   }
+   Email_Address1:any='Email Address test';
+   ngOnInit(): void {
+
    }
 
-  ngOnInit(): void {
+  forgotPassword(){
+    this.isActive =false;
+    console.log(this.isActive);
   }
-
 }

@@ -55,23 +55,23 @@ export class HeaderComponent implements OnInit {
     let headTag = this.document.getElementsByTagName('head')[0];
     let existingLink = this.document.getElementById('langCss') as HTMLLinkElement;;
     let bundleName = lang === 'ar' ?  'arabic.css':'english.css';
-    if (existingLink) {
-       existingLink.href = bundleName;
-    } else {
-       const newLink = this.document.createElement('link');
-       newLink.rel = 'stylesheet';
-       newLink.type = 'text/css';
-       newLink.id = 'langCss';
-       newLink.href = bundleName;
-       headTag.appendChild(newLink);
+    if(existingLink) {
+      existingLink.href = bundleName;
+    }else {
+      const newLink = this.document.createElement('link');
+      newLink.rel = 'stylesheet';
+      newLink.type = 'text/css';
+      newLink.id = 'langCss';
+      newLink.href = bundleName;
+      headTag.appendChild(newLink);
     }
     }
   exploreClick(){
     this.router.navigate(['/explore']);
   }
   joinUsClick(){
-    this.router.navigate(['/joinus']);
-    //this.restApi.loginTest();
+    this.router.navigate(['/login']);
+    this.restApi.loginTest();
   }
   logout(){
     localStorage.removeItem('secure');

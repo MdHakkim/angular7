@@ -45,10 +45,11 @@ export class ProjectComponent implements OnInit {
     }
     this.busiContent();
     this.indiviContent();
-    this.searchCountry();
-    this.geoLocation = localStorage.getItem("geoLocation");
-    this.country= Number(this.geoLocation);
-    this.getArea(event,'A');
+    this.searchCountry().then(() => {
+      this.geoLocation = localStorage.getItem("geoLocation");
+      this.country = Number(this.geoLocation);
+      this.getArea(event, 'A');
+    });
   }
   ngAfterViewInit() {
     
@@ -108,16 +109,17 @@ export class ProjectComponent implements OnInit {
 
   searchCountry(){
     this.errorMessage = "";
-    this.restApi.get_country_Request().subscribe((response) => {
-      this.countrylist = response;
-      console.log(response,"test");
-    },
-    (error) => {
-      console.error('Request failed with error')
-      this.errorMessage = error;
-      this.loading = false;
-    }
-    )
+    return new Promise((resolve, reject) => {        
+      this.restApi.get_country_Request().subscribe((response) => {
+        this.countrylist = response;
+        resolve();
+      },
+      (error) => {
+        console.error('Request failed with error')
+        this.errorMessage = error;
+        this.loading = false;
+      })
+    });
   }
 
   setColors(){
