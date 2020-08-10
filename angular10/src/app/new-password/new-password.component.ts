@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormArray, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { ApiServiceService } from '../api-service.service';
 import { Subscription, Observable } from 'rxjs';
-
+import { Router, NavigationStart } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
@@ -11,23 +12,87 @@ import { Subscription, Observable } from 'rxjs';
 export class NewPasswordComponent implements OnInit {
   newPassword: FormGroup;
   isActive:boolean=true;
-  constructor(private formBuilder: FormBuilder, public restApi: ApiServiceService) {
+  activePlace:any=true;
+  loginActive:any=true;
+  forgotActive:boolean=true;
+  contentActive:boolean=true;
+  signCaption: string ="Sign Up";
+  LoginCaption: string ='Login';
+  getMailValue:any='';
+  showWindowMessage:string;
+  activePassword:boolean=false;
+  elseContent:boolean=false;
+  EmailValidation:boolean=false;
+  signUpActive: boolean=true;
+  submitted: boolean = false;
+  faiconLogin ='<i class="fa fa-user"></i>';
+  constructor(private routeParam: ActivatedRoute,public router: Router,private formBuilder: FormBuilder, public restApi: ApiServiceService) {
     this.newPassword = this.formBuilder.group({
-      password: ['', Validators.required],
-      retypepassword: ['', Validators.required],
-      user_phone: [''],
-      user_subject: [''],
-      user_content: ['', Validators.required],
+      user_password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     });
     this.restApi.loginTest();
    }
-   Email_Address1:any='Email Address test';
+   
    ngOnInit(): void {
-
+    this.routeParam.params.subscribe(params => {
+      if (params.id!=''){
+        this.forgotActive = false;
+        this.contentActive = false;
+        this.activePassword=true;
+        this.signUpActive=false;
+        this.LoginCaption='New Password';
+        this.faiconLogin ='<i class="fa fa-lock" aria-hidden="true"></i>';
+      }
+    });
    }
-
+  faIconHtml ='<i class="fa fa-lock" aria-hidden="true"></i>';
   forgotPassword(){
-    this.isActive =false;
-    console.log(this.isActive);
+    this.elseContent = true;
+    this.contentActive = false;
+    this.loginActive=false;
+    this.forgotActive=false;
+    this.activePlace = false;
+    this.signCaption = "Reset Password";
+    this.faIconHtml ='<i class="fa fa-user" aria-hidden="true"></i>';
+  }
+  signUp(){
+    if(!this.activePlace){
+      let emailAdd = { user_email: this.getMailValue };
+      this.restApi.forgotPassword(emailAdd).subscribe((response) => {
+        console.log(response, "test");
+        this.showWindowMessage = response.msg;
+        this.EmailValidation = true;
+        // if (response.error_no!=0){
+        setTimeout(() => {
+          this.showWindowMessage='';
+          this.EmailValidation = false;
+        }, 3000);
+      }, (err) => console.error(err), () => {
+      });
+    }else{
+      this.restApi.loginTest(true);
+      this.router.navigate(['/joinus']);
+    }
+  }
+  
+  submitBusiness(formData) {
+    console.log(formData, "testing methods");
+    this.submitted = true;
+    if (this.newPassword.invalid) {
+      return false;
+    }
+    this.restApi.createNewPassword(formData).subscribe((response) => {
+      console.log(response, "BUIS");
+      if (response.error_no == 0) {
+       
+      } else {
+       
+      }
+    }, err => {
+     
+    }, () => {
+      
+    });
   }
 }

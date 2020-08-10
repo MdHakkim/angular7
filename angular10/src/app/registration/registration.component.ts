@@ -531,20 +531,20 @@ export class RegistrationComponent implements OnInit {
   // tag component 
   EmailMessage=false;
   showWindowMessage='';
-  generatePassword(){
-    let getEmail = this.emailAddresss;
-    if(getEmail!==''){
-      this.EmailMessage = false;
-      this.restApi.forgotPassword(getEmail).subscribe((response) => {
+  // generatePassword(){
+  //   let getEmail = this.emailAddresss;
+  //   if(getEmail!==''){
+  //     this.EmailMessage = false;
+  //     this.restApi.forgotPassword(getEmail).subscribe((response) => {
 
-      });
-    }else{
-      this.EmailMessage = true;
-      this.showWindowMessage = 'Email verfication link send to your register email address.';
-      setTimeout(()=> {
-        this.showWindowMessage='';
-        this.EmailMessage = false;
-      }, 3000);
-    }
-  }
+  //     });
+  //   }else{
+  //     this.EmailMessage = true;
+  //     this.showWindowMessage = 'Email verfication link send to your register email address.';
+  //     setTimeout(()=> {
+  //       this.showWindowMessage='';
+  //       this.EmailMessage = false;
+  //     }, 3000);
+  //   }
+  // }
 }
