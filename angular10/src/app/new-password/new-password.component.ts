@@ -16,6 +16,7 @@ export class NewPasswordComponent implements OnInit {
   loginActive:any=true;
   forgotActive:boolean=true;
   contentActive:boolean=true;
+  activeLogin:boolean=true;
   signCaption: string ="Sign Up";
   LoginCaption: string ='Login';
   getMailValue:any='';
@@ -25,6 +26,7 @@ export class NewPasswordComponent implements OnInit {
   EmailValidation:boolean=false;
   signUpActive: boolean=true;
   submitted: boolean = false;
+  redirectContent:boolean=false;
   faiconLogin ='<i class="fa fa-user"></i>';
   constructor(private routeParam: ActivatedRoute,public router: Router,private formBuilder: FormBuilder, public restApi: ApiServiceService) {
     this.newPassword = this.formBuilder.group({
@@ -36,9 +38,11 @@ export class NewPasswordComponent implements OnInit {
    
    ngOnInit(): void {
     this.routeParam.params.subscribe(params => {
-      if (params.id!=''){
+      console.log(params,"tesing methods");
+      if (params.id.length>0){
         this.forgotActive = false;
         this.contentActive = false;
+        this.activeLogin=false;
         this.activePassword=true;
         this.signUpActive=false;
         this.LoginCaption='New Password';
@@ -49,7 +53,8 @@ export class NewPasswordComponent implements OnInit {
   faIconHtml ='<i class="fa fa-lock" aria-hidden="true"></i>';
   forgotPassword(){
     this.elseContent = true;
-    this.contentActive = false;
+    this.contentActive = true;
+    this.activeLogin=false;
     this.loginActive=false;
     this.forgotActive=false;
     this.activePlace = false;
@@ -58,6 +63,7 @@ export class NewPasswordComponent implements OnInit {
   }
   signUp(){
     if(!this.activePlace){
+      console.log(this.getMailValue,"Hakkim");
       let emailAdd = { user_email: this.getMailValue };
       this.restApi.forgotPassword(emailAdd).subscribe((response) => {
         console.log(response, "test");
@@ -84,15 +90,25 @@ export class NewPasswordComponent implements OnInit {
     }
     this.restApi.createNewPassword(formData).subscribe((response) => {
       console.log(response, "BUIS");
-      if (response.error_no == 0) {
-       
-      } else {
-       
+      if(response.error_no == 0) {
+       this.redirectContent=true;
+      }else{
+        this.showWindowMessage = response.msg;
+        this.EmailValidation = true;
       }
+      setTimeout(() => {
+        this.showWindowMessage='';
+        this.EmailValidation = false;
+      }, 3000);
     }, err => {
      
     }, () => {
       
     });
+  }
+
+  getLoginPage(){
+    this.redirectContent=false;
+    this.router.navigate(['/login']);
   }
 }
