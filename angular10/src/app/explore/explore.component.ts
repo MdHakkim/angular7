@@ -38,8 +38,11 @@ export class ExploreComponent implements OnInit {
   showPdf:any;
   geoLocation = localStorage.getItem("geoLocation");
   constructor(private restApi: ApiServiceService,private sharedata:ShareDataService,private route: ActivatedRoute, private router: Router,private _elementRef : ElementRef,private sanitizer: DomSanitizer) {
-    
-   }
+    this.restApi.getLanguage().subscribe((response) => {
+      this.searchCountry();
+      this.restArea();
+    });  
+  }
   
    async ngOnInit(){
     this.orderby="";
@@ -72,9 +75,6 @@ export class ExploreComponent implements OnInit {
         console.log("EE:",error);
       });
     });
-    // this.restApi.getLanguage().subscribe((response) => {
-    //   this.searchService();
-    // });
   }
   ngAfterViewInit() {
     
@@ -142,20 +142,6 @@ export class ExploreComponent implements OnInit {
     )
     return returnlists;
   }
-
-  // searchInformation(){
-  //   let category = this.category;
-  //   let keyword = this.Keyword;
-  //   console.log(category,"CHECK DEINFE");
-  //   if(category==undefined){
-  //     category = "";
-  //   }
-  //   this.errorMessage = "";
-  //   this.subscription = this.restApi.fetch_search_Request(this.countrylov,this.Keyword,category).subscribe((response) => {
-  //     this.searchData = response.result;
-  //     console.log(response,"google");
-  //   })
-  // }
 
   advanceSearch(param=''){
     this.errorMessage = "";

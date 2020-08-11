@@ -176,8 +176,8 @@
                             <label class="col-lg-12 col-form-label" translate="">Filter_by_category</label>
                             <div class="col-lg-12">
                                 <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_category' | translate }}" (change)="categoryChange()" name="category" [searchable]="true" [clearable]="true" [(ngModel)]="category">
-                                    <ng-option value="INDIVIDUAL">Individual</ng-option>
-                                    <ng-option value="COMPANY">Company</ng-option>
+                                    <ng-option value="INDIVIDUAL" translate="">Individual</ng-option>
+                                    <ng-option value="COMPANY" translate="">Company</ng-option>
                                 </ng-select>
                             </div>
                         </div>
@@ -187,8 +187,8 @@
                             <label class="col-lg-12 col-form-label" translate="">Filter_by_gender</label>
                             <div class="col-lg-12">
                                 <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_Gender' | translate }}" name="genderAdv" [searchable]="true" [clearable]="true" [(ngModel)]="genderAdv">
-                                    <ng-option value="M">Male</ng-option>
-                                    <ng-option value="F">Female</ng-option>
+                                    <ng-option value="M" translate="">Male</ng-option>
+                                    <ng-option value="F" translate="">Female</ng-option>
                                 </ng-select>
                             </div>
                         </div>

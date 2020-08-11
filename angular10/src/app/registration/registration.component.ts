@@ -68,6 +68,12 @@ export class RegistrationComponent implements OnInit {
   emailAddresss:any="";
   //gender neeed to add.
   constructor(public restApi: ApiServiceService,private formBuilder: FormBuilder,private _elementRef : ElementRef,private sharedata:ShareDataService,private router: Router) {
+    this.restApi.getLanguage().subscribe((response) => {
+      this.searchCountry();
+      this.restApi.get_city_Request(this.geoLocation, '').subscribe((response) => {
+        this.citylist = response.result;
+      });
+    });
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],

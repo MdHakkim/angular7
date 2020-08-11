@@ -27,7 +27,10 @@ export class ProjectComponent implements OnInit {
   // oneTimeCall:boolean=false;
   // geoLocationStart:boolean=false;
   constructor(public restApi: ApiServiceService,private sharedata:ShareDataService,private _elementRef : ElementRef,private sanitizer: DomSanitizer) { 
-    
+    this.restApi.getLanguage().subscribe((response) => {
+      this.searchCountry();
+      this.getArea(event, 'A');
+    });
   }
   ngOnInit(): void {
     this.errorMessage = "";
