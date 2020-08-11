@@ -136,17 +136,15 @@ export class ProfileComponent implements OnInit {
         this.isCompany=true;
         this.commoncaption='Type_of_business';
         this.Titlecaption='Business';
-        // this.imageArray = [{Name:'Logo',Condition:'LogoUrl',Flag:'L'},{Name:'Portfolio',Condition:'previewUrl',Flag:'P'}];
       }else{
         this.isCompany=false;
         this.commoncaption='Type_of_Service';
         this.Titlecaption='Individual';
-        // this.imageArray = [{Name:'Profile',Condition:'previewUrl',Flag:'P'}];
       }
       this.imageArray = [{Name:'Logo',Condition:'LogoUrl',Flag:'L'},{Name:'Portfolio',Condition:'previewUrl',Flag:'P'}];
-      let condition=[false,json.last_name];
-      this.sharedata.callComponentMethod(condition);
-      localStorage.setItem('username',json.last_name);
+      // let condition=[false,json.last_name];
+      // this.sharedata.callComponentMethod(condition);
+      // localStorage.setItem('username',json.last_name);
       this.restApi.get_city_Request(json.country_code,json.city_code).subscribe((response) => {
         this.citylist = response.result;
         this.city=json.city_code;

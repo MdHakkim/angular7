@@ -15,7 +15,7 @@ import { NewPasswordComponent } from './new-password/new-password.component';
 
 const routes: Routes = [
   { path: 'login', component: NewPasswordComponent },
-  { path: 'generate_new_password/:id', component: NewPasswordComponent },
+  { path: 'generate_new_password/.', component: NewPasswordComponent },
   { path: '', component: ProjectComponent },
   { path: 'joinus', component: RegistrationComponent},
   { path: 'explore', component: ExploreComponent},

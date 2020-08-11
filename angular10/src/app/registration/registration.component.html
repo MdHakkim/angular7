@@ -379,7 +379,7 @@
                 <button type="submit" class="btn btn-primary" [disabled]="agreeCheck" [disabled]="disabledButton" [attr.form]="bindForm" translate="">Register_Now</button>
             </div>
         </div>
-        <div class="col-12 dev-pd-lf">
+        <!-- <div class="col-12 dev-pd-lf">
             <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage=''">{{ successMessage }}</ngb-alert>
             <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
                 <h6 translate="">Already_have_to_account_please_login</h6>
@@ -408,19 +408,19 @@
             <div class="form-group text-center">
                 <a href="" data-toggle="modal" data-target="#forgotModel" translate="">Forget_password</a>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 </div>
-<div class="modal" id="forgotModel">
+<!-- <div class="modal" id="forgotModel">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-            <!-- Modal Header -->
+            
             <div class="modal-header">
                 <h5 class="modal-title" translate="">Account recovery</h5>
                 <button type="button" class="close dev-modelClass" data-dismiss="modal">×</button>
             </div>
-            <!-- Modal body -->
+            
             <div class="modal-body">
                 <div class="row" *ngIf="EmailMessage">
                     <div class="col-12">
@@ -447,4 +447,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
