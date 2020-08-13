@@ -122,6 +122,10 @@ export class NewPasswordComponent implements OnInit {
     this.redirectContent = false;
     this.router.navigate(['/login']);
   }
+  goHomePage() {
+    this.restApi.loginTest(true);
+    this.router.navigate(['']);
+  }
   emilIdLogin:any='';
   createNewPassword() {
     console.log(this.emilIdLogin,"EMPTY");
