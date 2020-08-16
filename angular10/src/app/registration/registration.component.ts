@@ -398,7 +398,7 @@ export class RegistrationComponent implements OnInit {
     this.agreeCheck=!event.target.checked;
   }
   submitBusiness(formData){
-    this.service_arr_id.push(new FormControl('New'));
+    // this.service_arr_id.push(new FormControl('New'));
     console.log(formData,"testing methods");
     this.submitted=true;
     if (this.checkoutForm.invalid) {
@@ -480,9 +480,11 @@ export class RegistrationComponent implements OnInit {
     this.selectDescArray=[];
     this.selectIdArray=[];
     if(event!=0){
+      console.log(event,"EVENT HANDLIER");
       event.forEach((id) => {
-          let descrption = this.servicelist.filter(item => item.id === id)[0].desc;
+        let descrption = this.servicelist.filter(item => item.id === id)[0].desc_new;
           this.selectDescArray.push(descrption);
+        console.log(descrption, "EVENT descrption");
           this.selectIdArray.push(id);
       });
     }
