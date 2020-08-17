@@ -1,203 +1,214 @@
 <div class="container" style="overflow-x: hidden;">
-<div class="row"  *ngIf="showMsg">
-    <div class="col-xs-12">
-        <p class="alert alert-success">
-            {{showDbMessage}}
-        </p>
+    <div class="row"  *ngIf="showMsg">
+        <div class="col-xs-12">
+            <p class="alert alert-success">
+                {{showDbMessage}}
+            </p>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-sm-6 col-md-12 col-lg-8 pl-2">
-        <ul class="nav nav-pills nav-fill border">
-            <li class="w-50">
-                <a [ngClass]="{'active':businesbool}" class="nav-link dev-radius" #businessTab (click)="sideBarToggle($event,'B')" [style.display]="'flex'"  data-toggle="tab" href="#business" role="tab" aria-controls="home" aria-selected="true">
-                    <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
-                    <div class="nav-text" translate>Business
-                        <span style="word-wrap: break-word;display: block;" translate>Business_Register_as_service_provider</span>
-                    </div>
-                </a>
-            </li>
-            <li class="w-50">
-                <a [ngClass]="{'active':individubool}" class="nav-link dev-radius" #individualTab (click)="sideBarToggle($event,'I')" [style.display]="'flex'"     data-toggle="tab" href="#individual" role="tab" aria-controls="home" aria-selected="true">
-                    <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
-                    <div class="nav-text" translate>Individual
-                        <span style="word-wrap: break-word;display: block;" translate>Business_Register_as_service_provider</span>
-                    </div>
-                </a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
+    <div class="row">
+        <div class="col-sm-6 col-md-12 col-lg-8 pl-2">
+            <ul class="nav nav-pills nav-fill border">
+                <li class="w-50">
+                    <a [ngClass]="{'active':businesbool}" class="nav-link dev-radius" #businessTab (click)="sideBarToggle($event,'B')" [style.display]="'flex'"  data-toggle="tab" href="#business" role="tab" aria-controls="home" aria-selected="true">
+                        <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
+                        <div class="nav-text" translate>Business
+                            <span style="word-wrap: break-word;display: block;" translate>Business_Register_as_service_provider</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="w-50">
+                    <a [ngClass]="{'active':individubool}" class="nav-link dev-radius" #individualTab (click)="sideBarToggle($event,'I')" [style.display]="'flex'"     data-toggle="tab" href="#individual" role="tab" aria-controls="home" aria-selected="true">
+                        <div class="nav-img"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
+                        <div class="nav-text" translate>Individual
+                            <span style="word-wrap: break-word;display: block;" translate>Business_Register_as_service_provider</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
                 <div [ngClass]="{'active show':businesbool}" class="tab-pane fade dev-busi-pad pt-3 pb-3" id="business" role="tabpanel" aria-labelledby="business-tab">
-                    <form id="submitBusiness" (keydown.enter)="$event.preventDefault()" [formGroup]="checkoutForm" (ngSubmit)="submitBusiness(checkoutForm.value)">
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label" translate>Business_owner</label>
-                        <div class="col-lg-5 mb-2">
-                            <input class="form-control form-control-sm" formControlName="first_name" type="text" placeholder="{{'First_name' | translate}}" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" value="">
-                            <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
-                                <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                    <form id="submitBusiness" autocomplete="new-password" (keydown.enter)="$event.preventDefault()" [formGroup]="checkoutForm" (ngSubmit)="submitBusiness(checkoutForm.value)">
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label" translate>Business_owner</label>
+                            <div class="col-lg-5 mb-2">
+                                <input class="form-control form-control-sm" formControlName="first_name" type="text" placeholder="{{'First_name' | translate}}" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" value="">
+                                <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <input class="form-control form-control-sm" formControlName="last_name" type="text" placeholder="{{'Last_name' | translate}}" value="">
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <input class="form-control form-control-sm" formControlName="last_name" type="text" placeholder="{{'Last_name' | translate}}" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Business_name</label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" formControlName="business_name" placeholder="{{'Business_name_p' | translate}}" type="text" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Contact_number</label>
-                        <div class="col-lg-1 dev-pd-r0 mb-2">
-                            <input class="form-control form-control-sm" [(ngModel)]="contactcode" formControlName="contactcode" placeholder="{{'Code' | translate}}" type="text" value="">
-                        </div>
-                        <div class="col-lg-9">
-                            <input class="form-control form-control-sm" (keyup)="keyupmethod('B')"  formControlName="contactno" placeholder="{{'Phone_number' | translate}}" type="text" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Email</label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Website</label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" formControlName="website" placeholder="http://www.domainname.com" type="text" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Address</label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" formControlName="add1" placeholder="{{'Street_address' | translate}}" type="text" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label form-control-label"></label>
-                        <div class="col-lg-10">
-                            <input class="form-control form-control-sm" formControlName="add2" placeholder="{{'Street_address_line' | translate}}" type="text" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-2 col-form-label form-control-label"></label>
-                        <div class="col-lg-5 mb-2">
-                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}" placeholder="{{ 'Choose_Country' | translate }}" formControlName="country" (change)="changeCity($event)" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country"  [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
-                                <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
-                                    {{countryrow.cn_desc}}
-                                </ng-option>
-                            </ng-select>
-                            <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
-                                <div *ngIf="f.country.errors.required">Country is required</div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Business_name</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" formControlName="business_name" placeholder="{{'Business_name_p' | translate}}" type="text" value="">
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}" placeholder="{{'Choose_city' | translate}}" formControlName="city" (change)="changeArea($event)"  (keyup)="getcity($event)" name="city" [searchable]="true" [clearable]="true" [(ngModel)]="city">
-                                <ng-option *ngFor="let cityrow of citylist" [value]="cityrow.city_id">
-                                    {{cityrow.city_desc}}
-                                </ng-option>
-                            </ng-select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-lg-5"></div>
-                        <label class="col-lg-2 col-form-label form-control-label"></label>
-                        <div class="col-lg-5">
-                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}" placeholder="{{'Choose_area' | translate}}" formControlName="area" (keyup)="getArea($event)" name="area" [searchable]="true" [clearable]="true" [(ngModel)]="area">
-                                <ng-option *ngFor="let arearow of arealist" [value]="arearow.area_id">
-                                    {{arearow.area_desc}}
-                                </ng-option>
-                            </ng-select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Type_of_business</label>
-                        <div class="col-lg-5 mb-2" >
-                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_business' | translate}}" formControlName="business_type" (keyup)="getbusiness($event,'AC')" name="business_type" [searchable]="true" [clearable]="true" [(ngModel)]="business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
-                                <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
-                                    {{businesrow.desc_new}}
-                                </ng-option>
-                            </ng-select>
-                            <div *ngIf="submitted && f.business_type.errors" class="invalid-feedback">
-                                <div *ngIf="f.business_type.errors.required">Service is required</div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Contact_number</label>
+                            <div class="col-lg-1 dev-pd-r0 mb-2">
+                                <input class="form-control form-control-sm" [(ngModel)]="contactcode" formControlName="contactcode" placeholder="{{'Code' | translate}}" type="text" value="">
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control form-control-sm" (keyup)="keyupmethod('B')"  formControlName="contactno" placeholder="{{'Phone_number' | translate}}" type="text" value="">
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_service' | translate}}" (ngModelChange)="onChangeService($event)" (keyup)="getservice($event)" name="service_id" [searchable]="true" [clearable]="true" multiple="true" [(ngModel)]="service_id" [ngModelOptions]="{standalone: true}" [ngClass]="{ 'is-invalid': submitted && f.service_id.errors }">
-                                <ng-option *ngFor="let servicerow of servicelist" [value]="servicerow.id">
-                                    {{servicerow.desc_new}}
-                                </ng-option>
-                            </ng-select>
-                            <div *ngIf="submitted && f.service_id.errors" class="invalid-feedback">
-                                <div *ngIf="f.service_id.errors.required">Service is required</div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Email</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value="">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Add_New_Service</label>
-                        <div class="col-lg-10">
-                            <tag-input placeholder="{{'Add_New_Service' | translate}}" secondaryPlaceholder="{{'Add_New_Service' | translate}}" [(ngModel)]="tagservice"
-                                    (onFocus)="onSelect()"     
-                                    [ngModelOptions]="{standalone: true}"
-                                    [modelAsStrings]="true">
-                            </tag-input>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Password</label>
-                        <div class="col-lg-5 mb-2">
-                            <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
-                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                <div *ngIf="f.password.errors.required">Password is required</div>
-                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Website</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" formControlName="website" placeholder="http://www.domainname.com" type="text" value="">
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}" type="password" [ngClass]="{ 'is-invalid': submitted && f.retypepassword.errors }"  value="">
-                            <div *ngIf="submitted && f.retypepassword.errors" class="invalid-feedback">
-                                <div *ngIf="f.retypepassword.errors.required">Confirm Password is required</div>
-                                <div *ngIf="f.retypepassword.errors.mustMatch">Passwords must match</div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Address</label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" formControlName="add1" placeholder="{{'Street_address' | translate}}" type="text" value="">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">About_us</label>
-                        <div class="col-lg-10">
-                            <textarea rows="5" formControlName="remarks" placeholder="{{'Express_you_services' | translate}}" class="form-control form-control-sm"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <h4 translate="">Choose_any_of_our_subscription_plan</h4>
-                        </div>
-                    </div>
-                    <div *ngFor="let subscrirow of subscrilist;let i = index" class="form-group row">
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <input class="form-check-input" value="{{subscrirow.id}}" (click)="getcheckValue($event,'B')" name="{{dynamicname[i]}}" type="checkbox">
-                                <label class="form-check-label" for="gridCheck1">
-                                    {{subscrirow.desc_new}}
-                                </label>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label form-control-label"></label>
+                            <div class="col-lg-10">
+                                <input class="form-control form-control-sm" formControlName="add2" placeholder="{{'Street_address_line' | translate}}" type="text" value="">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <input class="form-check-input" [ngModelOptions]="{standalone: true}" (click)="agreeRadion($event)" [(ngModel)]="Agree" type="radio" name="Agree">
-                                <label class="form-check-label" for="gridRadios1" translate="">
-                                    I_agree_with_the_terms_and_condition_and_accept_them
-                                </label>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-form-label form-control-label"></label>
+                            <div class="col-lg-5 mb-2">
+                                <ng-select notFoundText="{{ 'No_Item_Found' | translate }}" placeholder="{{ 'Choose_Country' | translate }}" formControlName="country" (change)="changeCity($event)" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country"  [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                                    <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
+                                        {{countryrow.cn_desc}}
+                                    </ng-option>
+                                </ng-select>
+                                <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                                    <div *ngIf="f.country.errors.required">Country is required</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <ng-select notFoundText="{{ 'No_Item_Found' | translate }}" placeholder="{{'Choose_city' | translate}}" formControlName="city" (change)="changeArea($event)"  (keyup)="getcity($event)" name="city" [searchable]="true" [clearable]="true" [(ngModel)]="city">
+                                    <ng-option *ngFor="let cityrow of citylist" [value]="cityrow.city_id">
+                                        {{cityrow.city_desc}}
+                                    </ng-option>
+                                </ng-select>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row originalSubmit">
-                        <div class="col-sm-10">
-                            <button type="submit" [disabled]="agreeCheck" [disabled]="disabledButton" class="btn btn-primary btn-sm" translate="">Register_Now</button>
+                        <div class="form-group row">
+                            <div class="col-lg-5"></div>
+                            <label class="col-lg-2 col-form-label form-control-label"></label>
+                            <div class="col-lg-5">
+                                <ng-select notFoundText="{{ 'No_Item_Found' | translate }}" placeholder="{{'Choose_area' | translate}}" formControlName="area" (keyup)="getArea($event)" name="area" [searchable]="true" [clearable]="true" [(ngModel)]="area">
+                                    <ng-option *ngFor="let arearow of arealist" [value]="arearow.area_id">
+                                        {{arearow.area_desc}}
+                                    </ng-option>
+                                </ng-select>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Type_of_business</label>
+                            <div class="col-lg-5 mb-2" >
+                                <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_business' | translate}}" formControlName="business_type" (keyup)="getbusiness($event,'AC')" name="business_type" [searchable]="true" [clearable]="true" [(ngModel)]="business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
+                                    <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
+                                        {{businesrow.desc_new}}
+                                    </ng-option>
+                                </ng-select>
+                                <div *ngIf="submitted && f.business_type.errors" class="invalid-feedback">
+                                    <div *ngIf="f.business_type.errors.required">Service is required</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_service' | translate}}"  name="service_id" [searchable]="true" [clearable]="true" multiple="true" autocomplete="false" [(ngModel)]="service_id" [ngModelOptions]="{standalone: true}" [ngClass]="{ 'is-invalid': submitted && f.service_id.errors }">
+                                    <ng-option *ngFor="let servicerow of servicelist" [value]="servicerow.id">
+                                        {{servicerow.desc_new}}
+                                    </ng-option>
+                                </ng-select>
+                                <div *ngIf="submitted && f.service_id.errors" class="invalid-feedback">
+                                    <div *ngIf="f.service_id.errors.required">Service is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Add_New_Service</label>
+                            <div class="col-lg-10">
+                                <tag-input placeholder="{{'Add_New_Service' | translate}}" secondaryPlaceholder="{{'Add_New_Service' | translate}}" [(ngModel)]="tagservice"
+                                        (onFocus)="onSelect()"     
+                                        [ngModelOptions]="{standalone: true}"
+                                        [modelAsStrings]="true">
+                                </tag-input>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Password</label>
+                            <div class="col-lg-5 mb-2">
+                                <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" autocomplete="nope"/>
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}" autocomplete="none" type="password" [ngClass]="{ 'is-invalid': submitted && f.retypepassword.errors }"  value="" />
+                                <div *ngIf="submitted && f.retypepassword.errors" class="invalid-feedback">
+                                    <div *ngIf="f.retypepassword.errors.required">Confirm Password is required</div>
+                                    <div *ngIf="f.retypepassword.errors.mustMatch">Passwords must match</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">About_us</label>
+                            <div class="col-lg-10">
+                                <textarea rows="5" formControlName="remarks" placeholder="{{'Express_you_services' | translate}}" class="form-control form-control-sm"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <h4 translate="">Choose_any_of_our_subscription_plan</h4>
+                            </div>
+                        </div>
+                        <div *ngFor="let subscrirow of subscrilist;let i = index" class="form-group row">
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="{{subscrirow.id}}" (click)="getcheckValue($event,'B')" name="{{dynamicname[i]}}" type="checkbox">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        {{subscrirow.desc_new}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" [(ngModel)]="saveOtherLang" [ngModelOptions]="{standalone: true}"
+                                        (click)="saveOtherlangEvn($event)" type="checkbox">
+                                    <label class="form-check-label langOther">
+                                        {{saveContent}} {{lang_name}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" [ngModelOptions]="{standalone: true}" (click)="agreeRadion($event)" [(ngModel)]="Agree" type="radio" name="Agree">
+                                    <label class="form-check-label" for="gridRadios1" translate="">
+                                        I_agree_with_the_terms_and_condition_and_accept_them
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row originalSubmit">
+                            <div class="col-sm-10">
+                                <button type="submit" [disabled]="agreeCheck" [disabled]="disabledButton" class="btn btn-primary btn-sm" translate="">Register_Now</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div [ngClass]="{'active show':individubool}" class="tab-pane fade dev-busi-pad pt-3 pb-3" id="individual" role="tabpanel" aria-labelledby="individual-tab">
                     <form id="submitIndividual" (keydown.enter)="$event.preventDefault()" [formGroup]="individualForm" (ngSubmit)="submitIndividual(individualForm.value)">
@@ -355,6 +366,17 @@
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <div class="form-check">
+                                    <input class="form-check-input" [(ngModel)]="saveOtherLang" [ngModelOptions]="{standalone: true}"
+                                        (click)="saveOtherlangEvn($event)" type="checkbox">
+                                    <label class="form-check-label langOther">
+                                        {{saveContent}} {{lang_name}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <div class="form-check">
                                     <input class="form-check-input" [ngModelOptions]="{standalone: true}" (click)="agreeRadion($event)" [(ngModel)]="Agree" type="radio" name="Agree">
                                     <label class="form-check-label" for="gridRadios1" translate="">
                                         I_agree_with_the_terms_and_condition_and_accept_them
@@ -369,82 +391,46 @@
                         </div>
                     </form>
                 </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-12 col-lg-4">
-        <app-sidepanel (imageBaseurl)="childImagemitter($event)" [isiShown]="isiShown" [isbShown]="isbShown" [CaptionName]="CaptionName" [businessProf]="bCaptionName"></app-sidepanel>
-        <!-- <div class="col-10 mb-3"></div> -->
-        <div class="row">
-            <div class="col-sm-12 duplicateSubmit mt-3 mb-3">
-                <button type="submit" class="btn btn-primary" [disabled]="agreeCheck" [disabled]="disabledButton" [attr.form]="bindForm" translate="">Register_Now</button>
             </div>
         </div>
-        <!-- <div class="col-12 dev-pd-lf">
-            <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage=''">{{ successMessage }}</ngb-alert>
-            <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
-                <h6 translate="">Already_have_to_account_please_login</h6>
-                <div class="form-group">
-                    <input class="form-control form-control-sm" formControlName="email" [(ngModel)]="email" name="email" placeholder="{{'Email' | translate}}" type="text" [ngClass]="{ 'is-invalid': loginsubmit && lg.email.errors }"  value="">
-                    <div *ngIf="loginsubmit && lg.email.errors" class="invalid-feedback">
-                        <div *ngIf="lg.email.errors.required">Email id is required</div>
-                    </div>
+        <div class="col-sm-6 col-md-12 col-lg-4">
+            <app-sidepanel (imageBaseurl)="childImagemitter($event)" [isiShown]="isiShown" [isbShown]="isbShown" [CaptionName]="CaptionName" [businessProf]="bCaptionName"></app-sidepanel>
+            <!-- <div class="col-10 mb-3"></div> -->
+            <div class="row">
+                <div class="col-sm-12 duplicateSubmit mt-3 mb-3">
+                    <button type="submit" class="btn btn-primary" [disabled]="agreeCheck" [disabled]="disabledButton" [attr.form]="bindForm" translate="">Register_Now</button>
                 </div>
-                <div class="form-group">
-                    <input class="form-control form-control-sm" formControlName="password" type="password" placeholder="{{'Password' | translate}}" [ngClass]="{ 'is-invalid': loginsubmit && lg.password.errors }"  value="">
-                    <div *ngIf="loginsubmit && lg.password.errors" class="invalid-feedback">
-                        <div *ngIf="lg.password.errors.required">Password is required</div>
-                    </div>
-                </div>
-                <div class="form-check mb-4">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-                    <label class="form-check-label" for="gridRadios1" translate="">
-                        Remember_Me
-                    </label>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn rounded btn-block btn-primary" translate="">Login_now</button>
-                </div>
-            </form>
-            <div class="form-group text-center">
-                <a href="" data-toggle="modal" data-target="#forgotModel" translate="">Forget_password</a>
             </div>
-        </div> -->
-    </div>
-</div>
-</div>
-<!-- <div class="modal" id="forgotModel">
-    <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-            
-            <div class="modal-header">
-                <h5 class="modal-title" translate="">Account recovery</h5>
-                <button type="button" class="close dev-modelClass" data-dismiss="modal">×</button>
-            </div>
-            
-            <div class="modal-body">
-                <div class="row" *ngIf="EmailMessage">
-                    <div class="col-12">
-                        <p class="alert alert-success">
-                            {{showWindowMessage}}
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-group row">
-                            <label class="col-lg-12 col-form-label" translate="">Register Email Address</label>
-                            <div class="col-lg-12">
-                                <input class="form-control form-control-sm" [(ngModel)]="emailAddresss" type="text"
-                                    placeholder="Register Email Address" value="">
-                            </div>
+            <!-- <div class="col-12 dev-pd-lf">
+                <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage=''">{{ successMessage }}</ngb-alert>
+                <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+                    <h6 translate="">Already_have_to_account_please_login</h6>
+                    <div class="form-group">
+                        <input class="form-control form-control-sm" formControlName="email" [(ngModel)]="email" name="email" placeholder="{{'Email' | translate}}" type="text" [ngClass]="{ 'is-invalid': loginsubmit && lg.email.errors }"  value="">
+                        <div *ngIf="loginsubmit && lg.email.errors" class="invalid-feedback">
+                            <div *ngIf="lg.email.errors.required">Email id is required</div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <input class="form-control form-control-sm" formControlName="password" type="password" placeholder="{{'Password' | translate}}" [ngClass]="{ 'is-invalid': loginsubmit && lg.password.errors }"  value="">
+                        <div *ngIf="loginsubmit && lg.password.errors" class="invalid-feedback">
+                            <div *ngIf="lg.password.errors.required">Password is required</div>
+                        </div>
+                    </div>
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                        <label class="form-check-label" for="gridRadios1" translate="">
+                            Remember_Me
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn rounded btn-block btn-primary" translate="">Login_now</button>
+                    </div>
+                </form>
+                <div class="form-group text-center">
+                    <a href="" data-toggle="modal" data-target="#forgotModel" translate="">Forget_password</a>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button"  class="btn btn-primary btn-sm"
-                    translate="">Submit</button>
-            </div>
+            </div> -->
         </div>
     </div>
-</div> -->
+</div>

@@ -29,6 +29,13 @@
     display: none; 
     
 }
+.langOther{
+    font-weight: bold;
+    cursor: pointer;
+}
+.langOther:hover{
+    text-decoration: underline;
+}
 @media (max-width: 800px) { 
     .originalSubmit{ display: none; }
     .duplicateSubmit{ display: block; }

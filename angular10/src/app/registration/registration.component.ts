@@ -66,10 +66,15 @@ export class RegistrationComponent implements OnInit {
   Agree:any='';
   geoLocation = localStorage.getItem("geoLocation");
   emailAddresss:any="";
+  saveOtherLang:any="";
+  lang_name: any ='Arabic also ?';
+  saveOtherLng: boolean = false;
+  saveContent: string ="Would you like to save in";
   //gender neeed to add.
   constructor(public restApi: ApiServiceService,private formBuilder: FormBuilder,private _elementRef : ElementRef,private sharedata:ShareDataService,private router: Router) {
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();
+      this.lang_name = (response == 'en' ? "Arabic also ?" : "English also ?");
       this.restApi.get_city_Request(this.geoLocation, '').subscribe((response) => {
         this.citylist = response.result;
       });
@@ -400,6 +405,13 @@ export class RegistrationComponent implements OnInit {
   submitBusiness(formData){
     // this.service_arr_id.push(new FormControl('New'));
     console.log(formData,"testing methods");
+    if (this.saveOtherLng){
+      alert('OTher LANGULAGE');
+      let element: HTMLElement = document.getElementById('languageSet') as HTMLElement;
+      element.click();
+      this.saveOtherLang = false;
+      this.saveOtherLng = false;
+    }
     this.submitted=true;
     if (this.checkoutForm.invalid) {
       return false; 
@@ -429,6 +441,13 @@ export class RegistrationComponent implements OnInit {
 
   submitIndividual(indformData){
     console.log(indformData,"individal methods");
+    if (this.saveOtherLng) {
+      alert('OTher LANGULAGE');
+      let element: HTMLElement = document.getElementById('languageSet') as HTMLElement;
+      element.click();
+      this.saveOtherLang = false;
+      this.saveOtherLng = false;
+    }
     this.insubmitted=true;
     if (this.individualForm.invalid) {
       return false;
@@ -536,9 +555,17 @@ export class RegistrationComponent implements OnInit {
       }
     });
   }
+
+  saveOtherlangEvn(event){
+    if (event.target.checked){
+      this.saveOtherLng = true;
+    }else{
+      this.saveOtherLng = false;
+    }
+  }
   // tag component 
-  EmailMessage=false;
-  showWindowMessage='';
+  // EmailMessage=false;
+  // showWindowMessage='';
   // generatePassword(){
   //   let getEmail = this.emailAddresss;
   //   if(getEmail!==''){

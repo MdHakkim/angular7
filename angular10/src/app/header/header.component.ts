@@ -53,7 +53,7 @@ export class HeaderComponent implements OnInit {
   }
   changeCssFile(lang: string) {
     let headTag = this.document.getElementsByTagName('head')[0];
-    let existingLink = this.document.getElementById('langCss') as HTMLLinkElement;;
+    let existingLink = this.document.getElementById('langCss') as HTMLLinkElement;
     let bundleName = lang === 'ar' ?  'arabic.css':'english.css';
     if(existingLink) {
       existingLink.href = bundleName;
