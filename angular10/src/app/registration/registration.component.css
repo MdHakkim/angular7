@@ -29,6 +29,11 @@
     display: none; 
     
 }
+.langSubmit{
+    color:black;
+    pointer-events: none;
+    background:#d9d9d9;
+}
 .langOther{
     font-weight: bold;
     cursor: pointer;

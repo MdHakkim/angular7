@@ -53,13 +53,20 @@
                                 <input class="form-control form-control-sm" [(ngModel)]="contactcode" formControlName="contactcode" placeholder="{{'Code' | translate}}" type="text" value="">
                             </div>
                             <div class="col-lg-9">
-                                <input class="form-control form-control-sm" (keyup)="keyupmethod('B')"  formControlName="contactno" placeholder="{{'Phone_number' | translate}}" type="text" value="">
+                                <input class="form-control form-control-sm" (keyup)="keyupmethod('B')"  formControlName="contactno" placeholder="{{'Phone_number' | translate}}" type="text" value="" [ngClass]="{ 'is-invalid': submitted && f.contactno.errors }">
+                                <div *ngIf="submitted && f.contactno.errors" class="invalid-feedback">
+                                    <div *ngIf="f.contactno.errors.required">Contact number is required</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Email</label>
                             <div class="col-lg-10">
-                                <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value="">
+                                <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value=""  [ngClass]="{ 'is-invalid': submitted && f.email.errors,'langSubmit': langCondition}">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -71,7 +78,10 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Address</label>
                             <div class="col-lg-10">
-                                <input class="form-control form-control-sm" formControlName="add1" placeholder="{{'Street_address' | translate}}" type="text" value="">
+                                <input class="form-control form-control-sm" formControlName="add1" placeholder="{{'Street_address' | translate}}" type="text" value="" [ngClass]="{ 'is-invalid': submitted && f.add1.errors }">
+                                <div *ngIf="submitted && f.add1.errors" class="invalid-feedback">
+                                    <div *ngIf="f.add1.errors.required">Address is required</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -147,14 +157,14 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Password</label>
                             <div class="col-lg-5 mb-2">
-                                <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" autocomplete="nope"/>
+                                <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" [ngClass]="{ 'is-invalid': submitted && f.password.errors,'langSubmit': langCondition }" autocomplete="nope"/>
                                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                                     <div *ngIf="f.password.errors.required">Password is required</div>
                                     <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}" autocomplete="none" type="password" [ngClass]="{ 'is-invalid': submitted && f.retypepassword.errors }"  value="" />
+                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}" autocomplete="none" type="password" [ngClass]="{ 'is-invalid': submitted && f.retypepassword.errors,'langSubmit': langCondition }"  value="" />
                                 <div *ngIf="submitted && f.retypepassword.errors" class="invalid-feedback">
                                     <div *ngIf="f.retypepassword.errors.required">Confirm Password is required</div>
                                     <div *ngIf="f.retypepassword.errors.mustMatch">Passwords must match</div>
@@ -217,7 +227,7 @@
                             <div class="col-lg-5 mb-2">
                                 <input class="form-control form-control-sm" formControlName="first_name" type="text" placeholder="{{'First_name' | translate}}" [ngClass]="{ 'is-invalid': insubmitted && i.first_name.errors }" value="">
                                 <div *ngIf="insubmitted && i.first_name.errors" class="invalid-feedback">
-                                    <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                                    <div *ngIf="i.first_name.errors.required">First Name is required</div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -250,13 +260,20 @@
                                 <input class="form-control form-control-sm" [(ngModel)]="contactcode" formControlName="contactcode" placeholder="{{'Code' | translate}}" type="text" value="">
                             </div>
                             <div class="col-lg-9">
-                                <input class="form-control form-control-sm" (keyup)="keyupmethod('I')" formControlName="contactno" placeholder="{{'Phone_number' | translate}}" type="text" value="">
+                                <input class="form-control form-control-sm" (keyup)="keyupmethod('I')" formControlName="contactno" placeholder="{{'Phone_number' | translate}}" type="text" [ngClass]="{ 'is-invalid': insubmitted && i.contactno.errors }" value="">
+                                <div *ngIf="insubmitted && i.contactno.errors" class="invalid-feedback">
+                                    <div *ngIf="i.contactno.errors.required">Contact number is required</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Email</label>
                             <div class="col-lg-10">
-                                <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value="">
+                                <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value="" [ngClass]="{ 'is-invalid': insubmitted && i.email.errors,'langSubmit': langCondition }" >
+                                <div *ngIf="insubmitted && i.email.errors" class="invalid-feedback">
+                                    <div *ngIf="i.email.errors.required">Email is required</div>
+                                    <div *ngIf="i.email.errors.pattern">Email must be a valid email address</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -268,7 +285,10 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Address</label>
                             <div class="col-lg-10">
-                                <input class="form-control form-control-sm" formControlName="add1" placeholder="{{'Street_address' | translate}}" type="text" value="">
+                                <input class="form-control form-control-sm" formControlName="add1" placeholder="{{'Street_address' | translate}}" type="text" value="" [ngClass]="{ 'is-invalid': insubmitted && i.add1.errors }">
+                                <div *ngIf="insubmitted && i.add1.errors" class="invalid-feedback">
+                                    <div *ngIf="i.add1.errors.required">Address is required</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -328,14 +348,14 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Password</label>
                             <div class="col-lg-5 mb-2">
-                                <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" [ngClass]="{ 'is-invalid': insubmitted && i.password.errors }" >
+                                <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" [ngClass]="{ 'is-invalid': insubmitted && i.password.errors,'langSubmit': langCondition }" >
                                 <div *ngIf="insubmitted && i.password.errors" class="invalid-feedback">
                                     <div *ngIf="i.password.errors.required">Password is required</div>
                                     <div *ngIf="i.password.errors.minlength">Password must be at least 6 characters</div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}" type="password" [ngClass]="{ 'is-invalid': insubmitted && i.retypepassword.errors }"  value="">
+                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}" type="password" [ngClass]="{ 'is-invalid': insubmitted && i.retypepassword.errors,'langSubmit': langCondition }"  value="">
                                 <div *ngIf="insubmitted && i.retypepassword.errors" class="invalid-feedback">
                                     <div *ngIf="i.retypepassword.errors.required">Confirm Password is required</div>
                                     <div *ngIf="i.retypepassword.errors.mustMatch">Passwords must match</div>

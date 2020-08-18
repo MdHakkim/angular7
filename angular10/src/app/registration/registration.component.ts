@@ -8,9 +8,9 @@ import { debounce, debounceTime,mergeMap,distinctUntilChanged,switchMap,timeout,
 import { Observable, timer, Subject, TimeoutError } from 'rxjs';
 import {MatChipInputEvent} from '@angular/material/chips';
 import { Router } from '@angular/router';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/filter';
-
+// import 'rxjs/add/observable/of';
+// import 'rxjs/add/operator/filter';
+import { SidepanelComponent } from '../sidepanel/sidepanel.component';
 declare var $:any;
 @Component({
   selector: 'app-registration',
@@ -18,10 +18,12 @@ declare var $:any;
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+  @ViewChild(SidepanelComponent) Sidepanel: SidepanelComponent;
   CaptionName: string = "Business Logo";
   bCaptionName: string = "Portfolio";
   isbShown: boolean = true;
   isiShown: boolean = false;
+  langCondition:boolean=false;
   loginForm :FormGroup;
   checkoutForm :FormGroup;
   individualForm :FormGroup;
@@ -78,6 +80,9 @@ export class RegistrationComponent implements OnInit {
       this.restApi.get_city_Request(this.geoLocation, '').subscribe((response) => {
         this.citylist = response.result;
       });
+      let Languge = this.restApi.lang_code;
+      this.checkoutForm.get('lang_code').setValue(Languge);
+      this.individualForm.get('lang_code').setValue(Languge);
     });
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
@@ -89,10 +94,10 @@ export class RegistrationComponent implements OnInit {
       business_name:'',
       contactcode:'',
       phone:'',
-      contactno:'',
-      email:'',
+      contactno: [null, Validators.required],
+      email: [null, [Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       website:'',
-      add1:'',
+      add1: [null, Validators.required],
       add2:'',
       country:[null, Validators.required],
       area:'',
@@ -104,6 +109,8 @@ export class RegistrationComponent implements OnInit {
       service_id: this.formBuilder.array([]),
       service_name: this.formBuilder.array([]),
       company:'COMPANY',
+      common_id:'new',
+      lang_code: this.restApi.lang_code,
       image_1:'',
       image_2:'',
       password:['', [Validators.required, Validators.minLength(6)]],
@@ -115,12 +122,12 @@ export class RegistrationComponent implements OnInit {
       last_name: '',
       business_name:'',
       contactcode:'',
-      contactno:'',
+      contactno: [null, Validators.required],
       phone:'',
-      email:'',
+      email: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       website:'',
       gender:'',
-      add1:'',
+      add1: [null, Validators.required],
       add2:'',
       country:'',
       area:'',
@@ -132,6 +139,8 @@ export class RegistrationComponent implements OnInit {
       service_id: this.formBuilder.array([]),
       service_name: this.formBuilder.array([]),
       company:'INDIVIDUAL',
+      common_id: 'new',
+      lang_code: this.restApi.lang_code,
       image_1:'',
       image_2:'',
       password:['', [Validators.required, Validators.minLength(6)]],
@@ -151,22 +160,22 @@ export class RegistrationComponent implements OnInit {
   @ViewChild('individualTab') efiile: ElementRef;
   _success = new Subject<string>();
   ngOnInit(): void {
-    this.searchCountry();
-    this.restApi.get_city_Request(this.geoLocation,'').subscribe((response) => {
-      this.citylist = response.result;
-    });
-    this._success.subscribe(message => this.successMessage = message);
-    this._success.pipe(debounceTime(4000)).subscribe(() => this.successMessage = '');
-    this.restApi.get_service_lov_Request('').subscribe((response) => {
-        this.servicelist = response.result;
-    });
-    this.restApi.getLanguage().subscribe((response) => {
-      if(this.isbShown){
-        this.subscription('COMPANY');
-      }else{
-        this.subscription('INDIVIDUAL');
-      }
-    });
+      this.searchCountry();
+      this.restApi.get_city_Request(this.geoLocation,'').subscribe((response) => {
+        this.citylist = response.result;
+      });
+      this._success.subscribe(message => this.successMessage = message);
+      this._success.pipe(debounceTime(4000)).subscribe(() => this.successMessage = '');
+      this.restApi.get_service_lov_Request('').subscribe((response) => {
+          this.servicelist = response.result;
+      });
+      this.restApi.getLanguage().subscribe((response) => {
+        if(this.isbShown){
+          this.subscription('COMPANY');
+        }else{
+          this.subscription('INDIVIDUAL');
+        }
+      });
   }
   ngAfterViewInit() {
       setTimeout(() => {
@@ -336,11 +345,15 @@ export class RegistrationComponent implements OnInit {
       this.bindForm='submitBusiness';
       this.service_id="";
       this.agreeCheck=true;
+      this.checkoutForm.get('common_id').setValue('new');
+      this.checkoutForm.get('company').setValue('COMPANY');
+      let Languge = this.restApi.lang_code;
+      this.checkoutForm.get('lang_code').setValue(Languge);
     }else{
       this.CaptionName = "Individual Logo";
       this.bCaptionName= "Portfolio";
-      this.isbShown = false;
       this.isiShown = true;
+      this.isbShown = false;
       this.subscription('INDIVIDUAL');
       this.defaultTab='I';
       this.tagservice='';
@@ -348,41 +361,45 @@ export class RegistrationComponent implements OnInit {
       this.bindForm='submitIndividual';
       this.ind_service_id="";
       this.agreeCheck=true;
+      this.individualForm.get('common_id').setValue('new');
+      this.individualForm.get('company').setValue('INDIVIDUAL');
+      let Languge = this.restApi.lang_code;
+      this.individualForm.get('lang_code').setValue(Languge);
     }
     this.getbusiness(event,'');
     setTimeout (() => {
       this.country=Number(this.geoLocation);
       this.ind_country=Number(this.geoLocation);
     },200);
+    this.langCondition = false;
   }
 
   subscription(defaults){
-    let cntyCode= this.country;
-    // let defaults= 'INDIVIDUAL';
     this.errorMessage = "";
     let lang = this.restApi.lang_code;
-    this.restApi.get_subscription_Request(cntyCode,defaults,lang).subscribe((response) => {
+    this.restApi.get_subscription_Request('',defaults,lang).subscribe((response) => {
       this.subscrilist = response.result;
       console.log(response,"test");
     },
     (error) => {
       console.error('Request failed with error')
       this.errorMessage = error;
-    }
-    )
+    });
   }
   
   searchCountry(){
     this.errorMessage = "";
+    // return new Promise((resolve, reject) => {        
     this.restApi.get_country_Request().subscribe((response) => {
       this.countrylist = response;
       this.country=Number(this.geoLocation);
+      // resolve();
     },
     (error) => {
       console.error('Request failed with error')
       this.errorMessage = error;
-    }
-    )
+    });
+    // });
   }
 
   childImagemitter($event){
@@ -402,16 +419,8 @@ export class RegistrationComponent implements OnInit {
   agreeRadion(event){
     this.agreeCheck=!event.target.checked;
   }
-  submitBusiness(formData){
-    // this.service_arr_id.push(new FormControl('New'));
+  submitBusiness(formData){    
     console.log(formData,"testing methods");
-    if (this.saveOtherLng){
-      alert('OTher LANGULAGE');
-      let element: HTMLElement = document.getElementById('languageSet') as HTMLElement;
-      element.click();
-      this.saveOtherLang = false;
-      this.saveOtherLng = false;
-    }
     this.submitted=true;
     if (this.checkoutForm.invalid) {
       return false; 
@@ -420,9 +429,31 @@ export class RegistrationComponent implements OnInit {
       console.log(response,"BUIS");
       if(response.error_no==0){
         this.disabledButton=true;
-        this.showDbMessage='Registration Success!.';
+        this.showDbMessage ='Registration Success! Confirmation Email has been sent to your register email.';
+        let checkEmail = this.checkoutForm.get('email').value;
+        let checkpassword = this.checkoutForm.get('password').value;
+        let checkretypepassword = this.checkoutForm.get('retypepassword').value;
         this.checkoutForm.reset();
+        this.Sidepanel.restImage('B');
+        this.checkoutForm.get('company').setValue('COMPANY');
+        let Languge = this.restApi.lang_code;
+        this.checkoutForm.get('lang_code').setValue(Languge);
         this.service_id="";
+        if (this.saveOtherLng) {
+          let element: HTMLElement = document.getElementById('languageSet') as HTMLElement;
+          element.click();
+          this.checkoutForm.get('email').setValue(checkEmail);
+          this.checkoutForm.get('password').setValue(checkpassword);
+          this.checkoutForm.get('retypepassword').setValue(checkretypepassword);
+          this.langCondition=true;
+          this.saveOtherLang = false;
+          this.saveOtherLng = false;
+          let comman_sys = response.common_id;
+          this.checkoutForm.get('common_id').setValue(comman_sys);
+        }else{
+          this.checkoutForm.get('common_id').setValue("new");
+          this.langCondition = false;
+        }
       }else{
         this.disabledButton=true;
         this.showDbMessage='Failer ! '+response.error_no+'.';
@@ -441,13 +472,6 @@ export class RegistrationComponent implements OnInit {
 
   submitIndividual(indformData){
     console.log(indformData,"individal methods");
-    if (this.saveOtherLng) {
-      alert('OTher LANGULAGE');
-      let element: HTMLElement = document.getElementById('languageSet') as HTMLElement;
-      element.click();
-      this.saveOtherLang = false;
-      this.saveOtherLng = false;
-    }
     this.insubmitted=true;
     if (this.individualForm.invalid) {
       return false;
@@ -456,9 +480,31 @@ export class RegistrationComponent implements OnInit {
       console.log(response,"INDIVI");
       if(response.error_no==0){
         this.disabledButton=true;
-        this.showDbMessage='Registration Success!.';
+        this.showDbMessage='Registration Success! Confirmation Email has been sent to your register email.';
+        let checkEmail = this.individualForm.get('email').value;
+        let checkpassword = this.individualForm.get('password').value;
+        let checkretypepassword = this.individualForm.get('retypepassword').value;
         this.individualForm.reset();  
+        this.Sidepanel.restImage('I');
+        this.individualForm.get('company').setValue('INDIVIDUAL');
+        let Languge = this.restApi.lang_code;
+        this.individualForm.get('lang_code').setValue(Languge);
         this.ind_service_id="";
+        if (this.saveOtherLng) {
+          let element: HTMLElement = document.getElementById('languageSet') as HTMLElement;
+          element.click();
+          this.individualForm.get('email').setValue(checkEmail);
+          this.individualForm.get('password').setValue(checkpassword);
+          this.individualForm.get('retypepassword').setValue(checkretypepassword);
+          this.langCondition = true;
+          this.saveOtherLang = false;
+          this.saveOtherLng = false;
+          let comman_sys = response.common_id;
+          this.individualForm.get('common_id').setValue(comman_sys);
+        }else{
+          this.individualForm.get('common_id').setValue('new');
+          this.langCondition = false;
+        }
       }else{
         this.disabledButton=true;
         this.showDbMessage='Failer ! '+response.error_no+'.';

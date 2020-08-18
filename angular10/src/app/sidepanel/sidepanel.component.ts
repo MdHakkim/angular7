@@ -10,8 +10,8 @@ export interface Post {
   styleUrls: ['./sidepanel.component.css']
 })
 export class SidepanelComponent implements OnInit {
-  @Input() isiShown;
   @Input() isbShown;
+  @Input() isiShown;
   @Input() CaptionName;
   @Input() businessProf;
 
@@ -26,14 +26,20 @@ export class SidepanelComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) { }
   
   ngOnInit(): void {
-    // let tsting='http://www.pdf995.com/samples/pdf.pdf';
-    // this.LogoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(tsting);
-    // this.previewUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/image/bg.png');
   }
   @Output() imageBaseurl = new EventEmitter<Post>();
   fileProgress(fileInput: any,params) {
     this.fileData = <File>fileInput.target.files[0];
     this.preview(params);
+  }
+  restImage(param){
+    if(param=='B'){
+      this.LogoUrl = '/assets/image/bg.png';
+      this.previewUrl= this.sanitizer.bypassSecurityTrustResourceUrl('/assets/image/bg.png');
+    }else{
+      this.previewUrl_P_I = '/assets/image/bg.png';
+      this.previewUrl_L_I = this.sanitizer.bypassSecurityTrustResourceUrl('/assets/image/bg.png');
+    }
   }
   preview(params) {
     // Show preview 

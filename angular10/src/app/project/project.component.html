@@ -56,15 +56,56 @@
             <div class="col text-center">
                 <h3 translate>Business</h3>
             </div>
-            <div *ngFor="let busirow of business;" class="row pb-3 mb-2 border border-dark">
-                <div class="col-2 pt-3"><img class="w-100" [src]="busirow.image"></div>
+            <div *ngFor="let searchrow of business;" class="row mb-2 border border-dark">
+                <!-- <div class="col-2 pt-3"><img class="w-100" [src]="busirow.image"></div>
                 <div class="col-10 dev-minH">
                     <h4 class="text-center dev-pdr">{{busirow.display_name}}</h4>
                     <p class="m-0">{{busirow.remarks}}</p>
                 </div>
                 <div class="dev-link">
-                    <!-- <input type="hidden" value="{{busirow.portfolio}}" [(ngModel)]="get"> -->
                     <button type="button" data-toggle="modal" (click)="getModel(busirow.portfolio)" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm" translate="">Portfolio</button>
+                </div> -->
+                <div class="dev-panel rounded">
+                    <div class="col-12 dev-pd-0">
+                        <div class="dev-setFlex">
+                            <div class="dev-img-div rounded-circle">
+                                <img class="w-100 rounded-circle" [src]="searchrow.image">
+                            </div>
+                            <div class="dev-left-data">
+                                <div class="rounded"><span
+                                        class="border dev-pd dev-radius rounded dev-tag">{{searchrow.display_name}}</span>
+                                </div>
+                            <div class="rounded"><span
+                                    class="border dev-pd dev-radius rounded dev-tag">{{searchrow.org_type}}</span><span
+                                    class="border dev-pd dev-tag rounded dev-radius">{{searchrow.business_type}}</span>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
+                            <h5>{{searchrow.remarks | slice:0:100}}</h5>
+                            <div class="dev-serive">
+                                <p class="dev-pag dev-lett" translate="">Serives_Provided</p>
+                                <span *ngFor="let servicerow of searchrow.service"
+                                    class="dev-tag border dev-radius-cornor dev-tag-pd">{{servicerow.service_name}}</span>
+                            </div>
+                        </div>
+                        <div class="dev-block-btm pl-2">
+                            <ul class="list-unstyled">
+                                <li class="input-group">
+                                    <p class="dev-pag"><i class="fa fa-phone" aria-hidden="true"></i> {{searchrow.ph_no}}</p>
+                                </li>
+                                <li class="input-group">
+                                    <p class="dev-pag"><i class="fa fa-envelope" aria-hidden="true"></i> {{searchrow.email}}</p>
+                                </li>
+                                <li class="input-group">
+                                    <p class="dev-pag"><i class="fa fa-map-marker" aria-hidden="true"></i> {{searchrow.area}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dev-block-btm dev-port pl-2">
+                            <button type="button" data-toggle="modal" (click)="getModel(searchrow.portfolio)" data-target="#PortfolioModel" class="btn btn-primary btn-sm" translate="">Portfolio</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,13 +113,56 @@
             <div class="col text-center">
                 <h3 translate>Individual</h3>
             </div>
-            <div *ngFor="let indivirow of individual;" class="row pb-3 mb-2 border border-dark">
-                <div class="col-2 pt-3"><img class="w-100" [src]="indivirow.image"></div>
+            <div *ngFor="let indivirow of individual;" class="row mb-2 border border-dark">
+                <!-- <div class="col-2 pt-3"><img class="w-100" [src]="indivirow.image"></div>
                 <div class="col-10 dev-minH">
                     <h4 class="text-center dev-pdr">{{indivirow.display_name}}</h4>
                    <p class="m-0">{{indivirow.remarks}}</p> 
                 </div>
-                <div class="dev-link"><button type="button" data-toggle="modal" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm" translate="">Portfolio</button></div>
+                <div class="dev-link"><button type="button" data-toggle="modal" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm" translate="">Portfolio</button></div> -->
+                <div class="dev-panel rounded">
+                    <div class="col-12 dev-pd-0">
+                        <div class="dev-setFlex">
+                            <div class="dev-img-div rounded-circle">
+                                <img class="w-100 rounded-circle" [src]="indivirow.image">
+                            </div>
+                            <div class="dev-left-data">
+                                <div class="rounded"><span
+                                        class="border dev-pd dev-radius rounded dev-tag">{{indivirow.display_name}}</span>
+                                </div>
+                                <div class="rounded"><span
+                                        class="border dev-pd dev-radius rounded dev-tag">{{indivirow.org_type}}</span><span
+                                        class="border dev-pd dev-tag rounded dev-radius">{{indivirow.business_type}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
+                            <h5>{{indivirow.remarks | slice:0:100}}</h5>
+                            <div class="dev-serive">
+                                <p class="dev-pag dev-lett" translate="">Serives_Provided</p>
+                                <span *ngFor="let servicerow of indivirow.service"
+                                    class="dev-tag border dev-radius-cornor dev-tag-pd">{{servicerow.service_name}}</span>
+                            </div>
+                        </div>
+                        <div class="dev-block-btm pl-2">
+                            <ul class="list-unstyled">
+                                <li class="input-group">
+                                    <p class="dev-pag"><i class="fa fa-phone" aria-hidden="true"></i> {{indivirow.ph_no}}</p>
+                                </li>
+                                <li class="input-group">
+                                    <p class="dev-pag"><i class="fa fa-envelope" aria-hidden="true"></i> {{indivirow.email}}</p>
+                                </li>
+                                <li class="input-group">
+                                    <p class="dev-pag"><i class="fa fa-map-marker" aria-hidden="true"></i> {{indivirow.area}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dev-block-btm dev-port pl-2">
+                            <button type="button" data-toggle="modal" (click)="getModel(searchrow.portfolio)" data-target="#PortfolioModel"
+                                class="btn btn-primary btn-sm" translate="">Portfolio</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
