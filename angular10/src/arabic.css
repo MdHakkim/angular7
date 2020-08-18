@@ -33,6 +33,9 @@ body{
 .dev-close{
     margin-left: 0px !important;
 }
+.dev-pd-lng{
+    padding-left: 1.5rem !important;
+}
 @media (max-width: 480px) { 
     .dev-btn-bg{ margin-bottom: 2px !important;margin-left: 0px !important; }
     .buttonCreate{ margin-right: 0px;}

@@ -52,7 +52,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-lg-6 pr-4 dev-mb">
+        <div class="col-sm-12 col-lg-6 dev-pd-lng dev-mb">
             <div class="col text-center">
                 <h3 translate>Business</h3>
             </div>
@@ -69,7 +69,7 @@
                     <div class="col-12 dev-pd-0">
                         <div class="dev-setFlex">
                             <div class="dev-img-div rounded-circle">
-                                <img class="w-100 rounded-circle" [src]="searchrow.image">
+                                <img class="w-100 dev-src rounded-circle" [src]="searchrow.image">
                             </div>
                             <div class="dev-left-data">
                                 <div class="rounded"><span
@@ -95,14 +95,14 @@
                                     <p class="dev-pag"><i class="fa fa-phone" aria-hidden="true"></i> {{searchrow.ph_no}}</p>
                                 </li>
                                 <li class="input-group">
-                                    <p class="dev-pag"><i class="fa fa-envelope" aria-hidden="true"></i> {{searchrow.email}}</p>
+                                    <p class="dev-pag"><i class="fa fa-envelope" aria-hidden="true"></i> {{searchrow.email| slice:0:20}}</p>
                                 </li>
                                 <li class="input-group">
                                     <p class="dev-pag"><i class="fa fa-map-marker" aria-hidden="true"></i> {{searchrow.area}}</p>
                                 </li>
                             </ul>
                         </div>
-                        <div class="dev-block-btm dev-port pl-2">
+                        <div class="dev-block-btm1 dev-port pl-2">
                             <button type="button" data-toggle="modal" (click)="getModel(searchrow.portfolio)" data-target="#PortfolioModel" class="btn btn-primary btn-sm" translate="">Portfolio</button>
                         </div>
                     </div>
@@ -124,15 +124,15 @@
                     <div class="col-12 dev-pd-0">
                         <div class="dev-setFlex">
                             <div class="dev-img-div rounded-circle">
-                                <img class="w-100 rounded-circle" [src]="indivirow.image">
+                                <img class="w-100 dev-src rounded-circle" [src]="indivirow.image">
                             </div>
                             <div class="dev-left-data">
                                 <div class="rounded"><span
-                                        class="border dev-pd dev-radius rounded dev-tag">{{indivirow.display_name}}</span>
+                                class="border dev-pd dev-radius rounded dev-tag">{{indivirow.display_name}}</span>
                                 </div>
                                 <div class="rounded"><span
-                                        class="border dev-pd dev-radius rounded dev-tag">{{indivirow.org_type}}</span><span
-                                        class="border dev-pd dev-tag rounded dev-radius">{{indivirow.business_type}}</span>
+                                class="border dev-pd dev-radius rounded dev-tag">{{indivirow.org_type}}</span><span
+                                class="border dev-pd dev-tag rounded dev-radius">{{indivirow.business_type}}</span>
                                 </div>
                             </div>
                         </div>
@@ -147,17 +147,17 @@
                         <div class="dev-block-btm pl-2">
                             <ul class="list-unstyled">
                                 <li class="input-group">
-                                    <p class="dev-pag"><i class="fa fa-phone" aria-hidden="true"></i> {{indivirow.ph_no}}</p>
+                                <p class="dev-pag"><i class="fa fa-phone" aria-hidden="true"></i> {{indivirow.ph_no}}</p>
                                 </li>
                                 <li class="input-group">
-                                    <p class="dev-pag"><i class="fa fa-envelope" aria-hidden="true"></i> {{indivirow.email}}</p>
+                                <p class="dev-pag"><i class="fa fa-envelope" aria-hidden="true"></i> {{indivirow.email| slice:0:20}}</p>
                                 </li>
                                 <li class="input-group">
-                                    <p class="dev-pag"><i class="fa fa-map-marker" aria-hidden="true"></i> {{indivirow.area}}</p>
+                                <p class="dev-pag"><i class="fa fa-map-marker" aria-hidden="true"></i> {{indivirow.area}}</p>
                                 </li>
                             </ul>
                         </div>
-                        <div class="dev-block-btm dev-port pl-2">
+                        <div class="dev-block-btm1 dev-port pl-2">
                             <button type="button" data-toggle="modal" (click)="getModel(searchrow.portfolio)" data-target="#PortfolioModel"
                                 class="btn btn-primary btn-sm" translate="">Portfolio</button>
                         </div>

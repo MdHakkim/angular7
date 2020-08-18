@@ -10,6 +10,9 @@ body{
 .buttonBottom{
     margin-bottom: 3px;
 }
+.dev-pd-lng{
+    padding-right: 1.5rem !important;
+}
 @media (max-width: 480px) { 
     .buttonCreate{ margin-left: -5px;}
 }

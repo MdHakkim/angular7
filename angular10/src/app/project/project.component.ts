@@ -30,6 +30,8 @@ export class ProjectComponent implements OnInit {
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();
       this.getArea(event, 'A');
+      this.busiContent();
+      this.indiviContent();
     });
   }
   ngOnInit(): void {

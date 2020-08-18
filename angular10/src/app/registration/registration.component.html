@@ -130,11 +130,11 @@
                                     </ng-option>
                                 </ng-select>
                                 <div *ngIf="submitted && f.business_type.errors" class="invalid-feedback">
-                                    <div *ngIf="f.business_type.errors.required">Service is required</div>
+                                    <div *ngIf="f.business_type.errors.required">Business is required</div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_service' | translate}}"  name="service_id" [searchable]="true" [clearable]="true" multiple="true" autocomplete="false" [(ngModel)]="service_id" [ngModelOptions]="{standalone: true}" [ngClass]="{ 'is-invalid': submitted && f.service_id.errors }">
+                                <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_service' | translate}}" (ngModelChange)="onChangeService($event)" (keyup)="getservice($event)"   name="service_id" [searchable]="true" [clearable]="true" multiple="true" autocomplete="false" [(ngModel)]="service_id" [ngModelOptions]="{standalone: true}" [ngClass]="{ 'is-invalid': submitted && f.service_id.errors }">
                                     <ng-option *ngFor="let servicerow of servicelist" [value]="servicerow.id">
                                         {{servicerow.desc_new}}
                                     </ng-option>
@@ -192,7 +192,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div *ngIf="langChange" class="form-group row">
                             <div class="col-sm-10">
                                 <div class="form-check">
                                     <input class="form-check-input" [(ngModel)]="saveOtherLang" [ngModelOptions]="{standalone: true}"
@@ -237,11 +237,14 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Type_of_Profession</label>
                             <div class="col-lg-5 businessprnt mb-2">
-                                <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_business' | translate}}" formControlName="business_type" (keyup)="getbusiness($event,'AC')" name="ind_business_type" [searchable]="true" [clearable]="true" [(ngModel)]="ind_business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
+                                <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_business' | translate}}" formControlName="business_type" (keyup)="getbusiness($event,'AC')" name="ind_business_type" [searchable]="true" [clearable]="true" [(ngModel)]="ind_business_type" [ngClass]="{ 'is-invalid': insubmitted && i.business_type.errors }">
                                     <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
                                         {{businesrow.desc_new}}
                                     </ng-option>
                                 </ng-select>
+                                <div *ngIf="insubmitted && i.business_type.errors" class="invalid-feedback">
+                                    <div *ngIf="i.business_type.errors.required">Profession is required</div>
+                                </div>
                             </div>
                             <div class="col-lg-5">
                                 <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{'Choose_Gender' | translate}}" formControlName="gender" name="gender" [searchable]="true" [clearable]="true" [(ngModel)]="gender">
@@ -383,7 +386,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div *ngIf="langChange" class="form-group row">
                             <div class="col-sm-10">
                                 <div class="form-check">
                                     <input class="form-check-input" [(ngModel)]="saveOtherLang" [ngModelOptions]="{standalone: true}"

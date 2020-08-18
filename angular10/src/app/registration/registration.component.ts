@@ -21,6 +21,7 @@ export class RegistrationComponent implements OnInit {
   @ViewChild(SidepanelComponent) Sidepanel: SidepanelComponent;
   CaptionName: string = "Business Logo";
   bCaptionName: string = "Portfolio";
+  langChange:boolean=true;
   isbShown: boolean = true;
   isiShown: boolean = false;
   langCondition:boolean=false;
@@ -80,6 +81,8 @@ export class RegistrationComponent implements OnInit {
       this.restApi.get_city_Request(this.geoLocation, '').subscribe((response) => {
         this.citylist = response.result;
       });
+      this.getbusiness(event, '');
+      this.getservice(event);
       let Languge = this.restApi.lang_code;
       this.checkoutForm.get('lang_code').setValue(Languge);
       this.individualForm.get('lang_code').setValue(Languge);
@@ -94,15 +97,15 @@ export class RegistrationComponent implements OnInit {
       business_name:'',
       contactcode:'',
       phone:'',
-      contactno: [null, Validators.required],
-      email: [null, [Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      contactno: ['', Validators.required],
+      email: ['', [Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       website:'',
-      add1: [null, Validators.required],
+      add1: ['', Validators.required],
       add2:'',
-      country:[null, Validators.required],
+      country:['', Validators.required],
       area:'',
       city:'',
-      business_type:[null, Validators.required],
+      business_type:['', Validators.required],
       remarks:'',
       subscription_1:'',
       subscription_2:'',
@@ -122,12 +125,12 @@ export class RegistrationComponent implements OnInit {
       last_name: '',
       business_name:'',
       contactcode:'',
-      contactno: [null, Validators.required],
+      contactno: ['', Validators.required],
       phone:'',
-      email: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       website:'',
       gender:'',
-      add1: [null, Validators.required],
+      add1: ['', Validators.required],
       add2:'',
       country:'',
       area:'',
@@ -372,6 +375,7 @@ export class RegistrationComponent implements OnInit {
       this.ind_country=Number(this.geoLocation);
     },200);
     this.langCondition = false;
+    this.langChange = true;
   }
 
   subscription(defaults){
@@ -433,8 +437,12 @@ export class RegistrationComponent implements OnInit {
         let checkEmail = this.checkoutForm.get('email').value;
         let checkpassword = this.checkoutForm.get('password').value;
         let checkretypepassword = this.checkoutForm.get('retypepassword').value;
+        let checkcontactcode = this.checkoutForm.get('contactcode').value;
+        let checkcontactno = this.checkoutForm.get('contactno').value;
+        let checkwebsite = this.checkoutForm.get('website').value;
         this.checkoutForm.reset();
         this.Sidepanel.restImage('B');
+        this.tagservice = '';
         this.checkoutForm.get('company').setValue('COMPANY');
         let Languge = this.restApi.lang_code;
         this.checkoutForm.get('lang_code').setValue(Languge);
@@ -445,11 +453,15 @@ export class RegistrationComponent implements OnInit {
           this.checkoutForm.get('email').setValue(checkEmail);
           this.checkoutForm.get('password').setValue(checkpassword);
           this.checkoutForm.get('retypepassword').setValue(checkretypepassword);
+          this.checkoutForm.get('contactcode').setValue(checkcontactcode);
+          this.checkoutForm.get('contactno').setValue(checkcontactno);
+          this.checkoutForm.get('website').setValue(checkwebsite);
           this.langCondition=true;
           this.saveOtherLang = false;
           this.saveOtherLng = false;
           let comman_sys = response.common_id;
           this.checkoutForm.get('common_id').setValue(comman_sys);
+          this.langChange=false;
         }else{
           this.checkoutForm.get('common_id').setValue("new");
           this.langCondition = false;
@@ -484,8 +496,12 @@ export class RegistrationComponent implements OnInit {
         let checkEmail = this.individualForm.get('email').value;
         let checkpassword = this.individualForm.get('password').value;
         let checkretypepassword = this.individualForm.get('retypepassword').value;
+        let checkcontactcode = this.individualForm.get('contactcode').value;
+        let checkcontactno = this.individualForm.get('contactno').value;
+        let checkwebsite = this.individualForm.get('website').value;
         this.individualForm.reset();  
         this.Sidepanel.restImage('I');
+        this.tagservice='';
         this.individualForm.get('company').setValue('INDIVIDUAL');
         let Languge = this.restApi.lang_code;
         this.individualForm.get('lang_code').setValue(Languge);
@@ -496,11 +512,15 @@ export class RegistrationComponent implements OnInit {
           this.individualForm.get('email').setValue(checkEmail);
           this.individualForm.get('password').setValue(checkpassword);
           this.individualForm.get('retypepassword').setValue(checkretypepassword);
+          this.individualForm.get('contactcode').setValue(checkcontactcode);
+          this.individualForm.get('contactno').setValue(checkcontactno);
+          this.individualForm.get('website').setValue(checkwebsite);
           this.langCondition = true;
           this.saveOtherLang = false;
           this.saveOtherLng = false;
           let comman_sys = response.common_id;
           this.individualForm.get('common_id').setValue(comman_sys);
+          this.langChange = false;
         }else{
           this.individualForm.get('common_id').setValue('new');
           this.langCondition = false;

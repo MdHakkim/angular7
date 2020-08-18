@@ -111,12 +111,12 @@
     width:100%;
 }
 .dev-block-btm{
-    display: block;
-    width:50%;
-}
-.dev-block-btm{
     display: inline-block;
-    width:50%;
+    width:70%;
+}
+.dev-block-btm1{
+    display: inline-block;
+    width:30%;
 }
 .dev-port{
     vertical-align: middle;
@@ -209,6 +209,9 @@
     box-shadow: 1px 2px 2px 0px #bab9b9;
     cursor: pointer;
     
+}
+.dev-src{
+    height: 84px;
 }
 
 
