@@ -14,7 +14,12 @@ export class SidepanelComponent implements OnInit {
   @Input() isiShown;
   @Input() CaptionName;
   @Input() businessProf;
-
+  imageSizeVali:boolean = false;
+  imageValidSize: boolean = false;
+  imageValidFormat: boolean =  false;
+  pdfSizeVali: boolean = false;
+  pdfValidSize: boolean = false;
+  pdfValidFormat: boolean = false;
   fileData: File = null;
   LogoUrl:any = '/assets/image/bg.png';
   previewUrl_P_I:any = '/assets/image/bg.png';
@@ -34,28 +39,37 @@ export class SidepanelComponent implements OnInit {
   }
   restImage(param){
     if(param=='B'){
+      this.validation('LB', false, null);
       this.LogoUrl = '/assets/image/bg.png';
       this.previewUrl= this.sanitizer.bypassSecurityTrustResourceUrl('/assets/image/bg.png');
     }else{
+      this.validation('PI', false, null);
       this.previewUrl_P_I = '/assets/image/bg.png';
       this.previewUrl_L_I = this.sanitizer.bypassSecurityTrustResourceUrl('/assets/image/bg.png');
     }
   }
   preview(params) {
-    // Show preview 
+    this.validation(params,false,null);
     var mimeType = this.fileData.type;
-    console.log('size', this.fileData.size);
+    // console.log('size', this.fileData.size);
     let fileSize = this.fileData.size;
-    if(fileSize>2000000){
-      return false;
-    }
     // /image\/*/ all image
     if(params=='LB' || params=='LI'){
+      if (fileSize > 2000000) {
+        this.validation(params, true, 'S');
+        return false;
+      }
       if (mimeType.match(/image\/*/) == null) {
+        this.validation(params,true,'F');
         return;
       }
     }else{
+      if (fileSize > 3000000) {
+        this.validation(params, true, 'S');
+        return false;
+      }
       if (mimeType.match('application/pdf') == null) {
+        this.validation(params, true, 'F');
         return;
       }
     }
@@ -75,12 +89,36 @@ export class SidepanelComponent implements OnInit {
         savParamters = {title: 'Profile', content: this.emitt};
       }else if(params=='PI'){
         this.previewUrl_L_I = this.sanitizer.bypassSecurityTrustResourceUrl(<string>reader.result);
-        savParamters = {title: 'Profile', content: this.emitt};
+        savParamters = {title: 'Profile_i', content: this.emitt};
       }else if(params=='LI'){
         this.previewUrl_P_I = reader.result; 
-        savParamters = {title: 'I_Profile', content: this.emitt};
+        savParamters = { title: 'Logo_i', content: this.emitt};
       }
       this.imageBaseurl.emit(savParamters);
+    }
+  }
+
+  validation(mode,params,type){
+    if (mode == 'LB' || mode == 'LI'){
+      this.imageSizeVali = params;
+      if(type=='S')
+        this.imageValidSize = params;
+      else if(type=='F'){
+        this.imageValidFormat = params;
+      }else{
+        this.imageValidSize = params;
+        this.imageValidFormat = params;
+      }
+    }else{
+      this.pdfSizeVali = params;
+      if (type == 'S')
+        this.pdfValidSize = params;
+      else if (type == 'F') {
+        this.pdfValidFormat = params;
+      } else {
+        this.pdfValidSize = params;
+        this.pdfValidFormat = params;
+      }
     }
   }
 

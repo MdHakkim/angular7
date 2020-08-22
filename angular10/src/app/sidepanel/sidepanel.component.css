@@ -12,12 +12,22 @@
     display: block;
     width: 50%;
     overflow: hidden;
+    line-height: 1;
+}
+.defalutSet{
+    font-size: 11px;
+    color: red;
 }
 .dev-color{
     font-size: 14px;
 }
 .dev-color input[type="file"] {
     color:white;
+}
+.invalid-Error{
+    color: red;
+    line-height: 1.5;
+    font-size: 12px;
 }
 .dev-pd-lf{
     padding-left: 38px;

@@ -13,6 +13,9 @@ body{
 .dev-pd-lng{
     padding-right: 1.5rem !important;
 }
+.dev-exp-mr{
+    margin-left: 12px;
+}
 @media (max-width: 480px) { 
     .buttonCreate{ margin-left: -5px;}
 }

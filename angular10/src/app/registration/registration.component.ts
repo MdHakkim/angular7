@@ -414,7 +414,10 @@ export class RegistrationComponent implements OnInit {
     }else if($event.title=='Profile'){
       const imageName = this.checkoutForm.get('image_2') as FormControl;
       imageName.setValue($event.content);
-    }else if($event.title=='I_Profile'){
+    } else if ($event.title =='Logo_i'){
+      const imageName = this.individualForm.get('image_1') as FormControl;
+      imageName.setValue($event.content);
+    } else if ($event.title == 'Profile_i') {
       const imageName = this.individualForm.get('image_2') as FormControl;
       imageName.setValue($event.content);
     }
@@ -456,6 +459,7 @@ export class RegistrationComponent implements OnInit {
           this.checkoutForm.get('contactcode').setValue(checkcontactcode);
           this.checkoutForm.get('contactno').setValue(checkcontactno);
           this.checkoutForm.get('website').setValue(checkwebsite);
+          this.checkoutForm.get('phone').setValue(checkcontactcode + checkcontactno);
           this.langCondition=true;
           this.saveOtherLang = false;
           this.saveOtherLng = false;
@@ -468,7 +472,7 @@ export class RegistrationComponent implements OnInit {
         }
       }else{
         this.disabledButton=true;
-        this.showDbMessage='Failer ! '+response.error_no+'.';
+        this.showDbMessage = 'Failer ! <br>' + response.error_msg;
       }
       this.showMsg= true;
       window.scrollTo(0, 0);
@@ -515,6 +519,7 @@ export class RegistrationComponent implements OnInit {
           this.individualForm.get('contactcode').setValue(checkcontactcode);
           this.individualForm.get('contactno').setValue(checkcontactno);
           this.individualForm.get('website').setValue(checkwebsite);
+          this.individualForm.get('phone').setValue(checkcontactcode + checkcontactno);
           this.langCondition = true;
           this.saveOtherLang = false;
           this.saveOtherLng = false;
@@ -527,7 +532,7 @@ export class RegistrationComponent implements OnInit {
         }
       }else{
         this.disabledButton=true;
-        this.showDbMessage='Failer ! '+response.error_no+'.';
+        this.showDbMessage = 'Failer ! <br>' + response.error_msg;
       }
       this.showMsg= true;
       window.scrollTo(0, 0);

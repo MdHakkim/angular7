@@ -41,6 +41,7 @@ export class ExploreComponent implements OnInit {
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();
       this.restArea();
+      this.advanceSearch('ALL');
     });  
   }
   

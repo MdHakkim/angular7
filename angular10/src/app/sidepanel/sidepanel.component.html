@@ -14,8 +14,16 @@
                     </a>
                 </div>
                 <div class="dev-borwser">
-                    <!-- <a class="dev-side" href="javascript: void(0);">Remove image</a> -->
-                    <a class="dev-side dev-color mt-1" href="javascript: void(0);"><input type="file" (change)="fileProgress($event,'LB')"></a>
+                    <div class="dev-side">
+                        <a class="dev-color mt-1" href="javascript: void(0);">
+                            <input type="file" (change)="fileProgress($event,'LB')">
+                        </a>
+                        <span class="defalutSet">*Allow Max. 2Mb</span>
+                    </div>
+                    <div *ngIf="imageSizeVali" class="invalid-Error">
+                        <div *ngIf="imageValidSize">Image size not more then 2Mb.</div>
+                        <div *ngIf="imageValidFormat">Allow to upload only image not other file.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,13 +36,18 @@
             <div class="d-block pt-2 pr-2 pl-2 pb-3">
                 <div class="dev-img text-center">
                     <a href="javascript: void(0);" *ngIf="previewUrl">
-                        <!-- <img class="img-fluid" [src]="previewUrl"> -->
                         <iframe style="width: 100%;border: none;" [src]="previewUrl"></iframe>
                     </a>
                 </div>
                 <div class="dev-borwser">
-                    <!-- <a class="dev-side" href="javascript: void(0);">Remove image</a> -->
-                    <a class="dev-side dev-color mt-1" href="javascript: void(0);"><input type="file" accept="application/pdf" (change)="fileProgress($event,'PB')"></a>
+                    <div class="dev-side">
+                        <a class="dev-color mt-1" href="javascript: void(0);"><input type="file" accept="application/pdf" (change)="fileProgress($event,'PB')"></a>
+                        <span class="defalutSet">*Allow Max. 3Mb</span>
+                    </div>
+                    <div *ngIf="pdfSizeVali" class="invalid-Error">
+                        <div *ngIf="pdfValidSize">Pdf size not more then 3Mb.</div>
+                        <div *ngIf="pdfValidFormat">Allow to upload only Pdf not other file.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,8 +68,14 @@
                     </a>
                 </div>
                 <div class="dev-borwser">
-                    <!-- <a class="dev-side" href="javascript: void(0);">Remove image</a> -->
-                    <a class="dev-side dev-color mt-1" href="javascript: void(0);"><input type="file" (change)="fileProgress($event,'LI')"></a>
+                    <div class="dev-side">
+                        <a class="dev-color mt-1" href="javascript: void(0);"><input type="file" (change)="fileProgress($event,'LI')"></a>
+                        <span class="defalutSet">*Allow Max. 2Mb</span>
+                    </div>
+                    <div *ngIf="imageSizeVali" class="invalid-Error">
+                        <div *ngIf="imageValidSize">Image size not more then 2Mb.</div>
+                        <div *ngIf="imageValidFormat">Allow to upload only image not other file.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,13 +88,18 @@
             <div class="d-block pt-2 pr-2 pl-2 pb-3">
                 <div class="dev-img text-center">
                     <a href="javascript: void(0);" *ngIf="previewUrl_L_I">
-                        <!-- <img class="img-fluid" [src]="previewUrl"> -->
                         <iframe style="width: 100%;border: none;" [src]="previewUrl_L_I"></iframe>
                     </a>
                 </div>
                 <div class="dev-borwser">
-                    <!-- <a class="dev-side" href="javascript: void(0);">Remove image</a> -->
-                    <a class="dev-side dev-color mt-1" href="javascript: void(0);"><input type="file" accept="application/pdf" (change)="fileProgress($event,'PI')"></a>
+                    <div class="dev-side">
+                        <a class="dev-color mt-1" href="javascript: void(0);"><input type="file" accept="application/pdf" (change)="fileProgress($event,'PI')"></a>
+                        <span class="defalutSet">*Allow Max. 3Mb</span>
+                    </div>
+                    <div *ngIf="pdfSizeVali" class="invalid-Error">
+                        <div *ngIf="pdfValidSize">Pdf size not more then 3Mb.</div>
+                        <div *ngIf="pdfValidFormat">Allow to upload only Pdf not other file.</div>
+                    </div>
                 </div>
             </div>
         </div>

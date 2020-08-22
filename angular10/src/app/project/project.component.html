@@ -57,14 +57,6 @@
                 <h3 translate>Business</h3>
             </div>
             <div *ngFor="let searchrow of business;" class="row mb-2 border border-dark">
-                <!-- <div class="col-2 pt-3"><img class="w-100" [src]="busirow.image"></div>
-                <div class="col-10 dev-minH">
-                    <h4 class="text-center dev-pdr">{{busirow.display_name}}</h4>
-                    <p class="m-0">{{busirow.remarks}}</p>
-                </div>
-                <div class="dev-link">
-                    <button type="button" data-toggle="modal" (click)="getModel(busirow.portfolio)" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm" translate="">Portfolio</button>
-                </div> -->
                 <div class="dev-panel rounded">
                     <div class="col-12 dev-pd-0">
                         <div class="dev-setFlex">
@@ -82,7 +74,7 @@
                             </div>
                         </div>
                         <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
-                            <h5>{{searchrow.remarks | slice:0:100}}</h5>
+                            <h6>{{searchrow.remarks | slice:0:100}}</h6>
                             <div class="dev-serive">
                                 <p class="dev-pag dev-lett" translate="">Serives_Provided</p>
                                 <span *ngFor="let servicerow of searchrow.service"
@@ -114,12 +106,6 @@
                 <h3 translate>Individual</h3>
             </div>
             <div *ngFor="let indivirow of individual;" class="row mb-2 border border-dark">
-                <!-- <div class="col-2 pt-3"><img class="w-100" [src]="indivirow.image"></div>
-                <div class="col-10 dev-minH">
-                    <h4 class="text-center dev-pdr">{{indivirow.display_name}}</h4>
-                   <p class="m-0">{{indivirow.remarks}}</p> 
-                </div>
-                <div class="dev-link"><button type="button" data-toggle="modal" data-target="#PortfolioModel" class="btn btn-primary float-right btn-sm" translate="">Portfolio</button></div> -->
                 <div class="dev-panel rounded">
                     <div class="col-12 dev-pd-0">
                         <div class="dev-setFlex">
@@ -137,7 +123,7 @@
                             </div>
                         </div>
                         <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
-                            <h5>{{indivirow.remarks | slice:0:100}}</h5>
+                            <h6>{{indivirow.remarks | slice:0:100}}</h6>
                             <div class="dev-serive">
                                 <p class="dev-pag dev-lett" translate="">Serives_Provided</p>
                                 <span *ngFor="let servicerow of indivirow.service"
