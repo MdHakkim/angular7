@@ -71,7 +71,7 @@ export class ApiServiceService {
     )
   }
   footerPage(params): Observable<any>{
-    return this.httpClient.get(this.api_footerPage_URL+params+'&lang_code='+this.lang_code).
+    return this.httpClient.get(this.api_footerPage_URL+params+'?lang_code='+this.lang_code).
     pipe(
       retry(1),catchError(this.handleError)
     )

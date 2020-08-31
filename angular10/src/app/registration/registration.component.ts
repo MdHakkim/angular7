@@ -444,6 +444,7 @@ export class RegistrationComponent implements OnInit {
         let checkcontactno = this.checkoutForm.get('contactno').value;
         let checkwebsite = this.checkoutForm.get('website').value;
         this.checkoutForm.reset();
+        this.submitted = false;
         this.Sidepanel.restImage('B');
         this.tagservice = '';
         this.checkoutForm.get('company').setValue('COMPANY');
@@ -504,6 +505,7 @@ export class RegistrationComponent implements OnInit {
         let checkcontactno = this.individualForm.get('contactno').value;
         let checkwebsite = this.individualForm.get('website').value;
         this.individualForm.reset();  
+        this.insubmitted = false;
         this.Sidepanel.restImage('I');
         this.tagservice='';
         this.individualForm.get('company').setValue('INDIVIDUAL');

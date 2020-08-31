@@ -110,5 +110,16 @@
     "Old_Posts": "المشاركات القديمة",
     "Company":"شركة",
     "A-Z": "ض-أ",
-    "Z-A": "أ-ض"
+    "Z-A": "أ-ض",
+    "Sign_Up":"سجل",
+    "New_Password": "كلمة سر جديدة",
+    "Reset_Password": "إعادة تعيين كلمة المرور",
+    "Forgot_Password": "هل نسيت كلمة المرور",
+    "Register_email_address": "تسجيل عنوان البريد الإلكتروني",
+    "Create_new_password": "أنشئ كلمة مرور جديدة",
+    "Password_will_update_to_your_profile,once_you_confirm_it": "سيتم تحديث كلمة المرور إلى ملف التعريف الخاص بك ، بمجرد تأكيدها",
+    "Please_enter_your_registered_email_address_to_request_a_password_reset": "الرجاء إدخال عنوان بريدك الإلكتروني المسجل لطلب إعادة تعيين كلمة المرور.",
+    "Password_is_updated_successfully": "تم تحديث كلمة المرور بنجاح",
+    "to_continue": "لاستكمال.",
+    "Confirm_Password": "تأكيد كلمة المرور"
     }

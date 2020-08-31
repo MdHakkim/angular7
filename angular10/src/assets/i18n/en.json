@@ -110,5 +110,17 @@
     "Old_Posts": "Old Posts",
     "Company": "Company",
     "A-Z":"A-Z",
-    "Z-A": "Z-A"
+    "Z-A": "Z-A",
+    "Sign_Up":"Sign Up",
+    "New_Password":"New Password",
+    "Reset_Password":"Reset Password",
+    "Forgot_Password":"Forgot Password",
+    "Register_email_address":"Register email address",
+    "Create_new_password":"Create new password",
+    "Password_will_update_to_your_profile,once_you_confirm_it": "Password will update to your profile,once you confirm it",
+    "Please_enter_your_registered_email_address_to_request_a_password_reset":"Please enter your registered email address to request a password reset.",
+    "Password_is_updated_successfully":"Password is updated successfully",
+    "to_continue":"to continue.",
+    "Confirm_Password":"Confirm Password"
+
     }

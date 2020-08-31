@@ -21,8 +21,8 @@ export class NewPasswordComponent implements OnInit {
   forgotActive: boolean = true;
   contentActive: boolean = true;
   activeLogin: boolean = true;
-  signCaption: string = "Sign Up";
-  LoginCaption: string = 'Login';
+  signCaption: string = "S";
+  LoginCaption: string = 'L';
   getMailValue: any = '';
   showWindowMessage: string;
   activePassword: boolean = false;
@@ -53,7 +53,7 @@ export class NewPasswordComponent implements OnInit {
         this.activeLogin = false;
         this.activePassword = true;
         this.signUpActive = false;
-        this.LoginCaption = 'New Password';
+        this.LoginCaption = 'New_Password';
         this.faiconLogin = '<i class="fa fa-lock" aria-hidden="true"></i>';
         this.newPassword.controls.user_token.setValue(user_token);
         this.emilIdLogin = '';
@@ -69,7 +69,7 @@ export class NewPasswordComponent implements OnInit {
     this.loginActive = false;
     this.forgotActive = false;
     this.activePlace = false;
-    this.signCaption = "Reset Password";
+    this.signCaption = "R";
     this.faIconHtml = '<i class="fa fa-user" aria-hidden="true"></i>';
     this.emilIdLogin='';
     this.getMailValue='';

@@ -55,6 +55,7 @@ export class ContactusComponent implements OnInit {
         this.disabledButton=true;
         this.showDbMessage='Email sent Successfully.';
         this.contactForm.reset();
+        this.submitted=false;
       }else{
         this.disabledButton=true;
         this.showDbMessage='Failer ! '+response.error_no+'.';
