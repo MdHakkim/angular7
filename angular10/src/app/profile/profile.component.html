@@ -7,6 +7,9 @@
         </div>
         </div>
     <div class="row"><div class="col-8"><h5>{{Titlecaption}}</h5></div></div>
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="line-scale" [fullScreen]="true">
+        <p style="color: white">Loading... </p>
+    </ngx-spinner>
     <form [formGroup]="checkoutForm" (keydown.enter)="$event.preventDefault()" (ngSubmit)="submitBusiness(checkoutForm.value)">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-8">

@@ -36,6 +36,7 @@ export class ExploreComponent implements OnInit {
   orderby:string;
   showpost:string;  
   showPdf:any;
+  loopContent:boolean=true;
   geoLocation = localStorage.getItem("geoLocation");
   constructor(private restApi: ApiServiceService,private sharedata:ShareDataService,private route: ActivatedRoute, private router: Router,private _elementRef : ElementRef,private sanitizer: DomSanitizer) {
     this.restApi.getLanguage().subscribe((response) => {
@@ -165,7 +166,15 @@ export class ExploreComponent implements OnInit {
     }
     let area = (this.areaAdv==null? '' : this.areaAdv)
     this.restApi.fetch_advancesearch_Request(country,this.Keyword,service,area,category,gender,this.onlineYN,this.profileYN,this.orderby,this.showpost).subscribe((response) => {
-      this.searchData = response.result;
+      console.log(response.result.length,"test");
+      if (response.result.length>0){
+        this.loopContent = true;
+        this.searchData = response.result;
+      }else{
+        this.searchData = Array('No Found');
+        this.loopContent = false;
+      }
+      
       console.log(response,"google");
     })
   }

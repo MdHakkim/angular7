@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormArray,FormGroup,FormControl ,Validators,AbstractControl  } from '@angular/forms';
 import { ApiServiceService } from '../api-service.service';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-contactus',
   templateUrl: './contactus.component.html',
@@ -8,7 +9,7 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class ContactusComponent implements OnInit {
   contactForm :FormGroup;
-  constructor(public restApi: ApiServiceService,private formBuilder: FormBuilder) { 
+  constructor(public restApi: ApiServiceService, private formBuilder: FormBuilder,private spinner: NgxSpinnerService) { 
     this.contactForm = this.formBuilder.group({
       user_name: ['', Validators.required],
       user_email: ['', Validators.required],
@@ -49,6 +50,7 @@ export class ContactusComponent implements OnInit {
     if (this.contactForm.invalid) {
       return false; 
     }
+    this.spinner.show();
     this.restApi.contactForm(formData).subscribe((response) => {
       console.log(response,"BUIS");
       if(response.error_no==0){
@@ -65,10 +67,13 @@ export class ContactusComponent implements OnInit {
       setTimeout(() => {
         this.showMsg= false;
       },6000);
+      this.spinner.hide();
     },err=>{
       this.disabledButton=false; 
+        this.spinner.hide();
     },()=>{
       this.disabledButton=false;
+        this.spinner.hide();
     });
   }
   

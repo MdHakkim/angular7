@@ -121,5 +121,6 @@
     "Please_enter_your_registered_email_address_to_request_a_password_reset": "الرجاء إدخال عنوان بريدك الإلكتروني المسجل لطلب إعادة تعيين كلمة المرور.",
     "Password_is_updated_successfully": "تم تحديث كلمة المرور بنجاح",
     "to_continue": "لاستكمال.",
-    "Confirm_Password": "تأكيد كلمة المرور"
+    "Confirm_Password": "تأكيد كلمة المرور",
+    "REGISTER_YOURSELF": "سجل نفسك"
     }

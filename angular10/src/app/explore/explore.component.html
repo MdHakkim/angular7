@@ -60,16 +60,16 @@
                     <ng-option value="COMPANY" translate="">Company</ng-option>
                 </ng-select>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 mt-1">
-                <button type="button" (click)="advanceSearch('ALL')" id="searchButton" class="btn btn-sm btn-primary" translate=""><i class="fa fa-search"></i> Search</button>
-                <button type="button" data-toggle="modal" data-target="#advanceModel" (click)="advanceClick()" id="advanceSeach" class="btn btn-sm btn-warning dev-exp-mr" translate=""><i class="fa fa-superpowers" aria-hidden="true"></i> Advance_Search</button>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+                <button type="button" (click)="advanceSearch('ALL')" id="searchButton" class="btn btn-sm btn-hig btn-primary" translate=""><i class="fa fa-search"></i> Search</button>
+                <button type="button" data-toggle="modal" data-target="#advanceModel" (click)="advanceClick()" id="advanceSeach" class="btn btn-sm btn-hig btn-warning dev-exp-mr" translate=""><i class="fa fa-superpowers" aria-hidden="true"></i> Advance_Search</button>
             </div>
         </div>
     </div>
     <div class="row">
         <div *ngFor="let searchrow of searchData" [ngClass]="(acitveClass)? 'col-lg-9':'col-lg-4'" class="col-sm-12 col-md-12 p-0">
-            <div class="dev-panel border rounded mr-1">
-                <div class="col-12 dev-pd-0">
+            <div class="dev-panel rounded mr-1" [ngClass]="loopContent? 'border':''">
+                <div class="col-12 dev-pd-0" *ngIf="loopContent; else NoFound">
                     <div class="dev-setFlex">
                         <div class="dev-img-div rounded-circle">
                             <img class="w-100 rounded-circle" [src]="searchrow.image">
@@ -106,6 +106,11 @@
                         </div>
                     </div>
                 </div>
+                <ng-template #NoFound>
+                        <div class="col-12 text-center">
+                            No Record Found
+                        </div>
+                </ng-template>
             </div>
         </div>
     </div>

@@ -4,6 +4,9 @@
             <p class="alert alert-success" [innerHTML]="showDbMessage"></p>
         </div>
     </div>
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="line-scale" [fullScreen]="true">
+        <p style="color: white">Loading... </p>
+    </ngx-spinner>
     <div class="row">
         <div class="col-sm-6 col-md-12 col-lg-8 pl-2">
             <ul class="nav nav-pills nav-fill border">
@@ -182,7 +185,7 @@
                         </div>
                         <div *ngFor="let subscrirow of subscrilist;let i = index" class="form-group row">
                             <div class="col-sm-10">
-                                <div class="form-check">
+                                <div class="form-check" [ngClass]="{ 'langSubmit': langCondition }" >
                                     <input class="form-check-input" value="{{subscrirow.id}}" (click)="getcheckValue($event,'B')" name="{{dynamicname[i]}}" type="checkbox">
                                     <label class="form-check-label" for="gridCheck1">
                                         {{subscrirow.desc_new}}
@@ -376,7 +379,7 @@
                         </div>
                         <div *ngFor="let subscrirow of subscrilist;let i = index" class="form-group row">
                             <div class="col-sm-10">
-                                <div class="form-check">
+                                <div class="form-check" [ngClass]="{ 'langSubmit': langCondition }">
                                     <input class="form-check-input" value="{{subscrirow.id}}" (click)="getcheckValue($event,'I')" name="{{dynamicname[i]}}" type="checkbox">
                                     <label class="form-check-label" for="gridCheck1">
                                         {{subscrirow.desc_new}}

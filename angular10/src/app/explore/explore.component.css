@@ -36,6 +36,9 @@
 .showActive .dotbtn{
     background: white;
 }
+.btn-hig{
+    height: 34px;
+}
 .dotbtn {
     width: 4px;
     height: 4px;

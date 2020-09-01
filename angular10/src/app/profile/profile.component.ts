@@ -6,11 +6,8 @@ import { Observable, timer, Subject, TimeoutError } from 'rxjs';
 import { ShareDataService } from '../share-data.service';
 import { debounce, debounceTime,mergeMap,distinctUntilChanged,switchMap,timeout,concatMap,delay } from 'rxjs/operators';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
-// import {DomSanitizationService} from '@angular/platform-browser';
-
-
+import { NgxSpinnerService } from "ngx-spinner";
 declare var $:any;
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -69,7 +66,7 @@ export class ProfileComponent implements OnInit {
   Titlecaption:string;
   isCompany:boolean=false;
   commoncaption='Type_of_business';
-  constructor(public restApi: ApiServiceService,private formBuilder: FormBuilder,private _elementRef : ElementRef,private sharedata:ShareDataService,private router: Router,private sanitizer: DomSanitizer){
+  constructor(public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService){
     this.checkoutForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: '',
@@ -304,7 +301,7 @@ export class ProfileComponent implements OnInit {
     if (this.checkoutForm.invalid) {
       return false; 
     }
-    
+    this.spinner.show();
     this.restApi.updateProfile(formData).subscribe((response) => {
       console.log(response,"BUIS");
       if(response.error_no==0){
@@ -317,6 +314,7 @@ export class ProfileComponent implements OnInit {
       setTimeout(() => {
         this.showMsg= false;
       },6000);
+      this.spinner.hide();
     });
   }
   get service_name(): FormArray {

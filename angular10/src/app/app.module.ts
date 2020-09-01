@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './project/project.component';
@@ -32,6 +32,7 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     TagInputModule,
     NgbPaginationModule, 
     NgbAlertModule,
+    NgxSpinnerModule,
     NgSelectModule,TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -72,7 +74,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
   })
   ],
   providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy},HeaderComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
 export function HttpLoaderFactory(http: HttpClient) {

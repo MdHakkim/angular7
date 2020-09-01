@@ -15,7 +15,7 @@ import { ShareDataService } from './share-data.service';
 
 const routes: Routes = [
   { path: 'login', component: NewPasswordComponent },
-  { path: 'generate_new_password/.', component: NewPasswordComponent },
+  { path: 'generate_new_password/:id', component: NewPasswordComponent },
   { path: '', component: ProjectComponent, canActivate: [ShareDataService] },
   { path: 'joinus', component: RegistrationComponent, canActivate: [ShareDataService]},
   { path: 'explore', component: ExploreComponent, canActivate: [ShareDataService]},

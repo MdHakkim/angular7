@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 // import 'rxjs/add/observable/of';
 // import 'rxjs/add/operator/filter';
 import { SidepanelComponent } from '../sidepanel/sidepanel.component';
+import { NgxSpinnerService } from "ngx-spinner";
 declare var $:any;
 @Component({
   selector: 'app-registration',
@@ -74,7 +75,7 @@ export class RegistrationComponent implements OnInit {
   saveOtherLng: boolean = false;
   saveContent: string ="Would you like to save in";
   //gender neeed to add.
-  constructor(public restApi: ApiServiceService,private formBuilder: FormBuilder,private _elementRef : ElementRef,private sharedata:ShareDataService,private router: Router) {
+  constructor(public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private spinner: NgxSpinnerService) {
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();
       this.lang_name = (response == 'en' ? "Arabic also ?" : "English also ?");
@@ -432,6 +433,7 @@ export class RegistrationComponent implements OnInit {
     if (this.checkoutForm.invalid) {
       return false; 
     }
+    this.spinner.show();
     this.restApi.submitRegistration(formData).subscribe((response) => {
       console.log(response,"BUIS");
       if(response.error_no==0){
@@ -443,6 +445,8 @@ export class RegistrationComponent implements OnInit {
         let checkcontactcode = this.checkoutForm.get('contactcode').value;
         let checkcontactno = this.checkoutForm.get('contactno').value;
         let checkwebsite = this.checkoutForm.get('website').value;
+        let subscription_1 = this.checkoutForm.get('subscription_1').value;
+        let subscription_2 = this.checkoutForm.get('subscription_2').value;
         this.checkoutForm.reset();
         this.submitted = false;
         this.Sidepanel.restImage('B');
@@ -461,6 +465,8 @@ export class RegistrationComponent implements OnInit {
           this.checkoutForm.get('contactno').setValue(checkcontactno);
           this.checkoutForm.get('website').setValue(checkwebsite);
           this.checkoutForm.get('phone').setValue(checkcontactcode + checkcontactno);
+          this.checkoutForm.get('subscription_1').setValue(subscription_1);
+          this.checkoutForm.get('subscription_2').setValue(subscription_2);
           this.langCondition=true;
           this.saveOtherLang = false;
           this.saveOtherLng = false;
@@ -480,10 +486,13 @@ export class RegistrationComponent implements OnInit {
       setTimeout(() => {
         this.showMsg= false;
       },6000);
+      this.spinner.hide();
     },err=>{
       this.disabledButton=false; 
+        this.spinner.hide();
     },()=>{
       this.disabledButton=false;
+        this.spinner.hide();
     });
   }
 
@@ -493,6 +502,7 @@ export class RegistrationComponent implements OnInit {
     if (this.individualForm.invalid) {
       return false;
     }
+    this.spinner.show();
     this.restApi.submitRegistration(indformData).subscribe((response) => {
       console.log(response,"INDIVI");
       if(response.error_no==0){
@@ -504,6 +514,8 @@ export class RegistrationComponent implements OnInit {
         let checkcontactcode = this.individualForm.get('contactcode').value;
         let checkcontactno = this.individualForm.get('contactno').value;
         let checkwebsite = this.individualForm.get('website').value;
+        let subscription_1 = this.individualForm.get('subscription_1').value;
+        let subscription_2 = this.individualForm.get('subscription_2').value;
         this.individualForm.reset();  
         this.insubmitted = false;
         this.Sidepanel.restImage('I');
@@ -522,6 +534,8 @@ export class RegistrationComponent implements OnInit {
           this.individualForm.get('contactno').setValue(checkcontactno);
           this.individualForm.get('website').setValue(checkwebsite);
           this.individualForm.get('phone').setValue(checkcontactcode + checkcontactno);
+          this.individualForm.get('subscription_1').setValue(subscription_1);
+          this.individualForm.get('subscription_2').setValue(subscription_2);
           this.langCondition = true;
           this.saveOtherLang = false;
           this.saveOtherLng = false;
@@ -541,10 +555,13 @@ export class RegistrationComponent implements OnInit {
       setTimeout(() => {
         this.showMsg= false;
       },6000);
+      this.spinner.hide();
     },err=>{
       this.disabledButton=false;
+        this.spinner.hide();
     },()=>{
       this.disabledButton=false;
+        this.spinner.hide();
     });
   }
 

@@ -31,7 +31,9 @@ export class NewPasswordComponent implements OnInit {
   signUpActive: boolean = true;
   submitted: boolean = false;
   redirectContent: boolean = false;
+  registerBlock:boolean=false;
   faiconLogin = '<i class="fa fa-user"></i>';
+  logoLang: any = 'assets/image/logo_en.png';
   constructor(private sharedata: ShareDataService,private routeParam: ActivatedRoute, public router: Router, private formBuilder: FormBuilder, public restApi: ApiServiceService) {
     this.newPassword = this.formBuilder.group({
       user_password: ['', [Validators.required, Validators.minLength(6)]],
@@ -60,6 +62,11 @@ export class NewPasswordComponent implements OnInit {
         this.getMailValue = '';
       }
     });
+    if (this.restApi.lang_code == 'en') {
+      this.logoLang = 'assets/image/logo_en.png';
+    } else {
+      this.logoLang = 'assets/image/logo_ar.png';
+    }
   }
   faIconHtml = '<i class="fa fa-lock" aria-hidden="true"></i>';
   forgotPassword() {
@@ -82,7 +89,6 @@ export class NewPasswordComponent implements OnInit {
         console.log(response, "test");
         this.showWindowMessage = response.msg;
         this.EmailValidation = true;
-        // if (response.error_no!=0){
         setTimeout(() => {
           this.showWindowMessage = '';
           this.EmailValidation = false;
@@ -90,9 +96,20 @@ export class NewPasswordComponent implements OnInit {
       }, (err) => console.error(err), () => {
       });
     } else {
-      this.restApi.loginTest(true);
-      this.router.navigate(['/joinus']);
+      // this.restApi.loginTest(true);
+      // this.router.navigate(['/joinus']);
+      this.registerBlock = true;
+      this.redirectContent=true;
     }
+  }
+  registerBack(param){
+    this.router.navigate(['/joinus']);
+    if(param=='B'){
+      this.sharedata.sendMessage(param);
+    }else{
+      this.sharedata.sendMessage(param);
+    }
+    this.restApi.loginTest(true);
   }
   get f() { return this.newPassword.controls; }
   submitBusiness(formData) {
