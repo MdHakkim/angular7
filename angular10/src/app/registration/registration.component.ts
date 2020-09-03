@@ -36,8 +36,8 @@ export class RegistrationComponent implements OnInit {
   ind_country :any;
   countrylist :any;
   errorMessage:string;
-  subscription_1:string;
-  subscription_2:string;
+  subscription_1: any;
+  subscription_2: any;
   // agree:string='N';
   city:string;
   ind_city:string;
@@ -48,7 +48,7 @@ export class RegistrationComponent implements OnInit {
   servicelist:any;
   service_id:any;
   ind_service_id:string;
-  subscrilist:string;
+  subscrilist:any;
   businesbool:boolean = true;
   individubool:boolean = false;
   dynamicname:any=['subscription_1','subscription_2'];
@@ -337,6 +337,7 @@ export class RegistrationComponent implements OnInit {
   }
   sideBarToggle(event,param){
     this.Agree='';
+    this.subscribClass = true;
     if(param=="B"){
       this.CaptionName = "Business Logo";
       this.bCaptionName= "Portfolio";
@@ -384,7 +385,9 @@ export class RegistrationComponent implements OnInit {
     let lang = this.restApi.lang_code;
     this.restApi.get_subscription_Request('',defaults,lang).subscribe((response) => {
       this.subscrilist = response.result;
-      console.log(response,"test");
+      console.log(response,"subSciption");
+      // this.subscription_1= true;
+      // this.subscription_2 = false;
     },
     (error) => {
       console.error('Request failed with error')
@@ -427,7 +430,12 @@ export class RegistrationComponent implements OnInit {
   agreeRadion(event){
     this.agreeCheck=!event.target.checked;
   }
+
+  
+  subscribClass:any=true;
   submitBusiness(formData){    
+    // this.subscrilist = [{ checke: true }];
+    // this.subscrilist.forEach(data => { data.checke = true });
     console.log(formData,"testing methods");
     this.submitted=true;
     if (this.checkoutForm.invalid) {
@@ -467,6 +475,7 @@ export class RegistrationComponent implements OnInit {
           this.checkoutForm.get('phone').setValue(checkcontactcode + checkcontactno);
           this.checkoutForm.get('subscription_1').setValue(subscription_1);
           this.checkoutForm.get('subscription_2').setValue(subscription_2);
+          this.subscribClass=false;
           this.langCondition=true;
           this.saveOtherLang = false;
           this.saveOtherLng = false;
@@ -536,6 +545,7 @@ export class RegistrationComponent implements OnInit {
           this.individualForm.get('phone').setValue(checkcontactcode + checkcontactno);
           this.individualForm.get('subscription_1').setValue(subscription_1);
           this.individualForm.get('subscription_2').setValue(subscription_2);
+          this.subscribClass = false;
           this.langCondition = true;
           this.saveOtherLang = false;
           this.saveOtherLng = false;
@@ -605,12 +615,13 @@ export class RegistrationComponent implements OnInit {
   get lg() { return this.loginForm.controls; }
   getcheckValue(event,params){
     let nameAttr = event.target.getAttribute("name");
-    let getname;
+    var getname:any;
     if(params=='B'){
       getname = this.checkoutForm.get(nameAttr) as FormControl;
     }else{
       getname = this.individualForm.get(nameAttr) as FormControl;
     }
+    
     if(event.target.checked){
       getname.setValue(event.target.value);
     }else{
