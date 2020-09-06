@@ -17,6 +17,11 @@
 }
 .dev-min{
     min-width: 80px !important;
+    font-size: 14px;
+}
+.dev-min a{
+    padding:1px 8px 1px 10px;
+    cursor: pointer;
 }
 .dev-btn-bg{
     background: white;
@@ -41,7 +46,14 @@
     width: 7em;
     margin-bottom: 0px;
     color: blue;
-    padding: 8px 4px 8px 4px;
+    padding: 6px 4px 7px 4px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: inline-block;
+    vertical-align: top;
+    border-color: #0952ff !important;
 }
 .dev-menu{
     text-align: right;
@@ -50,8 +62,19 @@
     margin-top: 1em;
 }
 .dev-btn{
-    border-color: rgb(88, 98, 240);
+    border-color: rgb(63, 126, 225);
     color: blue;
+    padding-bottom: 6px;
+    padding-top: 5px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.dev-block{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0px;
 }
 .buttonCreate{
     border:1px solid #055ee4;

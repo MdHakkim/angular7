@@ -17,6 +17,7 @@ export class NewPasswordComponent implements OnInit {
   newPassword: FormGroup;
   isActive: boolean = true;
   activePlace: any = true;
+  activePasswrd:any=true;
   loginActive: any = true;
   forgotActive: boolean = true;
   contentActive: boolean = true;
@@ -68,7 +69,7 @@ export class NewPasswordComponent implements OnInit {
       this.logoLang = 'assets/image/logo_ar.png';
     }
   }
-  faIconHtml = '<i class="fa fa-lock" aria-hidden="true"></i>';
+  faIconHtml = '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
   forgotPassword() {
     this.elseContent = true;
     this.contentActive = true;
@@ -76,10 +77,19 @@ export class NewPasswordComponent implements OnInit {
     this.loginActive = false;
     this.forgotActive = false;
     this.activePlace = false;
+    this.activePasswrd=false;
     this.signCaption = "R";
     this.faIconHtml = '<i class="fa fa-user" aria-hidden="true"></i>';
     this.emilIdLogin='';
     this.getMailValue='';
+  }
+  securePassowrd(){
+    this.activePasswrd = !this.activePasswrd;
+    if (!this.activePasswrd){
+      this.faIconHtml = '<i class="fa fa-eye" aria-hidden="true"></i>';
+    }else{
+      this.faIconHtml = '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
+    }
   }
   signUp() {
     if (!this.activePlace) {

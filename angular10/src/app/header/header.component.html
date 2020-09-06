@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title of the document</title>
 </head>
 <div *ngIf="isLoggedIn  | async" class="container">
     <div class="row mt-2">
@@ -19,26 +18,17 @@
         </div>
         <div class="col-4 dev-tp dev-menu ar-right">
             <div class="dropdown buttonBottom"  style="display:inline-block;vertical-align: middle;margin-right: 5px;margin-left: 5px;">
-                <!-- <button class="btn btn-secondary rounded-pill dev-btn-bg dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-language" style="margin-left: 4px;" aria-hidden="true"></i>
-                    {{languageDrop}}
-                </button> -->
-                <!-- <div class="dropdown-menu dev-min" aria-labelledby="dropdownMenu2">
-                  <button class="dropdown-item" (click)="transulate('en')" type="button">en</button>
-                  <button class="dropdown-item"  (click)="transulate('ar')" type="button">ar</button>
-                </div> -->
                 <div (click)="transulate(languageSet)" id="languageSet" class="buttonCreate">{{languageDrop}}</div>
             </div>
-            <!-- <a type="button" (click)="exploreClick()" class="btn mr-2 mb-1 dev-exp-w rounded-pill btn-sm border border-primary">Explore</a> -->
-            <a type="button" *ngIf="condition; else elseBlock" (click)="joinUsClick()" class="dev-exp-w btn rounded-pill btn-sm border border-primary" translate="">Login</a>
+            <a type="button" *ngIf="condition; else elseBlock" (click)="joinUsClick()" class="dev-exp-w btn btn-sm border border-primary" translate="">Login</a>
             <ng-template #elseBlock>
-                <a class="dropdown">
-                    <button type="button" class="btn dev-btn rounded-pill dropdown-toggle" data-toggle="dropdown">
+                <a class="dropdown dev-block">
+                    <button type="button" class="btn dev-btn dropdown-toggle" data-toggle="dropdown">
                         {{userName}}
                     </button>
                     <div class="dropdown-menu dev-min">
-                        <a class="dropdown-item" [routerLink]="['editProfile']" translate="">Edit_Profile</a>
-                        <a class="dropdown-item" (click)="logout()" translate="">Logout</a>
+                        <a class="dropdown-item" [routerLink]="['editProfile']" translate=""><i class="fa fa-user" aria-hidden="true"></i> Edit_Profile</a>
+                        <a class="dropdown-item" (click)="logout()" translate=""><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                     </div>
                 </a>
             </ng-template>

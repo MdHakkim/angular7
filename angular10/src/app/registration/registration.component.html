@@ -158,15 +158,15 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Password</label>
                             <div class="col-lg-5 mb-2">
-                                <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" autocomplete="on" [ngClass]="{ 'is-invalid': submitted && f.password.errors,'langSubmit': langCondition }" readonly="readonly" onfocus="javascript: this.removeAttribute('readonly')"/>
-                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" autocomplete="on" [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors,'langSubmit': langCondition }" readonly="readonly" onfocus="javascript: this.removeAttribute('readonly')"/>
+                                <div *ngIf="f.password.errors && f.password.touched" class="invalid-feedback">
                                     <div *ngIf="f.password.errors.required">Password is required</div>
                                     <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}"  autocomplete="on" type="password" [ngClass]="{ 'is-invalid': submitted && f.retypepassword.errors,'langSubmit': langCondition }"  value="" />
-                                <div *ngIf="submitted && f.retypepassword.errors" class="invalid-feedback">
+                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}"  autocomplete="on" type="password" [ngClass]="{ 'is-invalid': f.retypepassword.touched && f.retypepassword.errors,'langSubmit': langCondition }"  value="" />
+                                <div *ngIf="f.retypepassword.touched && f.retypepassword.errors" class="invalid-feedback">
                                     <div *ngIf="f.retypepassword.errors.required">Confirm Password is required</div>
                                     <div *ngIf="f.retypepassword.errors.mustMatch">Passwords must match</div>
                                 </div>
@@ -352,15 +352,15 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">Password</label>
                             <div class="col-lg-5 mb-2">
-                                <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" autocomplete="new-password" [ngClass]="{ 'is-invalid': insubmitted && i.password.errors,'langSubmit': langCondition }" >
-                                <div *ngIf="insubmitted && i.password.errors" class="invalid-feedback">
+                                <input class="form-control form-control-sm" formControlName="password" placeholder="{{'Password' | translate}}" type="password" value="" autocomplete="new-password" [ngClass]="{ 'is-invalid': i.password.touched && i.password.errors,'langSubmit': langCondition }" >
+                                <div *ngIf="i.password.touched && i.password.errors" class="invalid-feedback">
                                     <div *ngIf="i.password.errors.required">Password is required</div>
                                     <div *ngIf="i.password.errors.minlength">Password must be at least 6 characters</div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}" autocomplete="new-password" type="password" [ngClass]="{ 'is-invalid': insubmitted && i.retypepassword.errors,'langSubmit': langCondition }"  value="">
-                                <div *ngIf="insubmitted && i.retypepassword.errors" class="invalid-feedback">
+                                <input class="form-control form-control-sm" formControlName="retypepassword" placeholder="{{'Retype_Password' | translate}}" autocomplete="new-password" type="password" [ngClass]="{ 'is-invalid': i.retypepassword.touched && i.retypepassword.errors,'langSubmit': langCondition }"  value="">
+                                <div *ngIf="i.retypepassword.touched && i.retypepassword.errors" class="invalid-feedback">
                                     <div *ngIf="i.retypepassword.errors.required">Confirm Password is required</div>
                                     <div *ngIf="i.retypepassword.errors.mustMatch">Passwords must match</div>
                                 </div>

@@ -45,4 +45,5 @@ body{
 @media (max-width: 480px) { 
     .dev-btn-bg{ margin-bottom: 2px !important;margin-left: 0px !important; }
     .buttonCreate{ margin-right: 0px;}
+    .dev-block{ margin-left: 6px !important; }
 }
