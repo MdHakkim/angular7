@@ -71,6 +71,7 @@ export class NewPasswordComponent implements OnInit {
   }
   faIconHtml = '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
   forgotPassword() {
+    this.signCaption = 'R';
     this.elseContent = true;
     this.contentActive = true;
     this.activeLogin = false;
@@ -78,7 +79,6 @@ export class NewPasswordComponent implements OnInit {
     this.forgotActive = false;
     this.activePlace = false;
     this.activePasswrd=false;
-    this.signCaption = "R";
     this.faIconHtml = '<i class="fa fa-user" aria-hidden="true"></i>';
     this.emilIdLogin='';
     this.getMailValue='';
@@ -143,6 +143,17 @@ export class NewPasswordComponent implements OnInit {
     }, err => {
 
     });
+  }
+  gobackMain(){
+    this.loginActive=true;
+    this.signUpActive=true;
+    this.activeLogin = true;
+    this.forgotActive = true;
+    this.activePlace = true;
+    this.activePasswrd = true;
+    this.signCaption='S';
+    this.elseContent = false;
+    this.faIconHtml = '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
   }
 
   getLoginPage() {
