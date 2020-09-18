@@ -76,9 +76,15 @@
     vertical-align: top;
     margin-left: 0px;
 }
+.dev-butn{
+    display:inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-left: 4px;
+}
 .buttonCreate{
     border:1px solid #055ee4;
-    min-width: 94px;
+    min-width: 99px;
     cursor: pointer;
     color: blue;
     text-align: center;

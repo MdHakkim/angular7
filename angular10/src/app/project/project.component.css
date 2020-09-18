@@ -15,6 +15,9 @@
     padding-left: 12em;
     padding-right: 8em;
 }
+.dev-bn-col{
+    color: black;
+}
 .dev-flex{
     display: flex;
 }

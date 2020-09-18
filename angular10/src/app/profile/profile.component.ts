@@ -52,7 +52,6 @@ export class ProfileComponent implements OnInit {
   // defaultTab='B';
   showMsg:boolean=false;
   showDbMessage:string;
-  // contactcode:number;
   modelChanged: Subject<string> = new Subject<string>();
   tagservice :any = '';
   successMessage = '';
@@ -66,6 +65,12 @@ export class ProfileComponent implements OnInit {
   Titlecaption:string;
   isCompany:boolean=false;
   commoncaption='Type_of_business';
+  imageSizeVali:boolean=false;
+  imageValidSize: boolean = false;
+  imageValidFormat: boolean =  false;
+  pdfSizeVali: boolean = false;
+  pdfValidSize: boolean = false;
+  pdfValidFormat: boolean = false;
   constructor(public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService){
     this.checkoutForm = this.formBuilder.group({
       first_name: ['', Validators.required],
@@ -90,7 +95,17 @@ export class ProfileComponent implements OnInit {
       company:'',
       token:'',
       image_1:'',
-      image_2:'',      
+      image_2:'',
+      lang_code:'',      
+    });
+
+    this.restApi.getLanguage().subscribe((response) => {
+      this.searchCountry().then(() => {
+        const getSecure = JSON.parse(localStorage.getItem("secure"));
+        let token = getSecure[0];
+        let email = getSecure[1];
+        this.editUserProfile(token,email);
+      });
     });
   }
   keyupmethod(){
@@ -117,8 +132,12 @@ export class ProfileComponent implements OnInit {
     const getSecure = JSON.parse(localStorage.getItem("secure"));
     let token = getSecure[0];
     let email = getSecure[1];
+    this.editUserProfile(token,email);
+  }
+  editUserProfile(token,email){
     this.restApi.fetch_editProfile(email,token).subscribe((response) => {
       console.log(response.result,"test");
+      if(response.result.length>0){
       let json = response.result[0];
       this.subscription_1=true;
       this.checkoutForm.patchValue(json);
@@ -127,21 +146,22 @@ export class ProfileComponent implements OnInit {
       this.checkoutForm.controls['add1'].setValue(json.address_1);
       this.checkoutForm.controls['add2'].setValue(json.address_2);
       this.checkoutForm.controls['phone'].setValue(json.ph_no);
-      this.country=Number(json.country_code);
+      // this.country=Number(json.country_code);
+      this.checkoutForm.controls['country'].setValue(Number(json.country_code));
       this.checkoutForm.controls['company'].setValue(json.org_type);
+      let Languge = this.restApi.lang_code;
+      this.checkoutForm.get('lang_code').setValue(Languge);
       if(json.org_type=='COMPANY'){
         this.isCompany=true;
         this.commoncaption='Type_of_business';
         this.Titlecaption='Business';
+        this.imageArray = [{Name:'Business Logo - JPG/PNG/SVG',Condition:'LogoUrl',Flag:'L',validate:'Allow Max. 2Mb'},{Name:'Portfolio',Condition:'previewUrl',Flag:'P',validate:'Allow Max. 3Mb'}];
       }else{
         this.isCompany=false;
         this.commoncaption='Type_of_Service';
         this.Titlecaption='Individual';
+        this.imageArray = [{Name:'Individual Logo - JPG/PNG/SVG',Condition:'LogoUrl',Flag:'L',validate:'Allow Max. 2Mb'},{Name:'Portfolio',Condition:'previewUrl',Flag:'P',validate:'Allow Max. 3Mb'}];
       }
-      this.imageArray = [{Name:'Logo',Condition:'LogoUrl',Flag:'L'},{Name:'Portfolio',Condition:'previewUrl',Flag:'P'}];
-      // let condition=[false,json.last_name];
-      // this.sharedata.callComponentMethod(condition);
-      // localStorage.setItem('username',json.last_name);
       this.restApi.get_city_Request(json.country_code,json.city_code).subscribe((response) => {
         this.citylist = response.result;
         this.city=json.city_code;
@@ -179,16 +199,15 @@ export class ProfileComponent implements OnInit {
       }else{
         this.previewUrl=this.sanitizer.bypassSecurityTrustResourceUrl(<string>json.image_2);
       }
-      
       this.arrayServiceId();
-    },
-    (error) => {
-      console.error('Request failed with error')
-      this.errorMessage = error;
     }
+    },
+      (error) => {
+        console.error('Request failed with error')
+        this.errorMessage = error;
+      }
     )
   }
-
   tagDescArray=[];
   tagIdArray=[];
   onSelect() {
@@ -283,15 +302,17 @@ export class ProfileComponent implements OnInit {
   }
   searchCountry(){
     this.errorMessage = "";
-    this.restApi.get_country_Request().subscribe((response) => {
-      this.countrylist = response;
-      console.log(response,"test");
-    },
-    (error) => {
-      console.error('Request failed with error')
-      this.errorMessage = error;
-    }
-    )
+    return new Promise((resolve, reject) => {        
+      this.restApi.get_country_Request().subscribe((response) => {
+        this.countrylist = response;
+        console.log(response,"test");
+        resolve();
+      },
+      (error) => {
+        console.error('Request failed with error')
+        this.errorMessage = error;
+      })
+    });
   }
 
   submitBusiness(formData){
@@ -375,17 +396,25 @@ export class ProfileComponent implements OnInit {
     this.preview(param);
   }
   preview(param) {
+    this.validation(param,false,null);
     var mimeType = this.fileData.type;
     let fileSize = this.fileData.size;
-    if(fileSize>2000000){
-      return false;
-    }
     if(param=='L'){
+      if(fileSize>2000000){
+        this.validation(param, true, 'S');
+        return false;
+      }
       if (mimeType.match(/image\/*/) == null) {
+        this.validation(param,true,'F');
         return;
       }
     }else{
+      if(fileSize>3000000){
+        this.validation(param, true, 'S');
+        return false;
+      }
       if (mimeType.match('application/pdf') == null) {
+        this.validation(param, true, 'F');
         return;
       }
     }
@@ -405,6 +434,30 @@ export class ProfileComponent implements OnInit {
         imageName.setValue(this.previewUrl);
       }
       
+    }
+  }
+
+  validation(mode,params,type){
+    if (mode == 'L'){
+      this.imageSizeVali = params;
+      if(type=='S')
+        this.imageValidSize = params;
+      else if(type=='F'){
+        this.imageValidFormat = params;
+      }else{
+        this.imageValidSize = params;
+        this.imageValidFormat = params;
+      }
+    }else{
+      this.pdfSizeVali = params;
+      if (type == 'S')
+        this.pdfValidSize = params;
+      else if (type == 'F') {
+        this.pdfValidFormat = params;
+      } else {
+        this.pdfValidSize = params;
+        this.pdfValidFormat = params;
+      }
     }
   }
 }

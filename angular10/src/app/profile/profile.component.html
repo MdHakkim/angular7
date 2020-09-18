@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row"  *ngIf="showMsg">
         <div class="col-xs-12">
-            <p class="alert alert-success">
+            <p class="alert alert-success" >
                 {{showDbMessage}}
             </p>
         </div>
         </div>
-    <div class="row"><div class="col-8"><h5>{{Titlecaption}}</h5></div></div>
+    <div class="row"><div class="col-8"><h5 translate="">{{Titlecaption}}</h5></div></div>
     <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="line-scale" [fullScreen]="true">
         <p style="color: white">Loading... </p>
     </ngx-spinner>
@@ -39,9 +39,9 @@
                     <div class="form-group row">
                         <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Type_of_Profession</label>
                         <div class="col-lg-4 mb-2 businessprnt">
-                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_Business' | translate }}" formControlName="business_type" (keyup)="getbusiness($event)" name="ind_business_type" [searchable]="true" [clearable]="true" [(ngModel)]="ind_business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
+                            <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'choose_profession' | translate }}" formControlName="business_type" (keyup)="getbusiness($event)" name="ind_business_type" [searchable]="true" [clearable]="true" [(ngModel)]="ind_business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
                                 <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
-                                    {{businesrow.desc}}
+                                    {{businesrow.desc_new}}
                                 </ng-option>
                             </ng-select>
                         </div>
@@ -90,8 +90,7 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label"></label>
                     <div class="col-lg-4 mb-2">
-                        <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_Country' | translate }}" formControlName="country" (change)="changeCity()" name="country" [searchable]="true" [clearable]="true" bindLabel="value"
-                        bindValue="value" [(ngModel)]="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                        <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_Country' | translate }}" formControlName="country" (change)="changeCity()" bindValue="value" [(ngModel)]="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
                             <ng-option *ngFor="let countryrow of countrylist" [value]="countryrow.cn_id">
                                 {{countryrow.cn_desc}}
                             </ng-option>
@@ -125,7 +124,7 @@
                         <div class="col-lg-4 mb-2" >
                             <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_Business' | translate }}" formControlName="business_type" (keyup)="getbusiness($event)" name="business_type" [searchable]="true" [clearable]="true" [(ngModel)]="business_type" [ngClass]="{ 'is-invalid': submitted && f.business_type.errors }">
                                 <ng-option *ngFor="let businesrow of businesslist" [value]="businesrow.id">
-                                    {{businesrow.desc}}
+                                    {{businesrow.desc_new}}
                                 </ng-option>
                             </ng-select>
                             <div *ngIf="submitted && f.business_type.errors" class="invalid-feedback">
@@ -163,7 +162,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
-                <div class="col-10 dev-pad0 mb-3 border dev-border-cir" *ngFor="let imagerow of imageArray">
+                <div class="col-12 dev-pad0 mb-3 border dev-border-cir" *ngFor="let imagerow of imageArray">
                     <div class="d-block border dev-head-bg p-1">
                         <h6 translate="">{{imagerow.Name}}</h6>
                     </div>
@@ -176,11 +175,25 @@
                             </a>
                         </div>
                         <div class="dev-borwser">
-                            <!-- <a class="dev-side" href="javascript: void(0);">Remove image</a> -->
-                            <a class="dev-side dev-color mt-1" href="javascript: void(0);">
-                                <input type="file" *ngIf="imagerow.Condition=='LogoUrl'" (change)="fileProgress($event,imagerow.Flag)">
-                                <input type="file" *ngIf="imagerow.Condition=='previewUrl'" accept="application/pdf" (change)="fileProgress($event,imagerow.Flag)">
-                            </a>
+                            <div class="dev-side">
+                                <a class="dev-side dev-color mt-1" href="javascript: void(0);">
+                                    <input type="file" *ngIf="imagerow.Condition=='LogoUrl'" (change)="fileProgress($event,imagerow.Flag)">
+                                    <input type="file" *ngIf="imagerow.Condition=='previewUrl'" accept="application/pdf" (change)="fileProgress($event,imagerow.Flag)">
+                                </a>
+                                <span class="defalutSet">{{imagerow.validate}}</span>
+                            </div>
+                            <ng-template [ngIf]="imagerow.Condition=='LogoUrl'">
+                                <div *ngIf="imageSizeVali" class="invalid-Error">
+                                    <div *ngIf="imageValidSize">Image size not more then 2Mb.</div>
+                                    <div *ngIf="imageValidFormat">Allow to upload only image not other file.</div>
+                                </div>
+                            </ng-template>
+                            <ng-template [ngIf]="imagerow.Condition=='previewUrl'">
+                                <div *ngIf="pdfSizeVali" class="invalid-Error">
+                                    <div *ngIf="pdfValidSize">Pdf size not more then 3Mb.</div>
+                                    <div *ngIf="pdfValidFormat">Allow to upload only Pdf not other file.</div>
+                                </div>
+                            </ng-template>
                         </div>
                     </div>
                 </div>

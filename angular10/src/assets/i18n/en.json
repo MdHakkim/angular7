@@ -122,6 +122,7 @@
     "Password_is_updated_successfully":"Password is updated successfully",
     "to_continue":"to continue.",
     "Confirm_Password":"Confirm Password",
-    "REGISTER_YOURSELF":"REGISTER YOURSELF"
+    "REGISTER_YOURSELF":"REGISTER YOURSELF",
+    "choose_profession": "Choose Profession"
 
     }

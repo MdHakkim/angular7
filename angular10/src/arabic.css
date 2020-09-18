@@ -24,6 +24,7 @@ body{
 .lab-pad{
     padding-right: 16px !important;
 }
+
 .dev-butsize{
     width: 7em !important;
 }
@@ -46,4 +47,5 @@ body{
     .dev-btn-bg{ margin-bottom: 2px !important;margin-left: 0px !important; }
     .buttonCreate{ margin-right: 0px;}
     .dev-block{ margin-left: 6px !important; }
+    .dev-butn{ margin-left: 0px !important; margin-right: 0px !important; }
 }

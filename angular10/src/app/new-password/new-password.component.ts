@@ -33,6 +33,7 @@ export class NewPasswordComponent implements OnInit {
   submitted: boolean = false;
   redirectContent: boolean = false;
   registerBlock:boolean=false;
+  goBack:boolean=false;
   faiconLogin = '<i class="fa fa-user"></i>';
   logoLang: any = 'assets/image/logo_en.png';
   constructor(private sharedata: ShareDataService,private routeParam: ActivatedRoute, public router: Router, private formBuilder: FormBuilder, public restApi: ApiServiceService) {
@@ -82,6 +83,7 @@ export class NewPasswordComponent implements OnInit {
     this.faIconHtml = '<i class="fa fa-user" aria-hidden="true"></i>';
     this.emilIdLogin='';
     this.getMailValue='';
+    this.goBack=true;
   }
   securePassowrd(){
     this.activePasswrd = !this.activePasswrd;
@@ -106,12 +108,16 @@ export class NewPasswordComponent implements OnInit {
       }, (err) => console.error(err), () => {
       });
     } else {
-      // this.restApi.loginTest(true);
-      // this.router.navigate(['/joinus']);
       this.registerBlock = true;
       this.redirectContent=true;
+      this.goBack=true;
     }
   }
+  // backSign(){
+  //     this.registerBlock = false;
+  //     this.redirectContent=false;
+      
+  // }
   registerBack(param){
     this.router.navigate(['/joinus']);
     if(param=='B'){
@@ -154,6 +160,9 @@ export class NewPasswordComponent implements OnInit {
     this.signCaption='S';
     this.elseContent = false;
     this.faIconHtml = '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
+    this.goBack=false;
+    this.registerBlock = false;
+    this.redirectContent=false;
   }
 
   getLoginPage() {

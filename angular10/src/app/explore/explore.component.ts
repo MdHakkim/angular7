@@ -98,9 +98,13 @@ export class ExploreComponent implements OnInit {
     });
   }
   
-  searchService(event){
+  searchService(event=null){
     this.errorMessage = ""; 
-    let desc = event.target.value;
+    var desc ='';
+    if(event){
+      desc = event.target.value;
+    }
+    
     this.restApi.get_service_lov_Request(desc).subscribe((response) => {
       console.log(response);
       this.service = response.result;
@@ -209,7 +213,7 @@ export class ExploreComponent implements OnInit {
     this.areaAdv=this.areaAdv;
   }
   advanceClick(){
-      
+    this.searchService();
   }
   acitveClass=true;
   acitveSplit=false;
