@@ -8,8 +8,8 @@ import { debounce, debounceTime,mergeMap,distinctUntilChanged,switchMap,timeout,
 import { Observable, timer, Subject, TimeoutError } from 'rxjs';
 import {MatChipInputEvent} from '@angular/material/chips';
 import { Router } from '@angular/router';
-// import 'rxjs/add/observable/of';
-// import 'rxjs/add/operator/filter';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SidepanelComponent } from '../sidepanel/sidepanel.component';
 import { NgxSpinnerService } from "ngx-spinner";
 declare var $:any;
@@ -75,7 +75,7 @@ export class RegistrationComponent implements OnInit {
   saveOtherLng: boolean = false;
   saveContent: string ="Would you like to save in";
   //gender neeed to add.
-  constructor(public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private spinner: NgxSpinnerService) {
+  constructor(public dialog: MatDialog,public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private spinner: NgxSpinnerService) {
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();
       this.lang_name = (response == 'en' ? "Arabic also ?" : "English also ?");
@@ -87,6 +87,7 @@ export class RegistrationComponent implements OnInit {
       let Languge = this.restApi.lang_code;
       this.checkoutForm.get('lang_code').setValue(Languge);
       this.individualForm.get('lang_code').setValue(Languge);
+      this.buttonConfirm = 'Register_Now';
     });
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
@@ -162,6 +163,17 @@ export class RegistrationComponent implements OnInit {
   }
   @ViewChild('businessTab') elight: ElementRef;
   @ViewChild('individualTab') efiile: ElementRef;
+  @ViewChild("autoSuggestion") autoSuggestion: ElementRef;
+  focusValue:any="text";
+  focusFunction():void{
+    this.focusValue = "password";
+    let nativeValue = this.autoSuggestion.nativeElement.value;
+    if (nativeValue==''){
+      this.focusValue = "text";
+    }
+    console.log(nativeValue,"nativeValue");
+    
+  }
   _success = new Subject<string>();
   ngOnInit(): void {
       this.searchCountry();
@@ -431,7 +443,7 @@ export class RegistrationComponent implements OnInit {
     this.agreeCheck=!event.target.checked;
   }
 
-  
+  modalTitle:any;
   subscribClass:any=true;
   submitBusiness(formData){    
     // this.subscrilist = [{ checke: true }];
@@ -446,7 +458,8 @@ export class RegistrationComponent implements OnInit {
       console.log(response,"BUIS");
       if(response.error_no==0){
         this.disabledButton=true;
-        this.showDbMessage ='Registration Success! Confirmation Email has been sent to your register email.';
+        this.modalTitle ="Registration Success !";
+        this.showDbMessage ='Confirmation Email has been sent to your register email.';
         let checkEmail = this.checkoutForm.get('email').value;
         let checkpassword = this.checkoutForm.get('password').value;
         let checkretypepassword = this.checkoutForm.get('retypepassword').value;
@@ -455,6 +468,9 @@ export class RegistrationComponent implements OnInit {
         let checkwebsite = this.checkoutForm.get('website').value;
         let subscription_1 = this.checkoutForm.get('subscription_1').value;
         let subscription_2 = this.checkoutForm.get('subscription_2').value;
+        let checkcountry = this.checkoutForm.get('country').value;
+        let checkcity = this.checkoutForm.get('city').value;
+        let checkarea = this.checkoutForm.get('area').value;
         this.checkoutForm.reset();
         this.submitted = false;
         this.Sidepanel.restImage('B');
@@ -475,6 +491,9 @@ export class RegistrationComponent implements OnInit {
           this.checkoutForm.get('phone').setValue(checkcontactcode + checkcontactno);
           this.checkoutForm.get('subscription_1').setValue(subscription_1);
           this.checkoutForm.get('subscription_2').setValue(subscription_2);
+          this.checkoutForm.get('country').setValue(checkcountry);
+          this.checkoutForm.get('city').setValue(checkcity);
+          this.checkoutForm.get('area').setValue(checkarea);
           this.subscribClass=false;
           this.langCondition=true;
           this.saveOtherLang = false;
@@ -488,13 +507,24 @@ export class RegistrationComponent implements OnInit {
         }
       }else{
         this.disabledButton=true;
-        this.showDbMessage = 'Failer ! <br>' + response.error_msg;
+        this.modalTitle = "Oops ?";
+        this.showDbMessage = response.error_msg;
       }
-      this.showMsg= true;
-      window.scrollTo(0, 0);
-      setTimeout(() => {
-        this.showMsg= false;
-      },6000);
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        width: "310px",
+        data: {
+          title: this.modalTitle,
+          message: this.showDbMessage
+        }
+      });
+      dialogRef.afterClosed().subscribe(dialogResult => {
+        console.log(dialogResult, "AN SWIJRUBG IR BIT");
+      });
+      // this.showMsg= true;
+      // window.scrollTo(0, 0);
+      // setTimeout(() => {
+        // this.showMsg= false;
+      // },6000);
       this.spinner.hide();
     },err=>{
       this.disabledButton=false; 
@@ -516,7 +546,8 @@ export class RegistrationComponent implements OnInit {
       console.log(response,"INDIVI");
       if(response.error_no==0){
         this.disabledButton=true;
-        this.showDbMessage='Registration Success! Confirmation Email has been sent to your register email.';
+        this.modalTitle = "Registration Success !";
+        this.showDbMessage='Confirmation Email has been sent to your register email.';
         let checkEmail = this.individualForm.get('email').value;
         let checkpassword = this.individualForm.get('password').value;
         let checkretypepassword = this.individualForm.get('retypepassword').value;
@@ -525,6 +556,9 @@ export class RegistrationComponent implements OnInit {
         let checkwebsite = this.individualForm.get('website').value;
         let subscription_1 = this.individualForm.get('subscription_1').value;
         let subscription_2 = this.individualForm.get('subscription_2').value;
+        let checkcountry = this.individualForm.get('country').value;
+        let checkcity = this.individualForm.get('city').value;
+        let checkarea = this.individualForm.get('area').value;
         this.individualForm.reset();  
         this.insubmitted = false;
         this.Sidepanel.restImage('I');
@@ -545,6 +579,9 @@ export class RegistrationComponent implements OnInit {
           this.individualForm.get('phone').setValue(checkcontactcode + checkcontactno);
           this.individualForm.get('subscription_1').setValue(subscription_1);
           this.individualForm.get('subscription_2').setValue(subscription_2);
+          this.individualForm.get('country').setValue(checkcountry);
+          this.individualForm.get('city').setValue(checkcity);
+          this.individualForm.get('area').setValue(checkarea);
           this.subscribClass = false;
           this.langCondition = true;
           this.saveOtherLang = false;
@@ -558,13 +595,24 @@ export class RegistrationComponent implements OnInit {
         }
       }else{
         this.disabledButton=true;
-        this.showDbMessage = 'Failer ! <br>' + response.error_msg;
+        this.modalTitle = "Oops ?";
+        this.showDbMessage = response.error_msg;
       }
-      this.showMsg= true;
-      window.scrollTo(0, 0);
-      setTimeout(() => {
-        this.showMsg= false;
-      },6000);
+      // this.showMsg= true;
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        width: "310px",
+        data: {
+          title: this.modalTitle,
+          message: this.showDbMessage
+        }
+      });
+      dialogRef.afterClosed().subscribe(dialogResult => {
+        console.log(dialogResult, "AN SWIJRUBG IR BIT");
+      });
+      // window.scrollTo(0, 0);
+      // setTimeout(() => {
+        // this.showMsg= false;
+      // },6000);
       this.spinner.hide();
     },err=>{
       this.disabledButton=false;
@@ -657,30 +705,55 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
+  buttonConfirm: any ='Register_Now';
   saveOtherlangEvn(event){
     if (event.target.checked){
       this.saveOtherLng = true;
+      this.buttonConfirm ='Continue_Registration';
     }else{
       this.saveOtherLng = false;
+      this.buttonConfirm = 'Register_Now';
     }
   }
-  // tag component 
-  // EmailMessage=false;
-  // showWindowMessage='';
-  // generatePassword(){
-  //   let getEmail = this.emailAddresss;
-  //   if(getEmail!==''){
-  //     this.EmailMessage = false;
-  //     this.restApi.forgotPassword(getEmail).subscribe((response) => {
 
-  //     });
-  //   }else{
-  //     this.EmailMessage = true;
-  //     this.showWindowMessage = 'Email verfication link send to your register email address.';
-  //     setTimeout(()=> {
-  //       this.showWindowMessage='';
-  //       this.EmailMessage = false;
-  //     }, 3000);
-  //   }
+  // openDialog() {
+  //   // let's call our modal window
+  //   const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+  //     maxWidth: "400px",
+  //     data: {
+  //       title: "Are you sure?",
+  //       message: "You are about to delete user "
+  //     }
+  //   });
+
+  //   // listen to response
+  //   dialogRef.afterClosed().subscribe(dialogResult => {
+  //     // if user pressed yes dialogResult will be true, 
+  //     // if he pressed no - it will be false
+  //     console.log(dialogResult);
+
+  //   });
+
+  // }
+
+
+  // openDialog(): void {
+  //   const dialogConfig = new MatDialogConfig();
+
+  //   // dialogConfig.disableClose = true;
+  //   dialogConfig.autoFocus = true;
+  //   dialogConfig.data = {
+  //     width: '350px',
+  //     data: "Do you confirm the deletion of this data?"
+  //   };
+  //   dialogConfig.minWidth = 400;
+    
+  //   const dialogRef = this.dialog.open(ConfirmationDialogComponent, dialogConfig);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       console.log('Yes clicked');
+  //       // DO SOMETHING
+  //     }
+  //   });
   // }
 }

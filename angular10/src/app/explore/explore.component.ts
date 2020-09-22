@@ -37,6 +37,7 @@ export class ExploreComponent implements OnInit {
   showpost:string;  
   showPdf:any;
   loopContent:boolean=true;
+  genderCondi: boolean = true;
   geoLocation = localStorage.getItem("geoLocation");
   constructor(private restApi: ApiServiceService,private sharedata:ShareDataService,private route: ActivatedRoute, private router: Router,private _elementRef : ElementRef,private sanitizer: DomSanitizer) {
     this.restApi.getLanguage().subscribe((response) => {
@@ -185,6 +186,7 @@ export class ExploreComponent implements OnInit {
 
   categoryChange(){
     this.category=this.category;
+    this.genderCondi = (this.category == 'INDIVIDUAL' ? true : false);
   }
   restArea(){
     this.areaAdv=null;
@@ -214,6 +216,7 @@ export class ExploreComponent implements OnInit {
   }
   advanceClick(){
     this.searchService();
+    this.genderCondi = (this.category == 'INDIVIDUAL' ? true : false);
   }
   acitveClass=true;
   acitveSplit=false;

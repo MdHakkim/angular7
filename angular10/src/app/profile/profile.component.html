@@ -1,11 +1,11 @@
 <div class="container">
-    <div class="row"  *ngIf="showMsg">
+    <!-- <div class="row"  *ngIf="showMsg">
         <div class="col-xs-12">
             <p class="alert alert-success" >
                 {{showDbMessage}}
             </p>
         </div>
-        </div>
+    </div> -->
     <div class="row"><div class="col-8"><h5 translate="">{{Titlecaption}}</h5></div></div>
     <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="line-scale" [fullScreen]="true">
         <p style="color: white">Loading... </p>
@@ -135,7 +135,7 @@
                     <div [ngClass]="isCompany ? 'col-lg-4' : 'col-lg-8'">
                         <ng-select notFoundText="{{ 'No_Item_Found' | translate }}"  placeholder="{{ 'Choose_service' | translate }}" (ngModelChange)="onChangeService($event)" (keyup)="getservice($event)" name="service_id" [searchable]="true" [clearable]="true" multiple="true" [(ngModel)]="service_id" [ngModelOptions]="{standalone: true}" bindLabel="servicelist.desc" bindValue="servicelist.id" [ngClass]="{ 'is-invalid': submitted && f.service_id.errors }">
                             <ng-option *ngFor="let servicerow of servicelist" [value]="servicerow.id">
-                                {{servicerow.desc}}
+                                {{servicerow.desc_new}}
                             </ng-option>
                         </ng-select>
                         <div *ngIf="submitted && f.service_id.errors" class="invalid-feedback">

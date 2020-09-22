@@ -33,7 +33,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { NgxSpinnerModule } from "ngx-spinner";
-
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,11 @@ import { NgxSpinnerModule } from "ngx-spinner";
     OurStoryComponent,
     VisionMissionComponent,
     NewPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ConfirmationDialogComponent
+  ],
+  entryComponents: [
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+  }),
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy},HeaderComponent],
   bootstrap: [AppComponent],

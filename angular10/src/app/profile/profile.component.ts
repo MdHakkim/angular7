@@ -7,6 +7,8 @@ import { ShareDataService } from '../share-data.service';
 import { debounce, debounceTime,mergeMap,distinctUntilChanged,switchMap,timeout,concatMap,delay } from 'rxjs/operators';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 declare var $:any;
 @Component({
   selector: 'app-profile',
@@ -71,7 +73,7 @@ export class ProfileComponent implements OnInit {
   pdfSizeVali: boolean = false;
   pdfValidSize: boolean = false;
   pdfValidFormat: boolean = false;
-  constructor(public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService){
+  constructor(public dialog: MatDialog,public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService){
     this.checkoutForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: '',
@@ -184,7 +186,7 @@ export class ProfileComponent implements OnInit {
       let serviceId=[];
       let serviceArray=[];
       json.service.forEach(servId => {
-        let object = {id:servId.service_id,desc:servId.service_name};
+        let object = { id: servId.service_id, desc_new:servId.service_name};
         this.selectDescArray.push(servId.service_name);
         this.selectIdArray.push(servId.service_id);
         serviceArray.push(object);
@@ -315,6 +317,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  modalTitle:any;
   submitBusiness(formData){
     this.service_arr_id.push(new FormControl('New'));
     console.log(formData,"testing methods");
@@ -326,15 +329,27 @@ export class ProfileComponent implements OnInit {
     this.restApi.updateProfile(formData).subscribe((response) => {
       console.log(response,"BUIS");
       if(response.error_no==0){
+        this.modalTitle = "Good !";
         this.showDbMessage='Profile updated successfully.';
       }else{
-        this.showDbMessage='Failer ! '+response.error_no+'.';
+        this.modalTitle = "Oops ?";
+        this.showDbMessage=response.error_no+'.';
       }
-      this.showMsg= true;
-      window.scrollTo(0, 0);
-      setTimeout(() => {
-        this.showMsg= false;
-      },6000);
+      // this.showMsg= true;
+      // window.scrollTo(0, 0);
+      // setTimeout(() => {
+      //   this.showMsg= false;
+      // },6000);
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+        width: "310px",
+        data: {
+          title: this.modalTitle,
+          message: this.showDbMessage
+        }
+      });
+      dialogRef.afterClosed().subscribe(dialogResult => {
+        console.log(dialogResult, "AN SWIJRUBG IR BIT");
+      });
       this.spinner.hide();
     });
   }
@@ -351,7 +366,7 @@ export class ProfileComponent implements OnInit {
     this.selectIdArray=[];
     if(event!=0){
       event.forEach((id) => {
-          let descrption = this.servicelist.filter(item => item.id === id)[0].desc;
+        let descrption = this.servicelist.filter(item => item.id === id)[0].desc_new;
           this.selectDescArray.push(descrption);
           this.selectIdArray.push(id);
       });

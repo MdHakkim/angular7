@@ -58,3 +58,10 @@
         padding-right: 4%;
     }
 }
+
+
+ @font-face { 
+     font-family: "password-mask"; 
+     src: url('/assets/fonts/dotsfont.woff2') format("woff2"); } 
+    .passwordFont { font-family: password-mask; font-size-adjust: 0.4; user-select: none; } 
+    .passwordFont::placeholder { font-family: initial; }
