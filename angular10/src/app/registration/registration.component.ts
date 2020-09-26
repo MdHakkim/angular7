@@ -118,6 +118,7 @@ export class RegistrationComponent implements OnInit {
       lang_code: this.restApi.lang_code,
       image_1:'',
       image_2:'',
+      saveOtherLang:'',
       password:['', [Validators.required, Validators.minLength(6)]],
       retypepassword:['', Validators.required]},{
         validator: MustMatch('password', 'retypepassword')
@@ -148,6 +149,7 @@ export class RegistrationComponent implements OnInit {
       lang_code: this.restApi.lang_code,
       image_1:'',
       image_2:'',
+      saveOtherLang: '',
       password:['', [Validators.required, Validators.minLength(6)]],
       retypepassword:['', Validators.required]},{
         validator: MustMatch('password', 'retypepassword')

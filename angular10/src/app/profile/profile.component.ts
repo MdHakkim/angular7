@@ -228,6 +228,7 @@ export class ProfileComponent implements OnInit {
   arrayServiceId(){
     let serviceNameArray=[];
     let serviceIdArray=[];
+    console.log(this.selectDescArray, this.tagDescArray,"GOOGLE ACTION");
     serviceNameArray= serviceNameArray.concat(this.selectDescArray);
     serviceNameArray= serviceNameArray.concat(this.tagDescArray);
     serviceIdArray= serviceIdArray.concat(this.selectIdArray);
@@ -364,8 +365,10 @@ export class ProfileComponent implements OnInit {
   onChangeService(event):void{
     this.selectDescArray=[];
     this.selectIdArray=[];
+    console.log(event, "454 lOO009");
     if(event!=0){
       event.forEach((id) => {
+        console.log(id, "id LOOGP");
         let descrption = this.servicelist.filter(item => item.id === id)[0].desc_new;
           this.selectDescArray.push(descrption);
           this.selectIdArray.push(id);

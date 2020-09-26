@@ -196,7 +196,7 @@
                         <div *ngIf="langChange" class="form-group row">
                             <div class="col-sm-10">
                                 <div class="form-check">
-                                    <input class="form-check-input" [(ngModel)]="saveOtherLang" [ngModelOptions]="{standalone: true}"
+                                    <input class="form-check-input" [(ngModel)]="saveOtherLang" formControlName="saveOtherLang"
                                         (click)="saveOtherlangEvn($event)" type="checkbox">
                                     <label class="form-check-label langOther">
                                         {{saveContent}} {{lang_name}}
@@ -390,7 +390,7 @@
                         <div *ngIf="langChange" class="form-group row">
                             <div class="col-sm-10">
                                 <div class="form-check">
-                                    <input class="form-check-input" [(ngModel)]="saveOtherLang" [ngModelOptions]="{standalone: true}"
+                                    <input class="form-check-input" [(ngModel)]="saveOtherLang" formControlName="saveOtherLang"
                                         (click)="saveOtherlangEvn($event)" type="checkbox">
                                     <label class="form-check-label langOther">
                                         {{saveContent}} {{lang_name}}
