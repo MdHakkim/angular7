@@ -2,7 +2,7 @@ import { Component, OnInit,OnDestroy,ElementRef  } from '@angular/core'
 import { ApiServiceService } from '../api-service.service';
 import { ShareDataService } from '../share-data.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
-declare var $:any;
+// declare var $:any;
 
 @Component({
   selector: 'app-project',
@@ -48,22 +48,30 @@ export class ProjectComponent implements OnInit {
         this.errorMessage = error;
       });
     }
-    this.busiContent();
-    this.indiviContent();
     this.searchCountry().then(() => {
       this.geoLocation = localStorage.getItem("geoLocation");
       this.country = Number(this.geoLocation);
       this.getArea(event, 'A');
+      this.busiContent();
+      this.indiviContent();
     });
+    // this.loadExternalScript('https://apps.elfsight.com/p/platform.js');
   }
   ngAfterViewInit() {
     
   }
+  bnotEmptyRecord: boolean;
   busiContent(){
     this.errorMessage = "";
-    this.restApi.get_business_Request().subscribe((response) => {
-      this.business = response.result;
-      console.log(response,"Test");
+    let countryCode = this.country;
+    this.restApi.get_business_Request(countryCode).subscribe((response) => {
+      if (response.result.length > 0) {
+        this.bnotEmptyRecord = true;
+        this.business = response.result;
+      } else {
+        this.bnotEmptyRecord = false;
+        this.business = ["noFound"];
+      }
     },
     (error) => {
       console.error('Request failed with error throw in console')
@@ -72,10 +80,26 @@ export class ProjectComponent implements OnInit {
     }
     )
   }
-
+  // public loadExternalScript(url: string) {
+  //   const body = <HTMLDivElement>document.body;
+  //   const script = document.createElement('script');
+  //   script.innerHTML = '';
+  //   script.src = url;
+  //   script.async = true;
+  //   script.defer = true;
+  //   body.appendChild(script);
+  // }
+  notEmptyRecord:boolean;
   public indiviContent(){
-    this.restApi.get_individual_Request().subscribe((response) => {
-      this.individual = response.result;
+    let countryCode = this.country;
+    this.restApi.get_individual_Request(countryCode).subscribe((response) => {
+      if (response.result.length>0){
+        this.notEmptyRecord=true;
+        this.individual = response.result;
+      }else{
+        this.notEmptyRecord = false;
+        this.individual = ["noFound"];
+      }
     },
     (error) => {
       console.error('Request failed with error')
@@ -103,6 +127,8 @@ export class ProjectComponent implements OnInit {
     this.restApi.getArea(cntyCode,areadesc).subscribe((response) => {
       this.area=null;
       this.arealist = response.result;
+      this.busiContent();
+      this.indiviContent();
     },(err) => console.error(err),()=>{
       
     })

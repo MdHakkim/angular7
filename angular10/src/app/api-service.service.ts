@@ -15,8 +15,8 @@ export class ApiServiceService {
     return this.loggedIn.asObservable();
   }
   constructor(private httpClient: HttpClient) { }
-  api_busi_URL = 'http://api.shrekat.com/api/premium_home?country=1&category=COMPANY&lang_code=';
-  api_indi_URL = 'http://api.shrekat.com/api/premium_home?country=1&category=INDIVIDUAL&lang_code=';
+  api_busi_URL = 'http://api.shrekat.com/api/premium_home?';
+  api_indi_URL = 'http://api.shrekat.com/api/premium_home?';
   api_country_URL = 'http://api.shrekat.com/api/country/all?lang_code=';
   api_city_URL = 'http://api.shrekat.com/api/all_city_in_country?id=';
   api_search_URL = 'http://api.shrekat.com/api/advance_search?country=';
@@ -36,6 +36,7 @@ export class ApiServiceService {
   api_geoLocation_URL = 'http://api.shrekat.com/api/geo_info';
   api_forgotPass_URL = 'http://api.shrekat.com/api/forget_password';
   api_createNewPassword_URL = 'http://api.shrekat.com/api/change_password';
+  api_emailValidate_URL = 'http://api.shrekat.com/api/emailValidate';
   headers = new HttpHeaders({'Content-Type': 'application/json' });
   options = { headers: this.headers };
   private customSubject = new Subject<any>();
@@ -64,6 +65,12 @@ export class ApiServiceService {
       retry(1),catchError(this.handleError)
     )
   }
+  emailValidataion(emailid): Observable<any> {
+    return this.httpClient.post<any>(this.api_emailValidate_URL, emailid, this.options).
+      pipe(
+        retry(1), catchError(this.handleError)
+      )
+  }
   geoLocation(): Observable<any>{
     return this.httpClient.get(this.api_geoLocation_URL).
     pipe(
@@ -89,14 +96,14 @@ export class ApiServiceService {
       retry(1),catchError(this.handleError)
     )
   }
-  get_business_Request(): Observable<any>{
-    return this.httpClient.get(this.api_busi_URL+this.lang_code).
+  get_business_Request(countryCode): Observable<any>{
+    return this.httpClient.get(this.api_busi_URL +'country='+countryCode+'&category=COMPANY&lang_code='+this.lang_code).
     pipe(
       retry(1),catchError(this.handleError)
     )
   }
-  get_individual_Request(): Observable<any>{
-    return this.httpClient.get(this.api_indi_URL+this.lang_code).
+  get_individual_Request(countryCode): Observable<any>{
+    return this.httpClient.get(this.api_indi_URL +'country='+countryCode+'&category=INDIVIDUAL&lang_code='+this.lang_code).
     pipe(
       retry(1),catchError(this.handleError)
     )

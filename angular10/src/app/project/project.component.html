@@ -57,7 +57,7 @@
                 <h3 translate>Business</h3>
             </div>
             <div *ngFor="let searchrow of business;" class="row mb-2 border border-dark">
-                <div class="dev-panel rounded">
+                <div *ngIf="bnotEmptyRecord; else EmptyRecord" class="dev-panel rounded">
                     <div class="col-12 dev-pd-0">
                         <div class="dev-setFlex">
                             <div class="dev-img-div rounded-circle">
@@ -99,6 +99,11 @@
                         </div>
                     </div>
                 </div>
+                <ng-template #EmptyRecord>
+                    <div class="dev-panel rounded">
+                        <div class="col-12 text-center dev-pd-0" translate="">No_Data_Found</div>
+                    </div>
+                </ng-template>
             </div>
         </div>
         <div class="col-sm-12 col-lg-6 dev-mb">
@@ -106,7 +111,7 @@
                 <h3 translate>Individual</h3>
             </div>
             <div *ngFor="let indivirow of individual;" class="row mb-2 border border-dark">
-                <div class="dev-panel rounded">
+                <div *ngIf="notEmptyRecord; else EmptyRecord" class="dev-panel rounded">
                     <div class="col-12 dev-pd-0">
                         <div class="dev-setFlex">
                             <div class="dev-img-div rounded-circle">
@@ -149,10 +154,18 @@
                         </div>
                     </div>
                 </div>
+                <ng-template #EmptyRecord>
+                    <div class="dev-panel rounded">
+                        <div class="col-12 text-center dev-pd-0" translate="">No_Data_Found</div>
+                    </div>
+                </ng-template>
             </div>
         </div>
     </div>
-    <div class="row pb-2">
+    <!-- <div class="row">
+        <div class="elfsight-app-6cdfe35a-ccd4-41fe-a73b-c0fd704d022e"></div>
+    </div> -->
+    <!-- <div class="row pb-2">
         <div class="col border border-dark p-5">
             <h2>AD</h2>
         </div>
@@ -162,7 +175,7 @@
         <div class="col border border-dark p-5">
             <h2>AD</h2>
         </div>
-    </div>
+    </div> -->
     <div class="modal" id="PortfolioModel" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">

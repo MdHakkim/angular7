@@ -124,5 +124,6 @@
     "Confirm_Password": "تأكيد كلمة المرور",
     "REGISTER_YOURSELF": "سجل نفسك",
     "choose_profession": "اختر المهنة",
-    "Continue_Registration": "متابعة التسجيل"
+    "Continue_Registration": "متابعة التسجيل",
+    "No_Data_Found":"لاتوجد بيانات"
     }

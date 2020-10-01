@@ -124,5 +124,6 @@
     "Confirm_Password":"Confirm Password",
     "REGISTER_YOURSELF":"REGISTER YOURSELF",
     "choose_profession": "Choose Profession",
-    "Continue_Registration":"Continue Registration"
+    "Continue_Registration":"Continue Registration",
+    "No_Data_Found": "No Data Found"
     }

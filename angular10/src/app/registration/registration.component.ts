@@ -506,27 +506,32 @@ export class RegistrationComponent implements OnInit {
         }else{
           this.checkoutForm.get('common_id').setValue("new");
           this.langCondition = false;
+          const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+            width: "310px",
+            data: {
+              title: this.modalTitle,
+              message: this.showDbMessage
+            }
+          });
+          dialogRef.afterClosed().subscribe(dialogResult => {
+            console.log(dialogResult, "confirmation message");
+          });
         }
       }else{
         this.disabledButton=true;
         this.modalTitle = "Oops ?";
         this.showDbMessage = response.error_msg;
+        const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+          width: "310px",
+          data: {
+            title: this.modalTitle,
+            message: this.showDbMessage
+          }
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+          console.log(dialogResult, "confirmation message");
+        });
       }
-      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-        width: "310px",
-        data: {
-          title: this.modalTitle,
-          message: this.showDbMessage
-        }
-      });
-      dialogRef.afterClosed().subscribe(dialogResult => {
-        console.log(dialogResult, "AN SWIJRUBG IR BIT");
-      });
-      // this.showMsg= true;
-      // window.scrollTo(0, 0);
-      // setTimeout(() => {
-        // this.showMsg= false;
-      // },6000);
       this.spinner.hide();
     },err=>{
       this.disabledButton=false; 
@@ -594,27 +599,33 @@ export class RegistrationComponent implements OnInit {
         }else{
           this.individualForm.get('common_id').setValue('new');
           this.langCondition = false;
+          const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+            width: "310px",
+            data: {
+              title: this.modalTitle,
+              message: this.showDbMessage
+            }
+          });
+          dialogRef.afterClosed().subscribe(dialogResult => {
+            console.log(dialogResult, "AN SWIJRUBG IR BIT");
+          });
         }
       }else{
         this.disabledButton=true;
         this.modalTitle = "Oops ?";
         this.showDbMessage = response.error_msg;
+        const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+          width: "310px",
+          data: {
+            title: this.modalTitle,
+            message: this.showDbMessage
+          }
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+          console.log(dialogResult, "AN SWIJRUBG IR BIT");
+        });
       }
       // this.showMsg= true;
-      const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-        width: "310px",
-        data: {
-          title: this.modalTitle,
-          message: this.showDbMessage
-        }
-      });
-      dialogRef.afterClosed().subscribe(dialogResult => {
-        console.log(dialogResult, "AN SWIJRUBG IR BIT");
-      });
-      // window.scrollTo(0, 0);
-      // setTimeout(() => {
-        // this.showMsg= false;
-      // },6000);
       this.spinner.hide();
     },err=>{
       this.disabledButton=false;
@@ -718,44 +729,16 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  // openDialog() {
-  //   // let's call our modal window
-  //   const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-  //     maxWidth: "400px",
-  //     data: {
-  //       title: "Are you sure?",
-  //       message: "You are about to delete user "
-  //     }
-  //   });
+  keyupFunction(event){
+    // console.log(event.target.value,"testing");
+    // let emailid = event.target.value;
+    // this.restApi.emailValidataion(emailid).subscribe((response) => {
+    //   console.log(response, "subSciption");
+    // },
+    //   (error) => {
+    //     console.error('Request failed with error')
+    //     this.errorMessage = error;
+    //   });
+  }
 
-  //   // listen to response
-  //   dialogRef.afterClosed().subscribe(dialogResult => {
-  //     // if user pressed yes dialogResult will be true, 
-  //     // if he pressed no - it will be false
-  //     console.log(dialogResult);
-
-  //   });
-
-  // }
-
-
-  // openDialog(): void {
-  //   const dialogConfig = new MatDialogConfig();
-
-  //   // dialogConfig.disableClose = true;
-  //   dialogConfig.autoFocus = true;
-  //   dialogConfig.data = {
-  //     width: '350px',
-  //     data: "Do you confirm the deletion of this data?"
-  //   };
-  //   dialogConfig.minWidth = 400;
-    
-  //   const dialogRef = this.dialog.open(ConfirmationDialogComponent, dialogConfig);
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result) {
-  //       console.log('Yes clicked');
-  //       // DO SOMETHING
-  //     }
-  //   });
-  // }
 }

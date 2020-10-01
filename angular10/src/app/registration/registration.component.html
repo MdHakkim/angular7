@@ -63,7 +63,7 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate>Email</label>
                             <div class="col-lg-10">
-                                <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value=""  [ngClass]="{ 'is-invalid': submitted && f.email.errors,'langSubmit': langCondition}">
+                                <input class="form-control form-control-sm" formControlName="email" placeholder="ex: example@gmail.com" type="text" value="" (keyup)="keyupFunction($event)" [ngClass]="{ 'is-invalid': submitted && f.email.errors,'langSubmit': langCondition}">
                                 <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                                     <div *ngIf="f.email.errors.required">Email is required</div>
                                     <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
