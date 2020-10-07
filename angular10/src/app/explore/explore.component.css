@@ -36,6 +36,9 @@
 .showActive .dotbtn{
     background: white;
 }
+.dev-height{
+    height: 100%;
+}
 .btn-hig{
     height: 34px;
     color: black;

@@ -31,6 +31,9 @@
     display: block;
     margin-right: 7px;
 }
+.dev-mini{
+    min-height: 12em;
+}
 @media (max-width: 768px) { 
     .pd-both{ padding: 0px 0px 0px 22px }
     .pd-left{ padding-left: 2em }
@@ -215,7 +218,7 @@
     
 }
 .dev-src{
-    height: 84px;
+    height: 100%;
 }
 
 

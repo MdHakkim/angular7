@@ -730,15 +730,15 @@ export class RegistrationComponent implements OnInit {
   }
 
   keyupFunction(event){
-    // console.log(event.target.value,"testing");
-    // let emailid = event.target.value;
-    // this.restApi.emailValidataion(emailid).subscribe((response) => {
-    //   console.log(response, "subSciption");
-    // },
-    //   (error) => {
-    //     console.error('Request failed with error')
-    //     this.errorMessage = error;
-    //   });
+    console.log(event.target.value,"testing");
+    let emailid = event.target.value;
+    this.restApi.emailValidataion(emailid).subscribe((response) => {
+      console.log(response, "subSciption");
+    },
+      (error) => {
+        console.error('Request failed with error')
+        this.errorMessage = error;
+      });
   }
 
 }
