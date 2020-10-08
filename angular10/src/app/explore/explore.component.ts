@@ -106,7 +106,7 @@ export class ExploreComponent implements OnInit {
       desc = event.target.value;
     }
     
-    this.restApi.get_service_lov_Request(desc).subscribe((response) => {
+    this.restApi.get_profService_Request(desc).subscribe((response) => {
       console.log(response);
       this.service = response.result;
     },

@@ -25,6 +25,7 @@ export class ApiServiceService {
   api_register_URL = 'http://api.shrekat.com/api/registration/add'; // not done.
   api_busi_type_URL = 'http://api.shrekat.com/api/business_types?business_type=';
   api_service_lov_URL = 'http://api.shrekat.com/api/service_list?search=';
+  api_prof_service_URL = 'http://api.shrekat.com/api/prof_service_list?search=';
   api_subscription_URL = 'http://api.shrekat.com/api/subscription_list?id=';
   api_servicelist_URL = 'http://api.shrekat.com/api/available_service?id=';
   api_area_lov_URL = 'http://api.shrekat.com/api/all_area_in_city?id=';
@@ -169,6 +170,12 @@ export class ApiServiceService {
     pipe(
       retry(1),catchError(this.handleError)
     )
+  }
+  get_profService_Request(desc): Observable<any> {
+    return this.httpClient.get(this.api_prof_service_URL + desc + '&lang_code=' + this.lang_code).
+      pipe(
+        retry(1), catchError(this.handleError)
+      )
   }
   get_subscription_Request(country='',defaults,lang): Observable<any>{
     return this.httpClient.get(this.api_subscription_URL+country+'&business_type='+defaults+'&lang_code='+lang).
