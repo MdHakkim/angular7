@@ -65,7 +65,10 @@
 }
 .dev-img-div{
     width: 100px;
-    /* background-color: #e3dfdf3b; */
+}
+.dev-dirtn{
+    direction: ltr;
+    display: inline-block;
 }
 .dev-setFlex{
     display: flex;

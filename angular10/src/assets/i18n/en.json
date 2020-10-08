@@ -48,6 +48,7 @@
     "Type_of_business": "Type of business :",
     "Choose_business": "Choose business",
     "Choose_service": "Choose Profession / Service",
+    "Choose_service_reg": "Choose Service",
     "Add_New_Service": "Add New Service",
     "Enter_a_new_tag": "Enter a new tag",
     "Retype_Password": "Retype-Password",
@@ -125,5 +126,7 @@
     "REGISTER_YOURSELF":"REGISTER YOURSELF",
     "choose_profession": "Choose Profession",
     "Continue_Registration":"Continue Registration",
-    "No_Data_Found": "No Data Found"
+    "No_Data_Found": "No Data Found",
+    "Use_Enter_Key_to_add_tag":"Use Enter Key to add tag",
+    "Cancel":"Cancel"
     }

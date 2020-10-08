@@ -48,6 +48,7 @@
     "Type_of_business": "مجال العمل",
     "Choose_business": "نوع العمل",
     "Choose_service": "اختر المهنة/الخدمات",
+    "Choose_service_reg": "اختر الخدمة",
     "Add_New_Service": "حدد مواصفات اضافية",
     "Enter_a_new_tag": "ادخل خانة اضافية",
     "Password": "كلمة السر",
@@ -125,5 +126,7 @@
     "REGISTER_YOURSELF": "سجل نفسك",
     "choose_profession": "اختر المهنة",
     "Continue_Registration": "متابعة التسجيل",
-    "No_Data_Found":"لاتوجد بيانات"
+    "No_Data_Found":"لاتوجد بيانات",
+    "Use_Enter_Key_to_add_tag": "استخدم مفتاح الإدخال لإضافة علامة",
+    "Cancel": "إلغاء"
     }

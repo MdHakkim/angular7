@@ -16,6 +16,10 @@
     padding-right: 4px;
     padding-left: 4px;
 }
+.dev-caution{
+    color: red;
+    font-size: 11px;
+}
 .dev-radius{
     border-radius: 0px;
 }

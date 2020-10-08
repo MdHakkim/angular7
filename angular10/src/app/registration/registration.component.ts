@@ -12,7 +12,8 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SidepanelComponent } from '../sidepanel/sidepanel.component';
 import { NgxSpinnerService } from "ngx-spinner";
-declare var $:any;
+import { Location } from '@angular/common';
+// declare var $:any;
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -75,7 +76,7 @@ export class RegistrationComponent implements OnInit {
   saveOtherLng: boolean = false;
   saveContent: string ="Would you like to save in";
   //gender neeed to add.
-  constructor(public dialog: MatDialog,public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private spinner: NgxSpinnerService) {
+  constructor(private _location: Location,public dialog: MatDialog,public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private spinner: NgxSpinnerService) {
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();
       this.lang_name = (response == 'en' ? "Arabic also ?" : "English also ?");
@@ -83,7 +84,11 @@ export class RegistrationComponent implements OnInit {
         this.citylist = response.result;
       });
       this.getbusiness(event, '');
-      this.getservice(event);
+      this.getservice('');
+      // this.restApi.get_service_lov_Request('').subscribe((response) => {
+      //   this.servicelist = response.result;
+      //   console.log(response.result, "SERVICE CALL");
+      // });
       let Languge = this.restApi.lang_code;
       this.checkoutForm.get('lang_code').setValue(Languge);
       this.individualForm.get('lang_code').setValue(Languge);
@@ -100,7 +105,7 @@ export class RegistrationComponent implements OnInit {
       contactcode:'',
       phone:'',
       contactno: ['', Validators.required],
-      email: ['', [Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       website:'',
       add1: ['', Validators.required],
       add2:'',
@@ -130,7 +135,7 @@ export class RegistrationComponent implements OnInit {
       contactcode:'',
       contactno: ['', Validators.required],
       phone:'',
-      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       website:'',
       gender:'',
       add1: ['', Validators.required],
@@ -341,10 +346,10 @@ export class RegistrationComponent implements OnInit {
     });
   }
   getservice(event){
-      let desc = event.target.value;
+    let desc = (event ? event.target.value :"");
       this.restApi.get_service_lov_Request(desc).subscribe((response) => {
         this.servicelist = response.result;
-        console.log(response,"test");
+        console.log(response,"SERVICE");
       },(err) => console.error(err),()=>{
       });
     
@@ -741,4 +746,7 @@ export class RegistrationComponent implements OnInit {
       });
   }
 
+  backPage(){
+    this._location.back();
+  }
 }
