@@ -24,6 +24,7 @@ export class ProjectComponent implements OnInit {
   arealist :any;
   geoLocation:any;
   showPdf:any;
+  sessionLogin:boolean=true;
   // oneTimeCall:boolean=false;
   // geoLocationStart:boolean=false;
   constructor(public restApi: ApiServiceService,private sharedata:ShareDataService,private _elementRef : ElementRef,private sanitizer: DomSanitizer) { 
@@ -33,6 +34,10 @@ export class ProjectComponent implements OnInit {
       this.busiContent();
       this.indiviContent();
     });
+    const getSecure = JSON.parse(localStorage.getItem("secure"));
+    if(getSecure){
+      this.sessionLogin=false;
+    }
   }
   ngOnInit(): void {
     this.errorMessage = "";

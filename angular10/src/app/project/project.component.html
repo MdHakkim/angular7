@@ -40,10 +40,10 @@
                 <div class="mb-5">
                     <p translate>Shrekat_is_built_to_search_smart_and_fastest_in_providing_your_search_results</p>
                 </div>
-                <div class="dev-col mb-3">
+                <div *ngIf="sessionLogin" class="dev-col mb-3">
                     <span style="display: inline-block;min-width: 10em;" translate>If_you_are_company</span> : <button type="submit" [routerLink]="['joinus']" (click)="routeparam('B')" class="btn text-center btn-sm dev-butsize bg-darkblue dev-color text-right" translate>Express_Your_Services</button>
                 </div>
-                <div class="dev-col">
+                <div *ngIf="sessionLogin" class="dev-col">
                     <span style="display: inline-block;min-width: 10em;" translate>If_you_are_an_Individual</span> : <button type="submit" [routerLink]="['joinus']" (click)="routeparam('A')" class="btn btn-sm text-center dev-butsize bg-darkblue dev-color text-right" translate>Express_Your_Job</button>
                 </div>
             </div>

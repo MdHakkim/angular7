@@ -219,7 +219,7 @@
                             <div class="col-sm-10">
                                 <button type="submit" [disabled]="agreeCheck" [disabled]="disabledButton" class="btn btn-primary btn-sm" [innerHTML]="buttonConfirm" translate="">Register_Now</button>
                                 &nbsp;&nbsp;
-                                <button type="submit" class="btn btn-danger btn-sm" (click)="backPage()" translate="">Cancel</button>
+                                <button type="button" class="btn btn-danger btn-sm" (click)="backPage()" translate="">Cancel</button>
                             </div>
                         </div>
                     </form>
@@ -350,6 +350,7 @@
                                         [ngModelOptions]="{standalone: true}"
                                         [modelAsStrings]="true">
                                 </tag-input>
+                                <div class="dev-caution" translate=""><span>*</span>Use_Enter_Key_to_add_tag</div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -415,7 +416,7 @@
                             <div class="col-sm-10">
                                 <button type="submit" [disabled]="agreeCheck" [disabled]="disabledButton" class="btn btn-primary btn-sm" [innerHTML]="buttonConfirm" translate="">Register_Now</button>
                                 &nbsp;&nbsp;
-                                <button type="submit" class="btn btn-danger btn-sm" (click)="backPage()" translate="">Cancel</button>
+                                <button type="button" class="btn btn-danger btn-sm" (click)="backPage()" translate="">Cancel</button>
                             </div>
                         </div>
                     </form>
@@ -427,9 +428,9 @@
             <!-- <div class="col-10 mb-3"></div> -->
             <div class="row">
                 <div class="col-sm-12 duplicateSubmit mt-3 mb-3">
-                    <button type="submit" class="btn btn-primary" [disabled]="agreeCheck" [disabled]="disabledButton" [attr.form]="bindForm" [innerHTML]="buttonConfirm" translate="">Register_Now</button>
+                    <button type="submit" class="btn btn-primary btn-sm" [disabled]="agreeCheck" [disabled]="disabledButton" [attr.form]="bindForm" [innerHTML]="buttonConfirm" translate="">Register_Now</button>
                     &nbsp;&nbsp;
-                    <button type="submit" class="btn btn-danger btn-sm" (click)="backPage()" translate="">Cancel</button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="backPage()" translate="">Cancel</button>
                 </div>
             </div>
             <!-- <div class="col-12 dev-pd-lf">

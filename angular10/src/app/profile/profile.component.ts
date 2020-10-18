@@ -9,6 +9,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 import { NgxSpinnerService } from "ngx-spinner";
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Location } from '@angular/common';
 declare var $:any;
 @Component({
   selector: 'app-profile',
@@ -73,7 +74,7 @@ export class ProfileComponent implements OnInit {
   pdfSizeVali: boolean = false;
   pdfValidSize: boolean = false;
   pdfValidFormat: boolean = false;
-  constructor(public dialog: MatDialog,public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService){
+  constructor(private _location: Location,public dialog: MatDialog,public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService){
     this.checkoutForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: '',
@@ -176,7 +177,8 @@ export class ProfileComponent implements OnInit {
       },(err) => console.error(err),()=>{
         
       });
-      this.restApi.get_business_type_Request('COMPANY',json.business_type_desc).subscribe((response) => {
+      var businesType = json.business_type_desc.substring(0, 2);
+      this.restApi.get_business_type_Request(json.org_type,businesType).subscribe((response) => {
         this.businesslist = response.result;
         this.checkoutForm.controls['business_type'].setValue(json.business_type);
       },(err) => console.error(err),()=>{
@@ -331,7 +333,7 @@ export class ProfileComponent implements OnInit {
       console.log(response,"BUIS");
       if(response.error_no==0){
         this.modalTitle = "Good !";
-        this.showDbMessage='Profile updated successfully.';
+        this.showDbMessage='Your profile updated successfully.';
       }else{
         this.modalTitle = "Oops ?";
         this.showDbMessage=response.error_no+'.';
@@ -349,7 +351,9 @@ export class ProfileComponent implements OnInit {
         }
       });
       dialogRef.afterClosed().subscribe(dialogResult => {
-        console.log(dialogResult, "AN SWIJRUBG IR BIT");
+        console.log(dialogResult, "Upated check");
+        this.router.navigate(['/']);
+
       });
       this.spinner.hide();
     });
@@ -449,7 +453,7 @@ export class ProfileComponent implements OnInit {
         this.previewUrl = this.sanitizer.bypassSecurityTrustResourceUrl(<string>reader.result); 
         // console.log(this.previewUrl.changingThisBreaksApplicationSecurity,"hakkim teisng"); 
         const imageName = this.checkoutForm.get('image_2') as FormControl;
-        imageName.setValue(this.previewUrl);
+        imageName.setValue(reader.result);
       }
       
     }
@@ -477,5 +481,8 @@ export class ProfileComponent implements OnInit {
         this.pdfValidFormat = params;
       }
     }
+  }
+  backPage(){
+    this._location.back();
   }
 }
