@@ -108,6 +108,8 @@ export class ProfileComponent implements OnInit {
         let token = getSecure[0];
         let email = getSecure[1];
         this.editUserProfile(token,email);
+        let Languge = this.restApi.lang_code;
+        this.checkoutForm.get('lang_code').setValue(Languge);
       });
     });
   }
