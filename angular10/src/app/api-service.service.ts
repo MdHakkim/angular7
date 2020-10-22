@@ -15,29 +15,29 @@ export class ApiServiceService {
     return this.loggedIn.asObservable();
   }
   constructor(private httpClient: HttpClient) { }
-  api_busi_URL = 'http://api.shrekat.com/api/premium_home?';
-  api_indi_URL = 'http://api.shrekat.com/api/premium_home?';
-  api_country_URL = 'http://api.shrekat.com/api/country/all?lang_code=';
-  api_city_URL = 'http://api.shrekat.com/api/all_city_in_country?id=';
-  api_search_URL = 'http://api.shrekat.com/api/advance_search?country=';
-  api_service_URL = 'http://api.shrekat.com/api/master_services/all?lang_code=';
-  api_area_URL = 'http://api.shrekat.com/api/all_area_in_country?id=';
-  api_register_URL = 'http://api.shrekat.com/api/registration/add'; // not done.
-  api_busi_type_URL = 'http://api.shrekat.com/api/business_types?business_type=';
-  api_service_lov_URL = 'http://api.shrekat.com/api/service_list?search=';
-  api_prof_service_URL = 'http://api.shrekat.com/api/prof_service_list?search=';
-  api_subscription_URL = 'http://api.shrekat.com/api/subscription_list?id=';
-  api_servicelist_URL = 'http://api.shrekat.com/api/available_service?id=';
-  api_area_lov_URL = 'http://api.shrekat.com/api/all_area_in_city?id=';
-  api_login_URL = 'http://api.shrekat.com/api/login/verify'; // not done.
-  api_editprofile_URL = 'http://api.shrekat.com/api/portal/edit_profile?email=';
-  api_updateprofile_URL = 'http://api.shrekat.com/api/portal/update_profile'; //not done.
-  api_contact_URL = 'http://api.shrekat.com/api/from_website_contact'; // not done.
-  api_footerPage_URL = 'http://api.shrekat.com/api/page/';
-  api_geoLocation_URL = 'http://api.shrekat.com/api/geo_info';
-  api_forgotPass_URL = 'http://api.shrekat.com/api/forget_password';
-  api_createNewPassword_URL = 'http://api.shrekat.com/api/change_password';
-  api_emailValidate_URL = 'http://api.shrekat.com/api/emailValidate';
+  api_busi_URL = 'http://demo.shrekat.com/api/premium_home?';
+  api_indi_URL = 'http://demo.shrekat.com/api/premium_home?';
+  api_country_URL = 'http://demo.shrekat.com/api/country/all?lang_code=';
+  api_city_URL = 'http://demo.shrekat.com/api/all_city_in_country?id=';
+  api_search_URL = 'http://demo.shrekat.com/api/advance_search?country=';
+  api_service_URL = 'http://demo.shrekat.com/api/master_services/all?lang_code=';
+  api_area_URL = 'http://demo.shrekat.com/api/all_area_in_country?id=';
+  api_register_URL = 'http://demo.shrekat.com/api/registration/add'; // not done.
+  api_busi_type_URL = 'http://demo.shrekat.com/api/business_types?business_type=';
+  api_service_lov_URL = 'http://demo.shrekat.com/api/service_list?search=';
+  api_prof_service_URL = 'http://demo.shrekat.com/api/prof_service_list?search=';
+  api_subscription_URL = 'http://demo.shrekat.com/api/subscription_list?id=';
+  api_servicelist_URL = 'http://demo.shrekat.com/api/available_service?id=';
+  api_area_lov_URL = 'http://demo.shrekat.com/api/all_area_in_city?id=';
+  api_login_URL = 'http://demo.shrekat.com/api/login/verify'; // not done.
+  api_editprofile_URL = 'http://demo.shrekat.com/api/portal/edit_profile?email=';
+  api_updateprofile_URL = 'http://demo.shrekat.com/api/portal/update_profile'; //not done.
+  api_contact_URL = 'http://demo.shrekat.com/api/from_website_contact'; // not done.
+  api_footerPage_URL = 'http://demo.shrekat.com/api/page/';
+  api_geoLocation_URL = 'http://demo.shrekat.com/api/geo_info';
+  api_forgotPass_URL = 'http://demo.shrekat.com/api/forget_password';
+  api_createNewPassword_URL = 'http://demo.shrekat.com/api/change_password';
+  api_emailValidate_URL = 'http://demo.shrekat.com/api/emailValidate';
   headers = new HttpHeaders({'Content-Type': 'application/json' });
   options = { headers: this.headers };
   private customSubject = new Subject<any>();

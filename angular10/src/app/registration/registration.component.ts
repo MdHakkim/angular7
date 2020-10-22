@@ -348,8 +348,27 @@ export class RegistrationComponent implements OnInit {
   getservice(event){
     let desc = (event ? event.target.value :"");
       this.restApi.get_service_lov_Request(desc).subscribe((response) => {
-        this.servicelist = response.result;
-        console.log(response,"SERVICE");
+        let concatinate = [];
+        let returner = true;
+        for (var i = 0; i < this.selectDescArray.length; i++) {
+          response.result.forEach((object,inx) => {
+            console.log(object.id,"Inner array methods");
+            if (this.selectIdArray[i] === object.id){
+              console.log("YES");
+              returner= false;
+            }else{
+              returner= true;
+            }
+          });
+          console.log(returner,"console .com");
+          if (returner){
+            concatinate.push({ id: this.selectIdArray[i], desc_new: this.selectDescArray[i] });
+          }
+        }
+        this.servicelist = response.result.concat(concatinate);
+        // console.log(this.selectDescArray, "Hakkim this.selectDescArray");
+        // console.log(this.servicelist, "Hakkim this.servicelist");
+        // console.log(response,"SERVICE");
       },(err) => console.error(err),()=>{
       });
     
@@ -667,7 +686,7 @@ export class RegistrationComponent implements OnInit {
     this.selectIdArray=[];
     if(event!=0){
       console.log(event,"EVENT HANDLIER");
-      console.log(event.target.value,"EVENT target.value");
+      // console.log(event.target.value,"EVENT target.value");
       // event.push({this.name,this.empoloyeeID});
       event.forEach((id) => {
         console.log(id,"id HANDLIER");

@@ -288,7 +288,22 @@ export class ProfileComponent implements OnInit {
   getservice(event){
       let desc = event.target.value;
       this.restApi.get_service_lov_Request(desc).subscribe((response) => {
-        this.servicelist = response.result;
+        let concatinate = [];
+        let returner = true;
+        for (var i = 0; i < this.selectDescArray.length; i++) {
+          response.result.forEach((object, inx) => {
+            if (this.selectIdArray[i] === object.id) {
+              returner = false;
+            } else {
+              returner = true;
+            }
+          });
+          console.log(returner, "console .com");
+          if (returner) {
+            concatinate.push({ id: this.selectIdArray[i], desc_new: this.selectDescArray[i] });
+          }
+        }
+        this.servicelist = response.result.concat(concatinate);
         console.log(response,"test");
       },(err) => console.error(err),()=>{
         
@@ -377,7 +392,7 @@ export class ProfileComponent implements OnInit {
     console.log(this.servicelist, "id LOOPING");
     if(event!=0){
       event.forEach((id) => {
-        console.log(id, "id descrption");
+        console.log(id, "id LOOGP");
         let descrption = this.servicelist.filter(item => item.id === id)[0].desc_new;
         console.log(descrption, "id descrption");
           this.selectDescArray.push(descrption);
@@ -405,7 +420,7 @@ export class ProfileComponent implements OnInit {
       console.log(response,"test");
     },(err) => console.error(err),()=>{
     });
-  }
+  } 
   changeArea(){
     this.area=null;
     let city=this.city;
