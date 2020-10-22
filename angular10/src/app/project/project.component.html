@@ -111,7 +111,7 @@
                 <h3 translate>Individual</h3>
             </div>
             <div *ngFor="let indivirow of individual;" class="row mb-2 border border-dark">
-                <div *ngIf="notEmptyRecord; else EmptyRecord" class="dev-panel rounded">
+                <div *ngIf="notEmptyRecord; else EmptyRecord1" class="dev-panel rounded">
                     <div class="col-12 dev-pd-0">
                         <div class="dev-setFlex">
                             <div class="dev-img-div rounded-circle">
@@ -149,12 +149,12 @@
                             </ul>
                         </div>
                         <div class="dev-block-btm1 dev-port pl-2">
-                            <button type="button" data-toggle="modal" (click)="getModel(searchrow.portfolio)" data-target="#PortfolioModel"
+                            <button type="button" data-toggle="modal" (click)="getModel(indivirow.portfolio)" data-target="#PortfolioModel"
                                 class="btn btn-primary btn-sm" translate="">Portfolio</button>
                         </div>
                     </div>
                 </div>
-                <ng-template #EmptyRecord>
+                <ng-template #EmptyRecord1>
                     <div class="dev-panel rounded">
                         <div class="col-12 text-center dev-pd-0" translate="">No_Data_Found</div>
                     </div>

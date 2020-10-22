@@ -662,11 +662,15 @@ export class RegistrationComponent implements OnInit {
   selectDescArray:any=[];
   selectIdArray:any=[];
   onChangeService(event):void{
+    console.log(this.selectIdArray,"EVENT this.selectIdArray");
     this.selectDescArray=[];
     this.selectIdArray=[];
     if(event!=0){
       console.log(event,"EVENT HANDLIER");
+      console.log(event.target.value,"EVENT target.value");
+      // event.push({this.name,this.empoloyeeID});
       event.forEach((id) => {
+        console.log(id,"id HANDLIER");
         let descrption = this.servicelist.filter(item => item.id === id)[0].desc_new;
           this.selectDescArray.push(descrption);
         console.log(descrption, "EVENT descrption");

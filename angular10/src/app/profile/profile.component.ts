@@ -140,8 +140,10 @@ export class ProfileComponent implements OnInit {
     this.editUserProfile(token,email);
   }
   editUserProfile(token,email){
+    this.spinner.show();
     this.restApi.fetch_editProfile(email,token).subscribe((response) => {
       console.log(response.result,"test");
+      this.spinner.hide();
       if(response.result.length>0){
       let json = response.result[0];
       this.subscription_1=true;
@@ -372,10 +374,12 @@ export class ProfileComponent implements OnInit {
     this.selectDescArray=[];
     this.selectIdArray=[];
     console.log(event, "454 lOO009");
+    console.log(this.servicelist, "id LOOPING");
     if(event!=0){
       event.forEach((id) => {
-        console.log(id, "id LOOGP");
+        console.log(id, "id descrption");
         let descrption = this.servicelist.filter(item => item.id === id)[0].desc_new;
+        console.log(descrption, "id descrption");
           this.selectDescArray.push(descrption);
           this.selectIdArray.push(id);
       });
