@@ -7,8 +7,7 @@
                         <h5 translate class="text-center">What_are_you_looking_for</h5>
                         <form>
                             <div class="form-group">
-                                <input type="text" [(ngModel)]="profession" name="profession" class="form-control" id="profession"
-                                    placeholder="{{ 'Professions_Services' | translate }}">
+                                <input type="text" [(ngModel)]="profession" name="profession" class="form-control" id="profession" (keyup.enter)="searchClick($event,'S','ENT')" placeholder="{{ 'Professions_Services' | translate }}">
                             </div>
                             <div class="form-group">
                                 <ng-select placeholder="{{ 'Choose_Country' | translate }}" bindLabel="countrylist" bindValue="countrylist" notFoundText="{{ 'No_Item_Found' | translate }}"  (change)="getArea($event,'A')" name="country" [searchable]="true" [clearable]="true" [(ngModel)]="country">
@@ -25,8 +24,8 @@
                                 </ng-select>
                             </div>
                             <div class="form-group dev-flex">
-                                <a (click)="searchClick($event,'A')" [routerLink]="['explore']" type="submit" class="btn dev-bn-col btn-primary dev-rigth ar-rigth" translate>Advance_Search</a>
-                                <a (click)="searchClick($event,'S')" [routerLink]="['explore']" type="submit" class="btn dev-bn-col btn-warning" translate>Search_Now</a>
+                                <a (click)="searchClick($event,'A',null)" [routerLink]="['explore']" type="submit" class="btn dev-bn-col btn-primary dev-rigth ar-rigth" translate>Advance_Search</a>
+                                <a (click)="searchClick($event,'S',null)" [routerLink]="['explore']" type="submit" class="btn dev-bn-col btn-warning" translate>Search_Now</a>
                             </div>
                         </form>
                     <!-- </div> -->

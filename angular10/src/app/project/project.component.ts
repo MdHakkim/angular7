@@ -2,7 +2,7 @@ import { Component, OnInit,OnDestroy,ElementRef  } from '@angular/core'
 import { ApiServiceService } from '../api-service.service';
 import { ShareDataService } from '../share-data.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
-// declare var $:any;
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-project',
@@ -27,7 +27,7 @@ export class ProjectComponent implements OnInit {
   sessionLogin:boolean=true;
   // oneTimeCall:boolean=false;
   // geoLocationStart:boolean=false;
-  constructor(public restApi: ApiServiceService,private sharedata:ShareDataService,private _elementRef : ElementRef,private sanitizer: DomSanitizer) { 
+  constructor(public router: Router,public restApi: ApiServiceService,private sharedata:ShareDataService,private _elementRef : ElementRef,private sanitizer: DomSanitizer) { 
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();
       this.getArea(event, 'A');
@@ -117,13 +117,16 @@ export class ProjectComponent implements OnInit {
     console.log(params,"stest");
     this.showPdf=this.sanitizer.bypassSecurityTrustResourceUrl(<string>params);
   }
-  searchClick(event,param){
+  searchClick(event,param,entr){
     this.passArray = [];
     this.passArray.push(param);
     this.passArray.push(this.profession);
     this.passArray.push(this.country);
     this.passArray.push(this.area);
     this.sharedata.sendMessage(this.passArray);
+    if (entr =='ENT'){
+      this.router.navigate(['/explore']);
+    }
   }
 
   getArea(event,param){
