@@ -4,7 +4,7 @@ import { ApiServiceService } from '../api-service.service';
 import { ShareDataService } from '../share-data.service';
 import { Subscription } from "rxjs";
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
-declare var $:any;
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-explore',
   templateUrl: './explore.component.html',
@@ -39,7 +39,7 @@ export class ExploreComponent implements OnInit {
   loopContent:boolean=true;
   genderCondi: boolean = true;
   geoLocation = localStorage.getItem("geoLocation");
-  constructor(private restApi: ApiServiceService,private sharedata:ShareDataService,private route: ActivatedRoute, private router: Router,private _elementRef : ElementRef,private sanitizer: DomSanitizer) {
+  constructor(private restApi: ApiServiceService, private sharedata: ShareDataService, private route: ActivatedRoute, private router: Router, private _elementRef: ElementRef, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService) {
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();
       this.restArea();
@@ -152,6 +152,7 @@ export class ExploreComponent implements OnInit {
 
   advanceSearch(param=''){
     this.errorMessage = "";
+    this.spinner.show();
     let category = this.category;
     let gender = this.genderAdv;
     let service = this.serviceAdv;
@@ -179,7 +180,7 @@ export class ExploreComponent implements OnInit {
         this.searchData = Array('No Found');
         this.loopContent = false;
       }
-      
+      this.spinner.hide();
       console.log(response,"google");
     })
   }
