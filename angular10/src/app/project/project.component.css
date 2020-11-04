@@ -154,7 +154,7 @@
     padding-bottom: 14px;
 }
 .dev-dynm-h{
-    height: 7em;
+    height: 9em;
     padding-bottom: 14px;
 }
 .dev-left-data{
@@ -223,6 +223,19 @@
 .dev-src{
     height: 100%;
 }
-
+.showDefault{
+    max-height: 69px;
+    overflow: hidden;
+    margin: 0px;
+    /* text-overflow: ellipsis;
+    white-space: nowrap; */
+}
+.dev-atag{  
+    cursor: pointer;
+    color: #2e2eff;
+}
+.showpara{
+    overflow: auto;
+}
 
 /* < explore page css > */

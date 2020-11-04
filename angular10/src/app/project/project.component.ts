@@ -25,6 +25,8 @@ export class ProjectComponent implements OnInit {
   geoLocation:any;
   showPdf:any;
   sessionLogin:boolean=true;
+  paragraphShow:boolean=false;
+  moreDots:string = '...more';
   // oneTimeCall:boolean=false;
   // geoLocationStart:boolean=false;
   constructor(public router: Router,public restApi: ApiServiceService,private sharedata:ShareDataService,private _elementRef : ElementRef,private sanitizer: DomSanitizer) { 
@@ -168,6 +170,14 @@ export class ProjectComponent implements OnInit {
         "height":"100px"
       }
     return style;
+  }
+  actionPart(){
+    this.paragraphShow = !this.paragraphShow;
+    if (this.paragraphShow){
+      this.moreDots='less';
+    }else{
+      this.moreDots = '...more';
+    }
   }
 
 }
