@@ -27,7 +27,7 @@ export class ProjectComponent implements OnInit {
   sessionLogin:boolean=true;
   paragraphShow:boolean=false;
   paragraphShowI: boolean = false;
-  moreDots:string = '...more';
+  moreDots:any = '...more';
   moreDotsI: string = '...more';
   // oneTimeCall:boolean=false;
   // geoLocationStart:boolean=false;
@@ -173,20 +173,20 @@ export class ProjectComponent implements OnInit {
       }
     return style;
   }
-  actionPart(param){
+  actionPart(param,data){
     if (param=='B'){
-      this.paragraphShow = !this.paragraphShow;
-      if (this.paragraphShow){
-        this.moreDots='less';
+      data.paragraphShow = !data.paragraphShow;
+      if (data.paragraphShow){
+        data.moreDots=false;
       }else{
-        this.moreDots = '...more';
+        data.moreDots = true;
       }
     }else{
-      this.paragraphShowI = !this.paragraphShowI;
+      data.paragraphShowI = !data.paragraphShowI;
       if (this.paragraphShowI) {
-        this.moreDotsI = 'less';
+        data.moreDotsI = false;
       } else {
-        this.moreDotsI = '...more';
+        data.moreDotsI = true;
       }
     }
   }

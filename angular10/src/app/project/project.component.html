@@ -55,7 +55,7 @@
             <div class="col text-center">
                 <h3 translate>Business</h3>
             </div>
-            <div *ngFor="let searchrow of business;" class="row mb-2 border border-dark">
+            <div *ngFor="let searchrow of business;let i = index" class="row mb-2 border border-dark">
                 <div *ngIf="bnotEmptyRecord; else EmptyRecord" class="dev-panel rounded">
                     <div class="col-12 dev-pd-0">
                         <div class="dev-setFlex">
@@ -73,8 +73,8 @@
                             </div>
                         </div>
                         <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
-                            <p class="showDefault" [ngClass]="{'showpara':paragraphShow}">{{searchrow.remarks}}</p>
-                            <a class="dev-atag" *ngIf="searchrow.remarks.length > 200" (click)="actionPart('B')">{{moreDots}}</a>
+                            <p class="showDefault" [ngClass]="{'showpara':searchrow.paragraphShow}">{{searchrow.remarks}}</p>
+                            <a class="dev-atag" *ngIf="searchrow.remarks.length > 200" (click)="actionPart('B',searchrow)">{{(searchrow.moreDots==null || searchrow.moreDots)? '..more' : '..less' }}</a>
                             <div class="dev-serive">
                                 <p class="dev-pag dev-lett" translate="">Serives_Provided</p>
                                 <span *ngFor="let servicerow of searchrow.service"
@@ -128,8 +128,8 @@
                             </div>
                         </div>
                         <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
-                            <p class="showDefault" [ngClass]="{'showpara':paragraphShowI}">{{indivirow.remarks}}</p>
-                            <a class="dev-atag" *ngIf="indivirow.remarks.length > 200" (click)="actionPart('I')">{{moreDotsI}}</a>
+                            <p class="showDefault" [ngClass]="{'showpara':indivirow.paragraphShowI}">{{indivirow.remarks}}</p>
+                            <a class="dev-atag" *ngIf="indivirow.remarks.length > 200" (click)="actionPart('I',indivirow)">{{(indivirow.moreDotsI==null || indivirow.moreDotsI)? '..more' : '..less' }}</a>
                             <div class="dev-serive">
                                 <p class="dev-pag dev-lett" translate="">Serives_Provided</p>
                                 <span *ngFor="let servicerow of indivirow.service"

@@ -237,12 +237,12 @@ export class ExploreComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  actionPart() {
-    this.paragraphShow = !this.paragraphShow;
-    if (this.paragraphShow) {
-      this.moreDots = 'less';
+  actionPart(data) {
+    data.paragraphShow = !data.paragraphShow;
+    if (data.paragraphShow) {
+      data.moreDots = false;
     } else {
-      this.moreDots = '...more';
+      data.moreDots = true;
     }
 }
 }
