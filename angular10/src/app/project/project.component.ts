@@ -26,7 +26,9 @@ export class ProjectComponent implements OnInit {
   showPdf:any;
   sessionLogin:boolean=true;
   paragraphShow:boolean=false;
+  paragraphShowI: boolean = false;
   moreDots:string = '...more';
+  moreDotsI: string = '...more';
   // oneTimeCall:boolean=false;
   // geoLocationStart:boolean=false;
   constructor(public router: Router,public restApi: ApiServiceService,private sharedata:ShareDataService,private _elementRef : ElementRef,private sanitizer: DomSanitizer) { 
@@ -171,12 +173,21 @@ export class ProjectComponent implements OnInit {
       }
     return style;
   }
-  actionPart(){
-    this.paragraphShow = !this.paragraphShow;
-    if (this.paragraphShow){
-      this.moreDots='less';
+  actionPart(param){
+    if (param=='B'){
+      this.paragraphShow = !this.paragraphShow;
+      if (this.paragraphShow){
+        this.moreDots='less';
+      }else{
+        this.moreDots = '...more';
+      }
     }else{
-      this.moreDots = '...more';
+      this.paragraphShowI = !this.paragraphShowI;
+      if (this.paragraphShowI) {
+        this.moreDotsI = 'less';
+      } else {
+        this.moreDotsI = '...more';
+      }
     }
   }
 

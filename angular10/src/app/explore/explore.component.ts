@@ -38,6 +38,8 @@ export class ExploreComponent implements OnInit {
   showPdf:any;
   loopContent:boolean=true;
   genderCondi: boolean = true;
+  paragraphShow: boolean = false;
+  moreDots: string = '...more';
   geoLocation = localStorage.getItem("geoLocation");
   constructor(private restApi: ApiServiceService, private sharedata: ShareDataService, private route: ActivatedRoute, private router: Router, private _elementRef: ElementRef, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService) {
     this.restApi.getLanguage().subscribe((response) => {
@@ -234,4 +236,13 @@ export class ExploreComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  actionPart() {
+    this.paragraphShow = !this.paragraphShow;
+    if (this.paragraphShow) {
+      this.moreDots = 'less';
+    } else {
+      this.moreDots = '...more';
+    }
+}
 }

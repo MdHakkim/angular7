@@ -227,6 +227,8 @@
     max-height: 69px;
     overflow: hidden;
     margin: 0px;
+    font-size: 15px;
+    font-weight: normal;
     /* text-overflow: ellipsis;
     white-space: nowrap; */
 }

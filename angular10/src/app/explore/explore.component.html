@@ -83,7 +83,8 @@
                         </div>
                     </div>
                     <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
-                        <h5>{{searchrow.remarks | slice:0:50}}</h5>
+                        <p class="showDefault" [ngClass]="{'showpara':paragraphShow}">{{searchrow.remarks}}</p>
+                        <a class="dev-atag" *ngIf="searchrow.remarks.length > 200" (click)="actionPart()">{{moreDots}}</a>
                         <div class="dev-serive">
                             <p class="dev-pag" translate="">Serives_Provided</p>
                             <span *ngFor="let servicerow of searchrow.service" class="dev-tag border dev-radius-cornor dev-tag-pd">{{servicerow.service_name}}</span>

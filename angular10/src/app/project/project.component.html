@@ -74,7 +74,7 @@
                         </div>
                         <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
                             <p class="showDefault" [ngClass]="{'showpara':paragraphShow}">{{searchrow.remarks}}</p>
-                            <a class="dev-atag" *ngIf="searchrow.remarks.length > 200" (click)="actionPart()">{{moreDots}}</a>
+                            <a class="dev-atag" *ngIf="searchrow.remarks.length > 200" (click)="actionPart('B')">{{moreDots}}</a>
                             <div class="dev-serive">
                                 <p class="dev-pag dev-lett" translate="">Serives_Provided</p>
                                 <span *ngFor="let servicerow of searchrow.service"
@@ -128,7 +128,8 @@
                             </div>
                         </div>
                         <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
-                            <h6>{{indivirow.remarks | slice:0:100}}</h6>
+                            <p class="showDefault" [ngClass]="{'showpara':paragraphShowI}">{{indivirow.remarks}}</p>
+                            <a class="dev-atag" *ngIf="indivirow.remarks.length > 200" (click)="actionPart('I')">{{moreDotsI}}</a>
                             <div class="dev-serive">
                                 <p class="dev-pag dev-lett" translate="">Serives_Provided</p>
                                 <span *ngFor="let servicerow of indivirow.service"
