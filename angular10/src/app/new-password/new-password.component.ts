@@ -8,6 +8,7 @@ import { MustMatch } from '../password-validator';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/filter';
 import { ShareDataService } from '../share-data.service';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
@@ -36,7 +37,7 @@ export class NewPasswordComponent implements OnInit {
   goBack:boolean=false;
   faiconLogin = '<i class="fa fa-user"></i>';
   logoLang: any = 'assets/image/logo_en.png';
-  constructor(private sharedata: ShareDataService,private routeParam: ActivatedRoute, public router: Router, private formBuilder: FormBuilder, public restApi: ApiServiceService) {
+  constructor(private sharedata: ShareDataService,private routeParam: ActivatedRoute, public router: Router, private formBuilder: FormBuilder, public restApi: ApiServiceService, private spinner: NgxSpinnerService) {
     this.newPassword = this.formBuilder.group({
       user_password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
@@ -113,11 +114,7 @@ export class NewPasswordComponent implements OnInit {
       this.goBack=true;
     }
   }
-  // backSign(){
-  //     this.registerBlock = false;
-  //     this.redirectContent=false;
-      
-  // }
+  
   registerBack(param){
     this.router.navigate(['/joinus']);
     if(param=='B'){
@@ -175,8 +172,9 @@ export class NewPasswordComponent implements OnInit {
   }
   emilIdLogin:any='';
   createNewPassword() {
-    console.log(this.emilIdLogin,"EMPTY");
+    // console.log(this.emilIdLogin,"EMPTY");
     if (typeof this.emilIdLogin != 'undefined' && this.emilIdLogin != ''){
+    this.spinner.show();
     let logindata = { email: this.emilIdLogin, password: this.getMailValue };
     this.restApi.login(logindata).subscribe((response) => {
       console.log(response, "login");
@@ -192,9 +190,11 @@ export class NewPasswordComponent implements OnInit {
         let condition = [false, first_name];
         this.sharedata.callComponentMethod(condition);
         this.router.navigate(['']);
+        this.spinner.hide();
       } else {
         this.showWindowMessage = response.error_msg;
         this.EmailValidation = true;
+        this.spinner.hide();
         setTimeout(() => {
           this.showWindowMessage = '';
           this.EmailValidation = false;
