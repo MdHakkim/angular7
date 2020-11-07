@@ -40,6 +40,8 @@ export class ExploreComponent implements OnInit {
   genderCondi: boolean = true;
   paragraphShow: boolean = false;
   moreDots: string = '...more';
+  // localStore:any='';
+  maxPara = 400;
   geoLocation = localStorage.getItem("geoLocation");
   constructor(private restApi: ApiServiceService, private sharedata: ShareDataService, private route: ActivatedRoute, private router: Router, private _elementRef: ElementRef, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService) {
     this.restApi.getLanguage().subscribe((response) => {
@@ -123,6 +125,7 @@ export class ExploreComponent implements OnInit {
     this.errorMessage = "";
     this.restApi.get_search_Request().subscribe((response) => {
       this.searchData = response.result;
+      // this.localStore = response.result;
       console.log(response,"google");
     },
     (error) => {
@@ -178,8 +181,10 @@ export class ExploreComponent implements OnInit {
       if (response.result.length>0){
         this.loopContent = true;
         this.searchData = response.result;
+        // this.localStore = response.result;
       }else{
         this.searchData = Array('No Found');
+        // this.localStore = Array('No Found');
         this.loopContent = false;
       }
       this.spinner.hide();
@@ -227,9 +232,12 @@ export class ExploreComponent implements OnInit {
     if($param=='SP'){
       this.acitveSplit=true;
       this.acitveClass=false;
+      // this.searchData=this.localStore; 
+      this.maxPara=200;
     }else{
       this.acitveClass=true;
       this.acitveSplit=false;
+      this.maxPara = 400;
     }
     
   }

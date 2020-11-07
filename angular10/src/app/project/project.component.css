@@ -154,7 +154,7 @@
     padding-bottom: 14px;
 }
 .dev-dynm-h{
-    height: 9em;
+    height: 10em;
     padding-bottom: 14px;
 }
 .dev-left-data{
@@ -223,12 +223,16 @@
 .dev-src{
     height: 100%;
 }
+.xtra-sp{
+    margin-bottom: 4px !important;
+}
 .showDefault{
-    max-height: 69px;
+    max-height: 75px;
     overflow: hidden;
     margin: 0px;
     font-size: 15px;
     font-weight: normal;
+    line-height: 1.3;
     /* text-overflow: ellipsis;
     white-space: nowrap; */
 }

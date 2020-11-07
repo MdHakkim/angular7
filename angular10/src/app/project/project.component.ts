@@ -26,9 +26,9 @@ export class ProjectComponent implements OnInit {
   showPdf:any;
   sessionLogin:boolean=true;
   paragraphShow:boolean=false;
-  paragraphShowI: boolean = false;
+  paragraphShowI:boolean=false;
   moreDots:any = '...more';
-  moreDotsI: string = '...more';
+  moreDotsI:any = '...more';
   // oneTimeCall:boolean=false;
   // geoLocationStart:boolean=false;
   constructor(public router: Router,public restApi: ApiServiceService,private sharedata:ShareDataService,private _elementRef : ElementRef,private sanitizer: DomSanitizer) { 
@@ -183,9 +183,9 @@ export class ProjectComponent implements OnInit {
       }
     }else{
       data.paragraphShowI = !data.paragraphShowI;
-      if (this.paragraphShowI) {
+      if (data.paragraphShowI) {
         data.moreDotsI = false;
-      } else {
+      }else{
         data.moreDotsI = true;
       }
     }

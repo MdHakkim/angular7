@@ -162,16 +162,18 @@
     
 }
 .showDefault{
-    max-height: 69px;
+    max-height: 75px;
     overflow: hidden;
     margin: 0px;
     font-size: 15px;
     font-weight: normal;
-    /* text-overflow: ellipsis;
-    white-space: nowrap; */
+    line-height: 1.3;
 }
 .showpara{
     overflow: auto;
+}
+.xtra-sp{
+    margin-bottom: 4px !important;
 }
 @media (max-width: 420px) { 
     .dev-sm{ padding-right: 6px !important; }
