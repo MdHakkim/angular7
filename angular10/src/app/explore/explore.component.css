@@ -175,6 +175,12 @@
 .xtra-sp{
     margin-bottom: 4px !important;
 }
+.btn-xtrsm{
+    padding: 3px;
+    font-size: 12px;
+    min-width: 13%;
+    color: white !important;
+}
 @media (max-width: 420px) { 
     .dev-sm{ padding-right: 6px !important; }
     .dev-bgcolor{ padding: 4px;}

@@ -84,7 +84,7 @@
                     </div>
                     <div class="dev-block pl-2 mt-2" [ngClass]="(acitveClass)? 'dev-mx-h':'dev-dynm-h'">
                         <p class="showDefault" [ngClass]="{'showpara':searchrow.paragraphShow,'xtra-sp':searchrow.remarks.length <= maxPara}">{{searchrow.remarks}}</p>
-                        <a class="dev-atag" *ngIf="searchrow.remarks.length > maxPara" (click)="actionPart(searchrow)">{{(searchrow.moreDots==null || searchrow.moreDots)? '..more' : 'less'}}</a>
+                        <button type="button" class="dev-atag btn btn-primary btn-xtrsm" *ngIf="searchrow.remarks.length > maxPara" (click)="actionPart(searchrow)">{{(searchrow.moreDots==null || searchrow.moreDots)? 'Read More' : 'less'}}</button>
                         <div class="dev-serive">
                             <p class="dev-pag" translate="">Serives_Provided</p>
                             <span *ngFor="let servicerow of searchrow.service" class="dev-tag border dev-radius-cornor dev-tag-pd">{{servicerow.service_name}}</span>

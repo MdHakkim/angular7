@@ -99,7 +99,7 @@ export class RegistrationComponent implements OnInit {
       password: ['', Validators.required],
     });
     this.checkoutForm = this.formBuilder.group({
-      first_name: ['', Validators.required],
+      first_name: ['', [Validators.required, Validators.maxLength(350)]],
       last_name: '',
       business_name:'',
       contactcode:'',
@@ -113,7 +113,7 @@ export class RegistrationComponent implements OnInit {
       area:'',
       city:'',
       business_type:['', Validators.required],
-      remarks:'',
+      remarks: ['', [Validators.required, Validators.maxLength(350)]],
       subscription_1:'',
       subscription_2:'',
       service_id: this.formBuilder.array([]),
@@ -144,7 +144,7 @@ export class RegistrationComponent implements OnInit {
       area:'',
       city:'',
       business_type:['', Validators.required],
-      remarks:'',
+      remarks: ['', [Validators.required, Validators.maxLength(350)]],
       subscription_1:'',
       subscription_2:'',
       service_id: this.formBuilder.array([]),
