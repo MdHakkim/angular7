@@ -176,8 +176,8 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">About_us</label>
                             <div class="col-lg-10">
-                                <textarea rows="5" formControlName="remarks" placeholder="{{'Express_you_services' | translate}}" [ngClass]="{ 'is-invalid': f.remarks.touched && f.remarks.errors || submitted && f.remarks.errors }" class="form-control form-control-sm"></textarea>
-                                <div *ngIf="f.remarks.touched || submitted && f.remarks.errors"
+                                <textarea rows="5" formControlName="remarks" placeholder="{{'Express_you_services' | translate}}" [ngClass]="{ 'is-invalid': submitted && f.remarks.errors }" class="form-control form-control-sm"></textarea>
+                                <div *ngIf="submitted && f.remarks.errors"
                                     class="invalid-feedback">
                                     <div *ngIf="f.remarks.errors.required">Remarks is required</div>
                                     <div *ngIf="f.remarks.errors.maxlength">Maximum remarks 350</div>
@@ -378,8 +378,8 @@
                         <div class="form-group row">
                             <label [ngClass]="'lab-pad'" class="col-lg-2 col-form-label form-control-label" translate="">About_us</label>
                             <div class="col-lg-10">
-                                <textarea rows="5" formControlName="remarks" placeholder="{{'Express_you_services' | translate}}" [ngClass]="{ 'is-invalid': i.remarks.touched && i.remarks.errors || submitted && i.remarks.errors}" class="form-control form-control-sm"></textarea>
-                                <div *ngIf="i.remarks.touched || submitted && i.remarks.errors"
+                                <textarea rows="5" formControlName="remarks" placeholder="{{'Express_you_services' | translate}}" [ngClass]="{ 'is-invalid': submitted && i.remarks.errors}" class="form-control form-control-sm"></textarea>
+                                <div *ngIf="submitted && i.remarks.errors"
                                     class="invalid-feedback">
                                     <div *ngIf="i.remarks.errors.required">Remarks is required</div>
                                     <div *ngIf="i.remarks.errors.maxlength">Maximum remarks 350</div>

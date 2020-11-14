@@ -90,7 +90,7 @@ export class ProfileComponent implements OnInit {
       area:'',
       city:'',
       business_type:[null, Validators.required],
-      remarks: ['', Validators.required],
+      remarks: ['', [Validators.required, Validators.maxLength(350)]],
       subscription_1:'',
       subscription_2:'',
       service_id: this.formBuilder.array([]),
