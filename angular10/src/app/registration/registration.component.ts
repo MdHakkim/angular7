@@ -762,6 +762,7 @@ export class RegistrationComponent implements OnInit {
     let emailid = event.target.value;
     this.restApi.emailValidataion(emailid).subscribe((response) => {
       console.log(response, "subSciption");
+      // formData.form.controls['email'].setErrors({ 'incorrect': true });
     },
       (error) => {
         console.error('Request failed with error')

@@ -245,12 +245,14 @@ export class ExploreComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  actionPart(data) {
+  actionPart(indx,data) {
     data.paragraphShow = !data.paragraphShow;
     if (data.paragraphShow) {
       data.moreDots = false;
     } else {
       data.moreDots = true;
+      const getClass = document.getElementsByClassName('uniqueClass' + indx)[0];
+      getClass.scrollTop = 0;
     }
 }
 }

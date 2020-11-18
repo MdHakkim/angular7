@@ -173,13 +173,15 @@ export class ProjectComponent implements OnInit {
       }
     return style;
   }
-  actionPart(param,data){
+  actionPart(indx,param,data){
     if (param=='B'){
       data.paragraphShow = !data.paragraphShow;
       if (data.paragraphShow){
         data.moreDots=false;
       }else{
         data.moreDots = true;
+        const getClass = document.getElementsByClassName('uniqueClass' + indx)[0];
+        getClass.scrollTop = 0;
       }
     }else{
       data.paragraphShowI = !data.paragraphShowI;
@@ -187,6 +189,8 @@ export class ProjectComponent implements OnInit {
         data.moreDotsI = false;
       }else{
         data.moreDotsI = true;
+        const getClass = document.getElementsByClassName('uniqueClassI' + indx)[0];
+        getClass.scrollTop = 0;
       }
     }
   }
