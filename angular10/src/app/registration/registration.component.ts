@@ -13,6 +13,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SidepanelComponent } from '../sidepanel/sidepanel.component';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Location } from '@angular/common';
+import { SearchCountryField, TooltipLabel, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 // declare var $:any;
 @Component({
   selector: 'app-registration',
@@ -75,6 +76,13 @@ export class RegistrationComponent implements OnInit {
   lang_name: any ='Arabic also ?';
   saveOtherLng: boolean = false;
   saveContent: string ="Would you like to save in";
+
+  SearchCountryField = SearchCountryField;
+  TooltipLabel = TooltipLabel;
+  CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+  preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+  separateDialCode = false;
   //gender neeed to add.
   constructor(private _location: Location,public dialog: MatDialog,public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private spinner: NgxSpinnerService) {
     this.restApi.getLanguage().subscribe((response) => {
@@ -94,15 +102,15 @@ export class RegistrationComponent implements OnInit {
       this.individualForm.get('lang_code').setValue(Languge);
       this.buttonConfirm = 'Register_Now';
     });
-    this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-    });
+    // this.loginForm = this.formBuilder.group({
+    //   email: ['', Validators.required],
+    //   password: ['', Validators.required],
+    // });
     this.checkoutForm = this.formBuilder.group({
       first_name: ['', [Validators.required, Validators.maxLength(350)]],
       last_name: '',
       business_name:'',
-      contactcode:'',
+      // contactcode:'',
       phone:'',
       contactno: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
@@ -132,7 +140,7 @@ export class RegistrationComponent implements OnInit {
       first_name: ['', Validators.required],
       last_name: '',
       business_name:'',
-      contactcode:'',
+      // contactcode:'',
       contactno: ['', Validators.required],
       phone:'',
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
@@ -163,9 +171,9 @@ export class RegistrationComponent implements OnInit {
   
    keyupmethod(param){
     if(param=='B'){
-      this.checkoutForm.get('phone').setValue(this.checkoutForm.get('contactcode').value+this.checkoutForm.get('contactno').value);
+      this.checkoutForm.get('phone').setValue(this.checkoutForm.get('contactno').value.e164Number);
    }else{
-      this.individualForm.get('phone').setValue(this.individualForm.get('contactcode').value+this.individualForm.get('contactno').value);
+      this.individualForm.get('phone').setValue(this.individualForm.get('contactno').value.e164Number);
    }
   }
   @ViewChild('businessTab') elight: ElementRef;
@@ -484,13 +492,14 @@ export class RegistrationComponent implements OnInit {
       console.log(response,"BUIS");
       if(response.error_no==0){
         this.disabledButton=true;
+        let paymentUrl = response.payment_url;
         this.modalTitle ="Registration Success !";
         this.showDbMessage ='Confirmation Email has been sent to your register email.';
         let checkEmail = this.checkoutForm.get('email').value;
         let checkpassword = this.checkoutForm.get('password').value;
         let checkretypepassword = this.checkoutForm.get('retypepassword').value;
-        let checkcontactcode = this.checkoutForm.get('contactcode').value;
-        let checkcontactno = this.checkoutForm.get('contactno').value;
+        // let checkcontactcode = this.checkoutForm.get('contactcode').value;
+        let checkcontactno = this.checkoutForm.get('contactno').value.e164Number;
         let checkwebsite = this.checkoutForm.get('website').value;
         let subscription_1 = this.checkoutForm.get('subscription_1').value;
         let subscription_2 = this.checkoutForm.get('subscription_2').value;
@@ -511,10 +520,10 @@ export class RegistrationComponent implements OnInit {
           this.checkoutForm.get('email').setValue(checkEmail);
           this.checkoutForm.get('password').setValue(checkpassword);
           this.checkoutForm.get('retypepassword').setValue(checkretypepassword);
-          this.checkoutForm.get('contactcode').setValue(checkcontactcode);
+          // this.checkoutForm.get('contactcode').setValue(checkcontactcode);
           this.checkoutForm.get('contactno').setValue(checkcontactno);
           this.checkoutForm.get('website').setValue(checkwebsite);
-          this.checkoutForm.get('phone').setValue(checkcontactcode + checkcontactno);
+          this.checkoutForm.get('phone').setValue(checkcontactno);
           this.checkoutForm.get('subscription_1').setValue(subscription_1);
           this.checkoutForm.get('subscription_2').setValue(subscription_2);
           this.checkoutForm.get('country').setValue(checkcountry);
@@ -539,6 +548,9 @@ export class RegistrationComponent implements OnInit {
           });
           dialogRef.afterClosed().subscribe(dialogResult => {
             console.log(dialogResult, "confirmation message");
+            if (paymentUrl){
+              window.location.href = paymentUrl;
+            }
           });
         }
       }else{
@@ -577,13 +589,14 @@ export class RegistrationComponent implements OnInit {
       console.log(response,"INDIVI");
       if(response.error_no==0){
         this.disabledButton=true;
+        let paymentUrl = response.payment_url;
         this.modalTitle = "Registration Success !";
         this.showDbMessage='Confirmation Email has been sent to your register email.';
         let checkEmail = this.individualForm.get('email').value;
         let checkpassword = this.individualForm.get('password').value;
         let checkretypepassword = this.individualForm.get('retypepassword').value;
-        let checkcontactcode = this.individualForm.get('contactcode').value;
-        let checkcontactno = this.individualForm.get('contactno').value;
+        // let checkcontactcode = this.individualForm.get('contactcode').value;
+        let checkcontactno = this.individualForm.get('contactno').value.e164Number;
         let checkwebsite = this.individualForm.get('website').value;
         let subscription_1 = this.individualForm.get('subscription_1').value;
         let subscription_2 = this.individualForm.get('subscription_2').value;
@@ -604,10 +617,10 @@ export class RegistrationComponent implements OnInit {
           this.individualForm.get('email').setValue(checkEmail);
           this.individualForm.get('password').setValue(checkpassword);
           this.individualForm.get('retypepassword').setValue(checkretypepassword);
-          this.individualForm.get('contactcode').setValue(checkcontactcode);
+          // this.individualForm.get('contactcode').setValue(checkcontactcode);
           this.individualForm.get('contactno').setValue(checkcontactno);
           this.individualForm.get('website').setValue(checkwebsite);
-          this.individualForm.get('phone').setValue(checkcontactcode + checkcontactno);
+          this.individualForm.get('phone').setValue(checkcontactno);
           this.individualForm.get('subscription_1').setValue(subscription_1);
           this.individualForm.get('subscription_2').setValue(subscription_2);
           this.individualForm.get('country').setValue(checkcountry);
@@ -632,6 +645,9 @@ export class RegistrationComponent implements OnInit {
           });
           dialogRef.afterClosed().subscribe(dialogResult => {
             console.log(dialogResult, "AN SWIJRUBG IR BIT");
+            if (paymentUrl) {
+              window.location.href = paymentUrl;
+            }
           });
         }
       }else{
@@ -673,9 +689,9 @@ export class RegistrationComponent implements OnInit {
     return this.individualForm.get("service_id") as FormArray
   }
   onkeyInput(){
-    let code = this.checkoutForm.get('contactcode').value;
+    // let code = this.checkoutForm.get('contactcode').value;
     let phoneno = this.checkoutForm.get('phone').value;
-    this.checkoutForm.patchValue({phone: code+phoneno});
+    this.checkoutForm.patchValue({phone: phoneno});
   }
 
   selectDescArray:any=[];

@@ -35,6 +35,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +71,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     NgbPaginationModule, 
     NgbAlertModule,
     NgxSpinnerModule,
+    NgxIntlTelInputModule,
     NgSelectModule,TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

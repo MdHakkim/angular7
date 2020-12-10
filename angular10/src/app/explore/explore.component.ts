@@ -254,5 +254,5 @@ export class ExploreComponent implements OnInit {
       const getClass = document.getElementsByClassName('uniqueClass' + indx)[0];
       getClass.scrollTop = 0;
     }
-}
+  }
 }

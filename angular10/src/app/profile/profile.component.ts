@@ -10,6 +10,8 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Location } from '@angular/common';
+import { SearchCountryField, TooltipLabel, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
+
 declare var $:any;
 @Component({
   selector: 'app-profile',
@@ -74,12 +76,19 @@ export class ProfileComponent implements OnInit {
   pdfSizeVali: boolean = false;
   pdfValidSize: boolean = false;
   pdfValidFormat: boolean = false;
+
+  SearchCountryField = SearchCountryField;
+  TooltipLabel = TooltipLabel;
+  CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+  preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+  separateDialCode = false;
   constructor(private _location: Location,public dialog: MatDialog,public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService){
     this.checkoutForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: '',
       business_name:'',
-      // contactcode:'',
+      contactno: ['', Validators.required],
       phone:'',
       gender:'',
       email:'',
@@ -115,7 +124,7 @@ export class ProfileComponent implements OnInit {
   }
   keyupmethod(){
     console.log(this.checkoutForm.get("contactno").value);
-    this.checkoutForm.get('phone').setValue(this.checkoutForm.get('contactcode').value+this.checkoutForm.get('contactno').value)
+    this.checkoutForm.get('phone').setValue(this.checkoutForm.get('contactno').value.e164Number)
   }
   _success = new Subject<string>();
   ngOnInit(): void {
@@ -153,6 +162,7 @@ export class ProfileComponent implements OnInit {
       this.checkoutForm.controls['add1'].setValue(json.address_1);
       this.checkoutForm.controls['add2'].setValue(json.address_2);
       this.checkoutForm.controls['phone'].setValue(json.ph_no);
+      this.checkoutForm.controls['contactno'].setValue(json.ph_no);
       // this.country=Number(json.country_code);
       this.checkoutForm.controls['country'].setValue(Number(json.country_code));
       this.checkoutForm.controls['company'].setValue(json.org_type);

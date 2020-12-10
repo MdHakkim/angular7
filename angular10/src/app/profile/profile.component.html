@@ -60,7 +60,13 @@
                 <div class="form-group row">
                     <label [ngClass]="'lab-pad'" class="col-lg-3 col-form-label form-control-label" translate="">Contact_number</label>
                     <div class="col-lg-8">
-                        <input class="form-control form-control-sm"  formControlName="phone" placeholder="{{ 'Contact_number' | translate }}" type="text" value="">
+                        <!-- <input class="form-control form-control-sm"  formControlName="phone" placeholder="{{ 'Contact_number' | translate }}" type="text" value=""> -->
+                        <ngx-intl-tel-input [cssClass]="'custom'" (keyup)="keyupmethod()" [preferredCountries]="preferredCountries"
+                            [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                            [tooltipField]="TooltipLabel.Name" [phoneValidation]="true" [maxLength]="15" [separateDialCode]="separateDialCode"
+                            [numberFormat]="PhoneNumberFormat.National" name="contactno" formControlName="contactno">
+                        </ngx-intl-tel-input>
                     </div>
                 </div>
                 <div class="form-group row">
