@@ -38,6 +38,7 @@ export class ApiServiceService {
   api_forgotPass_URL = 'http://demo.shrekat.com/api/forget_password';
   api_createNewPassword_URL = 'http://demo.shrekat.com/api/change_password';
   api_emailValidate_URL = 'http://demo.shrekat.com/api/emailValidate';
+  api_premiumUrl = 'http://demo.shrekat.com/api/premium_payment';
   headers = new HttpHeaders({'Content-Type': 'application/json' });
   options = { headers: this.headers };
   private customSubject = new Subject<any>();
@@ -215,5 +216,12 @@ export class ApiServiceService {
  }
   loginTest(param=false): void {
     this.loggedIn.next(param);
+  }
+
+  fetch_premiumUrl(formData): Observable<any> {
+    return this.httpClient.post<any>(this.api_premiumUrl, formData, this.options).
+      pipe(
+        retry(1), catchError(this.handleError)
+      )
   }
 }

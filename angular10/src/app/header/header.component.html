@@ -28,6 +28,7 @@
                     </button>
                     <div class="dropdown-menu dev-min">
                         <a class="dropdown-item" [routerLink]="['editProfile']" translate=""><i class="fa fa-user" aria-hidden="true"></i> Edit_Profile</a>
+                        <a class="dropdown-item" (click)="openModal()" translate=""><img src="assets/image/premium.png" class="premiumClass">Premium User</a>
                         <a class="dropdown-item" (click)="logout()" translate=""><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                     </div>
                 </a>
@@ -43,4 +44,42 @@
         <div class="dev-red-color"></div>
         <div class="dev-yellow-color"></div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" [ngClass]="{'show': windowOpen === 'block'}" id="subscriptionModal" [ngStyle]="{'display':windowOpen}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center text-center">
+                    <img src="assets/image/logo_en.png" class="logoClass">
+                    <h6 class="modal-title" id="exampleModalLongTitle" translate="">Premium_Service_Packages</h6>
+                    <button type="button" class="close" (click)="closeModal()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" >
+                    <form [formGroup]="checkoutForm" id="submitPermium" (ngSubmit)="submitPermium(checkoutForm.value)">
+                    <p translate="">Choose_any_of_our_subscription_plan</p>
+                    <div formArrayName="subscription1" *ngFor="let subscrirow of subscrilist;let i = index" [ngClass]="{'subscribClass':!subscribClass}"
+                        class="form-group row">
+                        <div class="col-sm-12">
+                            <div class="form-check" [ngClass]="{ 'langSubmit': langCondition }">
+                                <input class="form-check-input"  value="{{subscrirow.id}}" (click)="getcheckValue($event)"
+                                    type="checkbox">
+                                <label class="form-check-label" for="gridCheck1">
+                                    {{subscrirow.desc_new}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <button type="button" class="btn btn-secondary btn-sm mr-2" (click)="closeModal()">Close</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Ok</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div [ngClass]="{'modalShow': windowOpen === 'block'}"></div>
