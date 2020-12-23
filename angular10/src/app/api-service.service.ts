@@ -38,7 +38,9 @@ export class ApiServiceService {
   api_forgotPass_URL = 'http://demo.shrekat.com/api/forget_password';
   api_createNewPassword_URL = 'http://demo.shrekat.com/api/change_password';
   api_emailValidate_URL = 'http://demo.shrekat.com/api/emailValidate';
-  api_premiumUrl = 'http://demo.shrekat.com/api/premium_payment';
+  api_premiumUrl = 'http://demo.shrekat.com/api/portal/premium_payment';
+  api_subscriptionlist_URL = 'http://demo.shrekat.com/api/portal/fetch_current_subscription?email=';
+
   headers = new HttpHeaders({'Content-Type': 'application/json' });
   options = { headers: this.headers };
   private customSubject = new Subject<any>();
@@ -223,5 +225,14 @@ export class ApiServiceService {
       pipe(
         retry(1), catchError(this.handleError)
       )
+  }
+  get_subscription_list(): Observable<any>{
+    const getSecure = JSON.parse(localStorage.getItem("secure"));
+    let token = getSecure[0];
+    let email = getSecure[1];
+    return this.httpClient.get(this.api_subscriptionlist_URL+email+'&token='+token+'&lang_code='+this.lang_code).
+    pipe(
+      retry(1),catchError(this.handleError)
+    )
   }
 }

@@ -53,13 +53,6 @@ body {
     padding: 4px;
     align-items: center;
 }
-.modal-title{
-    padding-left: 11em;
-}
-.modal-content .close{
-    margin: 0px 0px 26px auto;
-    padding:0px;
-}
 
 @media screen and (max-width: 479px) {
 	.iti .iti__country-list {

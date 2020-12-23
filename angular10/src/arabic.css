@@ -43,6 +43,16 @@ body{
 .dev-ul{
     padding:0;
 }
+.modal-title{
+    padding-right: 11em;
+}
+.modal-content .close{
+    margin-right: 16em;
+    padding:0px;
+}
+.dev-mr2{
+    margin-left: 4px;
+}
 @media (max-width: 480px) { 
     .dev-btn-bg{ margin-bottom: 2px !important;margin-left: 0px !important; }
     .buttonCreate{ margin-right: 0px;}

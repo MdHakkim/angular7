@@ -6,6 +6,8 @@ import { ApiServiceService } from '../api-service.service';
 import {TranslateService} from '@ngx-translate/core';
 import { DOCUMENT } from '@angular/common';
 import { FormBuilder, FormArray, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -19,10 +21,12 @@ export class HeaderComponent implements OnInit {
   checkoutForm: FormGroup;
   errorMessage:any;
   subscrilist:any='';
+  subscriptionData:any='';
   isLoggedIn: Observable<boolean>;
-  logoLang:any='assets/image/logo_en1.png';
+  logoLang:any='assets/image/logo_en.png';
   windowOpen: any = 'none';
-  constructor(public router: Router, private sharedata: ShareDataService, public restApi: ApiServiceService, private translate: TranslateService, @Inject(DOCUMENT) private document: Document, private formBuilder: FormBuilder,) { 
+  endsClass:boolean=false;
+  constructor(public router: Router,public dialog: MatDialog, private sharedata: ShareDataService, public restApi: ApiServiceService, private translate: TranslateService, @Inject(DOCUMENT) private document: Document, private formBuilder: FormBuilder,) { 
     translate.setDefaultLang('en');
     this.changeCssFile('en');
     this.languageDrop='العربية';
@@ -30,7 +34,7 @@ export class HeaderComponent implements OnInit {
     this.restApi.lang_code='en';
     this.isLoggedIn = this.restApi.isLoggedIn();
     this.checkoutForm = this.formBuilder.group({
-      subscription1: this.formBuilder.array([]),
+      subscription: this.formBuilder.array([]),
       email:[''],
       token:[''],
       lang_code:['']
@@ -53,7 +57,7 @@ export class HeaderComponent implements OnInit {
     this.changeCssFile(lang);
     let langSet = (lang=='en' ? 'العربية' : 'English');
     let langSets = (lang=='en' ? 'ar' : 'en');
-    this.logoLang = (lang=='en' ? 'assets/image/logo_en1.png' : 'assets/image/logo_ar.png');
+    this.logoLang = (lang=='en' ? 'assets/image/logo_en.png' : 'assets/image/logo_ar.png');
     this.restApi.lang_code=lang;
     this.languageDrop=langSet;
     this.languageSet=langSets;
@@ -88,23 +92,39 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);    
   }
 
-  subscription(defaults ='COMPANY') {
+  subscriptionFn(defaults ='COMPANY') {
     this.errorMessage = "";
     let lang = this.restApi.lang_code;
     this.restApi.get_subscription_Request('', defaults, lang).subscribe((response) => {
       this.subscrilist = response.result;
       console.log(response, "subSciption");
-      // this.subscription_1= true;
+      // this.subscription= true;
       // this.subscription_2 = false;
     },
-      (error) => {
+      (error) => {  
         console.error('Request failed with error')
         this.errorMessage = error;
       });
   }
-
+  availbleSubsciption(){
+    let lang = this.restApi.lang_code;
+    this.restApi.get_subscription_list().subscribe((response) => {
+      if(response.result!=''){
+        this.subscriptionData = response.result;
+        console.log(this.subscriptionData, "list data");
+        this.endsClass=true;
+      }else{
+        this.subscriptionData = [{"us_desc" : "Currently you have no active subscriptions."}];
+        this.endsClass=false;
+      }
+    },
+      (error) => {  
+        console.error('Request failed with error')
+        this.errorMessage = error;
+      });
+  }
   openModal(){
-    this.subscription1.controls = [];
+    this.subscription.controls = [];
     let Languge = this.restApi.lang_code;
     const getSecure = JSON.parse(localStorage.getItem("secure"));
     let token = getSecure[0];
@@ -113,30 +133,46 @@ export class HeaderComponent implements OnInit {
     this.checkoutForm.get('token').setValue(token);
     this.checkoutForm.get('lang_code').setValue(Languge);
     this.windowOpen='block';
-    this.subscription();
+    this.subscriptionFn();
+    this.availbleSubsciption();
   }
   closeModal() {
     this.windowOpen = 'none';
   }
 
-  get subscription1(): FormArray {
-    return this.checkoutForm.get("subscription1") as FormArray
+  get subscription(): FormArray {
+    return this.checkoutForm.get("subscription") as FormArray
   }
 
   getcheckValue(e){
     let value = e.target.value;
     if (e.target.checked){
-      this.subscription1.push(new FormControl(value));
+      this.subscription.push(new FormControl(value));
     }else{
-      let index = this.subscription1.controls.findIndex(x => x.value == value);
-      this.subscription1.removeAt(index);
+      let index = this.subscription.controls.findIndex(x => x.value == value);
+      this.subscription.removeAt(index);
     }
   }
 
   submitPermium(formData){
-    console.log(formData.subscription1[0],"FORM DATA");
+    console.log(formData.subscription[0],"FORM DATA");
     this.restApi.fetch_premiumUrl(formData).subscribe((response) => {
       console.log(response.result, "test");
+      this.windowOpen = 'none';
+      if(response.error_no=='0'){
+        window.location.href = response.payment_url;
+      }else{
+        const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+          width: "310px",
+          data: {
+            title: 'Error Message',
+            message: response.error_msg
+          }
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+          console.log(dialogResult, "confirmation message");
+        });
+      }
 
     });
   }

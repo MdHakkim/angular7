@@ -28,7 +28,7 @@
                     </button>
                     <div class="dropdown-menu dev-min">
                         <a class="dropdown-item" [routerLink]="['editProfile']" translate=""><i class="fa fa-user" aria-hidden="true"></i> Edit_Profile</a>
-                        <a class="dropdown-item" (click)="openModal()" translate=""><img src="assets/image/premium.png" class="premiumClass">Premium User</a>
+                        <a class="dropdown-item" (click)="openModal()" translate=""><img src="assets/image/premium.png" class="premiumClass" translate="">Premium_User</a>
                         <a class="dropdown-item" (click)="logout()" translate=""><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                     </div>
                 </a>
@@ -59,8 +59,16 @@
                 </div>
                 <div class="modal-body" >
                     <form [formGroup]="checkoutForm" id="submitPermium" (ngSubmit)="submitPermium(checkoutForm.value)">
+                    <div class="col-12 p-0">
+                        <h6 translate="">My_Subscription</h6>
+                        <ul class="dev-li">
+                            <li *ngFor="let subscripData of subscriptionData;let i = index" >{{subscripData.us_desc}}
+                                <span *ngIf="endsClass" class="endLine"><span translate="">ends_at</span> {{subscripData.us_upto_date}}</span>
+                            </li>
+                        </ul>
+                    </div>
                     <p translate="">Choose_any_of_our_subscription_plan</p>
-                    <div formArrayName="subscription1" *ngFor="let subscrirow of subscrilist;let i = index" [ngClass]="{'subscribClass':!subscribClass}"
+                    <div formArrayName="subscription" *ngFor="let subscrirow of subscrilist;let i = index" [ngClass]="{'subscribClass':!subscribClass}"
                         class="form-group row">
                         <div class="col-sm-12">
                             <div class="form-check" [ngClass]="{ 'langSubmit': langCondition }">
@@ -73,7 +81,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <button type="button" class="btn btn-secondary btn-sm mr-2" (click)="closeModal()">Close</button>
+                        <button type="button" class="btn btn-secondary btn-sm dev-mr2" (click)="closeModal()">Close</button>
                         <button type="submit" class="btn btn-primary btn-sm">Ok</button>
                     </div>
                     </form>

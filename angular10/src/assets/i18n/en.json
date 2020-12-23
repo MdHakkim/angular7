@@ -129,5 +129,8 @@
     "No_Data_Found": "No Data Found",
     "Use_Enter_Key_to_add_tag":"Use Enter Key to add tag",
     "Cancel":"Cancel",
-    "Premium_Service_Packages":"Premium Service Packages"
+    "Premium_Service_Packages":"Premium Service Packages",
+    "Premium_User":"Premium User",
+    "My_Subscription":"My Subscriptions",
+    "ends_at":"ends at"
     }

@@ -16,6 +16,16 @@ body{
 .dev-exp-mr{
     margin-left: 12px;
 }
+.modal-title{
+    padding-left: 11em;
+}
+.modal-content .close{
+    margin: 0px 0px 26px auto;
+    padding:0px;
+}
+.dev-mr2{
+    margin-right: 4px;
+}
 @media (max-width: 480px) { 
     .buttonCreate{ margin-left: -5px;}
 }
