@@ -132,5 +132,6 @@
     "Premium_Service_Packages": "حزم الخدمة المميزة",
     "Premium_User":"مستخدم متميز",
     "My_Subscription":"اشتراكاتي",
-    "ends_at":"ينتهي عند"
+    "ends_at":"ينتهي عند",
+    "plan_ends_at": "الخطة تنتهي في"
     }

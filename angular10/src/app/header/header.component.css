@@ -118,8 +118,31 @@
     display: block;
     font-size: 14px;
 }
+.dev-li{
+    background: #fdb76a;
+    color:#4f4747;
+}
 .dev-li li:first-letter{
     text-transform: capitalize;
+}
+.dev-li li{
+    list-style-type: none;
+}
+.dev-divPrnt{
+    background: #28bf54;
+    border-radius: 14px;
+    color: white;
+}
+.fa-check{
+    color: green;
+    font-size: 13px;
+}
+.dev-bodyBg{
+    background: #cbeeff;
+}
+.fa-times{
+    color: red;
+    font-size: 13px;
 }
 @media (max-width: 800px) { 
     .dev-menu{ text-align: justify; }

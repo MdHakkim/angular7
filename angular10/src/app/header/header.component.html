@@ -57,13 +57,13 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" >
+                <div class="modal-body dev-bodyBg">
                     <form [formGroup]="checkoutForm" id="submitPermium" (ngSubmit)="submitPermium(checkoutForm.value)">
-                    <div class="col-12 p-0">
-                        <h6 translate="">My_Subscription</h6>
+                    <div class="col-12 p-0 dev-divPrnt">
+                        <h6 [ngStyle]="{'text-align':'center','padding':'6px 0px 1px 0px','font-weight':'bold'}" translate="">My_Subscription</h6>
                         <ul class="dev-li">
-                            <li *ngFor="let subscripData of subscriptionData;let i = index" >{{subscripData.us_desc}}
-                                <span *ngIf="endsClass" class="endLine"><span translate="">ends_at</span> {{subscripData.us_upto_date}}</span>
+                            <li *ngFor="let subscripData of subscriptionData;let i = index" ><i [ngClass]="endsClass ? 'fa fa-check':'fa fa-times'"></i> {{subscripData.us_desc}}
+                                <span *ngIf="endsClass" class="endLine"><span translate="">plan_ends_at</span> {{subscripData.us_upto_date}}</span>
                             </li>
                         </ul>
                     </div>
