@@ -169,12 +169,15 @@ export class RegistrationComponent implements OnInit {
     });
    }
   
-   keyupmethod(param){
-    if(param=='B'){
-      this.checkoutForm.get('phone').setValue(this.checkoutForm.get('contactno').value.e164Number);
-   }else{
-      this.individualForm.get('phone').setValue(this.individualForm.get('contactno').value.e164Number);
-   }
+   keyupmethod(param,e){
+    var targetval = e.target.value;
+    if(targetval!=''){
+      if(param=='B'){
+        this.checkoutForm.get('phone').setValue(this.checkoutForm.get('contactno').value.e164Number);
+      }else{
+          this.individualForm.get('phone').setValue(this.individualForm.get('contactno').value.e164Number);
+      }
+    }
   }
   @ViewChild('businessTab') elight: ElementRef;
   @ViewChild('individualTab') efiile: ElementRef;

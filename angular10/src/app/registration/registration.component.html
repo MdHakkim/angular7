@@ -58,7 +58,7 @@
                                 <!-- <div *ngIf="submitted && f.contactno.errors" class="invalid-feedback">
                                     <div *ngIf="f.contactno.errors.required">Contact number is required</div>
                                 </div> -->
-                                <ngx-intl-tel-input [cssClass]="'custom'" (keyup)="keyupmethod('B')" [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
+                                <ngx-intl-tel-input [cssClass]="'custom'" (keyup)="keyupmethod('B',$event)" [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
                                     [enablePlaceholder]="true" [searchCountryFlag]="true"
                                     [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" 
                                     [selectedCountryISO]="CountryISO.Kuwait"  [tooltipField]="TooltipLabel.Name" [phoneValidation]="true" [maxLength]="15"
@@ -285,7 +285,7 @@
                                 <div *ngIf="insubmitted && i.contactno.errors" class="invalid-feedback">
                                     <div *ngIf="i.contactno.errors.required">Contact number is required</div>
                                 </div> -->
-                                <ngx-intl-tel-input [cssClass]="'custom'" (keyup)="keyupmethod('I')" [preferredCountries]="preferredCountries"
+                                <ngx-intl-tel-input [cssClass]="'custom'" (keyup)="keyupmethod('I',$event)" [preferredCountries]="preferredCountries"
                                     [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
                                     [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectedCountryISO]="CountryISO.Kuwait"
                                     [tooltipField]="TooltipLabel.Name" [phoneValidation]="true" [maxLength]="15" [separateDialCode]="separateDialCode"
