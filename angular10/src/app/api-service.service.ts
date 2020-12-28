@@ -37,7 +37,7 @@ export class ApiServiceService {
   api_geoLocation_URL = 'http://demo.shrekat.com/api/geo_info';
   api_forgotPass_URL = 'http://demo.shrekat.com/api/forget_password';
   api_createNewPassword_URL = 'http://demo.shrekat.com/api/change_password';
-  api_emailValidate_URL = 'http://demo.shrekat.com/api/emailValidate';
+  api_emailValidate_URL = 'http://demo.shrekat.com/api/email_validate?email=';
   api_premiumUrl = 'http://demo.shrekat.com/api/portal/premium_payment';
   api_subscriptionlist_URL = 'http://demo.shrekat.com/api/portal/fetch_current_subscription?email=';
 
@@ -70,7 +70,7 @@ export class ApiServiceService {
     )
   }
   emailValidataion(emailid): Observable<any> {
-    return this.httpClient.post<any>(this.api_emailValidate_URL, emailid, this.options).
+    return this.httpClient.get(this.api_emailValidate_URL+emailid).
       pipe(
         retry(1), catchError(this.handleError)
       )

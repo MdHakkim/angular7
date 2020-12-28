@@ -113,7 +113,7 @@ export class RegistrationComponent implements OnInit {
       // contactcode:'',
       phone:'',
       contactno: ['', Validators.required],
-      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"), this.serverSideEmail.bind(this)]],
       website:'',
       add1: ['', Validators.required],
       add2:'',
@@ -143,7 +143,7 @@ export class RegistrationComponent implements OnInit {
       // contactcode:'',
       contactno: ['', Validators.required],
       phone:'',
-      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),this.serverSideEmail.bind(this)]],
       website:'',
       gender:'',
       add1: ['', Validators.required],
@@ -777,18 +777,30 @@ export class RegistrationComponent implements OnInit {
   }
 
   keyupFunction(event){
-    console.log(event.target.value,"testing");
-    let emailid = event.target.value;
+    // console.log(event.target.value,"testing");
+    // let emailid = event.target.value;
+    // this.restApi.emailValidataion(emailid).subscribe((response) => {
+    //   console.log(response, "subSciption");
+    //   this.checkoutForm.controls['email'].setErrors({ 'incorrect': true });
+    // },
+    // (error) => {
+    //   console.error('Request failed with error')
+    //   this.errorMessage = error;
+    // });
+  }
+
+  serverSideEmail(control){
+    let emailid = control.value;
     this.restApi.emailValidataion(emailid).subscribe((response) => {
       console.log(response, "subSciption");
-      // formData.form.controls['email'].setErrors({ 'incorrect': true });
+      // this.checkoutForm.controls['email'].setErrors({ 'incorrect': true });
+      return null;
     },
       (error) => {
         console.error('Request failed with error')
         this.errorMessage = error;
       });
   }
-
   backPage(){
     this._location.back();
   }
