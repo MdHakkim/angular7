@@ -121,6 +121,9 @@
 .dev-li{
     background: #fff;
     color:#4f4747;
+    border-radius: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 .dev-li li:first-letter{
     text-transform: capitalize;
@@ -129,9 +132,9 @@
     list-style-type: none;
 }
 .dev-divPrnt{
-    background: #28bf54;
+    /* background: #black; */
     border-radius: 14px;
-    color: white;
+    /* color: white; */
 }
 .fa-check{
     color: green;
