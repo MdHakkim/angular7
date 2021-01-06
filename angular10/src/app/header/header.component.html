@@ -28,7 +28,9 @@
                     </button>
                     <div class="dropdown-menu dev-min">
                         <a class="dropdown-item" [routerLink]="['editProfile']" translate=""><i class="fa fa-user" aria-hidden="true"></i> Edit_Profile</a>
-                        <a class="dropdown-item" (click)="openModal()" translate=""><img src="assets/image/premium.png" class="premiumClass" translate="">Premium_User</a>
+                        <a class="dropdown-item" (click)="openPremium()" translate=""><img src="assets/image/premium.png" class="premiumClass" translate="">go_premium</a>
+                        <a class="dropdown-item" (click)="openModal()" translate=""><img src="assets/image/premium.png" class="premiumClass"
+                                translate="">My_Subscrb</a>
                         <a class="dropdown-item" (click)="logout()" translate=""><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                     </div>
                 </a>
@@ -58,6 +60,33 @@
                     </button>
                 </div>
                 <div class="modal-body dev-bodyBg">
+                    <div *ngIf="goPrimum; else defaultPrime" class="col-12 p-0 dev-divPrnt">
+                        <ul class="dev-li dev-mrtp-1">
+                            <li class="currentCaption">Current Subscription</li>
+                            <li *ngFor="let currentData of currentSubr;let i = index"><i [ngClass]="currentClass ? 'fa fa-cog':''"></i>
+                                {{currentData.us_desc}}
+                                <span *ngIf="endsClass" class="endLine"><span translate="">plan_ends_at</span>
+                                    {{currentData.us_upto_date}}</span>
+                            </li>
+                        </ul>
+                        <ul class="dev-li dev-mrtp-2">
+                            <li class="upcomingCaption">Upcoming Subscription</li>
+                            <li *ngFor="let currentData of upcomingSubr;let i = index"><i [ngClass]="upcomingClass ? 'fa fa-cog':''"></i>
+                                {{currentData.us_desc}}
+                                <span *ngIf="endsClass" class="endLine"><span translate="">plan_ends_at</span>
+                                    {{currentData.us_upto_date}}</span>
+                            </li>
+                        </ul>
+                        <ul class="dev-li dev-mrtp-3">
+                            <li class="pastCaption">Past Subscription</li>
+                            <li *ngFor="let currentData of pastSubr;let i = index"><i [ngClass]="pastClass ? 'fa fa-cog':''"></i>
+                                {{currentData.us_desc}}
+                                <span *ngIf="endsClass" class="endLine"><span translate="">plan_ends_at</span>
+                                    {{currentData.us_upto_date}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <ng-template #defaultPrime>
                     <form [formGroup]="checkoutForm" id="submitPermium" (ngSubmit)="submitPermium(checkoutForm.value)">
                     <div class="col-12 p-0 dev-divPrnt">
                         <h6 [ngStyle]="{'text-align':'center','padding':'6px 0px 1px 0px','font-weight':'bold'}" translate="">My_Subscription</h6>
@@ -85,6 +114,7 @@
                         <button type="submit" class="btn btn-primary btn-sm">Ok</button>
                     </div>
                     </form>
+                    </ng-template>
                 </div>
             </div>
         </div>

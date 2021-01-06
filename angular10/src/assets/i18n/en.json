@@ -132,6 +132,8 @@
     "Premium_Service_Packages":"Premium Service Packages",
     "Premium_User":"Premium User",
     "My_Subscription":"My Subscriptions",
+    "My_Subscrb": "My Subscription",
     "ends_at":"ends at",
-    "plan_ends_at":"plan ends at"
+    "plan_ends_at":"plan ends at",
+    "go_premium":"Go Premium"
     }

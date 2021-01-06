@@ -21,11 +21,15 @@ export class HeaderComponent implements OnInit {
   checkoutForm: FormGroup;
   errorMessage: any;
   subscrilist: any = '';
+  currentSubr:any='';
+  upcomingSubr: any = '';
+  pastSubr: any = '';
   subscriptionData: any = '';
   isLoggedIn: Observable<boolean>;
   logoLang: any = 'assets/image/logo_en.png';
   windowOpen: any = 'none';
   endsClass: boolean = false;
+  goPrimum:boolean=false;
   constructor(public router: Router, public dialog: MatDialog, private sharedata: ShareDataService, public restApi: ApiServiceService, private translate: TranslateService, @Inject(DOCUMENT) private document: Document, private formBuilder: FormBuilder,) {
     translate.setDefaultLang('en');
     this.changeCssFile('en');
@@ -114,7 +118,7 @@ export class HeaderComponent implements OnInit {
         console.log(this.subscriptionData, "list data");
         this.endsClass = true;
       } else {
-        this.subscriptionData = [{ "us_desc": "Currently you have no active subscriptions." }];
+        this.subscriptionData = [{ "us_desc": "No active subscriptions." }];
         this.endsClass = false;
       }
     },
@@ -123,7 +127,44 @@ export class HeaderComponent implements OnInit {
         this.errorMessage = error;
       });
   }
+  currentClass=false;
+  upcomingClass=false;
+  pastClass=false;
+  goPremium(){
+    this.restApi.get_all_subscirption().subscribe((response) => {
+      if (response.currentSubr != '') {
+        this.currentSubr = response.current_subscription;
+        console.log(this.currentSubr, "subscriptionallData");
+        this.currentClass = true;
+      } else {
+        this.currentSubr = [{ "us_desc": "No active subscriptions." }];
+        this.currentClass = false;
+      }
+      if (response.upcomingSubr != '') {
+        this.upcomingSubr = response.upcoming_subscription;
+        console.log(this.upcomingSubr, "subscriptionallData");
+        this.upcomingClass = true;
+      } else {
+        this.upcomingSubr = [{ "us_desc": "" }];
+        this.upcomingClass = false;
+      }
+      if (response.pastSubr != '') {
+        this.pastSubr = response.past_subscription;
+        console.log(this.pastSubr, "subscriptionallData");
+        this.pastClass = true;
+      } else {
+        this.pastSubr = [{ "us_desc": "No active subscriptions." }];
+        this.pastClass = false;
+      }
+    },
+    (error) => {
+      console.error('Request failed with error')
+      this.errorMessage = error;
+    });
+  }
+
   openModal() {
+    this.goPrimum=false;
     this.subscription.controls = [];
     let Languge = this.restApi.lang_code;
     const getSecure = JSON.parse(localStorage.getItem("secure"));
@@ -135,6 +176,11 @@ export class HeaderComponent implements OnInit {
     this.windowOpen = 'block';
     this.subscriptionFn();
     this.availbleSubsciption();
+  }
+  openPremium(){
+    this.goPrimum = true;
+    this.windowOpen = 'block';
+    this.goPremium();
   }
   closeModal() {
     this.windowOpen = 'none';
