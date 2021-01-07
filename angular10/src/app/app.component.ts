@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener  } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
@@ -6,8 +6,13 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  @HostListener("beforeunload", ["$event"])
+  clearLocalStorage(event) {
+    localStorage.clear();
+  }
+  // window.localStorage.removeItem('keyName');
   constructor(private titleService: Title) {
-    // titleService.setTitle("Shrekat");
   }
 }
 

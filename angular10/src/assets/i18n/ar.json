@@ -135,5 +135,8 @@
     "My_Subscrb": "اشتراكاتي",
     "ends_at":"ينتهي عند",
     "plan_ends_at": "الخطة تنتهي في",
-    "go_premium": "احصل على الاشتراك الرئيسي"
+    "go_premium": "احصل على الاشتراك الرئيسي",
+    "Current_Subscription": "الاشتراك الحالي",
+    "Upcoming_Subscription": "الاشتراك القادم",
+    "Past_Subscription": "اشتراك سابق"
     }

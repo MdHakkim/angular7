@@ -157,6 +157,7 @@
     font-size: 12px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    font-weight: bold;
 }
 .upcomingCaption{
     position: absolute;
@@ -168,17 +169,19 @@
     font-size: 12px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    font-weight: bold;
 }
 .pastCaption{
     position: absolute;
-    top: 73%;
+    top: 70%;
     left: 33%;
-    transform: translate(50%, -75%);
+    transform: translate(50%, -56%);
     background: #fdfdfd;
     padding: 5px;
     font-size: 12px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    font-weight: bold;
 }
 .dev-mrtp-1{
     margin-top:7px;
@@ -187,13 +190,19 @@
     margin-top:1.6em;
 }
 .dev-mrtp-3{
-    margin-top:1.7em;
+    margin-top:2em;
+}
+.dev-upper:first-letter{
+    text-transform: uppercase;
 }
 @media (max-width: 800px) { 
     .dev-menu{ text-align: justify; }
     .dev-logo{ margin-top: 22px; }
     .dev-btn-bg{ margin-bottom: 2px;margin-left: 12px; }
     .modal-title{ padding-left: 7em; }
+    .currentCaption{left: 22%;}
+    .upcomingCaption{left: 22%;}
+    .pastCaption{left: 27%; top:70%;}
 }
 @media (max-width: 480px) { 
     .dev-menu{ text-align: justify; }
@@ -201,7 +210,12 @@
     .dev-tp{ margin-top: 2em; }
     .dev-btn-bg{ margin-bottom: 2px;margin-left: 120px; }
     .modal-title{ padding-left: 3em; }
-    /* .currentCaption{ top:18%;}
-    .upcomingCaption{ top:48%; }
-    .pastCaption{ top:68%; } */
+    .currentCaption{ left:15%;}
+    .upcomingCaption{ left:15%; }
+    .pastCaption{ left:18%; }
+}
+@media (max-width: 360px) { 
+    .currentCaption{ left:4%;}
+    .upcomingCaption{ left:4%; }
+    .pastCaption{ left:4%; }
 }

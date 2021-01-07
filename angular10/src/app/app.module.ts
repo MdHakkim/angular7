@@ -36,6 +36,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { FirstUpperPipe } from './first-upper.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
     VisionMissionComponent,
     NewPasswordComponent,
     ChangePasswordComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    FirstUpperPipe
   ],
   entryComponents: [
     ConfirmationDialogComponent

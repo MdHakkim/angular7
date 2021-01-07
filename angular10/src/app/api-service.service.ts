@@ -17,9 +17,7 @@ export class ApiServiceService {
   token:any='';
   email: any = '';
   constructor(private httpClient: HttpClient) {
-    const getSecure = JSON.parse(localStorage.getItem("secure"));
-    this.token = getSecure[0];
-    this.email = getSecure[1];
+    
   }
   api_busi_URL = 'http://demo.shrekat.com/api/premium_home?';
   api_indi_URL = 'http://demo.shrekat.com/api/premium_home?';
@@ -234,12 +232,18 @@ export class ApiServiceService {
       )
   }
   get_subscription_list(): Observable<any>{
+    const getSecure = JSON.parse(localStorage.getItem("secure"));
+    this.token = getSecure[0];
+    this.email = getSecure[1];
     return this.httpClient.get(this.api_subscriptionlist_URL+this.email+'&token='+this.token+'&lang_code='+this.lang_code).
     pipe(
       retry(1),catchError(this.handleError)
     )
   }
   get_all_subscirption(): Observable<any>{
+    const getSecure = JSON.parse(localStorage.getItem("secure"));
+    this.token = getSecure[0];
+    this.email = getSecure[1];
     return this.httpClient.get(this.api_allsubscription_URL + this.email + '&token=' + this.token + '&lang_code=' + this.lang_code).
     pipe(
       retry(1),catchError(this.handleError)

@@ -135,5 +135,8 @@
     "My_Subscrb": "My Subscription",
     "ends_at":"ends at",
     "plan_ends_at":"plan ends at",
-    "go_premium":"Go Premium"
+    "go_premium":"Go Premium",
+    "Current_Subscription":"Current Subscription",
+    "Upcoming_Subscription": "Upcoming Subscription",
+    "Past_Subscription": "Past Subscription"
     }

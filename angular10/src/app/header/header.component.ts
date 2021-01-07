@@ -132,7 +132,7 @@ export class HeaderComponent implements OnInit {
   pastClass=false;
   goPremium(){
     this.restApi.get_all_subscirption().subscribe((response) => {
-      if (response.currentSubr != '') {
+      if (response.current_subscription != '') {
         this.currentSubr = response.current_subscription;
         console.log(this.currentSubr, "subscriptionallData");
         this.currentClass = true;
@@ -140,20 +140,21 @@ export class HeaderComponent implements OnInit {
         this.currentSubr = [{ "us_desc": "No active subscriptions." }];
         this.currentClass = false;
       }
-      if (response.upcomingSubr != '') {
+      
+      if (response.upcoming_subscription != '') {
         this.upcomingSubr = response.upcoming_subscription;
         console.log(this.upcomingSubr, "subscriptionallData");
         this.upcomingClass = true;
       } else {
-        this.upcomingSubr = [{ "us_desc": "" }];
+        // this.upcomingSubr = [{ "us_desc": "" }];
         this.upcomingClass = false;
       }
-      if (response.pastSubr != '') {
+      if (response.past_subscription != '') {
         this.pastSubr = response.past_subscription;
         console.log(this.pastSubr, "subscriptionallData");
         this.pastClass = true;
       } else {
-        this.pastSubr = [{ "us_desc": "No active subscriptions." }];
+        // this.pastSubr = [{ "us_desc": "No active subscriptions." }];
         this.pastClass = false;
       }
     },
