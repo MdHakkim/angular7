@@ -340,7 +340,7 @@ export class ProfileComponent implements OnInit {
       this.restApi.get_country_Request().subscribe((response) => {
         this.countrylist = response;
         console.log(response,"test");
-        resolve();
+        resolve(true);
       },
       (error) => {
         console.error('Request failed with error')
