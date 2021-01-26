@@ -7,10 +7,10 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
 
-  @HostListener("beforeunload", ["$event"])
-  clearLocalStorage(event) {
-    localStorage.clear();
-  }
+  // @HostListener("beforeunload", ["$event"])
+  // clearLocalStorage(event) {
+  //   localStorage.clear();
+  // }
   // window.localStorage.removeItem('keyName');
   constructor(private titleService: Title) {
   }

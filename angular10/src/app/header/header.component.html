@@ -54,35 +54,38 @@
             <div class="modal-content">
                 <div class="modal-header justify-content-center text-center">
                     <img src="assets/image/logo_en.png" class="logoClass">
-                    <h6 class="modal-title" id="exampleModalLongTitle" translate="">Premium_Service_Packages</h6>
+                    <h6 class="exampleModalLongTitle" >{{modalTitle | translate}}</h6>
                     <button type="button" class="close" (click)="closeModal()" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body dev-bodyBg">
                     <div *ngIf="goPrimum; else defaultPrime" class="col-12 p-0 dev-divPrnt">
-                        <ul class="dev-li dev-mrtp-1">
-                            <li class="currentCaption" translate="">Current_Subscription</li>
-                            <li *ngFor="let currentData of currentSubr;let i = index"><i [ngClass]="currentClass ? 'fa fa-cog':''"></i>&nbsp;
+                        <h6 [ngStyle]="{'text-align':'center','padding':'6px 0px 1px 0px','font-weight':'bold'}" translate="">Current_Subscription</h6>
+                        <ul class="dev-li">
+                            <!-- <li class="currentCaption" translate="">Current_Subscription</li> -->
+                            <li *ngFor="let currentData of currentSubr;let i = index"><i [ngClass]="currentClass ? 'fa fa-check':''"></i>&nbsp;
                                 <span class="dev-upper" >{{currentData.us_desc | firstUpper}}</span>
-                                <!-- <span *ngIf="currentClass" class="endLine"><span translate="">plan_ends_at</span>
-                                    {{currentData.us_upto_date}}</span> -->
+                                <span *ngIf="currentClass" class="dateline"><span translate="">plan_ends_at</span>
+                                    {{currentData.us_upto_date}}</span>
                             </li>
                         </ul>
-                        <ul *ngIf="upcomingClass" class="dev-li dev-mrtp-2">
-                            <li class="upcomingCaption" translate="">Upcoming_Subscription</li>
+                        <h6 *ngIf="upcomingClass" [ngStyle]="{'text-align':'center','padding':'6px 0px 1px 0px','font-weight':'bold'}" translate="">Upcoming_Subscription</h6>
+                        <ul *ngIf="upcomingClass" class="dev-li">
+                            <!-- <li class="upcomingCaption" translate="">Upcoming_Subscription</li> -->
                             <li *ngFor="let currentData of upcomingSubr;let i = index"><i [ngClass]="upcomingClass ? 'fa fa-cog':''"></i>&nbsp;
                                 <span class="dev-upper" >{{currentData.us_desc | firstUpper}}</span>
-                                <!-- <span *ngIf="endsClass" class="endLine"><span translate="">plan_ends_at</span>
-                                    {{currentData.us_upto_date}}</span> -->
+                                <span *ngIf="upcomingClass" class="dateline"><span translate="">start_at</span>
+                                    {{currentData.us_upto_date}}</span>
                             </li>
                         </ul>
-                        <ul *ngIf="pastClass" class="dev-li dev-mrtp-3">
-                            <li class="pastCaption" translate="">Past_Subscription</li>
+                        <h6 *ngIf="pastClass" [ngStyle]="{'text-align':'center','padding':'6px 0px 1px 0px','font-weight':'bold'}" translate="">Past_Subscription</h6>
+                        <ul *ngIf="pastClass" class="dev-li">
+                            <!-- <li class="pastCaption" translate="">Past_Subscription</li> -->
                             <li *ngFor="let currentData of pastSubr;let i = index"><i [ngClass]="pastClass ? 'fa fa-cog':''"></i>&nbsp;
                                 <span class="dev-upper">{{currentData.us_desc | firstUpper}}</span>
-                                <!-- <span *ngIf="endsClass" class="endLine"><span translate="">plan_ends_at</span>
-                                    {{currentData.us_upto_date}}</span> -->
+                                <span *ngIf="pastClass" class="dateline"><span translate="">expired_at</span>
+                                    {{currentData.us_upto_date}}</span>
                             </li>
                         </ul>
                     </div>

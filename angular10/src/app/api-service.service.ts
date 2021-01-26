@@ -232,7 +232,7 @@ export class ApiServiceService {
       )
   }
   get_subscription_list(): Observable<any>{
-    const getSecure = JSON.parse(localStorage.getItem("secure"));
+    const getSecure = JSON.parse(sessionStorage.getItem("secure"));
     this.token = getSecure[0];
     this.email = getSecure[1];
     return this.httpClient.get(this.api_subscriptionlist_URL+this.email+'&token='+this.token+'&lang_code='+this.lang_code).
@@ -241,7 +241,7 @@ export class ApiServiceService {
     )
   }
   get_all_subscirption(): Observable<any>{
-    const getSecure = JSON.parse(localStorage.getItem("secure"));
+    const getSecure = JSON.parse(sessionStorage.getItem("secure"));
     this.token = getSecure[0];
     this.email = getSecure[1];
     return this.httpClient.get(this.api_allsubscription_URL + this.email + '&token=' + this.token + '&lang_code=' + this.lang_code).

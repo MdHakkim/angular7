@@ -133,10 +133,12 @@
     "Premium_User":"Premium User",
     "My_Subscription":"My Subscriptions",
     "My_Subscrb": "My Subscription",
-    "ends_at":"ends at",
-    "plan_ends_at":"plan ends at",
+    "ends_at":"Ends at",
+    "plan_ends_at":"Plan ends at",
     "go_premium":"Go Premium",
     "Current_Subscription":"Current Subscription",
     "Upcoming_Subscription": "Upcoming Subscription",
-    "Past_Subscription": "Past Subscription"
+    "Past_Subscription": "Past Subscription",
+    "start_at":"Starts at",
+    "expired_at":"Expired at"
     }

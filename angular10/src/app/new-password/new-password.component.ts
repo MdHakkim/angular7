@@ -184,8 +184,8 @@ export class NewPasswordComponent implements OnInit {
         let first_name = response.reult.first_name;
         editArray.push(token);
         editArray.push(this.emilIdLogin);
-        localStorage.setItem('secure', JSON.stringify(editArray));
-        localStorage.setItem('username', first_name);
+        sessionStorage.setItem('secure', JSON.stringify(editArray));
+        sessionStorage.setItem('username', first_name);
         this.restApi.loginTest(true);
         let condition = [false, first_name];
         this.sharedata.callComponentMethod(condition);

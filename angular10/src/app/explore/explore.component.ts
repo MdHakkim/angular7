@@ -42,7 +42,7 @@ export class ExploreComponent implements OnInit {
   moreDots: string = '...more';
   // localStore:any='';
   maxPara = 400;
-  geoLocation = localStorage.getItem("geoLocation");
+  geoLocation = sessionStorage.getItem("geoLocation");
   constructor(private restApi: ApiServiceService, private sharedata: ShareDataService, private route: ActivatedRoute, private router: Router, private _elementRef: ElementRef, private sanitizer: DomSanitizer, private spinner: NgxSpinnerService) {
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();

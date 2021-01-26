@@ -117,6 +117,7 @@
 .endLine{
     display: block;
     font-size: 14px;
+    margin-left: 18px;
 }
 .dev-li{
     background: #fff;
@@ -124,9 +125,22 @@
     border-radius: 10px;
     padding-top: 3px;
     padding-bottom: 3px;
+    overflow-y: auto;
+    max-height: 96px;
+}
+.exampleModalLongTitle{
+    width: 100%;
+    text-align: center;
+    right: 50px;
+    position: relative;
 }
 .dev-li li:first-letter{
     text-transform: capitalize;
+}
+.dateline{
+    padding-left: 21px;
+    font-size: 12px;
+    display: block;
 }
 .dev-li li{
     list-style-type: none;
