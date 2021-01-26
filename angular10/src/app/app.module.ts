@@ -13,9 +13,9 @@ import { ExploreComponent } from './explore/explore.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule} from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatRippleModule } from '@angular/material/core';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatRippleModule } from '@angular/material/core';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import  {NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
@@ -37,6 +37,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { FirstUpperPipe } from './first-upper.pipe';
+import { ServerSideValidationDirective } from './directive/server-side-validation.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +58,8 @@ import { FirstUpperPipe } from './first-upper.pipe';
     NewPasswordComponent,
     ChangePasswordComponent,
     ConfirmationDialogComponent,
-    FirstUpperPipe
+    FirstUpperPipe,
+    ServerSideValidationDirective
   ],
   entryComponents: [
     ConfirmationDialogComponent

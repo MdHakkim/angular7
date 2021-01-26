@@ -1,12 +1,12 @@
-import { Component, ViewChild,ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
-import { FormBuilder,FormArray,FormGroup,FormControl ,Validators,AbstractControl  } from '@angular/forms';
+import { FormBuilder, FormArray, FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 import { ShareDataService } from '../share-data.service';
 import { MustMatch } from '../password-validator';
-import { filter } from 'rxjs/operators';
-import { debounce, debounceTime,mergeMap,distinctUntilChanged,switchMap,timeout,concatMap,delay } from 'rxjs/operators';
+// import { filter,map } from 'rxjs/operators';
+import { debounce, debounceTime, mergeMap, distinctUntilChanged, switchMap, timeout, concatMap, delay } from 'rxjs/operators';
 import { Observable, timer, Subject, TimeoutError } from 'rxjs';
-import {MatChipInputEvent} from '@angular/material/chips';
+// import {MatChipInputEvent} from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -14,7 +14,8 @@ import { SidepanelComponent } from '../sidepanel/sidepanel.component';
 import { NgxSpinnerService } from "ngx-spinner";
 import { Location } from '@angular/common';
 import { SearchCountryField, TooltipLabel, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
-// declare var $:any;
+import { ServerSideValidation } from '../directive/server-side-validation.directive';
+// import { EamilValidation } from '../eamil-validation';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -24,59 +25,58 @@ export class RegistrationComponent implements OnInit {
   @ViewChild(SidepanelComponent) Sidepanel: SidepanelComponent;
   CaptionName: string = "Business Logo";
   bCaptionName: string = "Portfolio";
-  langChange:boolean=true;
+  langChange: boolean = true;
   isbShown: boolean = true;
   isiShown: boolean = false;
-  langCondition:boolean=false;
-  loginForm :FormGroup;
-  checkoutForm :FormGroup;
-  individualForm :FormGroup;
-  arealist :any;
-  area:any;
-  ind_area:any;
-  country :any;
-  ind_country :any;
-  countrylist :any;
-  errorMessage:string;
+  langCondition: boolean = false;
+  loginForm: FormGroup;
+  checkoutForm: FormGroup;
+  individualForm: FormGroup;
+  arealist: any;
+  area: any;
+  ind_area: any;
+  country: any;
+  ind_country: any;
+  countrylist: any;
+  errorMessage: string;
   subscription_1: any;
   subscription_2: any;
   // agree:string='N';
-  city:string;
-  ind_city:string;
-  citylist:any;
-  business_type:string;
-  ind_business_type:string;
-  businesslist:string;
-  servicelist:any;
-  service_id:any;
-  ind_service_id:string;
-  subscrilist:any;
-  businesbool:boolean = true;
-  individubool:boolean = false;
-  dynamicname:any=['subscription_1','subscription_2'];
-  isChecked:boolean=false;
-  loginsubmit:boolean = false;
-  submitted:boolean = false;
-  insubmitted:boolean = false;
-  gender:string;
-  defaultTab='B';
-  showMsg:boolean=false;
-  showDbMessage:string;
-  contactcode:number;
+  city: string;
+  ind_city: string;
+  citylist: any;
+  business_type: string;
+  ind_business_type: string;
+  businesslist: string;
+  servicelist: any;
+  service_id: any;
+  ind_service_id: string;
+  subscrilist: any;
+  businesbool: boolean = true;
+  individubool: boolean = false;
+  dynamicname: any = ['subscription_1', 'subscription_2'];
+  isChecked: boolean = false;
+  loginsubmit: boolean = false;
+  submitted: boolean = false;
+  insubmitted: boolean = false;
+  gender: string;
+  defaultTab = 'B';
+  showMsg: boolean = false;
+  showDbMessage: string;
+  contactcode: number;
   modelChanged: Subject<string> = new Subject<string>();
-  tagservice :any = '';
+  tagservice: any = '';
   successMessage = '';
-  bindForm='submitBusiness';
-  disabledButton:any=true;
-  agreeCheck:any=true;
-  Agree:any='';
+  bindForm = 'submitBusiness';
+  disabledButton: any = true;
+  agreeCheck: any = true;
+  Agree: any = '';
   geoLocation = localStorage.getItem("geoLocation");
-  emailAddresss:any="";
-  saveOtherLang:any="";
-  lang_name: any ='Arabic also ?';
+  emailAddresss: any = "";
+  saveOtherLang: any = "";
+  lang_name: any = 'Arabic also ?';
   saveOtherLng: boolean = false;
-  saveContent: string ="Would you like to save in";
-
+  saveContent: string = "Would you like to save in";
   SearchCountryField = SearchCountryField;
   TooltipLabel = TooltipLabel;
   CountryISO = CountryISO;
@@ -84,7 +84,7 @@ export class RegistrationComponent implements OnInit {
   preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
   separateDialCode = false;
   //gender neeed to add.
-  constructor(private _location: Location,public dialog: MatDialog,public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private spinner: NgxSpinnerService) {
+  constructor(private _location: Location, public dialog: MatDialog, public restApi: ApiServiceService, private formBuilder: FormBuilder, private _elementRef: ElementRef, private sharedata: ShareDataService, private router: Router, private spinner: NgxSpinnerService) {
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry();
       this.lang_name = (response == 'en' ? "Arabic also ?" : "English also ?");
@@ -93,161 +93,155 @@ export class RegistrationComponent implements OnInit {
       });
       this.getbusiness(event, '');
       this.getservice('');
-      // this.restApi.get_service_lov_Request('').subscribe((response) => {
-      //   this.servicelist = response.result;
-      //   console.log(response.result, "SERVICE CALL");
-      // });
       let Languge = this.restApi.lang_code;
       this.checkoutForm.get('lang_code').setValue(Languge);
       this.individualForm.get('lang_code').setValue(Languge);
       this.buttonConfirm = 'Register_Now';
     });
-    // this.loginForm = this.formBuilder.group({
-    //   email: ['', Validators.required],
-    //   password: ['', Validators.required],
-    // });
     this.checkoutForm = this.formBuilder.group({
       first_name: ['', [Validators.required, Validators.maxLength(350)]],
       last_name: '',
-      business_name:'',
+      business_name: '',
       // contactcode:'',
-      phone:'',
+      phone: '',
       contactno: ['', Validators.required],
-      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"), this.serverSideEmail.bind(this)]],
-      website:'',
+      email: ['',[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")],[ServerSideValidation(this.restApi)]],
+      website: '',
       add1: ['', Validators.required],
-      add2:'',
-      country:['', Validators.required],
-      area:'',
-      city:'',
-      business_type:['', Validators.required],
+      add2: '',
+      country: ['', Validators.required],
+      area: '',
+      city: '',
+      business_type: ['', Validators.required],
       remarks: ['', [Validators.required, Validators.maxLength(350)]],
-      subscription_1:'',
-      subscription_2:'',
+      subscription_1: '',
+      subscription_2: '',
       service_id: this.formBuilder.array([]),
       service_name: this.formBuilder.array([]),
-      company:'COMPANY',
-      common_id:'new',
+      company: 'COMPANY',
+      common_id: 'new',
       lang_code: this.restApi.lang_code,
-      image_1:'',
-      image_2:'',
-      saveOtherLang:'',
-      password:['', [Validators.required, Validators.minLength(6)]],
-      retypepassword:['', Validators.required]},{
-        validator: MustMatch('password', 'retypepassword')
+      image_1: '',
+      image_2: '',
+      saveOtherLang: '',
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      retypepassword: ['', Validators.required]
+    }, {
+      validator: MustMatch('password', 'retypepassword')
     });
     this.individualForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: '',
-      business_name:'',
+      business_name: '',
       // contactcode:'',
       contactno: ['', Validators.required],
-      phone:'',
-      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),this.serverSideEmail.bind(this)]],
-      website:'',
-      gender:'',
+      phone: '',
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")], [ServerSideValidation(this.restApi)]],
+      website: '',
+      gender: '',
       add1: ['', Validators.required],
-      add2:'',
-      country:'',
-      area:'',
-      city:'',
-      business_type:['', Validators.required],
+      add2: '',
+      country: '',
+      area: '',
+      city: '',
+      business_type: ['', Validators.required],
       remarks: ['', [Validators.required, Validators.maxLength(350)]],
-      subscription_1:'',
-      subscription_2:'',
+      subscription_1: '',
+      subscription_2: '',
       service_id: this.formBuilder.array([]),
       service_name: this.formBuilder.array([]),
-      company:'INDIVIDUAL',
+      company: 'INDIVIDUAL',
       common_id: 'new',
       lang_code: this.restApi.lang_code,
-      image_1:'',
-      image_2:'',
+      image_1: '',
+      image_2: '',
       saveOtherLang: '',
-      password:['', [Validators.required, Validators.minLength(6)]],
-      retypepassword:['', Validators.required]},{
-        validator: MustMatch('password', 'retypepassword')
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      retypepassword: ['', Validators.required]
+    }, {
+      validator: MustMatch('password', 'retypepassword')
     });
-   }
-  
-   keyupmethod(param,e){
+  }
+
+  keyupmethod(param, e) {
     var targetval = e.target.value;
-    if(targetval!=''){
-      if(param=='B'){
+    if (targetval != '') {
+      if (param == 'B') {
         this.checkoutForm.get('phone').setValue(this.checkoutForm.get('contactno').value.e164Number);
-      }else{
-          this.individualForm.get('phone').setValue(this.individualForm.get('contactno').value.e164Number);
+      } else {
+        this.individualForm.get('phone').setValue(this.individualForm.get('contactno').value.e164Number);
       }
     }
   }
   @ViewChild('businessTab') elight: ElementRef;
   @ViewChild('individualTab') efiile: ElementRef;
   @ViewChild("autoSuggestion") autoSuggestion: ElementRef;
-  focusValue:any="text";
-  focusFunction():void{
+  focusValue: any = "text";
+  focusFunction(): void {
     this.focusValue = "password";
     let nativeValue = this.autoSuggestion.nativeElement.value;
-    if (nativeValue==''){
+    if (nativeValue == '') {
       this.focusValue = "text";
     }
-    console.log(nativeValue,"nativeValue");
-    
+    console.log(nativeValue, "nativeValue");
+
   }
   _success = new Subject<string>();
   ngOnInit(): void {
-      this.searchCountry();
-      this.restApi.get_city_Request(this.geoLocation,'').subscribe((response) => {
-        this.citylist = response.result;
-      });
-      this._success.subscribe(message => this.successMessage = message);
-      this._success.pipe(debounceTime(4000)).subscribe(() => this.successMessage = '');
-      this.restApi.get_service_lov_Request('').subscribe((response) => {
-          this.servicelist = response.result;
-      });
-      this.restApi.getLanguage().subscribe((response) => {
-        if(this.isbShown){
-          this.subscription('COMPANY');
-        }else{
-          this.subscription('INDIVIDUAL');
-        }
-      });
-  }
-  ngAfterViewInit() {
-      setTimeout(() => {
-      this.sharedata.getMessage().subscribe(
-        (data) =>{ 
-          if(data!=''){
-          console.log(data,"testing me");
-          if(data=='B'){
-            this.businesbool=true;
-            this.individubool=false;
-            this.defaultTab='B';
-            this.bindForm='submitBusiness';
-          }else{  
-            this.businesbool=false;
-            this.individubool=true;
-            this.defaultTab='I';
-            this.bindForm='submitIndividual';
-          }
-          this.getbusiness(event,'');
-        }else{
-          this.getbusiness(event,'');
-        }
-        });
-      });
-      if(this.businesbool){
-          this.subscription('COMPANY');
-      }else{
+    this.searchCountry();
+    this.restApi.get_city_Request(this.geoLocation, '').subscribe((response) => {
+      this.citylist = response.result;
+    });
+    this._success.subscribe(message => this.successMessage = message);
+    this._success.pipe(debounceTime(4000)).subscribe(() => this.successMessage = '');
+    this.restApi.get_service_lov_Request('').subscribe((response) => {
+      this.servicelist = response.result;
+    });
+    this.restApi.getLanguage().subscribe((response) => {
+      if (this.isbShown) {
+        this.subscription('COMPANY');
+      } else {
         this.subscription('INDIVIDUAL');
       }
+    });
+  }
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.sharedata.getMessage().subscribe(
+        (data) => {
+          if (data != '') {
+            console.log(data, "testing me");
+            if (data == 'B') {
+              this.businesbool = true;
+              this.individubool = false;
+              this.defaultTab = 'B';
+              this.bindForm = 'submitBusiness';
+            } else {
+              this.businesbool = false;
+              this.individubool = true;
+              this.defaultTab = 'I';
+              this.bindForm = 'submitIndividual';
+            }
+            this.getbusiness(event, '');
+          } else {
+            this.getbusiness(event, '');
+          }
+        });
+    });
+    if (this.businesbool) {
+      this.subscription('COMPANY');
+    } else {
+      this.subscription('INDIVIDUAL');
+    }
   }
 
-  tagDescArray=[];
-  tagIdArray=[];
+  tagDescArray = [];
+  tagIdArray = [];
   onSelect() {
-    this.tagDescArray=[];
-    this.tagIdArray=[];
+    this.tagDescArray = [];
+    this.tagIdArray = [];
     let tags = this.tagservice;
-    if(tags==''){
+    if (tags == '') {
       return true;
     }
     tags.forEach((tag) => {
@@ -257,247 +251,247 @@ export class RegistrationComponent implements OnInit {
     this.arrayServiceId();
   }
 
-  arrayServiceId(){
-    let serviceNameArray=[];
-    let serviceIdArray=[];
-    serviceNameArray= serviceNameArray.concat(this.selectDescArray);
-    serviceNameArray= serviceNameArray.concat(this.tagDescArray);
-    serviceIdArray= serviceIdArray.concat(this.selectIdArray);
-    serviceIdArray= serviceIdArray.concat(this.tagIdArray);
-    console.log(serviceNameArray,"MAin name FROMATED");
-    console.log(serviceIdArray,"MAin id FROMATED");
+  arrayServiceId() {
+    let serviceNameArray = [];
+    let serviceIdArray = [];
+    serviceNameArray = serviceNameArray.concat(this.selectDescArray);
+    serviceNameArray = serviceNameArray.concat(this.tagDescArray);
+    serviceIdArray = serviceIdArray.concat(this.selectIdArray);
+    serviceIdArray = serviceIdArray.concat(this.tagIdArray);
+    console.log(serviceNameArray, "MAin name FROMATED");
+    console.log(serviceIdArray, "MAin id FROMATED");
     this.service_name.controls = [];
     this.service_arr_id.controls = [];
     this.indservice_name.controls = [];
     this.indservice_id.controls = [];
     serviceNameArray.forEach((desc) => {
-      if(this.defaultTab=='B'){
+      if (this.defaultTab == 'B') {
         this.service_name.push(new FormControl(desc));
-      }else{
+      } else {
         this.indservice_name.push(new FormControl(desc));
       }
     });
     serviceIdArray.forEach((id) => {
-      if(this.defaultTab=='B'){
+      if (this.defaultTab == 'B') {
         this.service_arr_id.push(new FormControl(id));
-      }else{
+      } else {
         this.indservice_id.push(new FormControl(id));
       }
     });
   }
 
-  changeCity(event){
+  changeCity(event) {
     let country = this.ind_country;
-    this.ind_city=null;
-    this.ind_area=null;
-    if(this.defaultTab=='B'){
-        country = this.country;
-        this.city=null;
-        this.area=null;
+    this.ind_city = null;
+    this.ind_area = null;
+    if (this.defaultTab == 'B') {
+      country = this.country;
+      this.city = null;
+      this.area = null;
     }
     let citydesc = '';
-    this.restApi.get_city_Request(country,citydesc).subscribe((response) => {
+    this.restApi.get_city_Request(country, citydesc).subscribe((response) => {
       this.citylist = response.result;
-      console.log(response,"test");
-    },(err) => console.error(err),()=>{
+      console.log(response, "test");
+    }, (err) => console.error(err), () => {
     });
   }
-  changeArea(event){
+  changeArea(event) {
     let city = this.ind_city;
-    this.ind_area=null;
-    if(this.defaultTab=='B'){
+    this.ind_area = null;
+    if (this.defaultTab == 'B') {
       city = this.city;
-      this.area=null;
+      this.area = null;
     }
-    this.restApi.get_area_Request(city,'').subscribe((response) => {
+    this.restApi.get_area_Request(city, '').subscribe((response) => {
       this.arealist = response.result;
-      console.log(response,"test");
-    },(err) => console.error(err),()=>{
+      console.log(response, "test");
+    }, (err) => console.error(err), () => {
     });
   }
 
-  getcity(event){
+  getcity(event) {
     let country = this.ind_country;
-    if(this.defaultTab=='B'){
+    if (this.defaultTab == 'B') {
       country = this.country;
     }
     let citydesc = event.target.value;
-    this.restApi.get_city_Request(country,citydesc).subscribe((response) => {
+    this.restApi.get_city_Request(country, citydesc).subscribe((response) => {
       this.citylist = response.result;
-      console.log(response,"test");
-    },(err) => console.error(err),()=>{
+      console.log(response, "test");
+    }, (err) => console.error(err), () => {
     });
   }
 
-  getArea(event){
+  getArea(event) {
     let city = this.ind_city;
-    if(this.defaultTab=='B'){
+    if (this.defaultTab == 'B') {
       city = this.city;
     }
     let citydesc = event.target.value;
-    this.restApi.get_area_Request(city,citydesc).subscribe((response) => {
+    this.restApi.get_area_Request(city, citydesc).subscribe((response) => {
       this.arealist = response.result;
-      console.log(response,"test");
-    },(err) => console.error(err),()=>{
+      console.log(response, "test");
+    }, (err) => console.error(err), () => {
     });
   }
-  getbusiness(event,param){
-    let desc ='';
-    if(param!=''){
+  getbusiness(event, param) {
+    let desc = '';
+    if (param != '') {
       desc = event.target.value;
     }
     let defalut = 'INDIVIDUAL';
-    if(this.defaultTab=='B'){
+    if (this.defaultTab == 'B') {
       defalut = 'COMPANY';
     }
-    this.restApi.get_business_type_Request(defalut,desc).subscribe((response) => {
+    this.restApi.get_business_type_Request(defalut, desc).subscribe((response) => {
       this.businesslist = response.result;
-      console.log(response,"test");
-    },(err) => console.error(err),()=>{
+      console.log(response, "test");
+    }, (err) => console.error(err), () => {
     });
   }
-  getservice(event){
-    let desc = (event ? event.target.value :"");
-      this.restApi.get_service_lov_Request(desc).subscribe((response) => {
-        let concatinate = [];
-        let returner = true;
-        for (var i = 0; i < this.selectDescArray.length; i++) {
-          response.result.forEach((object,inx) => {
-            console.log(object.id,"Inner array methods");
-            if (this.selectIdArray[i] === object.id){
-              console.log("YES");
-              returner= false;
-            }else{
-              returner= true;
-            }
-          });
-          console.log(returner,"console .com");
-          if (returner){
-            concatinate.push({ id: this.selectIdArray[i], desc_new: this.selectDescArray[i] });
+  getservice(event) {
+    let desc = (event ? event.target.value : "");
+    this.restApi.get_service_lov_Request(desc).subscribe((response) => {
+      let concatinate = [];
+      let returner = true;
+      for (var i = 0; i < this.selectDescArray.length; i++) {
+        response.result.forEach((object, inx) => {
+          console.log(object.id, "Inner array methods");
+          if (this.selectIdArray[i] === object.id) {
+            console.log("YES");
+            returner = false;
+          } else {
+            returner = true;
           }
+        });
+        console.log(returner, "console .com");
+        if (returner) {
+          concatinate.push({ id: this.selectIdArray[i], desc_new: this.selectDescArray[i] });
         }
-        this.servicelist = response.result.concat(concatinate);
-        // console.log(this.selectDescArray, "Hakkim this.selectDescArray");
-        // console.log(this.servicelist, "Hakkim this.servicelist");
-        // console.log(response,"SERVICE");
-      },(err) => console.error(err),()=>{
-      });
-    
+      }
+      this.servicelist = response.result.concat(concatinate);
+      // console.log(this.selectDescArray, "Hakkim this.selectDescArray");
+      // console.log(this.servicelist, "Hakkim this.servicelist");
+      // console.log(response,"SERVICE");
+    }, (err) => console.error(err), () => {
+    });
+
   }
-  sideBarToggle(event,param){
-    this.Agree='';
+  sideBarToggle(event, param) {
+    this.Agree = '';
     this.subscribClass = true;
-    if(param=="B"){
+    if (param == "B") {
       this.CaptionName = "Business Logo";
-      this.bCaptionName= "Portfolio";
-      this.isiShown=false;
+      this.bCaptionName = "Portfolio";
+      this.isiShown = false;
       this.isbShown = true;
       this.subscription('COMPANY');
-      this.defaultTab='B';
-      this.tagservice='';
+      this.defaultTab = 'B';
+      this.tagservice = '';
       this.checkoutForm.reset();
-      this.bindForm='submitBusiness';
-      this.service_id="";
-      this.agreeCheck=true;
+      this.bindForm = 'submitBusiness';
+      this.service_id = "";
+      this.agreeCheck = true;
       this.checkoutForm.get('common_id').setValue('new');
       this.checkoutForm.get('company').setValue('COMPANY');
       let Languge = this.restApi.lang_code;
       this.checkoutForm.get('lang_code').setValue(Languge);
-    }else{
+    } else {
       this.CaptionName = "Individual Logo";
-      this.bCaptionName= "Portfolio";
+      this.bCaptionName = "Portfolio";
       this.isiShown = true;
       this.isbShown = false;
       this.subscription('INDIVIDUAL');
-      this.defaultTab='I';
-      this.tagservice='';
+      this.defaultTab = 'I';
+      this.tagservice = '';
       this.individualForm.reset();
-      this.bindForm='submitIndividual';
-      this.ind_service_id="";
-      this.agreeCheck=true;
+      this.bindForm = 'submitIndividual';
+      this.ind_service_id = "";
+      this.agreeCheck = true;
       this.individualForm.get('common_id').setValue('new');
       this.individualForm.get('company').setValue('INDIVIDUAL');
       let Languge = this.restApi.lang_code;
       this.individualForm.get('lang_code').setValue(Languge);
     }
-    this.getbusiness(event,'');
-    setTimeout (() => {
-      this.country=Number(this.geoLocation);
-      this.ind_country=Number(this.geoLocation);
-    },200);
+    this.getbusiness(event, '');
+    setTimeout(() => {
+      this.country = Number(this.geoLocation);
+      this.ind_country = Number(this.geoLocation);
+    }, 200);
     this.langCondition = false;
     this.langChange = true;
   }
 
-  subscription(defaults){
+  subscription(defaults) {
     this.errorMessage = "";
     let lang = this.restApi.lang_code;
-    this.restApi.get_subscription_Request('',defaults,lang).subscribe((response) => {
+    this.restApi.get_subscription_Request('', defaults, lang).subscribe((response) => {
       this.subscrilist = response.result;
-      console.log(response,"subSciption");
+      console.log(response, "subSciption");
       // this.subscription_1= true;
       // this.subscription_2 = false;
     },
-    (error) => {
-      console.error('Request failed with error')
-      this.errorMessage = error;
-    });
+      (error) => {
+        console.error('Request failed with error')
+        this.errorMessage = error;
+      });
   }
-  
-  searchCountry(){
+
+  searchCountry() {
     this.errorMessage = "";
     // return new Promise((resolve, reject) => {        
     this.restApi.get_country_Request().subscribe((response) => {
       this.countrylist = response;
-      this.country=Number(this.geoLocation);
+      this.country = Number(this.geoLocation);
       // resolve();
     },
-    (error) => {
-      console.error('Request failed with error')
-      this.errorMessage = error;
-    });
+      (error) => {
+        console.error('Request failed with error')
+        this.errorMessage = error;
+      });
     // });
   }
 
-  childImagemitter($event){
-    console.log($event,"TESING");
-    if($event.title=='Logo'){
+  childImagemitter($event) {
+    console.log($event, "TESING");
+    if ($event.title == 'Logo') {
       const imageName = this.checkoutForm.get('image_1') as FormControl;
       imageName.setValue($event.content);
-    }else if($event.title=='Profile'){
+    } else if ($event.title == 'Profile') {
       const imageName = this.checkoutForm.get('image_2') as FormControl;
       imageName.setValue($event.content);
-    } else if ($event.title =='Logo_i'){
+    } else if ($event.title == 'Logo_i') {
       const imageName = this.individualForm.get('image_1') as FormControl;
       imageName.setValue($event.content);
     } else if ($event.title == 'Profile_i') {
       const imageName = this.individualForm.get('image_2') as FormControl;
       imageName.setValue($event.content);
     }
-    
+
   }
-  agreeRadion(event){
-    this.agreeCheck=!event.target.checked;
+  agreeRadion(event) {
+    this.agreeCheck = !event.target.checked;
   }
 
-  modalTitle:any;
-  subscribClass:any=true;
-  submitBusiness(formData){    
+  modalTitle: any;
+  subscribClass: any = true;
+  submitBusiness(formData) {
     // this.subscrilist = [{ checke: true }];
     // this.subscrilist.forEach(data => { data.checke = true });
-    console.log(formData,"testing methods");
-    this.submitted=true;
+    console.log(formData, "testing methods");
+    this.submitted = true;
     if (this.checkoutForm.invalid) {
-      return false; 
+      return false;
     }
     this.spinner.show();
     this.restApi.submitRegistration(formData).subscribe((response) => {
-      console.log(response,"BUIS");
-      if(response.error_no==0){
-        this.disabledButton=true;
+      console.log(response, "BUIS");
+      if (response.error_no == 0) {
+        this.disabledButton = true;
         let paymentUrl = response.payment_url;
-        this.modalTitle ="Registration Success !";
-        this.showDbMessage ='Confirmation Email has been sent to your register email.';
+        this.modalTitle = "Registration Success !";
+        this.showDbMessage = 'Confirmation Email has been sent to your register email.';
         let checkEmail = this.checkoutForm.get('email').value;
         let checkpassword = this.checkoutForm.get('password').value;
         let checkretypepassword = this.checkoutForm.get('retypepassword').value;
@@ -516,7 +510,7 @@ export class RegistrationComponent implements OnInit {
         this.checkoutForm.get('company').setValue('COMPANY');
         let Languge = this.restApi.lang_code;
         this.checkoutForm.get('lang_code').setValue(Languge);
-        this.service_id="";
+        this.service_id = "";
         if (this.saveOtherLng) {
           let element: HTMLElement = document.getElementById('languageSet') as HTMLElement;
           element.click();
@@ -532,14 +526,14 @@ export class RegistrationComponent implements OnInit {
           this.checkoutForm.get('country').setValue(checkcountry);
           this.checkoutForm.get('city').setValue(checkcity);
           this.checkoutForm.get('area').setValue(checkarea);
-          this.subscribClass=false;
-          this.langCondition=true;
+          this.subscribClass = false;
+          this.langCondition = true;
           this.saveOtherLang = false;
           this.saveOtherLng = false;
           let comman_sys = response.common_id;
           this.checkoutForm.get('common_id').setValue(comman_sys);
-          this.langChange=false;
-        }else{
+          this.langChange = false;
+        } else {
           this.checkoutForm.get('common_id').setValue("new");
           this.langCondition = false;
           const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -551,13 +545,13 @@ export class RegistrationComponent implements OnInit {
           });
           dialogRef.afterClosed().subscribe(dialogResult => {
             console.log(dialogResult, "confirmation message");
-            if (paymentUrl){
+            if (paymentUrl) {
               window.location.href = paymentUrl;
             }
           });
         }
-      }else{
-        this.disabledButton=true;
+      } else {
+        this.disabledButton = true;
         this.modalTitle = "Oops ?";
         this.showDbMessage = response.error_msg;
         const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -572,29 +566,29 @@ export class RegistrationComponent implements OnInit {
         });
       }
       this.spinner.hide();
-    },err=>{
-      this.disabledButton=false; 
-        this.spinner.hide();
-    },()=>{
-      this.disabledButton=false;
-        this.spinner.hide();
+    }, err => {
+      this.disabledButton = false;
+      this.spinner.hide();
+    }, () => {
+      this.disabledButton = false;
+      this.spinner.hide();
     });
   }
 
-  submitIndividual(indformData){
-    console.log(indformData,"individal methods");
-    this.insubmitted=true;
+  submitIndividual(indformData) {
+    console.log(indformData, "individal methods");
+    this.insubmitted = true;
     if (this.individualForm.invalid) {
       return false;
     }
     this.spinner.show();
     this.restApi.submitRegistration(indformData).subscribe((response) => {
-      console.log(response,"INDIVI");
-      if(response.error_no==0){
-        this.disabledButton=true;
+      console.log(response, "INDIVI");
+      if (response.error_no == 0) {
+        this.disabledButton = true;
         let paymentUrl = response.payment_url;
         this.modalTitle = "Registration Success !";
-        this.showDbMessage='Confirmation Email has been sent to your register email.';
+        this.showDbMessage = 'Confirmation Email has been sent to your register email.';
         let checkEmail = this.individualForm.get('email').value;
         let checkpassword = this.individualForm.get('password').value;
         let checkretypepassword = this.individualForm.get('retypepassword').value;
@@ -606,14 +600,14 @@ export class RegistrationComponent implements OnInit {
         let checkcountry = this.individualForm.get('country').value;
         let checkcity = this.individualForm.get('city').value;
         let checkarea = this.individualForm.get('area').value;
-        this.individualForm.reset();  
+        this.individualForm.reset();
         this.insubmitted = false;
         this.Sidepanel.restImage('I');
-        this.tagservice='';
+        this.tagservice = '';
         this.individualForm.get('company').setValue('INDIVIDUAL');
         let Languge = this.restApi.lang_code;
         this.individualForm.get('lang_code').setValue(Languge);
-        this.ind_service_id="";
+        this.ind_service_id = "";
         if (this.saveOtherLng) {
           let element: HTMLElement = document.getElementById('languageSet') as HTMLElement;
           element.click();
@@ -636,7 +630,7 @@ export class RegistrationComponent implements OnInit {
           let comman_sys = response.common_id;
           this.individualForm.get('common_id').setValue(comman_sys);
           this.langChange = false;
-        }else{
+        } else {
           this.individualForm.get('common_id').setValue('new');
           this.langCondition = false;
           const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -653,8 +647,8 @@ export class RegistrationComponent implements OnInit {
             }
           });
         }
-      }else{
-        this.disabledButton=true;
+      } else {
+        this.disabledButton = true;
         this.modalTitle = "Oops ?";
         this.showDbMessage = response.error_msg;
         const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -670,12 +664,12 @@ export class RegistrationComponent implements OnInit {
       }
       // this.showMsg= true;
       this.spinner.hide();
-    },err=>{
-      this.disabledButton=false;
-        this.spinner.hide();
-    },()=>{
-      this.disabledButton=false;
-        this.spinner.hide();
+    }, err => {
+      this.disabledButton = false;
+      this.spinner.hide();
+    }, () => {
+      this.disabledButton = false;
+      this.spinner.hide();
     });
   }
 
@@ -691,28 +685,28 @@ export class RegistrationComponent implements OnInit {
   get indservice_id(): FormArray {
     return this.individualForm.get("service_id") as FormArray
   }
-  onkeyInput(){
+  onkeyInput() {
     // let code = this.checkoutForm.get('contactcode').value;
     let phoneno = this.checkoutForm.get('phone').value;
-    this.checkoutForm.patchValue({phone: phoneno});
+    this.checkoutForm.patchValue({ phone: phoneno });
   }
 
-  selectDescArray:any=[];
-  selectIdArray:any=[];
-  onChangeService(event):void{
-    console.log(this.selectIdArray,"EVENT this.selectIdArray");
-    this.selectDescArray=[];
-    this.selectIdArray=[];
-    if(event!=0){
-      console.log(event,"EVENT HANDLIER");
+  selectDescArray: any = [];
+  selectIdArray: any = [];
+  onChangeService(event): void {
+    console.log(this.selectIdArray, "EVENT this.selectIdArray");
+    this.selectDescArray = [];
+    this.selectIdArray = [];
+    if (event != 0) {
+      console.log(event, "EVENT HANDLIER");
       // console.log(event.target.value,"EVENT target.value");
       // event.push({this.name,this.empoloyeeID});
       event.forEach((id) => {
-        console.log(id,"id HANDLIER");
+        console.log(id, "id HANDLIER");
         let descrption = this.servicelist.filter(item => item.id === id)[0].desc_new;
-          this.selectDescArray.push(descrption);
+        this.selectDescArray.push(descrption);
         console.log(descrption, "EVENT descrption");
-          this.selectIdArray.push(id);
+        this.selectIdArray.push(id);
       });
     }
     this.arrayServiceId();
@@ -721,87 +715,63 @@ export class RegistrationComponent implements OnInit {
   get f() { return this.checkoutForm.controls; }
   get i() { return this.individualForm.controls; }
   get lg() { return this.loginForm.controls; }
-  getcheckValue(event,params){
+  getcheckValue(event, params) {
     let nameAttr = event.target.getAttribute("name");
-    var getname:any;
-    if(params=='B'){
+    var getname: any;
+    if (params == 'B') {
       getname = this.checkoutForm.get(nameAttr) as FormControl;
-    }else{
+    } else {
       getname = this.individualForm.get(nameAttr) as FormControl;
     }
-    
-    if(event.target.checked){
+
+    if (event.target.checked) {
       getname.setValue(event.target.value);
-    }else{
+    } else {
       getname.setValue('');
     }
   }
 
-  checkValue(event){
-    console.log(event,"checkValue");
+  checkValue(event) {
+    console.log(event, "checkValue");
   }
-  email:any;
-  login(logindata){
+  emailid: any;
+  login(logindata) {
     console.log(logindata);
-    this.loginsubmit=true;
+    this.loginsubmit = true;
     if (this.loginForm.invalid) {
       return false;
     }
     this.restApi.login(logindata).subscribe((response) => {
-      console.log(response,"login");
-      if(response.error_no==0){
+      console.log(response, "login");
+      if (response.error_no == 0) {
         let editArray = [];
         let token = response.reult.token;
         let lastname = response.reult.last_name;
         editArray.push(token);
-        editArray.push(this.email);
+        editArray.push(this.emailid);
         localStorage.setItem('secure', JSON.stringify(editArray));
         this._success.next('Great! Login Successfully.');
-        this.loginForm.reset();  
+        this.loginForm.reset();
         this.router.navigate(['/editProfile']);
-      }else{
-        this._success.next('Failer! '+response.error_msg+'.');
+      } else {
+        this._success.next('Failer! ' + response.error_msg + '.');
       }
     });
   }
 
-  buttonConfirm: any ='Register_Now';
-  saveOtherlangEvn(event){
-    if (event.target.checked){
+  buttonConfirm: any = 'Register_Now';
+  saveOtherlangEvn(event) {
+    if (event.target.checked) {
       this.saveOtherLng = true;
-      this.buttonConfirm ='Continue_Registration';
-    }else{
+      this.buttonConfirm = 'Continue_Registration';
+    } else {
       this.saveOtherLng = false;
       this.buttonConfirm = 'Register_Now';
     }
   }
 
-  keyupFunction(event){
-    // console.log(event.target.value,"testing");
-    // let emailid = event.target.value;
-    // this.restApi.emailValidataion(emailid).subscribe((response) => {
-    //   console.log(response, "subSciption");
-    //   this.checkoutForm.controls['email'].setErrors({ 'incorrect': true });
-    // },
-    // (error) => {
-    //   console.error('Request failed with error')
-    //   this.errorMessage = error;
-    // });
-  }
-
-  serverSideEmail(control){
-    let emailid = control.value;
-    this.restApi.emailValidataion(emailid).subscribe((response) => {
-      console.log(response, "subSciption");
-      // this.checkoutForm.controls['email'].setErrors({ 'incorrect': true });
-      return null;
-    },
-      (error) => {
-        console.error('Request failed with error')
-        this.errorMessage = error;
-      });
-  }
-  backPage(){
+  backPage() {
     this._location.back();
   }
+
 }
