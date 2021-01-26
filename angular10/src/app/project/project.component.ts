@@ -38,19 +38,19 @@ export class ProjectComponent implements OnInit {
       this.busiContent();
       this.indiviContent();
     });
-    const getSecure = JSON.parse(localStorage.getItem("secure"));
+    const getSecure = JSON.parse(sessionStorage.getItem("secure"));
     if(getSecure){
       this.sessionLogin=false;
     }
   }
   ngOnInit(): void {
     this.errorMessage = "";
-    const geoLocation = localStorage.getItem("geoLocation");
+    const geoLocation = sessionStorage.getItem("geoLocation");
     if(geoLocation==null){
       this.restApi.geoLocation().subscribe((response) => {
         let countryDefult = response.result.country_code;
         this.country= Number(countryDefult);
-        localStorage.setItem('geoLocation', countryDefult);
+        sessionStorage.setItem('geoLocation', countryDefult);
       },
       (error) => {
         console.error('Request failed with error');
@@ -58,7 +58,7 @@ export class ProjectComponent implements OnInit {
       });
     }
     this.searchCountry().then(() => {
-      this.geoLocation = localStorage.getItem("geoLocation");
+      this.geoLocation = sessionStorage.getItem("geoLocation");
       this.country = Number(this.geoLocation);
       this.getArea(event, 'A');
       this.busiContent();

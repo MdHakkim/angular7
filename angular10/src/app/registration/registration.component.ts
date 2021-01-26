@@ -70,7 +70,7 @@ export class RegistrationComponent implements OnInit {
   disabledButton:any=true;
   agreeCheck:any=true;
   Agree:any='';
-  geoLocation = localStorage.getItem("geoLocation");
+  geoLocation = sessionStorage.getItem("geoLocation");
   emailAddresss:any="";
   saveOtherLang:any="";
   lang_name: any ='Arabic also ?';
@@ -755,7 +755,7 @@ export class RegistrationComponent implements OnInit {
         let lastname = response.reult.last_name;
         editArray.push(token);
         editArray.push(this.email);
-        localStorage.setItem('secure', JSON.stringify(editArray));
+        sessionStorage.setItem('secure', JSON.stringify(editArray));
         this._success.next('Great! Login Successfully.');
         this.loginForm.reset();  
         this.router.navigate(['/editProfile']);

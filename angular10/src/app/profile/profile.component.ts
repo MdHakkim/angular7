@@ -113,7 +113,7 @@ export class ProfileComponent implements OnInit {
 
     this.restApi.getLanguage().subscribe((response) => {
       this.searchCountry().then(() => {
-        const getSecure = JSON.parse(localStorage.getItem("secure"));
+        const getSecure = JSON.parse(sessionStorage.getItem("secure"));
         let token = getSecure[0];
         let email = getSecure[1];
         this.editUserProfile(token,email);
@@ -143,7 +143,7 @@ export class ProfileComponent implements OnInit {
         this.getEmail=data[1];
       });
     this.errorMessage = "";
-    const getSecure = JSON.parse(localStorage.getItem("secure"));
+    const getSecure = JSON.parse(sessionStorage.getItem("secure"));
     let token = getSecure[0];
     let email = getSecure[1];
     this.editUserProfile(token,email);

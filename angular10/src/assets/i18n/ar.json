@@ -138,5 +138,7 @@
     "go_premium": "احصل على الاشتراك الرئيسي",
     "Current_Subscription": "الاشتراك الحالي",
     "Upcoming_Subscription": "الاشتراك القادم",
-    "Past_Subscription": "اشتراك سابق"
+    "Past_Subscription": "اشتراك سابق",
+    "start_at":"يبدأ في",
+    "expired_at":"انتهت في"
     }

@@ -45,8 +45,8 @@ export class HeaderComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    const getSecure = JSON.parse(localStorage.getItem("secure"));
-    const getUser = localStorage.getItem("username");
+    const getSecure = JSON.parse(sessionStorage.getItem("secure"));
+    const getUser = sessionStorage.getItem("username");
     if (getSecure) {
       this.condition = false;
       this.userName = getUser;
@@ -90,8 +90,8 @@ export class HeaderComponent implements OnInit {
     this.restApi.loginTest();
   }
   logout() {
-    localStorage.removeItem('secure');
-    localStorage.removeItem('username');
+    sessionStorage.removeItem('secure');
+    sessionStorage.removeItem('username');
     this.condition = true;
     this.router.navigate(['/login']);
   }
@@ -110,7 +110,9 @@ export class HeaderComponent implements OnInit {
         this.errorMessage = error;
       });
   }
+  modalTitle:any='';
   availbleSubsciption() {
+    this.modalTitle="Premium_Service_Packages";
     let lang = this.restApi.lang_code;
     this.restApi.get_subscription_list().subscribe((response) => {
       if (response.result != '') {
@@ -131,6 +133,7 @@ export class HeaderComponent implements OnInit {
   upcomingClass=false;
   pastClass=false;
   goPremium(){
+    this.modalTitle="My_Subscription";
     this.restApi.get_all_subscirption().subscribe((response) => {
       if (response.current_subscription != '') {
         this.currentSubr = response.current_subscription;
@@ -168,7 +171,7 @@ export class HeaderComponent implements OnInit {
     this.goPrimum=false;
     this.subscription.controls = [];
     let Languge = this.restApi.lang_code;
-    const getSecure = JSON.parse(localStorage.getItem("secure"));
+    const getSecure = JSON.parse(sessionStorage.getItem("secure"));
     let token = getSecure[0];
     let email = getSecure[1];
     this.checkoutForm.get('email').setValue(email);
